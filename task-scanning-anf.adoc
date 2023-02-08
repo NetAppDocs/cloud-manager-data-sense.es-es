@@ -1,0 +1,189 @@
+---
+sidebar: sidebar 
+permalink: task-scanning-anf.html 
+keywords: cloud compliance, get started, enable cloud compliance, cloud compliance access, privacy, compliance, ANF, Azure NetApp Files, data sense 
+summary: Complete unos pasos para empezar a usar Cloud Data Sense para Azure NetApp Files. 
+---
+= Introducción a Cloud Data Sense para Azure NetApp Files
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+Complete unos pasos para empezar a usar Cloud Data Sense para Azure NetApp Files.
+
+
+
+== Inicio rápido
+
+Empiece rápidamente siguiendo estos pasos o desplácese hacia abajo hasta las secciones restantes para obtener todos los detalles.
+
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-1.png["Uno"] Descubra los sistemas Azure NetApp Files que desea analizar
+[role="quick-margin-para"]
+Antes de poder analizar volúmenes Azure NetApp Files, https://docs.netapp.com/us-en/cloud-manager-azure-netapp-files/task-quick-start.html["Debe configurar BlueXP para descubrir la configuración"^].
+
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-2.png["Dos"] Ponga en marcha la instancia de Cloud Data Sense
+[role="quick-margin-para"]
+link:task-deploy-cloud-compliance.html["Ponga en marcha Cloud Data Sense en BlueXP"^] si aún no hay una instancia implementada.
+
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-3.png["Tres"] Habilite Cloud Data Sense y seleccione los volúmenes que desea analizar
+[role="quick-margin-para"]
+Haga clic en *cumplimiento*, seleccione la ficha *Configuración* y active los análisis de cumplimiento para volúmenes en entornos de trabajo específicos.
+
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-4.png["Cuatro"] Garantice el acceso a los volúmenes
+[role="quick-margin-para"]
+Ahora que Cloud Data Sense está habilitado, asegúrese de que pueda acceder a todos los volúmenes.
+
+[role="quick-margin-list"]
+* La instancia de Cloud Data Sense necesita una conexión de red a cada subred de Azure NetApp Files.
+* Asegúrese de que estos puertos estén abiertos a la instancia de Data Sense:
++
+** Para NFS, puertos 111 y 2049.
+** Para CIFS, puertos 139 y 445.
+
+
+* Las políticas de exportación de volúmenes NFS deben permitir el acceso desde la instancia de Data Sense.
+* La detección de datos necesita credenciales de Active Directory para analizar volúmenes CIFS.
++
+Haga clic en *cumplimiento* > *Configuración* > *Editar credenciales CIFS* y proporcione las credenciales.
+
+
+
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-5.png["Cinco"] Gestione los volúmenes que desea analizar
+[role="quick-margin-para"]
+Seleccione o anule la selección de los volúmenes que desea analizar y Cloud Data Sense iniciará o dejará de analizarlos.
+
+
+
+== Detección del sistema Azure NetApp Files que desea analizar
+
+Si el sistema Azure NetApp Files que desea escanear no está ya en BlueXP como entorno de trabajo, puede agregarlo al lienzo en este momento.
+
+https://docs.netapp.com/us-en/cloud-manager-azure-netapp-files/task-quick-start.html["Descubra cómo descubrir el sistema Azure NetApp Files en BlueXP"^].
+
+
+
+== Implementar la instancia de Cloud Data Sense
+
+link:task-deploy-cloud-compliance.html["Ponga en marcha Cloud Data Sense"^] si aún no hay una instancia implementada.
+
+El sentido de los datos se debe implementar en el cloud al analizar volúmenes de Azure NetApp Files y debe ponerse en marcha en la misma región que los volúmenes que desea analizar.
+
+*Nota:* actualmente no se admite la implementación de la detección de datos en la nube en una ubicación local al analizar volúmenes Azure NetApp Files.
+
+Las actualizaciones del software Data Sense se automatizan siempre que la instancia tenga conectividad a Internet.
+
+
+
+== Habilitar el sentido de los datos en el cloud en sus entornos de trabajo
+
+Puede habilitar la detección de datos en el cloud en Azure NetApp Files Volumes.
+
+. En el menú de navegación izquierdo de BlueXP, haga clic en *Gobierno > Clasificación* y seleccione la ficha *Configuración*.
++
+image:screenshot_cloud_compliance_anf_scan_config.png["Una captura de pantalla de la pestaña Configuration inmediatamente después de implementar la instancia de Cloud Data Sense."]
+
+. Seleccione cómo desea analizar los volúmenes en cada entorno de trabajo. link:concept-cloud-compliance.html#whats-the-difference-between-mapping-and-classification-scans["Obtenga más información sobre las exploraciones de clasificación y mapeo"]:
++
+** Para asignar todos los volúmenes, haga clic en *asignar todos los volúmenes*.
+** Para asignar y clasificar todos los volúmenes, haga clic en *asignar y clasificar todos los volúmenes*.
+** Para personalizar la exploración de cada volumen, haga clic en *o seleccione el tipo de exploración para cada volumen* y, a continuación, elija los volúmenes que desea asignar y/o clasificar.
++
+Consulte <<Habilitar y deshabilitar los análisis de cumplimiento de normativas en los volúmenes,Habilitar y deshabilitar los análisis de cumplimiento de normativas en los volúmenes>> para obtener más detalles.
+
+
+
+. En el cuadro de diálogo de confirmación, haga clic en *aprobar* para que Data SENSE empiece a analizar los volúmenes.
+
+
+.Resultado
+Cloud Data Sense comienza a analizar los volúmenes seleccionados en el entorno de trabajo. Los resultados estarán disponibles en la consola de cumplimiento tan pronto como Cloud Data Sense termine los análisis iniciales. El tiempo que se tarda en depende de la cantidad de datos; puede que sea unos minutos u horas.
+
+
+
+== Comprobar que Cloud Data Sense tiene acceso a volúmenes
+
+Asegúrese de que Cloud Data Sense pueda acceder a los volúmenes mediante la comprobación de la red, los grupos de seguridad y las políticas de exportación. Deberá proporcionar la detección de datos con credenciales CIFS para poder acceder a volúmenes CIFS.
+
+.Pasos
+. Asegúrese de que haya una conexión de red entre la instancia de Cloud Data Sense y cada red que incluya los volúmenes para Azure NetApp Files.
++
+
+NOTE: Para Azure NetApp Files, Cloud Data Sense solo puede analizar volúmenes que se encuentran en la misma región que BlueXP.
+
+. Asegúrese de que los siguientes puertos están abiertos a la instancia de Data Sense:
++
+** Para NFS, puertos 111 y 2049.
+** Para CIFS, puertos 139 y 445.
+
+
+. Compruebe que las políticas de exportación de volúmenes NFS incluyan la dirección IP de la instancia de Data Sense para poder acceder a los datos de cada volumen.
+. Si utiliza CIFS, proporcione detección de datos con credenciales de Active Directory para poder analizar volúmenes CIFS.
++
+.. En el menú de navegación izquierdo de BlueXP, haga clic en *Gobierno > Clasificación* y seleccione la ficha *Configuración*.
++
+image:screenshot_cifs_credentials.gif["Captura de pantalla de la ficha cumplimiento que muestra el botón Estado del análisis que está disponible en la parte superior derecha del panel de contenido."]
+
+.. Para cada entorno de trabajo, haga clic en *Editar credenciales CIFS* e introduzca el nombre de usuario y la contraseña que necesita Data Sense para acceder a los volúmenes CIFS en el sistema.
++
+Las credenciales pueden ser de sólo lectura, pero si se proporcionan credenciales de administrador, se garantiza que Data Sense pueda leer cualquier dato que requiera permisos elevados. Las credenciales se almacenan en la instancia de Cloud Data Sense.
+
++
+Si desea asegurarse de que los análisis de clasificación de detección de datos no modifican sus archivos “horas a las que se accedió por última vez”, recomendamos que el usuario tenga permiso escribir atributos. Si es posible, recomendamos que el usuario configurado de Active Directory sea parte de un grupo padre en la organización que tenga permisos para todos los archivos.
+
++
+Después de introducir las credenciales, debe ver un mensaje que indica que todos los volúmenes CIFS se autenticaron correctamente.
+
++
+image:screenshot_cifs_status.gif["Captura de pantalla que muestra la página Configuración y un sistema Cloud Volumes ONTAP para el que se han proporcionado correctamente las credenciales CIFS."]
+
+
+
+. En la página _Configuration_, haga clic en *View Details* para revisar el estado de cada volumen CIFS y NFS y corregir los errores.
++
+Por ejemplo, la siguiente imagen muestra cuatro volúmenes; uno de los cuales no puede analizar Cloud Data Sense debido a problemas de conectividad de red entre la instancia de detección de datos y el volumen.
+
++
+image:screenshot_compliance_volume_details.gif["Captura de pantalla de la página Ver detalles de la configuración de exploración que muestra cuatro volúmenes; uno de los cuales no se analiza debido a la conectividad de red entre detección de datos y el volumen."]
+
+
+
+
+
+== Habilitar y deshabilitar los análisis de cumplimiento de normativas en los volúmenes
+
+Puede iniciar o detener exploraciones de sólo asignación, o bien análisis de asignación y clasificación, en un entorno de trabajo en cualquier momento desde la página Configuración. También puede cambiar de exploraciones de sólo asignación a exploraciones de asignación y clasificación, y viceversa. Le recomendamos que analice todos los volúmenes.
+
+image:screenshot_volume_compliance_selection.png["Captura de pantalla de la página Configuración en la que puede activar o desactivar el análisis de volúmenes individuales."]
+
+[cols="45,45"]
+|===
+| Para: | Haga lo siguiente: 
+
+
+| Active los análisis de sólo asignación en un volumen | En el área de volumen, haga clic en *Mapa* 
+
+
+| Active el análisis completo en un volumen | En el área de volumen, haga clic en *Mapa y clasificación* 
+
+
+| Desactive el análisis en un volumen | En el área de volumen, haga clic en *Desactivado* 
+
+
+|  |  
+
+
+| Active análisis de sólo asignación en todos los volúmenes | En el área de encabezado, haga clic en *Mapa* 
+
+
+| Active el análisis completo en todos los volúmenes | En el área de encabezado, haga clic en *Mapa y clasificación* 
+
+
+| Desactive el análisis en todos los volúmenes | En el área encabezado, haga clic en *Desactivado* 
+|===
+
+NOTE: Los nuevos volúmenes agregados al entorno de trabajo sólo se analizan automáticamente cuando se ha establecido el ajuste *Mapa* o *Mapa y clasificación* en el área de rumbo. Cuando se establece en *personalizado* o *Desactivado* en el área rumbo, deberá activar la asignación y/o la exploración completa en cada volumen nuevo que agregue en el entorno de trabajo.

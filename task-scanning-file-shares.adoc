@@ -1,0 +1,156 @@
+---
+sidebar: sidebar 
+permalink: task-scanning-file-shares.html 
+keywords: cloud compliance, enable cloud compliance, privacy, compliance, file shares, nfs, cifs, smb, Data Sense 
+summary: Complete unos pasos para empezar a analizar recursos compartidos de archivos NFS o CIFS no de NetApp directamente con Cloud Data Sense. Estos recursos compartidos de archivos pueden residir en las instalaciones o en el cloud. 
+---
+= Analizando recursos compartidos de archivos
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+Complete unos pasos para empezar a analizar recursos compartidos de archivos NFS o CIFS no de NetApp directamente con Cloud Data Sense. Estos recursos compartidos de archivos pueden residir en las instalaciones o en el cloud.
+
+
+
+== Inicio rápido
+
+Empiece rápidamente siguiendo estos pasos o desplácese hacia abajo hasta las secciones restantes para obtener todos los detalles.
+
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-1.png["Uno"] Revise los requisitos previos para compartir archivos
+[role="quick-margin-para"]
+Para los recursos compartidos CIFS (SMB), asegúrese de tener credenciales para acceder a los recursos compartidos.
+
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-2.png["Dos"] Ponga en marcha la instancia de Cloud Data Sense
+[role="quick-margin-para"]
+link:task-deploy-cloud-compliance.html["Ponga en marcha Cloud Data Sense"^] si aún no hay una instancia implementada.
+
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-3.png["Tres"] Cree un grupo que contenga los recursos compartidos de archivos
+[role="quick-margin-para"]
+El grupo es un contenedor para los recursos compartidos de archivos que desea analizar y se utiliza como nombre del entorno de trabajo para esos archivos compartidos.
+
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-4.png["Cuatro"] Añada los recursos compartidos de archivos y seleccione los recursos compartidos que desea analizar
+[role="quick-margin-para"]
+Agregue la lista de recursos compartidos de archivos que desea analizar y seleccione el tipo de análisis. Puede añadir hasta 100 archivos compartidos a la vez.
+
+
+
+== Revisión de los requisitos de uso compartido de archivos
+
+Revise los siguientes requisitos previos para asegurarse de tener una configuración compatible antes de habilitar Cloud Data Sense.
+
+* Los recursos compartidos se pueden alojar en cualquier lugar, incluso en el cloud o en las instalaciones. Son recursos compartidos de archivos que residen en sistemas de almacenamiento que no son de NetApp.
+* Debe haber conectividad de red entre la instancia de detección de datos y los recursos compartidos.
+* Asegúrese de que estos puertos estén abiertos a la instancia de Data Sense:
++
+** Para NFS, puertos 111 y 2049.
+** Para CIFS, puertos 139 y 445.
+
+
+* Necesitará la lista de recursos compartidos que desea añadir en el formato `<host_name>:/<share_path>`. Puede introducir los recursos compartidos individualmente o proporcionar una lista separada por líneas de los recursos compartidos de archivos que desea escanear.
+* En el caso de los recursos compartidos CIFS (SMB), asegúrese de tener credenciales de Active Directory con acceso de lectura a los recursos compartidos. Las credenciales de administración son preferidas en caso de que Cloud Data Sense necesite analizar cualquier dato que requiera permisos elevados.
++
+Si desea asegurarse de que los análisis de clasificación de detección de datos no modifican sus archivos “horas a las que se accedió por última vez”, recomendamos que el usuario tenga permiso escribir atributos. Si es posible, recomendamos que el usuario configurado de Active Directory sea parte de un grupo padre en la organización que tenga permisos para todos los archivos.
+
+
+
+
+
+== Implementar la instancia de Cloud Data Sense
+
+Si todavía no hay una instancia implementada, implemente Cloud Data Sense.
+
+Si va a analizar recursos compartidos de archivos NFS o CIFS de otros proveedores a los que se puede acceder a través de Internet, puede hacerlo link:task-deploy-cloud-compliance.html["Ponga en marcha Cloud Data en el cloud"^] o. link:task-deploy-compliance-onprem.html["Implemente el software de detección de datos en una ubicación local con acceso a Internet"^].
+
+Si va a escanear recursos compartidos de archivos NFS o CIFS que no son de NetApp y que se han instalado en un sitio oscuro que no tiene acceso a Internet, necesita hacerlo link:task-deploy-compliance-dark-site.html["Implemente Cloud Data Sense en la misma ubicación en las instalaciones que no tiene acceso a Internet"^]. Esto también requiere que el conector BlueXP se despliegue en esa misma ubicación en las instalaciones.
+
+Las actualizaciones del software Data Sense se automatizan siempre que la instancia tenga conectividad a Internet.
+
+
+
+== Creación del grupo para los recursos compartidos de archivos
+
+Debe agregar un "grupo" de archivos compartidos antes de poder agregar los archivos compartidos. El grupo es un contenedor para los recursos compartidos de archivos que desea analizar y el nombre del grupo se utiliza como nombre del entorno de trabajo para esos archivos compartidos.
+
+Puede mezclar los recursos compartidos de NFS y CIFS en el mismo grupo, sin embargo, todos los recursos compartidos de archivos CIFS de un grupo deben utilizar las mismas credenciales de Active Directory. Si va a añadir recursos compartidos CIFS que utilizan credenciales diferentes, debe crear un grupo independiente para cada conjunto único de credenciales.
+
+.Pasos
+. En la página Configuración de entornos de trabajo, haga clic en *Agregar origen de datos* > *Agregar grupo de recursos compartidos de archivos*.
++
+image:screenshot_compliance_add_fileshares_button.png["Una captura de pantalla de la página Configuración de exploración donde puede hacer clic en el botón Agregar grupo de recursos compartidos de archivos."]
+
+. En el cuadro de diálogo Agregar grupo de recursos compartidos de archivos, introduzca el nombre del grupo de recursos compartidos y haga clic en *continuar*.
+
+
+El nuevo grupo de archivos compartidos se agrega a la lista de entornos de trabajo.
+
+
+
+== Agregar recursos compartidos de archivos a un grupo
+
+Se agregan recursos compartidos de archivos al grupo de recursos compartidos de archivos para que Cloud Data Sense analice estos archivos en esos recursos compartidos. Los recursos compartidos se añaden con el formato `<host_name>:/<share_path>`.
+
+Puede agregar recursos compartidos de archivos individuales o puede proporcionar una lista separada por líneas de los recursos compartidos de archivos que desea analizar. Puede añadir hasta 100 recursos compartidos al mismo tiempo.
+
+Al añadir ambos recursos compartidos NFS y CIFS en un único grupo, deberá realizar el proceso dos veces, una vez que añada recursos compartidos NFS y, a continuación, vuelva a añadir los recursos compartidos CIFS.
+
+.Pasos
+. En la página _Working Environments_, haga clic en el botón *Configuración* del grupo de recursos compartidos de archivos.
++
+image:screenshot_compliance_fileshares_add_shares.png["Captura de pantalla de la página Configuración de exploración donde puede seleccionar el botón Configuración."]
+
+. Si es la primera vez que añade archivos compartidos para este grupo de archivos compartidos, haga clic en *Agregar sus primeros recursos compartidos*.
++
+image:screenshot_compliance_fileshares_add_initial_shares.png["Una captura de pantalla que muestra el botón Agregar los primeros recursos compartidos para agregar los recursos compartidos iniciales al grupo."]
+
++
+Si va a agregar archivos compartidos a un grupo existente, haga clic en *Agregar recursos compartidos*.
+
++
+image:screenshot_compliance_fileshares_add_more_shares.png["Una captura de pantalla que muestra el botón Agregar recursos compartidos para agregar más recursos compartidos al grupo."]
+
+. Seleccione el protocolo para los recursos compartidos de archivos que va a agregar, agregue los recursos compartidos de archivos que desea analizar - un recurso compartido de archivos por línea - y haga clic en *continuar*.
++
+Cuando se añaden recursos compartidos CIFS (SMB), debe introducir las credenciales de Active Directory con acceso de lectura a los recursos compartidos. Se prefieren las credenciales de administrador.
+
++
+image:screenshot_compliance_fileshares_add_file_shares.png["Captura de pantalla de la página Agregar recursos compartidos de archivos donde puede agregar los recursos compartidos que se van a escanear."]
+
++
+Un cuadro de diálogo de confirmación muestra el número de recursos compartidos que se han añadido.
+
++
+Si el cuadro de diálogo enumera los recursos compartidos que no se han podido agregar, capture esta información para que pueda resolver el problema. En algunos casos, es posible volver a añadir el recurso compartido con un nombre de host o un nombre de recurso compartido corregidos.
+
+. Active análisis de sólo asignación o análisis de asignación y clasificación en cada recurso compartido de archivos.
++
+[cols="45,45"]
+|===
+| Para: | Haga lo siguiente: 
+
+
+| Active análisis de sólo asignación en recursos compartidos de archivos | Haga clic en *Mapa* 
+
+
+| Active análisis completos en recursos compartidos de archivos | Haga clic en *Mapa y clasificación* 
+
+
+| Desactive el análisis en recursos compartidos de archivos | Haga clic en *Desactivado* 
+|===
+
+
+.Resultado
+Cloud Data Sense comienza a analizar los archivos de los recursos compartidos de archivos agregados y los resultados se muestran en el Panel y en otras ubicaciones.
+
+
+
+== Quitar un recurso compartido de archivos de los análisis de cumplimiento de normativas
+
+Si ya no necesita analizar determinados recursos compartidos de archivos, puede eliminar los recursos compartidos de archivos individuales para que los analice en cualquier momento. Haga clic en *Quitar recurso compartido* en la página Configuración.
+
+image:screenshot_compliance_fileshares_remove_share.png["Una captura de pantalla que muestra cómo eliminar un único recurso compartido de archivos para que se analicen los archivos."]

@@ -1,0 +1,140 @@
+---
+sidebar: sidebar 
+permalink: task-scanning-databases.html 
+keywords: cloud compliance, enable cloud compliance, outbound internet, endpoints, cloud compliance internet, web browser connectivity, cloud compliance access, privacy, compliance, databases, database schemas, Oracle, SAP HANA, SQL Server, MongoDB, PostgreSQL, Data Sense 
+summary: Realice algunos pasos para empezar a analizar sus esquemas de base de datos con Cloud Data Sense. 
+---
+= Analizando esquemas de base de datos
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+Realice algunos pasos para empezar a analizar sus esquemas de base de datos con Cloud Data Sense.
+
+
+
+== Inicio rápido
+
+Empiece rápidamente siguiendo estos pasos o desplácese hacia abajo hasta las secciones restantes para obtener todos los detalles.
+
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-1.png["Uno"] Revisar los requisitos previos de la base de datos
+[role="quick-margin-para"]
+Asegúrese de que la base de datos es compatible y de que dispone de la información necesaria para conectarse a la base de datos.
+
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-2.png["Dos"] Ponga en marcha la instancia de Cloud Data Sense
+[role="quick-margin-para"]
+link:task-deploy-cloud-compliance.html["Ponga en marcha Cloud Data Sense"^] si aún no hay una instancia implementada.
+
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-3.png["Tres"] Agregue el servidor de la base de datos
+[role="quick-margin-para"]
+Agregue el servidor de base de datos al que desea acceder.
+
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-4.png["Cuatro"] Seleccione los esquemas
+[role="quick-margin-para"]
+Seleccione los esquemas que desea analizar.
+
+
+
+== Revisión de requisitos previos
+
+Revise los siguientes requisitos previos para asegurarse de tener una configuración compatible antes de habilitar Cloud Data Sense.
+
+
+
+=== Bases de datos compatibles
+
+Cloud Data Sense es capaz de analizar esquemas de las siguientes bases de datos:
+
+* Servicio de bases de datos relacionales de Amazon (Amazon RDS)
+* MongoDB
+* MySQL
+* Oracle
+* PostgreSQL
+* SAP HANA
+* Servidor SQL (MSSQL)
+
+
+
+CAUTION: La característica de recopilación de estadísticas *debe estar activada* en la base de datos.
+
+
+
+=== Requisitos de base de datos
+
+Es posible analizar cualquier base de datos con conectividad a la instancia de Cloud Data Sense, independientemente de dónde esté alojada. Sólo necesita la siguiente información para conectarse a la base de datos:
+
+* Dirección IP o nombre de host
+* Puerto
+* Nombre del servicio (sólo para acceder a bases de datos Oracle)
+* Credenciales que permiten el acceso de lectura a los esquemas
++
+Al seleccionar un nombre de usuario y una contraseña, es importante elegir uno que tenga permisos de lectura completos para todos los esquemas y tablas que desee analizar. Le recomendamos que cree un usuario dedicado para el sistema Cloud Data Sense con todos los permisos necesarios.
+
+
+
+*Nota:* para MongoDB, se requiere una función de administrador de sólo lectura.
+
+
+
+== Implementar la instancia de Cloud Data Sense
+
+Si todavía no hay una instancia implementada, implemente Cloud Data Sense.
+
+Si está analizando esquemas de base de datos a los que se puede acceder a través de Internet, puede hacerlo link:task-deploy-cloud-compliance.html["Ponga en marcha Cloud Data en el cloud"^] o. link:task-deploy-compliance-onprem.html["Implemente el software de detección de datos en una ubicación local con acceso a Internet"^].
+
+Si está analizando esquemas de base de datos que se han instalado en un sitio oscuro que no tiene acceso a Internet, debe hacerlo link:task-deploy-compliance-dark-site.html["Implemente Cloud Data Sense en la misma ubicación en las instalaciones que no tiene acceso a Internet"^]. Esto también requiere que el conector BlueXP se despliegue en esa misma ubicación en las instalaciones.
+
+Las actualizaciones del software Data Sense se automatizan siempre que la instancia tenga conectividad a Internet.
+
+
+
+== Agregando el servidor de la base de datos
+
+Agregue el servidor de base de datos donde residen los esquemas.
+
+. En la página Configuración de entornos de trabajo, haga clic en *Agregar origen de datos* > *Agregar servidor de base de datos*.
++
+image:screenshot_compliance_add_db_server_button.png["Captura de pantalla de la página Configuración de exploración donde puede hacer clic en el botón Agregar servidor de base de datos."]
+
+. Introduzca la información necesaria para identificar el servidor de bases de datos.
++
+.. Seleccione el tipo de base de datos.
+.. Introduzca el puerto y el nombre de host o la dirección IP para conectarse a la base de datos.
+.. Para las bases de datos de Oracle, introduzca el nombre del servicio.
+.. Introduzca las credenciales para que Cloud Data Sense pueda acceder al servidor.
+.. Haga clic en *Agregar servidor de base de datos*.
++
+image:screenshot_compliance_add_db_server_dialog.png["Captura de pantalla de la página Agregar servidor de base de datos para poder identificar la base de datos."]
+
+
+
+
+
+La base de datos se agrega a la lista de entornos de trabajo.
+
+
+
+== Habilitar y deshabilitar los análisis de cumplimiento de normativas en esquemas de base de datos
+
+Puede detener o iniciar el análisis completo de sus esquemas en cualquier momento.
+
+
+TIP: No existe ninguna opción para seleccionar los análisis de sólo asignación para esquemas de base de datos.
+
+. En la página _Configuration_, haga clic en el botón *Configuration* de la base de datos que desea configurar.
++
+image:screenshot_compliance_db_server_config.png["Captura de pantalla de la página Configuración de exploración donde puede seleccionar el botón Configuración."]
+
+. Seleccione los esquemas que desea analizar moviendo el control deslizante hacia la derecha.
++
+image:screenshot_compliance_select_schemas.png["Captura de pantalla de la página Configuración de exploración donde puede elegir los esquemas que desea escanear."]
+
+
+
+.Resultado
+Cloud Data Sense comienza a analizar los esquemas de base de datos que ha habilitado. Si hay algún error, aparecerán en la columna Estado, junto con la acción necesaria para corregir el error.

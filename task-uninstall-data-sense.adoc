@@ -1,0 +1,53 @@
+---
+sidebar: sidebar 
+permalink: task-uninstall-data-sense.html 
+keywords: remove, delete, stop, stop scans, stop scanning, cloud data sense, delete cloud data sense, terminate, deactivate, data sense 
+summary: Puede desinstalar el software Data Sense para solucionar problemas o eliminar permanentemente el software del host. Al eliminar la instancia también se eliminan los discos asociados en los que residen los datos indexados. Toda la información que se ha analizado se eliminará permanentemente. 
+---
+= Desinstalar Cloud Data Sense
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+Puede desinstalar el software Data Sense para solucionar problemas o eliminar permanentemente el software del host. Al eliminar la instancia también se eliminan los discos asociados en los que residen los datos indexados. Toda la información que se ha analizado se eliminará permanentemente.
+
+Los pasos que debe seguir dependen de si puso en marcha Data Sense en el cloud o en un host local.
+
+
+
+== Desinstale Data Sense de una puesta en marcha del cloud
+
+Puede desinstalar y eliminar la instancia de Cloud Data Sense del proveedor de cloud si ya no desea utilizar Data Sense.
+
+. En la parte superior de la página de detección de datos, haga clic en image:screenshot_gallery_options.gif["Botón más"] Y, a continuación, haga clic en *Desinstalar detección de datos*.
++
+image:screenshot_compliance_uninstall.png["Una captura de pantalla del botón para desinstalar el software de detección de datos."]
+
+. En el cuadro de diálogo _Uninstall Data Sense_, escriba *uninstall* para confirmar que desea eliminar la instancia y todos los datos asociados y, a continuación, haga clic en *Desinstalar*.
+
+
+Tenga en cuenta que puede ir a la consola de su proveedor de cloud y eliminar también la instancia de Cloud Data Sense. La instancia se denomina _CloudCompliance_ con un hash generado (UUID) concatenado. Por ejemplo: _CloudCompliance-16bb6564-38ad-4080-9a92-36f5fd2f71c7_
+
+
+
+== Desinstale Data Sense de una puesta en marcha en las instalaciones
+
+Puede desinstalar Data Sense de un host si ya no desea utilizar Data Sense o si ha tenido un problema que requiere reinstalación.
+
+. En la parte superior de la página de detección de datos, haga clic en image:screenshot_gallery_options.gif["Botón más"] Y, a continuación, haga clic en *Desinstalar detección de datos*.
++
+image:screenshot_compliance_uninstall.png["Una captura de pantalla del botón para desinstalar el software de detección de datos."]
+
+. En el cuadro de diálogo _Uninstall Data Sense_, escriba *uninstall* para confirmar que desea borrar toda la información de configuración y, a continuación, haga clic en *Desinstalar*.
+. Para completar la desinstalación desde el host, ejecute el script de desinstalación en el equipo host, por ejemplo:
++
+[source, cli]
+----
+uninstall.sh
+----
+

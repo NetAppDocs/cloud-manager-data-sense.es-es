@@ -1,0 +1,174 @@
+---
+sidebar: sidebar 
+permalink: task-scanning-sharepoint.html 
+keywords: cloud compliance, enable cloud compliance, privacy, compliance, sharepoint, sharepoint online, sharepoint on-premises, data sense 
+summary: Realice unos pasos para comenzar a analizar archivos en sus cuentas de SharePoint Online y SharePoint en las instalaciones con Cloud Data Sense. 
+---
+= Analizando cuentas de SharePoint
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+Realice unos pasos para comenzar a analizar archivos en sus cuentas de SharePoint Online y SharePoint en las instalaciones con Cloud Data Sense.
+
+
+
+== Inicio rápido
+
+Empiece rápidamente siguiendo estos pasos o desplácese hacia abajo hasta las secciones restantes para obtener todos los detalles.
+
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-1.png["Uno"] Revise los requisitos previos de SharePoint
+[role="quick-margin-para"]
+Asegúrese de que tiene credenciales completas para iniciar sesión en la cuenta de SharePoint y de que tiene las direcciones URL de los sitios de SharePoint que desea analizar.
+
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-2.png["Dos"] Ponga en marcha la instancia de Cloud Data Sense
+[role="quick-margin-para"]
+link:task-deploy-cloud-compliance.html["Ponga en marcha Cloud Data Sense"^] si aún no hay una instancia implementada.
+
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-3.png["Tres"] Inicie sesión en la cuenta de SharePoint
+[role="quick-margin-para"]
+Con credenciales de usuario completas, inicie sesión en la cuenta de SharePoint a la que desea acceder para que se agregue como nuevo origen de datos/entorno de trabajo.
+
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-4.png["Cuatro"] Agregue las direcciones URL del sitio de SharePoint que desea analizar
+[role="quick-margin-para"]
+Agregue la lista de direcciones URL del sitio de SharePoint que desea analizar en la cuenta de SharePoint y seleccione el tipo de análisis. Puede agregar hasta 100 URL a la vez.
+
+
+
+== Revisar los requisitos de SharePoint
+
+Revise los siguientes requisitos previos para asegurarse de que está preparado para activar Cloud Data Sense en una cuenta de SharePoint.
+
+* Debe tener las credenciales de inicio de sesión de usuario administrador para la cuenta de SharePoint que proporciona acceso de lectura a todos los sitios de SharePoint.
++
+** Para SharePoint Online puede utilizar una cuenta que no sea de administrador, pero ese usuario debe tener permiso para tener acceso a todos los sitios de SharePoint que desea analizar.
+
+
+* Para SharePoint en las instalaciones, también necesitará la dirección URL de SharePoint Server.
+* Necesitará una lista separada por líneas de las direcciones URL del sitio de SharePoint para todos los datos que desee analizar.
+
+
+
+
+== Implementar la instancia de Cloud Data Sense
+
+Si todavía no hay una instancia implementada, implemente Cloud Data Sense.
+
+* Para SharePoint Online, el sentido de los datos puede ser link:task-deploy-cloud-compliance.html["implementado en el cloud"^] o. link:task-deploy-compliance-onprem.html["se instala en una ubicación local con acceso a internet"^].
++
+La detección de datos también puede ser link:task-deploy-compliance-dark-site.html["se implementa en una ubicación local que no tiene acceso a internet"^]. Sin embargo, deberá proporcionar acceso a Internet a unos pocos puntos finales seleccionados para analizar sus archivos de SharePoint Online. link:task-deploy-compliance-dark-site.html#sharepoint-and-onedrive-special-requirements["Consulte la lista de puntos finales necesarios aquí"].
+
+* Para SharePoint en las instalaciones, se puede instalar Data Sense link:task-deploy-compliance-onprem.html["en una ubicación en el hotel que tiene acceso a internet"^] o. link:task-deploy-compliance-dark-site.html["en una ubicación en el hotel que no tiene acceso a internet"^].
+
+
+Cuando se instala detección de datos en un sitio sin acceso a Internet, el conector BlueXP también debe instalarse en ese mismo sitio sin acceso a Internet. https://docs.netapp.com/us-en/cloud-manager-setup-admin/task-install-connector-onprem-no-internet.html["Leer más"^].
+
+Las actualizaciones del software Data Sense se automatizan siempre que la instancia tenga conectividad a Internet.
+
+
+
+== Agregar una cuenta de SharePoint Online
+
+Agregue la cuenta de SharePoint Online donde residen los archivos de usuario.
+
+.Pasos
+. En la página Configuración de entornos de trabajo, haga clic en *Agregar origen de datos* > *Agregar cuenta en línea de SharePoint*.
++
+image:screenshot_compliance_add_sharepoint_button.png["Una captura de pantalla de la página Configuración en la que puede hacer clic en el botón Agregar SharePoint Online."]
+
+. En el cuadro de diálogo Agregar una cuenta en línea de SharePoint, haga clic en *Iniciar sesión en SharePoint*.
+. En la página de Microsoft que aparece, seleccione la cuenta de SharePoint e introduzca el usuario y la contraseña (usuario administrador u otro usuario con acceso a los sitios de SharePoint) y, a continuación, haga clic en *Aceptar* para permitir que Cloud Data Sense lea datos de esta cuenta.
+
+
+La cuenta de SharePoint Online se agrega a la lista de entornos de trabajo.
+
+
+
+== Adición de una cuenta de SharePoint en las instalaciones
+
+Agregue la cuenta de SharePoint en las instalaciones donde residen los archivos de usuario.
+
+.Pasos
+. En la página Configuración de entornos de trabajo, haga clic en *Agregar origen de datos* > *Agregar cuenta de SharePoint en las instalaciones*.
++
+image:screenshot_compliance_add_sharepoint_onprem_button.png["Una captura de pantalla de la página Configuración donde puede hacer clic en el botón Agregar SharePoint en las instalaciones."]
+
+. En el cuadro de diálogo Iniciar sesión en el servidor local de SharePoint, introduzca la siguiente información:
++
+** Usuario administrador con el formato "dominio/usuario" o "usuario@dominio" y contraseña de administrador
+** URL de SharePoint Server
++
+image:screenshot_compliance_sharepoint_onprem.png["Captura de pantalla que muestra la información de inicio de sesión de una cuenta local de SharePoint."]
+
+
+
+. Haga clic en *conectar*.
+
+
+La cuenta de SharePoint en las instalaciones se agrega a la lista de entornos de trabajo.
+
+
+
+== Agregar sitios de SharePoint a los análisis de cumplimiento
+
+Puede agregar sitios de SharePoint individuales o todos los sitios de SharePoint de la cuenta para que los archivos asociados sean analizados por Cloud Data Sense. Los pasos son los mismos al agregar sitios locales de SharePoint Online o SharePoint.
+
+.Pasos
+. En la página _Configuration_, haga clic en el botón *Configuration* de la cuenta de SharePoint.
++
+image:screenshot_compliance_sharepoint_add_sites.png["Captura de pantalla de la página Configuración de exploración donde puede seleccionar el botón Configuración."]
+
+. Si es la primera vez que agrega sitios para esta cuenta de SharePoint, haga clic en *Agregar su primer sitio de SharePoint*.
++
+image:screenshot_compliance_sharepoint_add_initial_sites.png["Una captura de pantalla que muestra el botón Agregar los primeros sitios de SharePoint para agregar los sitios iniciales a explorar."]
+
++
+Si va a agregar usuarios adicionales desde una cuenta de SharePoint, haga clic en *Agregar sitios de SharePoint*.
+
++
+image:screenshot_compliance_sharepoint_add_more_sites.png["Captura de pantalla que muestra el botón Agregar sitios de SharePoint para agregar más sitios a una cuenta."]
+
+. Agregue las direcciones URL de los sitios cuyos archivos desea explorar - una dirección URL por línea (hasta un máximo de 100 por sesión) - y haga clic en *Agregar sitios*.
++
+image:screenshot_compliance_sharepoint_add_site.png["Captura de pantalla de la página Agregar sitios de SharePoint en la que puede agregar sitios a explorar."]
+
++
+Un cuadro de diálogo de confirmación muestra el número de sitios que se han agregado.
+
++
+Si el cuadro de diálogo enumera los sitios que no se han podido agregar, capture esta información para que pueda resolver el problema. En algunos casos, puede volver a agregar el sitio con una dirección URL corregida.
+
+. Habilite los análisis de sólo asignación, o los análisis de asignación y clasificación, en los archivos de los sitios de SharePoint.
++
+[cols="45,45"]
+|===
+| Para: | Haga lo siguiente: 
+
+
+| Active los análisis de sólo asignación en archivos | Haga clic en *Mapa* 
+
+
+| Active los análisis completos en los archivos | Haga clic en *Mapa y clasificación* 
+
+
+| Desactive el análisis en archivos | Haga clic en *Desactivado* 
+|===
+
+
+.Resultado
+Cloud Data Sense comienza a analizar los archivos de los sitios de SharePoint agregados y los resultados se muestran en el Panel y en otras ubicaciones.
+
+
+
+== Quitar un sitio de SharePoint de los análisis de cumplimiento
+
+Si quita un sitio de SharePoint en el futuro o decide no analizar archivos en un sitio de SharePoint, puede eliminar sitios de SharePoint individuales para que sus archivos se analicen en cualquier momento. Haga clic en *Quitar sitio de SharePoint* de la página Configuración.
+
+image:screenshot_compliance_sharepoint_remove_site.png["Una captura de pantalla que muestra cómo eliminar un único sitio de SharePoint de la captura de sus archivos."]
+
+Tenga en cuenta que puede link:task-managing-compliance.html#removing-a-onedrive-sharepoint-or-google-drive-account-from-cloud-data-sense["Elimine toda la cuenta de SharePoint de Data Sense"] Si ya no desea analizar los datos de usuario desde la cuenta de SharePoint.

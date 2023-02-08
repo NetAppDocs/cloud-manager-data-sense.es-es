@@ -1,0 +1,114 @@
+---
+sidebar: sidebar 
+permalink: task-managing-repo-scanning.html 
+keywords: compliance, stop scan, start scan, map scan, classify scan, data sense, pause scan, resume scan 
+summary: 'Puede gestionar los datos que se analizan en cada uno de sus entornos de trabajo y orígenes de datos. Puede realizar los cambios en función del "repositorio", lo que significa que puede realizar cambios para cada volumen, bloque, recurso compartido, esquema, usuario, etc. dependiendo del tipo de origen de datos que esté escaneando.' 
+---
+= Cambiar la configuración de escaneo de los repositorios
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+Puede gestionar los datos que se analizan en cada uno de sus entornos de trabajo y orígenes de datos. Puede realizar los cambios en función del "repositorio", lo que significa que puede realizar cambios para cada volumen, bloque, recurso compartido, esquema, usuario, etc. dependiendo del tipo de origen de datos que esté escaneando.
+
+Algunas de las cosas que puede cambiar son si se analiza o no un repositorio y si Data Sense está realizando un link:concept-cloud-compliance.html#whats-the-difference-between-mapping-and-classification-scans["exploración de mapeo o exploración de clasificación de  de mapeo"]. También puede pausar y reanudar el análisis, por ejemplo, si necesita detener el análisis de un volumen durante un determinado período de tiempo.
+
+
+
+== Ver el estado del análisis de los repositorios
+
+Puede ver los repositorios individuales que Data Sense está analizando (volúmenes, bloques, etc.) para cada entorno de trabajo y origen de datos. Además, puedes ver cuántos han sido "mapeados" y cuántos han sido "clasificados". La clasificación tarda más tiempo en realizarse a medida que se realiza la identificación de IA completa en todos los datos.
+
+.Pasos
+. En la ficha Configuración, haga clic en el botón *Configuración* del entorno de trabajo.
++
+image:screenshot_compliance_config_button.png["Una captura de pantalla que muestra cómo hacer clic en el botón Configuración de un entorno de trabajo."]
+
+. En la página Configuración de exploración puede ver la configuración de exploración de todos los repositorios.
++
+image:screenshot_compliance_repo_scan_settings.png["Captura de pantalla que muestra si se están escaneando los cubos y el estado actual de la exploración."]
+
+
+
+Puede colocar el cursor sobre el gráfico en la columna _Scan Status_ para ver el número de archivos que quedan por asignar o clasificar en cada repositorio (bloque en este ejemplo).
+
+
+
+== Cambiar el tipo de análisis de un repositorio
+
+Puede iniciar o detener exploraciones de sólo asignación, o bien análisis de asignación y clasificación, en un entorno de trabajo en cualquier momento desde la página Configuración. También puede cambiar de exploraciones de sólo asignación a exploraciones de asignación y clasificación, y viceversa.
+
+
+TIP: Las bases de datos no se pueden establecer en análisis de sólo asignación. El análisis de bases de datos puede estar desactivado o activado; donde activado equivale a asignar y clasificar.
+
+.Pasos
+. En la ficha Configuración, haga clic en el botón *Configuración* del entorno de trabajo.
++
+image:screenshot_compliance_config_button.png["Una captura de pantalla que muestra cómo hacer clic en el botón Configuración de un entorno de trabajo."]
+
+. En la página Scan Configuration (Configuración de exploración) puede cambiar cualquiera de los repositorios (bloques en este ejemplo) para realizar escaneos *Map* o *Map & Classify*, o bien seleccionar *Off* para detener el escaneo de un cucharón en particular.
++
+image:screenshot_compliance_repo_scanning.png["Una captura de pantalla que muestra cómo seleccionar el tipo de exploración de un cucharón."]
+
+
+
+Ciertos tipos de entornos de trabajo permiten cambiar el tipo de análisis global de todos los repositorios mediante una barra de botones en la parte superior de la página. Este valor es válido para sistemas Cloud Volumes ONTAP, ONTAP en las instalaciones, Azure NetApp Files y Amazon FSX para ONTAP.
+
+El ejemplo siguiente muestra esta barra de botones de un sistema Azure NetApp Files.
+
+image:screenshot_compliance_repo_scan_all.png["Captura de pantalla que muestra cómo configurar el mismo ajuste de captura para todos los volúmenes de un entorno de trabajo."]
+
+
+
+== Pausar y reanudar el análisis de un repositorio
+
+Puede "pausar" el análisis en un repositorio si desea detener temporalmente el análisis de determinados contenidos. Esto no es lo mismo que desactivar la exploración. Cuando se desactiva el análisis, se eliminan del sistema toda la indexación y la información sobre ese volumen. Pausar el análisis significa que Data Sense no realizará análisis futuros de cambios o adiciones al repositorio, pero que todos los resultados actuales se seguirán mostrando en el sistema.
+
+Puede "reanudar" la exploración en cualquier momento.
+
+.Pasos
+. En la ficha Configuración, haga clic en el botón *Configuración* del entorno de trabajo.
++
+image:screenshot_compliance_config_button.png["Una captura de pantalla que muestra cómo hacer clic en el botón Configuración de un entorno de trabajo."]
+
+. En la página Scan Configuration (Configuración de exploración), haga clic en el botón Pause (Pausa) para pausar la exploración de un volumen o pulse el botón Resume (Reanudar) para reanudar la exploración de un volumen que se había pausado previamente.
++
+image:screenshot_compliance_repo_pause_resume.png["Captura de pantalla que muestra cómo pausar y reanudar el escaneo en un volumen."]
+
++
+Tenga en cuenta que algunos orígenes de datos proporcionan la función Pausa y Reanudar en un menú, como se muestra a continuación en los sitios de SharePoint.
+
++
+image:screenshot_compliance_repo_pause_resume2.png["Captura de pantalla que muestra cómo pausar y reanudar el análisis en un sitio de SharePoint."]
+
+
+
+
+
+== Volver a buscar datos para un repositorio existente
+
+El sentido de los datos analiza continuamente sus datos para detectar cambios incrementales en los repositorios que ha añadido. Sin embargo, el sistema tarda tiempo en analizar todos los entornos y no hay ningún método para controlar el orden de los repositorios que se analizan. Si necesita volver a analizar un repositorio determinado de inmediato para que los cambios se reflejen en el sistema, puede seleccionar el repositorio y volver a analizar dicho repositorio. Esto permite priorizar el análisis de determinados datos antes que otros. Después de la acción Reanalizar, el repositorio seleccionado vuelve a ser analizado bajo la programación de detección de datos normal.
+
+Data sense admite el análisis de directorios en todos los tipos de orígenes de datos, excepto en Amazon S3 y Databases. Actualmente, podemos volver a utilizar un único directorio (carpeta o recurso compartido) o varios directorios. En el futuro, se ofrecerá compatibilidad con otros tipos de repositorios adicionales (archivos, bases de datos, etc.).
+
+* Al volver a analizar un directorio, se vuelven a enlatar todos los archivos del directorio, pero las subcarpetas del directorio no se vuelven a analizar.
+* Al volver a analizar un recurso compartido, solo se vuelven a almacenar los metadatos del recurso compartido.
+* Un máximo de 1K elementos se pueden volver a enlatar a la vez.
+
+
+.Pasos
+. En el panel resultados de la investigación de datos, seleccione las carpetas o recursos compartidos que desea volver a analizar y haga clic en *Volver a explorar*.
++
+image:screenshot_compliance_rescan_directory.png["Captura de pantalla que muestra cómo seleccionar y volver a explorar un directorio."]
+
+. En el cuadro de diálogo _Rescan Directory_, haga clic en *Rescan*.
+
+
+Tenga en cuenta que también puede volver a analizar un directorio individual al ver los detalles de los metadatos. Simplemente haga clic en *Rescan*.
+
+image:screenshot_compliance_rescan_single_file.png["Captura de pantalla que muestra cómo volver a explorar una única carpeta o recurso compartido."]

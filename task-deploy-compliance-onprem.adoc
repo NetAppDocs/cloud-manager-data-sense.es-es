@@ -1,0 +1,593 @@
+---
+sidebar: sidebar 
+permalink: task-deploy-compliance-onprem.html 
+keywords: cloud compliance, data sense, get started, deploy cloud data sense, outbound internet, endpoints, cloud compliance internet, web browser connectivity, cloud compliance access, privacy, compliance, on-premises 
+summary: Complete unos pasos para implementar Cloud Data Sense en un host Linux de su red, o en un host Linux en la nube, que tenga acceso a Internet. 
+---
+= Implemente Cloud Data Sense en un host Linux que tenga acceso a Internet
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+Complete unos pasos para implementar Cloud Data Sense en un host Linux de su red, o en un host Linux en la nube, que tenga acceso a Internet.
+
+La instalación en las instalaciones puede ser una buena opción si prefiere analizar sistemas ONTAP en las instalaciones mediante una instancia de detección de datos que también está ubicada en las instalaciones, pero esto no es un requisito. El software funciona exactamente de la misma manera, independientemente del método de instalación que elija.
+
+La instalación típica en las instalaciones tiene los siguientes componentes y conexiones.
+
+image:diagram_deploy_onprem_overview.png["Un diagrama de los componentes de red y BlueXP necesarios y las conexiones relacionadas."]
+
+En configuraciones de gran tamaño en las que va a escanear petabytes de datos, puede incluir varios hosts para proporcionar una capacidad de procesamiento adicional. Cuando se utilizan varios sistemas host, el sistema principal se denomina _Manager node_ y los sistemas adicionales que proporcionan potencia de procesamiento adicional se denominan _Scanner Nodes_.
+
+Tenga en cuenta que también puede link:task-deploy-compliance-dark-site.html["Ponga en marcha la detección de datos en un sitio en las instalaciones que no tenga acceso a Internet"] para ubicaciones completamente seguras.
+
+
+
+== Inicio rápido
+
+Empiece rápidamente siguiendo estos pasos o desplácese hacia abajo hasta las secciones restantes para obtener todos los detalles.
+
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-1.png["Uno"] Cree un conector
+[role="quick-margin-para"]
+Si aún no tiene un conector, https://docs.netapp.com/us-en/cloud-manager-setup-admin/task-installing-linux.html["Ponga en marcha el conector en las instalaciones"^] En un host Linux de su red o en un host Linux del cloud.
+
+[role="quick-margin-para"]
+También puede crear un conector con su proveedor de cloud. Consulte https://docs.netapp.com/us-en/cloud-manager-setup-admin/task-creating-connectors-aws.html["Creación de un conector en AWS"^], https://docs.netapp.com/us-en/cloud-manager-setup-admin/task-creating-connectors-azure.html["Creación de un conector en Azure"^], o. https://docs.netapp.com/us-en/cloud-manager-setup-admin/task-creating-connectors-gcp.html["Creación de un conector en GCP"^].
+
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-2.png["Dos"] Revise los requisitos previos
+[role="quick-margin-para"]
+Asegúrese de que el entorno pueda cumplir con los requisitos previos. Esto incluye acceso saliente a Internet para la instancia, conectividad entre el conector y Cloud Data SENSE a través del puerto 443, entre otros. <<Habilite el acceso a Internet de salida desde Cloud Data Sense,Vea la lista completa>>.
+
+[role="quick-margin-para"]
+También necesita un sistema Linux que cumpla con el <<Prepare el sistema host Linux,siga los requisitos>>.
+
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-3.png["Tres"] Descargue e implemente Cloud Data Sense
+[role="quick-margin-para"]
+Descargue el software Cloud Data Sense del sitio de soporte de NetApp y copie el archivo del instalador en el host Linux que tiene pensado utilizar. A continuación, inicie el asistente de instalación y siga las instrucciones para implementar la instancia de detección de datos.
+
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-4.png["Cuatro"] Suscríbase al servicio Cloud Data Sense
+[role="quick-margin-para"]
+Los primeros 1 TB de datos que analiza Cloud Data Sense en BlueXP son gratuitos durante 30 días. Debe suscribirse a su mercado de proveedores de cloud o una licencia de BYOL de NetApp para continuar analizando los datos después de ese punto.
+
+
+
+== Cree un conector
+
+Se necesita un conector BlueXP para poder instalar y utilizar Data Sense. En la mayoría de los casos, es probable que tenga un conector configurado antes de intentar activar Cloud Data Sense porque la mayoría https://docs.netapp.com/us-en/cloud-manager-setup-admin/concept-connectors.html#when-a-connector-is-required["Las funciones de BlueXP requieren un conector"], pero hay casos en los que necesitará configurar uno ahora.
+
+Para crear una en su entorno de proveedor de cloud, consulte https://docs.netapp.com/us-en/cloud-manager-setup-admin/task-creating-connectors-aws.html["Creación de un conector en AWS"^], https://docs.netapp.com/us-en/cloud-manager-setup-admin/task-creating-connectors-azure.html["Creación de un conector en Azure"^], o. https://docs.netapp.com/us-en/cloud-manager-setup-admin/task-creating-connectors-gcp.html["Creación de un conector en GCP"^].
+
+Existen algunas situaciones en las que debe utilizar un conector implementado en un proveedor de cloud específico:
+
+* Cuando se escanear datos en Cloud Volumes ONTAP en AWS, Amazon FSX para ONTAP o en bloques AWS S3, se utiliza un conector en AWS.
+* Al analizar datos en Cloud Volumes ONTAP en Azure o en Azure NetApp Files, utiliza un conector en Azure.
++
+Para Azure NetApp Files, debe implementarse en la misma región que los volúmenes que desea analizar.
+
+* Al analizar datos en Cloud Volumes ONTAP en GCP, se utiliza un conector en GCP.
+
+
+Los sistemas ONTAP en las instalaciones, recursos compartidos de archivos que no son de NetApp, almacenamiento de objetos genérico de S3, bases de datos, carpetas de OneDrive, cuentas de SharePoint y cuentas de Google Drive se pueden analizar con cualquiera de estos conectores de cloud.
+
+Tenga en cuenta que también puede https://docs.netapp.com/us-en/cloud-manager-setup-admin/task-installing-linux.html["Ponga en marcha el conector en las instalaciones"^] En un host Linux en su red o en la nube. Algunos usuarios que planean instalar Data Sense on-prem también pueden optar por instalar el conector on-prem.
+
+Como puede ver, puede que haya algunas situaciones en las que necesite utilizar https://docs.netapp.com/us-en/cloud-manager-setup-admin/concept-connectors.html#when-to-use-multiple-connectors["Múltiples conectores"].
+
+Necesitará la dirección IP o el nombre de host del sistema conector al instalar Data Sense. Tendrá esta información si instaló el conector en sus instalaciones. Si el conector está implementado en la nube, puede encontrar esta información desde la consola BlueXP: Haga clic en el icono Ayuda, seleccione *Soporte* y haga clic en *conector BlueXP*.
+
+
+
+== Prepare el sistema host Linux
+
+El software de detección de datos debe ejecutarse en un host que cumpla con requisitos específicos del sistema operativo, requisitos de RAM, requisitos de software, etc. El host Linux puede estar en su red o en la nube. No se admite la detección de datos en un host que se comparte con otras aplicaciones; el host debe ser un host dedicado.
+
+Asegúrese de que puede mantener en funcionamiento Cloud Data Sense. El equipo Cloud Data Sense tiene que seguir para analizar sus datos de forma continua.
+
+* *CPU*: 16 núcleos
+* *RAM*: 64 GB (la memoria de intercambio debe estar desactivada en el host)
+* *Disco*: SSD con 500 GIB disponibles en /, o.
++
+** 100 GIB disponibles en /opt
+** 400 GIB disponibles en /var
+** 5 GIB en /tmp
++
+Tenga en cuenta que puede implementar la detección de datos en un sistema con menos CPU y menos RAM, pero existen limitaciones al utilizar estos sistemas. Consulte link:concept-cloud-compliance.html#using-a-smaller-instance-type["Con un tipo de instancia más pequeño"] para obtener más detalles.
+
+
+
+* *Tipo de instancia de AWS EC2*: Tipo de instancia que cumple los requisitos de CPU y RAM anteriores. Lo recomendamos https://aws.amazon.com/ec2/instance-types/m5/["m5.4xgrande"^].
+* *Tamaño de máquina virtual de Azure*: Tipo de instancia que cumple los requisitos de CPU y RAM anteriores. Lo recomendamos https://docs.microsoft.com/en-us/azure/virtual-machines/dv3-dsv3-series#dsv3-series["Standard_D16s_v3"^].
+* *Tipo de máquina GCP*: Tipo de instancia que cumple los requisitos de CPU y RAM anteriores. Lo recomendamos https://cloud.google.com/compute/docs/general-purpose-machines#n2_machines["n2-estándar-16"^].
+* *Sistema operativo*: Red Hat Enterprise Linux o CentOS versiones 8.0 a 8.7
++
+** Se pueden utilizar las versiones 7.8 o 7.9, pero la versión de kernel de Linux debe ser 4.0 o posterior
+** El sistema operativo debe ser capaz de instalar el motor del docker
+
+
+* *Red Hat Subscription Management*: Un sistema Red Hat Enterprise Linux debe estar registrado con Red Hat Subscription Management. Si no está registrado, el sistema no puede acceder a los repositorios para actualizar el software de terceros necesario durante la instalación.
+* *Software adicional*: Debe instalar el siguiente software en el host antes de instalar Data Sense:
++
+** Docker Engine versión 19.3.1 o posterior. https://docs.docker.com/engine/install/["Ver las instrucciones de instalación"^].
+** Python 3 versión 3.6 o posterior. https://www.python.org/downloads/["Ver las instrucciones de instalación"^].
+
+
+* * Consideraciones de Firewalld*: Si usted está planeando utilizar `firewalld`, Le recomendamos que lo habilite antes de instalar Data Sense. Ejecute los siguientes comandos para configurar `firewalld` Para que sea compatible con Data Sense:
++
+....
+firewall-cmd --permanent --add-service=http
+firewall-cmd --permanent --add-service=https
+firewall-cmd --permanent --add-port=80/tcp
+firewall-cmd --permanent --add-port=8080/tcp
+firewall-cmd --permanent --add-port=443/tcp
+firewall-cmd --reload
+....
++
+Si tiene pensado utilizar hosts de detección de datos adicionales como nodos de escáner, agregue estas reglas al sistema principal en este momento:
+
++
+....
+firewall-cmd --permanent --add-port=2377/tcp
+firewall-cmd --permanent --add-port=7946/udp
+firewall-cmd --permanent --add-port=7946/tcp
+firewall-cmd --permanent --add-port=4789/udp
+....
++
+Si activa `firewalld` Después de instalar Data Sense, debe reiniciar docker.
+
+
+
+
+NOTE: La dirección IP del sistema host Data Sense no se puede cambiar tras la instalación.
+
+
+
+== Habilite el acceso a Internet de salida desde Cloud Data Sense
+
+Cloud Data Sense requiere acceso saliente a Internet. Si la red virtual o física utiliza un servidor proxy para el acceso a Internet, asegúrese de que la instancia de detección de datos tiene acceso saliente a Internet para contactar con los siguientes puntos finales.
+
+[cols="43,57"]
+|===
+| Puntos finales | Específico 
+
+
+| \https://api.bluexp.netapp.com | Comunicación con el servicio BlueXP, que incluye cuentas de NetApp. 
+
+
+| \https://netapp-cloud-account.auth0.com \https://auth0.com | Comunicación con el sitio Web de BlueXP para la autenticación centralizada del usuario. 
+
+
+| \https://support.compliance.api.bluexp.netapp.com/ \https://hub.docker.com \https://auth.docker.io \https://registry-1.docker.io \https://index.docker.io/ \https://dseasb33srnrn.cloudfront.net/ \https://production.cloudflare.docker.com/ | Proporciona acceso a imágenes de software, manifiestos, plantillas y para enviar registros y métricas. 
+
+
+| \https://support.compliance.api.bluexp.netapp.com/ | Permite a NetApp transmitir datos desde registros de auditoría. 
+
+
+| \https://github.com/docker \https://download.docker.com \http://mirror.centos.org \http://mirrorlist.centos.org \http://mirror.centos.org/centos/7/extras/x86_64/Packages/container-selinux-2.107-3.el7.noarch.rpm | Proporciona paquetes de requisitos previos para la instalación. 
+|===
+
+
+== Verifique que todos los puertos necesarios estén habilitados
+
+Debe asegurarse de que todos los puertos necesarios estén abiertos para la comunicación entre el conector, detección de datos, Active Directory y sus orígenes de datos.
+
+[cols="25,25,50"]
+|===
+| Tipo de conexión | Puertos | Descripción 
+
+
+| Conector <> detección de datos | 8080 (TCP), 443 (TCP) y 80 | El firewall o las reglas de enrutamiento del conector deben permitir el tráfico entrante y saliente a través del puerto 443 hacia y desde la instancia de detección de datos. Asegúrese de que el puerto 8080 está abierto para que pueda ver el progreso de la instalación en BlueXP. 
+
+
+| Conector <> clúster ONTAP (NAS) | 443 (TCP)  a| 
+BlueXP detecta los clústeres de ONTAP mediante HTTPS. Si utiliza directivas de firewall personalizadas, deben cumplir los siguientes requisitos:
+
+* El host del conector debe permitir el acceso HTTPS de salida a través del puerto 443. Si el conector está en la nube, todas las comunicaciones salientes se permiten mediante el firewall predefinido o las reglas de enrutamiento.
+* El clúster ONTAP debe permitir el acceso HTTPS de entrada a través del puerto 443. La política de firewall "mgmt" predeterminada permite el acceso HTTPS entrante desde todas las direcciones IP. Si ha modificado esta directiva predeterminada o si ha creado su propia directiva de firewall, debe asociar el protocolo HTTPS con esa directiva y habilitar el acceso desde el host de Connector.
+
+
+
+
+| Detección de los datos <> clúster de ONTAP  a| 
+* Para NFS: 111 (TCP\UDP) y 2049 (TCP\UDP)
+* Para CIFS: 139 (TCP\UDP) y 445 (TCP\UDP)
+
+ a| 
+Data Sense necesita una conexión de red a cada subred de Cloud Volumes ONTAP o a cada sistema ONTAP en las instalaciones. Los firewalls o las reglas de enrutamiento para Cloud Volumes ONTAP deben permitir conexiones entrantes desde la instancia de detección de datos.
+
+Asegúrese de que estos puertos estén abiertos a la instancia de Data Sense:
+
+* Para NFS: 111 y 2049
+* Para CIFS - 139 y 445
+
+
+Las políticas de exportación de volúmenes NFS deben permitir el acceso desde la instancia de Data Sense.
+
+
+
+| Sentido de los datos <> Active Directory | 389 (TCP Y UDP), 636 (TCP), 3268 (TCP) Y 3269 (TCP)  a| 
+Debe tener un Active Directory ya configurado para los usuarios de su empresa. Además, Data Sense necesita credenciales de Active Directory para analizar volúmenes CIFS.
+
+Debe tener la información de Active Directory:
+
+* DNS Server IP Address o varias direcciones IP
+* Nombre de usuario y contraseña para el servidor
+* Nombre de dominio (nombre de Active Directory)
+* Si utiliza o no un LDAP seguro (LDAPS)
+* Puerto de servidor LDAP (normalmente 389 para LDAP y 636 para LDAP seguro)
+
+
+|===
+Si utiliza varios hosts de detección de datos para proporcionar potencia de procesamiento adicional para analizar sus fuentes de datos, tendrá que habilitar puertos y protocolos adicionales. link:task-deploy-compliance-onprem.html#add-scanner-nodes-to-an-existing-deployment["Consulte los requisitos de puerto adicionales"].
+
+
+
+== Ponga en marcha la detección de datos en las instalaciones
+
+En configuraciones típicas, instalará el software en un único sistema host. <<Instalación de un solo host para configuraciones típicas,Consulte estos pasos aquí>>.
+
+image:diagram_deploy_onprem_single_host_internet.png["Un diagrama que muestra la ubicación de los orígenes de datos que se pueden analizar al utilizar una única instancia de detección de datos implementada en las instalaciones con acceso a Internet."]
+
+En configuraciones de gran tamaño en las que va a escanear petabytes de datos, puede incluir varios hosts para proporcionar una capacidad de procesamiento adicional. <<Instalación de varios hosts para configuraciones grandes,Consulte estos pasos aquí>>.
+
+image:diagram_deploy_onprem_multi_host_internet.png["Un diagrama que muestra la ubicación de los orígenes de datos que se pueden analizar cuando se utilizan varias instancias de detección de datos implementadas en las instalaciones con acceso a Internet."]
+
+Consulte <<Prepare el sistema host Linux,Preparar el sistema host Linux>> y.. <<Habilite el acceso a Internet de salida desde Cloud Data Sense,Revisión de requisitos previos>> Para ver la lista completa de requisitos antes de poner en marcha Cloud Data Sense.
+
+Las actualizaciones del software Data Sense se automatizan siempre que la instancia tenga conectividad a Internet.
+
+
+NOTE: Cloud Data Sense no puede analizar actualmente bloques de S3, Azure NetApp Files o FSX para ONTAP cuando el software está instalado en las instalaciones. En estos casos, deberá poner en marcha un conector e instancia aparte de detección de datos en el cloud y en https://docs.netapp.com/us-en/cloud-manager-setup-admin/concept-connectors.html#when-to-switch-between-connectors["Cambiar entre conectores"^] para sus diferentes fuentes de datos.
+
+
+
+=== Instalación de un solo host para configuraciones típicas
+
+Siga estos pasos al instalar el software Data Sense en un solo host local.
+
+.Lo que necesitará
+* Compruebe que su sistema Linux cumple con el <<Prepare el sistema host Linux,requisitos del host>>.
+* Compruebe que el sistema tiene instalados los dos paquetes de software de requisitos previos (Docker Engine y Python 3).
+* Asegúrese de tener privilegios de usuario raíz en el sistema Linux.
+* Si utiliza un proxy y está realizando intercepción TLS, deberá conocer la ruta en el sistema Data Sense Linux donde están almacenados los certificados de CA TLS.
+* Compruebe que su entorno sin conexión cumple con las necesidades <<Habilite el acceso a Internet de salida desde Cloud Data Sense,permisos y conectividad>>.
+
+
+.Pasos
+. Descargue el software Cloud Data Sense del https://mysupport.netapp.com/site/products/all/details/cloud-data-sense/downloads-tab/["Sitio de soporte de NetApp"^]. El archivo que debe seleccionar se denomina *DATASENSE-INSTALLER-<version>.tar.gz*.
+. Copie el archivo del instalador en el host Linux que tiene previsto utilizar (mediante `scp` o algún otro método).
+. En BlueXP, seleccione *Gobierno > Clasificación*.
+. Haga clic en *Activar detección de datos*.
++
+image:screenshot_cloud_compliance_deploy_start.png["Una captura de pantalla de cómo seleccionar el botón para activar Cloud Data Sense."]
+
+. En función de si está implementando una instancia en la nube o una instancia en sus instalaciones, haga clic en el botón *Deploy* correspondiente para iniciar el asistente de implementación de Data Sense.
++
+image:screenshot_cloud_compliance_deploy_onprem.png["Una captura de pantalla de cómo seleccionar el botón para poner en marcha Cloud Data Sense en una máquina del cloud o en sus instalaciones."]
+
+. Aparece el cuadro de diálogo _Deploy Data Sense on local_. Copie el comando proporcionado y péguelo en un archivo de texto para poder usarlo más tarde y haga clic en *Cerrar*. Por ejemplo:
++
+`sudo ./install.sh -a 12345 -c 27AG75 -t 2198qq`
+
+. Descomprima el archivo del instalador en el equipo host; por ejemplo:
++
+[source, cli]
+----
+tar -xzf DATASENSE-INSTALLER-V1.16.1.tar.gz
+----
+. Cuando el instalador lo solicite, puede introducir los valores necesarios en una serie de mensajes o puede proporcionar los parámetros necesarios como argumentos de línea de comandos al instalador.
++
+Tenga en cuenta que el instalador realiza una comprobación previa para asegurarse de que el sistema y los requisitos de red están en su lugar para una instalación correcta.
+
++
+[cols="50a,50"]
+|===
+| Introduzca los parámetros según se le solicite: | Introduzca el comando Full: 
+
+
+ a| 
+.. Pegue la información que ha copiado del paso 6:
+`sudo ./install.sh -a <account_id> -c <agent_id> -t <token>`
+.. Introduzca la dirección IP o el nombre de host del equipo host de Data Sense para que pueda accederse a él mediante la instancia de Connector.
+.. Introduzca la dirección IP o el nombre de host de la máquina host de BlueXP Connector para que pueda accederse a ella mediante la instancia de detección de datos.
+.. Introduzca los detalles del proxy según se le solicite. Si su conector BlueXP ya utiliza un proxy, no es necesario volver a introducir esta información ya que detección de datos utilizará automáticamente el proxy utilizado por el conector.
+
+| También puede crear el comando completo por adelantado, proporcionando los parámetros de host y proxy necesarios:
+`sudo ./install.sh -a <account_id> -c <agent_id> -t <token> --host <ds_host> --manager-host <cm_host> --proxy-host <proxy_host> --proxy-port <proxy_port> --proxy-scheme <proxy_scheme> --proxy-user <proxy_user> --proxy-password <proxy_password> --cacert-folder-path <ca_cert_dir>` 
+|===
++
+Valores de variable:
+
++
+** _account_id_ = ID de cuenta de NetApp
+** _Agent_id_ = ID del conector
+** _token_ = token de usuario jwt
+** _DS_host_ = dirección IP o nombre de host del sistema Data Sense Linux.
+** _Cm_host_ = dirección IP o nombre de host del sistema BlueXP Connector.
+** _proxy_host_ = IP o nombre de host del servidor proxy si el host está detrás de un servidor proxy.
+** _proxy_Port_ = Puerto para conectarse al servidor proxy (predeterminado 80).
+** _Proxy_Scheme_ = combinación de conexiones: https o http (valor predeterminado http).
+** _proxy_USER_ = Usuario autenticado para conectarse al servidor proxy, si se requiere autenticación básica.
+** _proxy_password_ = Contraseña del nombre de usuario especificado.
+** _CA_cert_dir_ = Ruta en el sistema Data Sense Linux que contiene paquetes de certificados de CA TLS adicionales. Sólo es necesario si el proxy está realizando intercepción TLS.
+
+
+
+
+.Resultado
+El instalador de Cloud Data Sense instala paquetes, registra la instalación e instala Data Sense. La instalación puede tardar entre 10 y 20 minutos.
+
+Si hay conectividad sobre el puerto 8080 entre el equipo host y la instancia de conector, verá el progreso de instalación en la ficha detección de datos de BlueXP.
+
+.El futuro
+En la página Configuración puede seleccionar los orígenes de datos que desea analizar.
+
+También puede hacerlo link:task-licensing-datasense.html["Configure la licencia de Cloud Data Sense"] en este momento. No se le cobrará hasta que finalice su prueba gratuita de 30 días.
+
+
+
+=== Agregar nodos de escáner a una implementación existente
+
+Puede añadir más nodos de escáner si necesita más potencia de procesamiento de escaneado para analizar sus orígenes de datos. Puede añadir los nodos del escáner inmediatamente después de instalar el nodo Manager, o bien puede añadir un nodo de escáner más adelante. Por ejemplo, si se da cuenta de que la cantidad de datos de uno de sus orígenes de datos se ha duplicado o triplicado en tamaño después de 6 meses, puede añadir un nuevo nodo de escáner para ayudar con el análisis de datos.
+
+Existen dos formas de añadir nodos de escáner adicionales:
+
+* agregue un nodo para ayudarle a analizar todos los orígenes de datos
+* agregar un nodo para ayudarle a escanear un origen de datos específico o un grupo específico de orígenes de datos (normalmente basado en la ubicación)
+
+
+De forma predeterminada, los nuevos nodos de escáner que agregue se agregarán al pool general de recursos de digitalización. Esto se denomina "grupo de escáner predeterminado". En la siguiente imagen, hay 1 nodo de administrador y 3 nodos de escáner en el grupo "predeterminado" que están analizando todos los datos de los 6 orígenes de datos.
+
+image:diagram_onprem_scanner_groups_default.png["Un diagrama de cómo los escáneres de detección de datos analizan orígenes de datos cuando se encuentran en el grupo de análisis predeterminado."]
+
+Si tiene ciertos orígenes de datos que desea analizar mediante nodos de escáner que están físicamente más cercanos a los orígenes de datos, puede definir un nodo de escáner o un grupo de nodos de escáner, para analizar un origen de datos específico o un grupo de orígenes de datos. En la siguiente imagen, hay 1 nodo de administrador y 3 nodos de escáner.
+
+* El nodo Administrador está en el grupo "predeterminado" y está analizando 1 origen de datos
+* El nodo 1 del escáner se encuentra en el grupo "estados Unidos" y está analizando 2 orígenes de datos
+* Los nodos de escáner 2 y 3 se encuentran en el grupo "europa" y comparten las tareas de escaneo para 3 fuentes de datos
+
+
+image:diagram_onprem_scanner_groups.png["Un diagrama de cómo los escáneres de detección de datos analizan orígenes de datos cuando se asignan a diferentes grupos de escáneres."]
+
+Los grupos de análisis de detección de datos se pueden definir como áreas geográficas independientes en las que se almacenan los datos. Puede implementar varios nodos de escáner de detección de datos en todo el mundo y elegir un grupo de escáner para cada nodo. De esta forma, cada nodo de escáner analizará los datos más cercanos. Cuanto más cerca esté el nodo del escáner de los datos, mejor será porque reduce la latencia de red tanto como sea posible mientras escanea datos.
+
+Puede elegir los grupos de escáneres que desea agregar a Data Sense y elegir sus nombres. El sentido de datos no impone que un nodo asignado a un grupo de escáner llamado "europa" se implemente en Europa.
+
+Siga estos pasos para instalar nodos adicionales del escáner de detección de datos:
+
+. Prepare los sistemas host Linux que actuarán como nodos del escáner
+. Descargue el software Data Sense en estos sistemas Linux
+. Ejecute un comando en el nodo Administrador para identificar los nodos del escáner
+. Siga los pasos para implementar el software en los nodos del escáner (y para definir opcionalmente un "grupo de escáner" para determinados nodos del escáner)
+. Si ha definido un grupo de escáner, en el nodo Administrador:
++
+.. Abra el archivo "working_Environment_to_scanner_group_config.yml" y defina los entornos de trabajo que explorarán cada grupo de escáneres
+.. Ejecute la siguiente secuencia de comandos para registrar esta información de asignación en todos los nodos del escáner: `update_we_scanner_group_from_config_file.sh`
+
+
+
+
+.Lo que necesitará
+* Compruebe que todos los sistemas Linux para los nodos del escáner cumplen con el <<Prepare el sistema host Linux,requisitos del host>>.
+* Compruebe que los sistemas tienen instalados los dos paquetes de software de requisitos previos (Docker Engine y Python 3).
+* Asegúrese de tener privilegios de usuario raíz en los sistemas Linux.
+* Compruebe que su entorno cumple con las necesidades <<Habilite el acceso a Internet de salida desde Cloud Data Sense,permisos y conectividad>>.
+* Debe tener las direcciones IP de los hosts del nodo Scanner que desea añadir.
+* Debe tener la dirección IP del sistema host del nodo Data Sense Manager
+* Debe tener la dirección IP o el nombre de host del sistema Connector, su ID de cuenta de NetApp, su identificador de cliente conector y el token de acceso de usuario. Si tiene previsto utilizar grupos de escáner, deberá conocer el identificador de entorno de trabajo de cada origen de datos de su cuenta. Consulte los pasos *_Prerrequisito_* siguientes para obtener esta información.
+* Deben habilitarse los siguientes puertos y protocolos en todos los hosts:
++
+[cols="15,20,55"]
+|===
+| Puerto | Protocolos | Descripción 
+
+
+| 2377 | TCP | Comunicaciones de gestión de clústeres 
+
+
+| 7946 | TCP, UDP | Comunicación entre nodos 
+
+
+| 4789 | UDP | Superpone el tráfico de red 
+
+
+| 50 | ESP | Tráfico de red de superposición (ESP) IPsec cifrada 
+
+
+| 111 | TCP, UDP | Servidor NFS para compartir archivos entre los hosts (necesario de cada nodo de escáner al nodo de administración) 
+
+
+| 2049 | TCP, UDP | Servidor NFS para compartir archivos entre los hosts (necesario de cada nodo de escáner al nodo de administración) 
+|===
+* Si está utilizando `firewalld` En sus máquinas de Data Sense, le recomendamos que la habilite antes de instalar Data Sense. Ejecute los siguientes comandos para configurar `firewalld` Para que sea compatible con Data Sense:
++
+....
+firewall-cmd --permanent --add-service=http
+firewall-cmd --permanent --add-service=https
+firewall-cmd --permanent --add-port=80/tcp
+firewall-cmd --permanent --add-port=8080/tcp
+firewall-cmd --permanent --add-port=443/tcp
+firewall-cmd --permanent --add-port=2377/tcp
+firewall-cmd --permanent --add-port=7946/udp
+firewall-cmd --permanent --add-port=7946/tcp
+firewall-cmd --permanent --add-port=4789/udp
+firewall-cmd --reload
+....
++
+Si activa `firewalld` Después de instalar Data Sense, debe reiniciar docker.
+
+
+
+.Requisitos previos
+Siga estos pasos para obtener el identificador de cuenta de NetApp, el identificador de cliente del conector, el nombre de servidor del conector y el token de acceso de usuario necesarios para añadir nodos de escáner.
+
+. En la barra de menús de BlueXP, haga clic en *cuenta > Administrar cuentas*.
++
+image:screenshot_account_id.png["Una captura de pantalla de los detalles de la cuenta BlueXP."]
+
+. Copie el _ID de cuenta_.
+. En la barra de menús de BlueXP, haga clic en *Ayuda > Soporte > conector BlueXP*.
++
+image:screenshot_connector_client_id.png["Una captura de pantalla de los ajustes de configuración de BlueXP Connector."]
+
+. Copie el conector _Client ID_ y el _Server Name_.
+. Si tiene previsto utilizar grupos de escáneres, en la ficha Configuración de detección de datos , copie el identificador de entorno de trabajo de cada entorno de trabajo que desee agregar a un grupo de escáneres.
++
+image:screenshot_work_env_id.png["Una captura de pantalla del ID de entorno de trabajo desde la página Configuración de detección de datos."]
+
+. Vaya a la https://services.cloud.netapp.com/developer-hub["Centro de desarrollo de documentación de API"^] Y haga clic en *aprender a autenticar*.
++
+image:screenshot_client_access_token.png["Captura de pantalla de la página Documentación de la API, con un enlace a las instrucciones de autenticación."]
+
+. Siga las instrucciones de autenticación y copie el _access token_ de la respuesta.
+
+
+.Pasos
+. En el nodo de Data Sense Manager, ejecute el script "add_scanner_node.sh". Por ejemplo, este comando añade 2 nodos de escáner:
++
+`sudo ./add_scanner_node.sh -a <account_id> -c <client_id> -m <cm_host> -h <ds_manager_ip> *-n <node_private_ip_1,node_private_ip_2>* -t <user_token>`
+
++
+Valores de variable:
+
++
+** _account_id_ = ID de cuenta de NetApp
+** _Client_id_ = ID de cliente del conector
+** _Cm_host_ = dirección IP o nombre de host del sistema conector
+** _DS_Manager_ip_ = Dirección IP privada del sistema de nodos de Data Sense Manager
+** _Node_Private_ip_ = direcciones IP de los sistemas de nodos del escáner de detección de datos (varias IP de nodos del escáner están separadas por una coma)
+** _USER_token_ = token de acceso de usuario JWT
+
+
+. Antes de que finalice la secuencia de comandos add_scanner_node, aparecerá un cuadro de diálogo con el comando de instalación necesario para los nodos del escáner. Copie el comando y guárdelo en un archivo de texto. Por ejemplo:
++
+`sudo ./node_install.sh -m 10.11.12.13 -t ABCDEF1s35212 -u red95467j`
+
+. En el host *cada nodo del escáner*:
++
+.. Copie el archivo de instalación de Data Sense (*DATASENSE-INSTALLER-<version>.tar.gz*) en el equipo host (usando `scp` o algún otro método).
+.. Descomprima el archivo del instalador.
+.. Pegue y ejecute el comando que copió en el paso 2.
+.. Si desea agregar un nodo de escáner a un "grupo de escáner", agregue el parámetro *-r <scanner_group_name>* al comando. De lo contrario, el nodo del escáner se agrega al grupo "predeterminado".
++
+Cuando la instalación termina en todos los nodos del escáner y se han Unido al nodo del administrador, el script "add_scanner_node.sh" también finaliza. La instalación puede tardar entre 10 y 20 minutos.
+
+
+
+. Si ha agregado algún nodo de escáner a un grupo de escáner, vuelva al nodo Administrador y realice las dos tareas siguientes:
++
+.. Abra el archivo "/opt/netapp/Datashense/working_Environment_to_scanner_group_config.yml" e introduzca la asignación para la que los grupos de escáneres exploran entornos de trabajo específicos. Deberá tener el _ID de entorno de trabajo_ para cada origen de datos. Por ejemplo, las siguientes entradas agregan 2 entornos de trabajo al grupo de escáneres "europa" y 2 al grupo de escáneres "estados Unidos":
++
+....
+scanner_groups:
+ europe:
+   working_environments:
+     - "working_environment_id1"
+     - "working_environment_id2"
+ united_states:
+   working_environments:
+     - "working_environment_id3"
+     - "working_environment_id4"
+....
++
+El grupo "predeterminado" analiza cualquier entorno de trabajo que no se agregue a la lista; debe tener al menos un nodo de administrador o escáner en el grupo "predeterminado".
+
+.. Ejecute la siguiente secuencia de comandos para registrar esta información de asignación en todos los nodos del escáner:
+`/opt/netapp/Datasense/tools/update_we_scanner_group_from_config_file.sh`
+
+
+
+
+.Resultado
+Data Sense se configura con los nodos Manager y Scanner para analizar todos sus orígenes de datos.
+
+.El futuro
+En la página Configuración puede seleccionar los orígenes de datos que desea analizar, si aún no lo ha hecho. Si ha creado grupos de escáner, los nodos de escáner del grupo correspondiente escanean cada origen de datos.
+
+Puede ver el nombre del grupo de escáneres de cada entorno de trabajo en la página Configuración.
+
+image:screenshot_work_env_id.png["Una captura de pantalla del ID de entorno de trabajo desde la página Configuración de detección de datos."]
+
+También puede ver la lista de todos los grupos de escáneres junto con la dirección IP y el estado de cada nodo de escáner del grupo en la parte inferior de la página Configuración.
+
+image:screenshot_scanner_groups.png["Una captura de pantalla que muestra todos los grupos de escáneres junto con la dirección IP de cada nodo de escáner del grupo."]
+
+Puede hacerlo link:task-licensing-datasense.html["Configure la licencia de Cloud Data Sense"] en este momento. No se le cobrará hasta que finalice su prueba gratuita de 30 días.
+
+
+
+=== Instalación de varios hosts para configuraciones grandes
+
+En configuraciones de gran tamaño en las que va a escanear petabytes de datos, puede incluir varios hosts para proporcionar una capacidad de procesamiento adicional. Cuando se utilizan varios sistemas host, el sistema principal se denomina _Manager node_ y los sistemas adicionales que proporcionan potencia de procesamiento adicional se denominan _Scanner Nodes_.
+
+Siga estos pasos cuando instale software Data Sense en varios hosts locales al mismo tiempo. Tenga en cuenta que no puede utilizar "grupos de escáneres" al implementar varios hosts de esta forma.
+
+.Lo que necesitará
+* Verifique que todos los sistemas Linux para los nodos Manager y Scanner se adapten al <<Prepare el sistema host Linux,requisitos del host>>.
+* Compruebe que los sistemas tienen instalados los dos paquetes de software de requisitos previos (Docker Engine y Python 3).
+* Asegúrese de tener privilegios de usuario raíz en los sistemas Linux.
+* Compruebe que su entorno cumple con las necesidades <<Habilite el acceso a Internet de salida desde Cloud Data Sense,permisos y conectividad>>.
+* Debe tener las direcciones IP de los hosts de nodos de escáner que desee utilizar.
+* Deben habilitarse los siguientes puertos y protocolos en todos los hosts:
++
+[cols="15,20,55"]
+|===
+| Puerto | Protocolos | Descripción 
+
+
+| 2377 | TCP | Comunicaciones de gestión de clústeres 
+
+
+| 7946 | TCP, UDP | Comunicación entre nodos 
+
+
+| 4789 | UDP | Superpone el tráfico de red 
+
+
+| 50 | ESP | Tráfico de red de superposición (ESP) IPsec cifrada 
+
+
+| 111 | TCP, UDP | Servidor NFS para compartir archivos entre los hosts (necesario de cada nodo de escáner al nodo de administración) 
+
+
+| 2049 | TCP, UDP | Servidor NFS para compartir archivos entre los hosts (necesario de cada nodo de escáner al nodo de administración) 
+|===
+
+
+.Pasos
+. Siga los pasos 1 a 7 de la <<Instalación de un solo host para configuraciones típicas,Instalación de un solo host>> en el nodo de gestión.
+. Como se muestra en el paso 8, cuando el instalador lo solicite, puede introducir los valores necesarios en una serie de peticiones o puede proporcionar los parámetros necesarios como argumentos de línea de comandos al instalador.
++
+Además de las variables disponibles para una instalación de un solo host, se utiliza una nueva opción *-n <node_ip>* para especificar las direcciones IP de los nodos del escáner. Las varias IP de nodos de escáner están separadas por una coma.
+
++
+Por ejemplo, este comando añade 3 nodos de escáner:
+`sudo ./install.sh -a <account_id> -c <agent_id> -t <token> --host <ds_host> --manager-host <cm_host> *-n <node_ip1>,<node_ip2>,<node_ip3>* --proxy-host <proxy_host> --proxy-port <proxy_port> --proxy-scheme <proxy_scheme> --proxy-user <proxy_user> --proxy-password <proxy_password>`
+
+. Antes de que se complete la instalación del nodo de gestión, se mostrará un cuadro de diálogo con el comando de instalación necesario para los nodos del escáner. Copie el comando y guárdelo en un archivo de texto. Por ejemplo:
++
+`sudo ./node_install.sh -m 10.11.12.13 -t ABCDEF-1-3u69m1-1s35212`
+
+. En el host *cada nodo del escáner*:
++
+.. Copie el archivo de instalación de Data Sense (*DATASENSE-INSTALLER-<version>.tar.gz*) en el equipo host (usando `scp` o algún otro método).
+.. Descomprima el archivo del instalador.
+.. Pegue y ejecute el comando que copió en el paso 3.
++
+Cuando la instalación finalice en todos los nodos de escáner y se han Unido al nodo de gestión, también se completa la instalación del nodo de gestión.
+
+
+
+
+
+.Resultado
+El instalador de Cloud Data Sense finaliza la instalación de los paquetes y registra la instalación. La instalación puede tardar entre 10 y 20 minutos.
+
+.El futuro
+En la página Configuración puede seleccionar los orígenes de datos que desea analizar.
+
+También puede hacerlo link:task-licensing-datasense.html["Configure la licencia de Cloud Data Sense"] en este momento. No se le cobrará hasta que finalice su prueba gratuita de 30 días.

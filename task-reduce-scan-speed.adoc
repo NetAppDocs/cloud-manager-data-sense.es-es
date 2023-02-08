@@ -1,0 +1,36 @@
+---
+sidebar: sidebar 
+permalink: task-reduce-scan-speed.html 
+keywords: slow scans, reduce speed 
+summary: 'Los análisis de datos tienen un impacto insignificante en los sistemas de almacenamiento y en los datos. Sin embargo, si le preocupa incluso un impacto muy pequeño, puede configurar Data Sense para realizar exploraciones "lentas".' 
+---
+= Reducción de la velocidad de exploración de detección de datos
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+Los análisis de datos tienen un impacto insignificante en los sistemas de almacenamiento y en los datos. Sin embargo, si le preocupa incluso un impacto muy pequeño, puede configurar Data Sense para realizar exploraciones "lentas".
+
+Cuando está activada, el análisis lento se utiliza en todas las fuentes de datos; no puede configurar el análisis lento para un único entorno de trabajo o origen de datos.
+
+
+TIP: No se puede reducir la velocidad de análisis al analizar bases de datos.
+
+.Pasos
+. Desde la parte inferior de la página _Configuration_, mueva el control deslizante hacia la derecha para activar el análisis lento.
++
+image:screenshot_slow_scan_enable.png["Una captura de pantalla que muestra cómo activar el análisis de cumplimiento lento."]
+
++
+La parte superior de la página Configuración indica que se ha activado el escaneo lento.
+
++
+image:screenshot_slow_scan_disable.png["Una captura de pantalla que muestra cómo activar el análisis de cumplimiento lento."]
+
+. Puede desactivar el escaneo lento haciendo clic en *Desactivar* en este mensaje.
+

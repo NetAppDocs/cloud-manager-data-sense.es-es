@@ -1,0 +1,194 @@
+---
+sidebar: sidebar 
+permalink: task-deploy-cloud-compliance.html 
+keywords: cloud compliance, data sense, get started, deploy cloud data sense, outbound internet, endpoints, cloud compliance internet, web browser connectivity, cloud compliance access, privacy, compliance 
+summary: Complete unos pasos para poner en marcha Cloud Data en el cloud. La instancia de detección de datos se pondrá en marcha en la misma red de proveedores de cloud que BlueXP Connector. 
+---
+= Ponga en marcha Cloud Data en el cloud
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+Complete unos pasos para poner en marcha Cloud Data en el cloud. La instancia de detección de datos se pondrá en marcha en la misma red de proveedores de cloud que BlueXP Connector.
+
+Tenga en cuenta que también puede link:task-deploy-compliance-onprem.html["Instale Data Sense en un host Linux que tenga acceso a Internet"]. Este tipo de instalación puede ser una buena opción si prefiere analizar sistemas ONTAP en las instalaciones mediante una instancia de Data Sense que también está ubicada en las instalaciones -- pero esto no es un requisito. El software funciona exactamente de la misma manera, independientemente del método de instalación que elija.
+
+
+
+== Inicio rápido
+
+Empiece rápidamente siguiendo estos pasos o desplácese hacia abajo hasta las secciones restantes para obtener todos los detalles.
+
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-1.png["Uno"] Cree un conector
+[role="quick-margin-para"]
+Si aún no tiene un conector, cree un conector ahora. Consulte https://docs.netapp.com/us-en/cloud-manager-setup-admin/task-creating-connectors-aws.html["Creación de un conector en AWS"^], https://docs.netapp.com/us-en/cloud-manager-setup-admin/task-creating-connectors-azure.html["Creación de un conector en Azure"^], o. https://docs.netapp.com/us-en/cloud-manager-setup-admin/task-creating-connectors-gcp.html["Creación de un conector en GCP"^].
+
+[role="quick-margin-para"]
+También puede hacerlo https://docs.netapp.com/us-en/cloud-manager-setup-admin/task-installing-linux.html["Ponga en marcha el conector en las instalaciones"^] En un host Linux en su red o en la nube.
+
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-2.png["Dos"] Revise los requisitos previos
+[role="quick-margin-para"]
+Asegúrese de que el entorno pueda cumplir con los requisitos previos. Esto incluye acceso saliente a Internet para la instancia, conectividad entre el conector y Cloud Data SENSE a través del puerto 443, entre otros. <<Revise los requisitos previos,Vea la lista completa>>.
+
+[role="quick-margin-para"]
+La configuración predeterminada requiere 16 vCPU para la instancia de Cloud Data Sense. Consulte link:concept-cloud-compliance.html#the-cloud-data-sense-instance["más detalles acerca del tipo de instancia"^].
+
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-3.png["Tres"] Ponga en marcha Cloud Data Sense
+[role="quick-margin-para"]
+Inicie el asistente de instalación para implementar la instancia de Cloud Data Sense en el cloud.
+
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-4.png["Cuatro"] Suscríbase al servicio Cloud Data Sense
+[role="quick-margin-para"]
+Los primeros 1 TB de datos que analiza Cloud Data Sense en BlueXP son gratuitos durante 30 días. Debe haber una suscripción a BlueXP a través de su plataforma de proveedores de cloud o una licencia BYOL de NetApp para continuar analizando los datos después de ese punto.
+
+
+
+== Cree un conector
+
+Si aún no tiene un conector, cree un conector en su proveedor de cloud. Consulte https://docs.netapp.com/us-en/cloud-manager-setup-admin/task-creating-connectors-aws.html["Creación de un conector en AWS"^] o. https://docs.netapp.com/us-en/cloud-manager-setup-admin/task-creating-connectors-azure.html["Creación de un conector en Azure"^], o. https://docs.netapp.com/us-en/cloud-manager-setup-admin/task-creating-connectors-gcp.html["Creación de un conector en GCP"^]. En la mayoría de los casos, es probable que tenga un conector configurado antes de intentar activar Cloud Data Sense porque la mayoría https://docs.netapp.com/us-en/cloud-manager-setup-admin/concept-connectors.html#when-a-connector-is-required["Las funciones de BlueXP requieren un conector"], pero hay casos en los que necesitará configurar uno ahora.
+
+Existen algunas situaciones en las que debe utilizar un conector implementado en un proveedor de cloud específico:
+
+* Cuando se escanear datos en Cloud Volumes ONTAP en AWS, Amazon FSX para ONTAP o en bloques AWS S3, se utiliza un conector en AWS.
+* Al analizar datos en Cloud Volumes ONTAP en Azure o en Azure NetApp Files, utiliza un conector en Azure.
++
+** Para Azure NetApp Files, debe implementarse en la misma región que los volúmenes que desea analizar.
+
+
+* Al analizar datos en Cloud Volumes ONTAP en GCP, se utiliza un conector en GCP.
+
+
+Los sistemas ONTAP en las instalaciones, recursos compartidos de archivos que no son de NetApp, almacenamiento de objetos genéricos de S3, bases de datos, carpetas de OneDrive, cuentas de SharePoint y cuentas de Google Drive se pueden analizar al utilizar cualquiera de estos conectores de cloud.
+
+Tenga en cuenta que también puede https://docs.netapp.com/us-en/cloud-manager-setup-admin/task-installing-linux.html["Ponga en marcha el conector en las instalaciones"^] En un host Linux en su red o en la nube. Algunos usuarios que planean instalar Data Sense on-prem también pueden optar por instalar el conector on-prem.
+
+Como puede ver, puede que haya algunas situaciones en las que necesite utilizar https://docs.netapp.com/us-en/cloud-manager-setup-admin/concept-connectors.html#when-to-use-multiple-connectors["Múltiples conectores"].
+
+
+
+=== Apoyo del Gobierno en las regiones
+
+Cloud Data Sense es compatible cuando el conector se ha puesto en marcha en una región gubernamental (AWS GovCloud, Azure Gov o Azure DoD). Cuando se implementa de esta manera, Data Sense tiene las siguientes restricciones:
+
+* Las cuentas de OneDrive, cuentas de SharePoint y cuentas de Google Drive no se pueden analizar.
+* La funcionalidad de etiqueta de Microsoft Azure Information Protection (AIP) no se puede integrar.
+
+
+
+
+== Revise los requisitos previos
+
+Revise los siguientes requisitos previos para asegurarse de que dispone de una configuración compatible antes de implementar Cloud Data Sense en el cloud.
+
+Habilite el acceso a Internet de salida desde Cloud Data Sense:: Cloud Data Sense requiere acceso saliente a Internet. Si la red virtual o física utiliza un servidor proxy para el acceso a Internet, asegúrese de que la instancia de detección de datos tiene acceso saliente a Internet para contactar con los siguientes puntos finales. Al implementar Data Sense en la nube, se encuentra en la misma subred que el conector.
++
+--
+Revise la siguiente tabla según cuál sea su caso, ya se esté poniendo en marcha Cloud Data Sense en AWS, Azure o GCP.
+
+*extremos necesarios para implementaciones de AWS:*
+
+[cols="43,57"]
+|===
+| Puntos finales | Específico 
+
+
+| \https://api.bluexp.netapp.com | Comunicación con el servicio BlueXP, que incluye cuentas de NetApp. 
+
+
+| \https://netapp-cloud-account.auth0.com \https://auth0.com | Comunicación con el sitio Web de BlueXP para la autenticación centralizada del usuario. 
+
+
+| \https://cloud-compliance-support-netapp.s3.us-west-2.amazonaws.com \https://hub.docker.com \https://auth.docker.io \https://registry-1.docker.io \https://index.docker.io/ \https://dseasb33srnrn.cloudfront.net/ \https://production.cloudflare.docker.com/ | Proporciona acceso a imágenes, manifiestos y plantillas de software. 
+
+
+| \https://kinesis.us-east-1.amazonaws.com | Permite a NetApp transmitir datos desde registros de auditoría. 
+
+
+| \https://cognito-idp.us-east-1.amazonaws.com \https://cognito-identity.us-east-1.amazonaws.com \https://user-feedback-store-prod.s3.us-west-2.amazonaws.com \https://customer-data-production.s3.us-west-2.amazonaws.com | Permite que Cloud Data Sense acceda y descargue manifiestos y plantillas, así como para enviar registros y métricas. 
+|===
+*Extremos necesarios para implementaciones de Azure y GCP:*
+
+[cols="43,57"]
+|===
+| Puntos finales | Específico 
+
+
+| \https://api.bluexp.netapp.com | Comunicación con el servicio BlueXP, que incluye cuentas de NetApp. 
+
+
+| \https://netapp-cloud-account.auth0.com \https://auth0.com | Comunicación con el sitio Web de BlueXP para la autenticación centralizada del usuario. 
+
+
+| \https://support.compliance.api.bluexp.netapp.com/ \https://hub.docker.com \https://auth.docker.io \https://registry-1.docker.io \https://index.docker.io/ \https://dseasb33srnrn.cloudfront.net/ \https://production.cloudflare.docker.com/ | Proporciona acceso a imágenes de software, manifiestos, plantillas y para enviar registros y métricas. 
+
+
+| \https://support.compliance.api.bluexp.netapp.com/ | Permite a NetApp transmitir datos desde registros de auditoría. 
+|===
+--
+Asegúrese de que BlueXP tiene los permisos necesarios:: Asegúrese de que BlueXP tiene permisos para implementar recursos y crear grupos de seguridad para la instancia de Cloud Data Sense. Puede encontrar los últimos permisos de BlueXP en https://docs.netapp.com/us-en/cloud-manager-setup-admin/reference-permissions.html["Las políticas proporcionadas por NetApp"^].
+Compruebe sus límites de vCPU:: Compruebe que el límite de vCPU de su proveedor de cloud permita poner en marcha una instancia con 16 núcleos. Deberá verificar el límite de vCPU para la familia de instancias correspondiente en la región donde se está ejecutando BlueXP. link:concept-cloud-compliance.html#the-cloud-data-sense-instance["Consulte los tipos de instancia necesarios"].
++
+--
+Consulte los siguientes enlaces para obtener más información sobre los límites de vCPU:
+
+* https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-resource-limits.html["Documentación de AWS: Cuotas de servicio de Amazon EC2"^]
+* https://docs.microsoft.com/en-us/azure/virtual-machines/linux/quotas["Documentación de Azure: Cuotas de vCPU de máquina virtual"^]
+* https://cloud.google.com/compute/quotas["Documentación de Google Cloud: Cuotas de recursos"^]
++
+Tenga en cuenta que puede implementar la detección de datos en un sistema con menos CPU y menos RAM, pero existen limitaciones al utilizar estos sistemas. Consulte link:concept-cloud-compliance.html#using-a-smaller-instance-type["Con un tipo de instancia más pequeño"] para obtener más detalles.
+
+
+
+--
+Asegúrese de que BlueXP Connector puede acceder a Cloud Data Sense:: Asegure la conectividad entre el conector y la instancia de Cloud Data Sense. El grupo de seguridad del conector debe permitir el tráfico entrante y saliente a través del puerto 443 hacia y desde la instancia de detección de datos. Esta conexión permite la implementación de la instancia de Data Sense y permite ver información en las fichas cumplimiento y Gobierno. Cloud Data Sense es compatible en regiones gubernamentales de AWS y Azure.
++
+--
+Se requieren reglas adicionales de grupos de seguridad entrantes y salientes para las implementaciones de AWS GovCloud. Consulte https://docs.netapp.com/us-en/cloud-manager-setup-admin/reference-ports-aws.html["Reglas para el conector en AWS"^] para obtener más detalles.
+
+Se requieren reglas adicionales de grupos de seguridad entrantes y salientes para implementaciones gubernamentales de Azure y Azure. Consulte https://docs.netapp.com/us-en/cloud-manager-setup-admin/reference-ports-azure.html["Reglas para Connector en Azure"^] para obtener más detalles.
+
+--
+Asegúrese de que puede mantener en funcionamiento Cloud Data Sense:: La instancia de Cloud Data Sense tiene que seguir para poder analizar sus datos de forma continua.
+Garantice la conectividad del navegador web con Cloud Data Sense:: Después de habilitar Cloud Data Sense, asegúrese de que los usuarios acceden a la interfaz BlueXP desde un host que tiene una conexión a la instancia de detección de datos.
++
+--
+La instancia de detección de datos utiliza una dirección IP privada para garantizar que los datos indexados no sean accesibles a Internet. Como resultado, el navegador web que utiliza para acceder a BlueXP debe tener una conexión a esa dirección IP privada. Esa conexión puede provenir de una conexión directa a su proveedor de cloud (por ejemplo, una VPN) o de un host que esté dentro de la misma red que la instancia de Data Sense.
+
+--
+
+
+
+
+== Ponga en marcha el sentido de los datos en el cloud
+
+Siga estos pasos para poner en marcha una instancia de Cloud Data Sense en el cloud.
+
+.Pasos
+. En el menú de navegación izquierdo de BlueXP, haga clic en *Gobierno > Clasificación*.
+. Haga clic en *Activar detección de datos*.
++
+image:screenshot_cloud_compliance_deploy_start.png["Una captura de pantalla de cómo seleccionar el botón para activar Cloud Data Sense."]
+
+. Haga clic en *desplegar* para iniciar el asistente de implementación de la nube.
++
+image:screenshot_cloud_compliance_deploy_cloud.png["Una captura de pantalla de cómo seleccionar el botón para poner en marcha Cloud Data Sense en el cloud."]
+
+. El asistente muestra el progreso a medida que avanza por los pasos de implementación. Se detendrá y pedirá información si se presenta algún problema.
++
+image:screenshot_cloud_compliance_wizard_start.png["Una captura de pantalla del asistente Cloud Data Sense para implementar una nueva instancia."]
+
+. Cuando se despliegue la instancia, haga clic en *continuar con la configuración* para ir a la página _Configuration_.
+
+
+.Resultado
+BlueXP pone en marcha la instancia de Cloud Data Sense en su proveedor de cloud.
+
+.El futuro
+En la página Configuración puede seleccionar los orígenes de datos que desea analizar.
+
+También puede hacerlo link:task-licensing-datasense.html["Configure la licencia de Cloud Data Sense"] en este momento. No se le cobrará hasta que finalice su prueba gratuita de 30 días.

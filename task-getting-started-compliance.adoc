@@ -1,0 +1,229 @@
+---
+sidebar: sidebar 
+permalink: task-getting-started-compliance.html 
+keywords: cloud compliance, get started, enable cloud compliance, cifs credentials, smb credentials, cloud compliance access, privacy, compliance, dp volumes, data protection volumes, CVO, Cloud Volumes ONTAP, data sense 
+summary: Complete algunos pasos para empezar a analizar sus volúmenes de Cloud Volumes ONTAP y ONTAP en las instalaciones con Cloud Data Sense. 
+---
+= Introducción a Cloud Data Sense para Cloud Volumes ONTAP y ONTAP en las instalaciones
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+Complete algunos pasos para empezar a analizar sus volúmenes de Cloud Volumes ONTAP y ONTAP en las instalaciones con Cloud Data Sense.
+
+
+
+== Inicio rápido
+
+Empiece rápidamente siguiendo estos pasos o desplácese hacia abajo hasta las secciones restantes para obtener todos los detalles.
+
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-1.png["Uno"] Descubra los orígenes de datos que desea analizar
+[role="quick-margin-para"]
+Para poder analizar volúmenes, debe agregar los sistemas como entornos de trabajo en BlueXP:
+
+[role="quick-margin-list"]
+* Para sistemas Cloud Volumes ONTAP, estos entornos de trabajo deberían estar ya disponibles en BlueXP
+* Para sistemas ONTAP en las instalaciones, https://docs.netapp.com/us-en/cloud-manager-ontap-onprem/task-discovering-ontap.html["BlueXP debe detectar los clústeres de ONTAP"^]
+
+
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-2.png["Dos"] Ponga en marcha la instancia de Cloud Data Sense
+[role="quick-margin-para"]
+link:task-deploy-cloud-compliance.html["Ponga en marcha Cloud Data Sense"^] si aún no hay una instancia implementada.
+
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-3.png["Tres"] Habilite Cloud Data Sense y seleccione los volúmenes que desea analizar
+[role="quick-margin-para"]
+Haga clic en *detección de datos*, seleccione la ficha *Configuración* y active las exploraciones de cumplimiento para volúmenes en entornos de trabajo específicos.
+
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-4.png["Cuatro"] Garantice el acceso a los volúmenes
+[role="quick-margin-para"]
+Ahora que Cloud Data Sense está habilitado, asegúrese de que pueda acceder a todos los volúmenes.
+
+[role="quick-margin-list"]
+* La instancia de Cloud Data Sense necesita una conexión de red a cada subred de Cloud Volumes ONTAP o sistema ONTAP en las instalaciones.
+* Los grupos de seguridad para Cloud Volumes ONTAP deben permitir conexiones entrantes desde la instancia de detección de datos.
+* Asegúrese de que estos puertos estén abiertos a la instancia de Data Sense:
++
+** Para NFS: Puertos 111 y 2049.
+** Para CIFS: Puertos 139 y 445.
+
+
+* Las políticas de exportación de volúmenes NFS deben permitir el acceso desde la instancia de Data Sense.
+* La detección de datos necesita credenciales de Active Directory para analizar volúmenes CIFS.
++
+Haga clic en *cumplimiento* > *Configuración* > *Editar credenciales CIFS* y proporcione las credenciales.
+
+
+
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-5.png["Cinco"] Gestione los volúmenes que desea analizar
+[role="quick-margin-para"]
+Seleccione o anule la selección de los volúmenes que desea analizar y Cloud Data Sense iniciará o dejará de analizarlos.
+
+
+
+== Detección de los orígenes de datos que desea analizar
+
+Si los orígenes de datos que desea analizar no están ya en su entorno de BlueXP, puede añadirlos al lienzo en este momento.
+
+Sus sistemas Cloud Volumes ONTAP ya deben estar disponibles en el lienzo de BlueXP. Para los sistemas ONTAP en las instalaciones, es necesario que lo tenga https://docs.netapp.com/us-en/cloud-manager-ontap-onprem/task-discovering-ontap.html["BlueXP descubre estos clústeres"^].
+
+
+
+== Implementar la instancia de Cloud Data Sense
+
+Si todavía no hay una instancia implementada, implemente Cloud Data Sense.
+
+Si está escaneando sistemas Cloud Volumes ONTAP y ONTAP locales a los que se puede acceder a través de Internet, puede hacerlo link:task-deploy-cloud-compliance.html["Ponga en marcha Cloud Data en el cloud"^] o. link:task-deploy-compliance-onprem.html["en una ubicación en el hotel que tiene acceso a internet"^].
+
+Si está escaneando en las instalaciones sistemas ONTAP que se han instalado en un sitio oscuro que no tiene acceso a Internet, debe hacerlo link:task-deploy-compliance-dark-site.html["Implemente Cloud Data Sense en la misma ubicación en las instalaciones que no tiene acceso a Internet"^]. Esto también requiere que el conector BlueXP se despliegue en esa misma ubicación en las instalaciones.
+
+Las actualizaciones del software Data Sense se automatizan siempre que la instancia tenga conectividad a Internet.
+
+
+
+== Habilitar el sentido de los datos en el cloud en sus entornos de trabajo
+
+Puede habilitar la detección de datos en el cloud en sistemas Cloud Volumes ONTAP de cualquier proveedor de cloud compatible y en clústeres de ONTAP en las instalaciones.
+
+. En el menú de navegación izquierdo de BlueXP, haga clic en *Gobierno > Clasificación* y seleccione la ficha *Configuración*.
++
+image:screenshot_cloud_compliance_we_scan_config.png["Una captura de pantalla de la pestaña Configuration inmediatamente después de implementar la instancia de Cloud Data Sense."]
+
+. Seleccione cómo desea analizar los volúmenes en cada entorno de trabajo. link:concept-cloud-compliance.html#whats-the-difference-between-mapping-and-classification-scans["Obtenga más información sobre las exploraciones de clasificación y mapeo"]:
++
+** Para asignar todos los volúmenes, haga clic en *asignar todos los volúmenes*.
+** Para asignar y clasificar todos los volúmenes, haga clic en *asignar y clasificar todos los volúmenes*.
+** Para personalizar la exploración de cada volumen, haga clic en *o seleccione el tipo de exploración para cada volumen* y, a continuación, elija los volúmenes que desea asignar y/o clasificar.
++
+Consulte <<Habilitar y deshabilitar los análisis de cumplimiento de normativas en los volúmenes,Habilitar y deshabilitar los análisis de cumplimiento de normativas en los volúmenes>> para obtener más detalles.
+
+
+
+. En el cuadro de diálogo de confirmación, haga clic en *aprobar* para que Data SENSE empiece a analizar los volúmenes.
+
+
+.Resultado
+Cloud Data Sense comienza a analizar los volúmenes seleccionados en el entorno de trabajo. Los resultados estarán disponibles en la consola de cumplimiento tan pronto como Cloud Data Sense termine los análisis iniciales. El tiempo que se tarda en depende de la cantidad de datos; puede que sea unos minutos u horas.
+
+
+
+== Comprobar que Cloud Data Sense tiene acceso a volúmenes
+
+Asegúrese de que Cloud Data Sense pueda acceder a los volúmenes mediante la comprobación de la red, los grupos de seguridad y las políticas de exportación. Deberá proporcionar la detección de datos con credenciales CIFS para poder acceder a volúmenes CIFS.
+
+.Pasos
+. Asegúrese de que hay una conexión de red entre la instancia de Cloud Data Sense y cada red que incluye volúmenes para clústeres Cloud Volumes ONTAP o ONTAP en las instalaciones.
+. Asegúrese de que el grupo de seguridad para Cloud Volumes ONTAP permite el tráfico entrante desde la instancia de detección de datos.
++
+Puede abrir el grupo de seguridad para el tráfico desde la dirección IP de la instancia de Data Sense, o bien puede abrir el grupo de seguridad para todo el tráfico desde dentro de la red virtual.
+
+. Asegúrese de que los siguientes puertos están abiertos a la instancia de Data Sense:
++
+** Para NFS: Puertos 111 y 2049.
+** Para CIFS: Puertos 139 y 445.
+
+
+. Compruebe que las políticas de exportación de volúmenes NFS incluyan la dirección IP de la instancia de Data Sense para poder acceder a los datos de cada volumen.
+. Si utiliza CIFS, proporcione detección de datos con credenciales de Active Directory para poder analizar volúmenes CIFS.
++
+.. En el menú de navegación izquierdo de BlueXP, haga clic en *Gobierno > Clasificación* y seleccione la ficha *Configuración*.
++
+image:screenshot_cifs_credentials.gif["Captura de pantalla de la ficha cumplimiento que muestra el botón Estado del análisis que está disponible en la parte superior derecha del panel de contenido."]
+
+.. Para cada entorno de trabajo, haga clic en *Editar credenciales CIFS* e introduzca el nombre de usuario y la contraseña que necesita Data Sense para acceder a los volúmenes CIFS en el sistema.
++
+Las credenciales pueden ser de sólo lectura, pero si se proporcionan credenciales de administrador, se garantiza que Data Sense pueda leer cualquier dato que requiera permisos elevados. Las credenciales se almacenan en la instancia de Cloud Data Sense.
+
++
+Si desea asegurarse de que los análisis de clasificación de detección de datos no modifican sus archivos “horas a las que se accedió por última vez”, recomendamos que el usuario tenga permiso escribir atributos. Si es posible, recomendamos que el usuario configurado de Active Directory sea parte de un grupo padre en la organización que tenga permisos para todos los archivos.
+
++
+Después de introducir las credenciales, debe ver un mensaje que indica que todos los volúmenes CIFS se autenticaron correctamente.
+
++
+image:screenshot_cifs_status.gif["Captura de pantalla que muestra la página Configuración y un sistema Cloud Volumes ONTAP para el que se han proporcionado correctamente las credenciales CIFS."]
+
+
+
+. En la página _Configuration_, haga clic en *View Details* para revisar el estado de cada volumen CIFS y NFS y corregir los errores.
++
+Por ejemplo, la siguiente imagen muestra cuatro volúmenes; uno de los cuales no puede analizar Cloud Data Sense debido a problemas de conectividad de red entre la instancia de detección de datos y el volumen.
+
++
+image:screenshot_compliance_volume_details.gif["Captura de pantalla de la página Ver detalles de la configuración de exploración que muestra cuatro volúmenes; uno de los cuales no se analiza debido a la conectividad de red entre detección de datos y el volumen."]
+
+
+
+
+
+== Habilitar y deshabilitar los análisis de cumplimiento de normativas en los volúmenes
+
+Puede iniciar o detener exploraciones de sólo asignación, o bien análisis de asignación y clasificación, en un entorno de trabajo en cualquier momento desde la página Configuración. También puede cambiar de exploraciones de sólo asignación a exploraciones de asignación y clasificación, y viceversa. Le recomendamos que analice todos los volúmenes.
+
+image:screenshot_volume_compliance_selection.png["Captura de pantalla de la página Configuración en la que puede activar o desactivar el análisis de volúmenes individuales."]
+
+[cols="45,45"]
+|===
+| Para: | Haga lo siguiente: 
+
+
+| Active los análisis de sólo asignación en un volumen | En el área de volumen, haga clic en *Mapa* 
+
+
+| Active el análisis completo en un volumen | En el área de volumen, haga clic en *Mapa y clasificación* 
+
+
+| Desactive el análisis en un volumen | En el área de volumen, haga clic en *Desactivado* 
+
+
+|  |  
+
+
+| Active análisis de sólo asignación en todos los volúmenes | En el área de encabezado, haga clic en *Mapa* 
+
+
+| Active el análisis completo en todos los volúmenes | En el área de encabezado, haga clic en *Mapa y clasificación* 
+
+
+| Desactive el análisis en todos los volúmenes | En el área encabezado, haga clic en *Desactivado* 
+|===
+
+NOTE: Los nuevos volúmenes agregados al entorno de trabajo sólo se analizan automáticamente cuando se ha establecido el ajuste *Mapa* o *Mapa y clasificación* en el área de rumbo. Cuando se establece en *personalizado* o *Desactivado* en el área rumbo, deberá activar la asignación y/o la exploración completa en cada volumen nuevo que agregue en el entorno de trabajo.
+
+
+
+== Análisis de volúmenes de protección de datos
+
+De manera predeterminada, los volúmenes de protección de datos (DP) no se analizan porque no se exponen externamente y en Cloud Data Sense no pueden acceder a ellos. Se trata de los volúmenes de destino de las operaciones de SnapMirror desde un sistema ONTAP en las instalaciones o desde un sistema Cloud Volumes ONTAP.
+
+Inicialmente, la lista de volúmenes identifica estos volúmenes como _Type_ *DP* con el _Status_ *no Scanning* y el _Required Action_ *Enable Access to DP Volumes*.
+
+image:screenshot_cloud_compliance_dp_volumes.png["Una captura de pantalla que muestra el botón Activar acceso a volúmenes DP que puede seleccionar para analizar volúmenes de protección de datos."]
+
+.Pasos
+Si desea analizar estos volúmenes de protección de datos:
+
+. Haga clic en *Activar acceso a volúmenes DP* en la parte superior de la página.
+. Revise el mensaje de confirmación y vuelva a hacer clic en *Activar acceso a volúmenes DP*.
++
+** Se habilitan los volúmenes que se crearon inicialmente como volúmenes NFS en el sistema ONTAP de origen.
+** Los volúmenes que se crearon inicialmente como volúmenes CIFS en el sistema ONTAP de origen requieren la introducción de credenciales CIFS para analizar dichos volúmenes DP. Si ya introdujo credenciales de Active Directory para que Cloud Data Sense pueda analizar volúmenes de CIFS, puede usar esas credenciales o puede especificar un conjunto diferente de credenciales de administrador.
++
+image:screenshot_compliance_dp_cifs_volumes.png["Una captura de pantalla de las dos opciones para habilitar los volúmenes de protección de datos CIFS."]
+
+
+
+. Active cada volumen DP que desee analizar <<Habilitar y deshabilitar los análisis de cumplimiento de normativas en los volúmenes,del mismo modo que se habilitaron otros volúmenes>>.
+
+
+.Resultado
+Una vez habilitado, Cloud Data Sense crea un recurso compartido de NFS de cada volumen DP que se ha activado para el análisis. Las políticas de exportación de recursos compartidos solo permiten el acceso desde la instancia de detección de datos.
+
+*Nota:* Si no ha tenido volúmenes de protección de datos CIFS cuando ha activado inicialmente el acceso a volúmenes DP y, más tarde, agregue algunos, el botón *Activar acceso a CIFS DP* aparece en la parte superior de la página Configuración. Haga clic en este botón y añada credenciales CIFS para habilitar el acceso a estos volúmenes CIFS DP.
+
+
+NOTE: Las credenciales de Active Directory solo están registradas en la máquina virtual de almacenamiento del primer volumen CIFS DP, por lo que se analizarán todos los volúmenes de DP en esa SVM. Cualquier volumen que resida en otras SVM no tendrá registradas las credenciales de Active Directory; por lo tanto, esos volúmenes de DP no se analizarán.

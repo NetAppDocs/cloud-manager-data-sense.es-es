@@ -1,0 +1,80 @@
+---
+sidebar: sidebar 
+permalink: task-audit-data-sense-actions.html 
+keywords: compliance, actions, view progress 
+summary: Data sense registra las actividades de gestión que se han realizado en archivos de todos los entornos de trabajo y orígenes de datos que Data Sense está analizando. Puede ver el contenido de los archivos de registro de auditoría de Data Sense o descargarlos para ver los cambios que se han producido en los archivos y cuándo. 
+---
+= Auditoría del historial de acciones de detección de datos
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+Data sense registra las actividades de gestión que se han realizado en archivos de todos los entornos de trabajo y orígenes de datos que Data Sense está analizando. Puede ver el contenido de los archivos de registro de auditoría de Data Sense o descargarlos para ver los cambios que se han producido en los archivos y cuándo.
+
+Por ejemplo, puede ver qué solicitud se emitió, la hora de la solicitud y detalles como la ubicación de origen en caso de que se haya eliminado un archivo o la ubicación de origen y destino en caso de que se haya movido un archivo.
+
+
+
+== Contenido del archivo de registro
+
+Cada línea del registro de auditoría contiene información con el siguiente formato:
+
+`<full date> | <status> | ds_audit_logger | <module> | 0 | 0 | File <full file path> deleted from device <device path> - <result>`
+
+* Fecha y hora: Marca de hora completa del evento
+* Estado: INFORMACIÓN, AVISO
+* Tipo de acción (eliminar, copiar, mover, crear política, actualizar política, Volver a analizar archivos, descargar informes JSON, etc.)
+* Nombre de archivo (si la acción es relevante para un archivo)
+* Detalles de la acción - lo que se hizo: Depende de la acción
++
+** Nombre de la política
+** Para mover: Origen y destino
+** Para copia - origen y destino
+** Para etiqueta: Nombre de etiqueta
+** Para asignar a: Nombre de usuario
+** Para alerta de correo electrónico: Dirección/cuenta de correo electrónico
+
+
+
+
+Por ejemplo, las siguientes líneas del archivo de registro muestran una operación de copia correcta y una operación de copia con errores.
+
+....
+2022-06-06 15:23:08,910 | INFO | ds_audit_logger | es_scanned_file | 237 | 49 | Copy file /CIFS_share/data/dop1/random_positives.tsv from device 10.31.133.183 (type: SMB_SHARE) to device 10.31.130.133:/export_reports (NFS_SHARE) - SUCCESS
+2022-06-06 15:23:08,968 | WARNING | ds_audit_logger | es_scanned_file | 239 | 153 | Copy file /CIFS_share/data/compliance-netapp.tar.gz from device 10.31.133.183 (type: SMB_SHARE) to device 10.31.130.133:/export_reports (NFS_SHARE) - FAILURE
+....
+
+
+== Acceso al archivo de registro
+
+Los archivos del registro de auditoría se encuentran en la máquina de detección de datos en: `/opt/netapp/audit_logs/`
+
+Cada archivo de registro puede tener un tamaño máximo de 10 MB. Cuando se alcanza ese límite, se inicia un nuevo archivo de registro. Los archivos de registro se denominan "DataSense_audit.log", "DataSense_audit.log.1", "DataSense_audit.log.2", etc. Se conservan un máximo de 100 archivos de registro en el sistema: Los archivos de registro antiguos se eliminan automáticamente después de alcanzar el máximo.
+
+Cuando se instala Data Sense en las instalaciones, puede navegar directamente al archivo de registro.
+
+Cuando se implementa la detección de datos en el cloud, necesita SSH a la instancia de Data Sense. Debe SSH al sistema introduciendo el usuario y la contraseña, o usando la clave SSH que ha proporcionado durante la instalación de BlueXP Connector. El comando SSH es:
+
+ ssh -i <path_to_the_ssh_key> <machine_user>@<datasense_ip>
+* <path_to_the_ssh_key> = ubicación de claves de autenticación ssh
+* <machine_user>.:
++
+** Para AWS: Utilice <ec2-user>
+** Para Azure: Utilice el usuario creado para la instancia de BlueXP
+** Para GCP: Utilice el usuario creado para la instancia de BlueXP
+
+
+* <datasense_ip> = dirección IP de la instancia de la máquina virtual
+
+
+Tenga en cuenta que deberá modificar las reglas entrantes del grupo de seguridad para acceder al sistema en la nube. Para obtener más información, consulte:
+
+* https://docs.netapp.com/us-en/cloud-manager-setup-admin/reference-ports-aws.html["Reglas del grupo de seguridad en AWS"^]
+* https://docs.netapp.com/us-en/cloud-manager-setup-admin/reference-ports-azure.html["Reglas de grupos de seguridad en Azure"^]
+* https://docs.netapp.com/us-en/cloud-manager-setup-admin/reference-ports-gcp.html["Reglas de firewall en Google Cloud"^]
+

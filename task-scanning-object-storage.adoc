@@ -1,0 +1,125 @@
+---
+sidebar: sidebar 
+permalink: task-scanning-object-storage.html 
+keywords: cloud compliance, enable cloud compliance, privacy, compliance, object storage, Data Sense 
+summary: 'Complete unos pasos para empezar a analizar datos en el almacenamiento de objetos directamente con Cloud Data Sense. El sentido de los datos puede analizar datos desde cualquier servicio de almacenamiento de objetos que utilice el protocolo simple Storage Service (S3). Entre ellas se incluyen StorageGRID de NetApp, IBM Cloud Object Store, Azure Blob (Using Minio), Linode, B2 Cloud Storage, Amazon S3, etc.' 
+---
+= Analizando el almacenamiento de objetos que utiliza el protocolo S3
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+Complete unos pasos para empezar a analizar datos en el almacenamiento de objetos directamente con Cloud Data Sense. El sentido de los datos puede analizar datos desde cualquier servicio de almacenamiento de objetos que utilice el protocolo simple Storage Service (S3). Entre ellas se incluyen StorageGRID de NetApp, IBM Cloud Object Store, Azure Blob (Using Minio), Linode, B2 Cloud Storage, Amazon S3, etc.
+
+
+
+== Inicio rápido
+
+Empiece rápidamente siguiendo estos pasos o desplácese hacia abajo hasta las secciones restantes para obtener todos los detalles.
+
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-1.png["Uno"] Revise los requisitos previos de almacenamiento del objeto
+[role="quick-margin-para"]
+Debe tener la URL del extremo para conectarse con el servicio de almacenamiento de objetos.
+
+[role="quick-margin-para"]
+Debe tener la clave de acceso y la clave secreta del proveedor de almacenamiento de objetos para que Cloud Data Sense pueda acceder a los bloques.
+
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-2.png["Dos"] Ponga en marcha la instancia de Cloud Data Sense
+[role="quick-margin-para"]
+link:task-deploy-cloud-compliance.html["Ponga en marcha Cloud Data Sense"^] si aún no hay una instancia implementada.
+
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-3.png["Tres"] Añada el servicio de almacenamiento de objetos
+[role="quick-margin-para"]
+Añada el servicio de almacenamiento de objetos al Cloud Data Sense.
+
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-4.png["Cuatro"] Seleccione los cucharones que desea escanear
+[role="quick-margin-para"]
+Seleccione los cubos que desea analizar y Cloud Data Sense empezará a escanear.
+
+
+
+== Revisión de requisitos de almacenamiento de objetos
+
+Revise los siguientes requisitos previos para asegurarse de tener una configuración compatible antes de habilitar Cloud Data Sense.
+
+* Debe tener la URL del extremo para conectarse con el servicio de almacenamiento de objetos.
+* Debe tener la clave de acceso y la clave secreta del proveedor de almacenamiento de objetos para que Data Sense pueda acceder a los bloques.
+* La compatibilidad con Azure Blob requiere que utilice el link:https://min.io/["Servicio de Minio"^].
+
+
+
+
+== Implementar la instancia de Cloud Data Sense
+
+Si todavía no hay una instancia implementada, implemente Cloud Data Sense.
+
+Si va a analizar datos de un almacenamiento de objetos S3 al que se puede acceder a través de Internet, puede hacerlo link:task-deploy-cloud-compliance.html["Ponga en marcha Cloud Data en el cloud"^] o. link:task-deploy-compliance-onprem.html["Implemente el software de detección de datos en una ubicación local con acceso a Internet"^].
+
+Si va a analizar datos del almacenamiento de objetos S3 que se ha instalado en un sitio oscuro que no tiene acceso a Internet, deberá hacerlo link:task-deploy-compliance-dark-site.html["Implemente Cloud Data Sense en la misma ubicación en las instalaciones que no tiene acceso a Internet"^]. Esto también requiere que el conector BlueXP se despliegue en esa misma ubicación en las instalaciones.
+
+Las actualizaciones del software Data Sense se automatizan siempre que la instancia tenga conectividad a Internet.
+
+
+
+== Adición del servicio de almacenamiento de objetos al Cloud Data Sense
+
+Añada el servicio de almacenamiento de objetos.
+
+.Pasos
+. En la página Configuración de entornos de trabajo, haga clic en *Agregar origen de datos* > *Agregar servicio de almacenamiento de objetos*.
++
+image:screenshot_compliance_add_object_storage_button.png["Una captura de pantalla de la página Configuración de exploración donde puede hacer clic en el botón Agregar grupo de recursos compartidos de archivos."]
+
+. En el cuadro de diálogo Add Object Storage Service, introduzca los detalles del servicio de almacenamiento de objetos y haga clic en *continuar*.
++
+.. Introduzca el nombre que desea utilizar para el entorno de trabajo. Este nombre debe reflejar el nombre del servicio de almacenamiento de objetos al que se conecta.
+.. Introduzca la URL de extremo para acceder al servicio de almacenamiento de objetos.
+.. Introduzca la clave de acceso y la clave secreta para que Cloud Data Sense pueda acceder a los bloques del almacenamiento de objetos.
++
+image:screenshot_compliance_add_object_storage.png["Captura de pantalla del cuadro de diálogo en el que se introducen los valores para acceder al servicio de almacenamiento de objetos."]
+
+
+
+
+
+.Resultado
+El nuevo Servicio de almacenamiento de objetos se añade a la lista de entornos de trabajo.
+
+
+
+== Habilitación y deshabilitación de análisis de cumplimiento de normativas en bloques de almacenamiento de objetos
+
+Después de habilitar Cloud Data Sense en el Servicio de almacenamiento de objetos, el siguiente paso es configurar los bloques que desea analizar. El sentido de los datos detecta esos bloques y los muestra en el entorno de trabajo que ha creado.
+
+.Pasos
+. En la página Configuración, haga clic en *Configuración* en el entorno de trabajo Servicio de almacenamiento de objetos.
++
+image:screenshot_compliance_object_storage_config.png["Una captura de pantalla de cómo hacer clic en Configuración para el entorno de trabajo para poder elegir los bloques que desea escanear."]
+
+. Active escaneos de sólo asignación o escaneos de asignación y clasificación en los bloques.
++
+image:screenshot_compliance_object_storage_select_buckets.png["Captura de pantalla de selección de los cubos de almacenamiento de objetos que desea analizar."]
+
++
+[cols="45,45"]
+|===
+| Para: | Haga lo siguiente: 
+
+
+| Habilite los análisis de sólo asignación en un bloque | Haga clic en *Mapa* 
+
+
+| Activar exploraciones completas en un bloque | Haga clic en *Mapa y clasificación* 
+
+
+| Desactivar el análisis en un bloque | Haga clic en *Desactivado* 
+|===
+
+
+.Resultado
+Cloud Data Sense comienza a analizar los bloques que ha habilitado. Si hay algún error, aparecerán en la columna Estado, junto con la acción necesaria para corregir el error.

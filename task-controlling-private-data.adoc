@@ -1,0 +1,138 @@
+---
+sidebar: sidebar 
+permalink: task-controlling-private-data.html 
+keywords: personal files, personal data, sensitive personal files, sensitive personal data, health data, ethnic origin, political opinions, gdpr, email address, credit card, ip address, iban, national ID, identifier, password, sex, criminal, compliance, privacy, filter data, permissions, csv file, json file, highlights, policies 
+summary: Controle sus datos privados al ver los detalles sobre los datos personales y los datos personales confidenciales de su empresa. También puede obtener visibilidad revisando las categorías y los tipos de archivo que se encuentran en Cloud Data en sus datos. 
+---
+= Ver los detalles de cumplimiento de normativas sobre los datos almacenados en la empresa
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+Controle sus datos privados al ver los detalles sobre los datos personales y los datos personales confidenciales de su empresa. También puede obtener visibilidad revisando las categorías y los tipos de archivo que se encuentran en Cloud Data en sus datos.
+
+
+NOTE: Las capacidades descritas en esta sección sólo están disponibles si ha elegido realizar un análisis de clasificación completo en sus orígenes de datos. Los orígenes de datos que han tenido un análisis de sólo asignación no muestran detalles de nivel de archivo.
+
+De forma predeterminada, el panel Cloud Data Sense muestra los datos de cumplimiento de normativas de todas las bases de datos y entornos de trabajo.
+
+image:screenshot_compliance_dashboard.png["Una captura de pantalla del panel Cloud Data Sense"]
+
+Si sólo desea ver datos para algunos de los entornos de trabajo, <<Visualización de datos de Dashboard para entornos de trabajo específicos,seleccione esos entornos de trabajo>>.
+
+También puede filtrar los resultados desde la página Investigación de datos y descargar un informe de los resultados como un archivo CSV. Consulte link:task-investigate-data.html#filtering-data-in-the-data-investigation-page["Filtrar datos en la página Investigación de datos"] para obtener más detalles.
+
+
+
+== Visualización de archivos que contienen datos personales
+
+Cloud Data Sense identifica automáticamente palabras, cadenas y patrones específicos (Regex) dentro de los datos. Por ejemplo, Información de identificación personal (PII), números de tarjeta de crédito, números de seguridad social, números de cuenta bancaria, contraseñas, y sigue. link:reference-private-data-categories.html#types-of-personal-data["Consulte la lista completa"^]. Data Sense identifica este tipo de información en archivos individuales, en archivos dentro de directorios (recursos compartidos y carpetas) y en tablas de base de datos.
+
+Además, si ha agregado un servidor de bases de datos para analizar, la función _Data Fusion_ permite analizar los archivos para identificar si se encuentran identificadores únicos de las bases de datos en esos archivos u otras bases de datos. Consulte link:task-managing-data-fusion.html["Adición de identificadores de datos personales mediante Data Fusion"^] para obtener más detalles.
+
+Para algunos tipos de datos personales, Data Sense utiliza _proximity validation_ para validar sus hallazgos. La validación se produce buscando una o más palabras clave predefinidas cerca de los datos personales encontrados. Por ejemplo, Data Sense identifica a un EE. UU Número de seguridad social (SSN) como un SSN si ve una palabra de proximidad junto a ella (por ejemplo, _SSN_ o _seguridad social_). link:reference-private-data-categories.html#types-of-personal-data["La tabla de datos personales"^] Muestra cuándo la detección de datos utiliza la validación de proximidad.
+
+.Pasos
+. En el menú de navegación izquierdo de BlueXP, haga clic en *Gobierno > Clasificación* y, a continuación, haga clic en la ficha *cumplimiento*.
+. Para investigar los detalles de todos los datos personales, haga clic en el icono situado junto al porcentaje de datos personales.
++
+image:screenshot_compliance_personal.gif["Captura de pantalla de selección del porcentaje de datos personales."]
+
+. Para investigar los detalles de un tipo específico de datos personales, haga clic en *Ver todos* y, a continuación, en el icono *investigar resultados* para un tipo específico de datos personales; por ejemplo, direcciones de correo electrónico.
++
+image:screenshot_personal_files.gif["Una captura de pantalla del cuadro de diálogo Archivos personales donde puede hacer clic en el icono resultados de investigación situado junto a un tipo de datos personales."]
+
+. Investigue los datos buscando, ordenando, ampliando los detalles de un archivo específico, haciendo clic en *investigar resultados* para ver la información enmascarada o descargando la lista de archivos.
++
+Las 2 capturas de pantalla siguientes muestran datos personales encontrados en archivos individuales y encontrados en archivos dentro de directorios (recursos compartidos y carpetas). También puede seleccionar la ficha *estructurado* para ver los datos personales encontrados en las bases de datos.
+
++
+image:screenshot_compliance_investigation_page.png["Una captura de pantalla de información detallada que se encuentra en los archivos después de hacer clic en investigar resultados."]
+
++
+image:screenshot_compliance_investigation_page_directory.png["Captura de pantalla de información detallada que se encuentra en los directorios después de hacer clic en investigar resultados."]
+
+
+
+
+
+== Visualización de archivos que contienen datos personales confidenciales
+
+Cloud Data Sense identifica automáticamente tipos especiales de información personal confidencial, tal y como se define en normativas de privacidad como https://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX:32016R0679&from=EN#d1e2051-1-1["Artículos 9 y 10 del RGPD"^]. Por ejemplo, información sobre la salud, origen étnico o orientación sexual de una persona. link:reference-private-data-categories.html#types-of-sensitive-personal-data["Consulte la lista completa"^]. Data Sense identifica este tipo de información en archivos individuales, en archivos dentro de directorios (recursos compartidos y carpetas) y en tablas de base de datos.
+
+Cloud Data Sense utiliza la inteligencia artificial (IA), el procesamiento de lenguaje natural (NLP), el aprendizaje automático (ML) y la computación cognitiva (CC) para comprender el significado del contenido que analiza con el fin de extraer entidades y categorizar según corresponda.
+
+Por ejemplo, una categoría de datos confidenciales sobre el GDPR es su origen étnico. Debido a sus capacidades NLP, Data Sense puede distinguir la diferencia entre una frase que dice "George es mexicano" (que indica datos confidenciales como se especifica en el artículo 9 del RGPD), frente a "George está comiendo comida mexicana".
+
+
+NOTE: Sólo se admite inglés cuando se escanea datos personales confidenciales. Más adelante se añadirá compatibilidad con más idiomas.
+
+.Pasos
+. En el menú de navegación izquierdo de BlueXP, haga clic en *Gobierno > Clasificación* y, a continuación, haga clic en la ficha *cumplimiento*.
+. Para investigar los detalles de todos los datos personales confidenciales, haga clic en el icono situado junto al porcentaje de datos personales confidenciales.
++
+image:screenshot_compliance_sensitive_personal.gif["Captura de pantalla de selección del porcentaje de datos personales confidenciales."]
+
+. Para investigar los detalles de un tipo específico de datos personales confidenciales, haga clic en *Ver todo* y, a continuación, haga clic en el icono *investigar resultados* para obtener un tipo específico de datos personales confidenciales.
++
+image:screenshot_sensitive_personal_files.gif["Una captura de pantalla del cuadro de diálogo archivos personales confidenciales donde puede hacer clic en el icono resultados de investigación situado junto a un tipo de datos personales."]
+
+. Investigue los datos buscando, ordenando, ampliando los detalles de un archivo específico, haciendo clic en *investigar resultados* para ver la información enmascarada o descargando la lista de archivos.
+
+
+
+
+== Ver archivos por categorías
+
+Cloud Data Sense toma los datos que ha analizado y los divide en diferentes tipos de categorías. Las categorías son temas basados en el análisis de IA del contenido y los metadatos de cada archivo. link:reference-private-data-categories.html#types-of-categories["Vea la lista de categorías"^].
+
+Las categorías pueden ayudarle a entender lo que está pasando con sus datos mostrándole los tipos de información que tiene. Por ejemplo, una categoría como currículos o contratos de empleados puede incluir datos confidenciales. Cuando investiga los resultados, puede que encuentre que los contratos de empleados están almacenados en una ubicación insegura. Entonces puede corregir ese problema.
+
+
+NOTE: Las categorías son: Inglés, alemán y español. Más adelante se añadirá compatibilidad con más idiomas.
+
+.Pasos
+. En el menú de navegación izquierdo de BlueXP, haga clic en *Gobierno > Clasificación* y, a continuación, haga clic en la ficha *cumplimiento*.
+. Haga clic en el icono *investigar resultados* de una de las 4 categorías principales directamente desde la pantalla principal, o haga clic en *Ver todos* y luego haga clic en el icono de cualquiera de las categorías.
++
+image:screenshot_categories.gif["Una captura de pantalla del cuadro de diálogo Categorías donde puede hacer clic en el icono resultados de investigación situado junto a una categoría."]
+
+. Investigue los datos buscando, ordenando, ampliando los detalles de un archivo específico, haciendo clic en *investigar resultados* para ver la información enmascarada o descargando la lista de archivos.
+
+
+
+
+== Ver archivos por tipos de archivos
+
+Cloud Data Sense toma los datos que ha analizado y los divide por tipo de archivo. La revisión de los tipos de archivo puede ayudarle a controlar los datos confidenciales porque puede encontrar que determinados tipos de archivo no se almacenan correctamente. link:reference-private-data-categories.html#types-of-files["Consulte la lista de tipos de archivo"^].
+
+Por ejemplo, puede almacenar archivos CAD que incluyan información muy confidencial sobre su organización. Si no está seguro, puede tomar el control de los datos confidenciales restringiendo permisos o moviendo los archivos a otra ubicación.
+
+.Pasos
+. En el menú de navegación izquierdo de BlueXP, haga clic en *Gobierno > Clasificación* y, a continuación, haga clic en la ficha *cumplimiento*.
+. Haga clic en el icono *investigar resultados* de uno de los 4 tipos de archivo principales directamente desde la pantalla principal, o haga clic en *Ver todos* y, a continuación, haga clic en el icono de cualquiera de los tipos de archivo.
++
+image:screenshot_file_types.gif["Una captura de pantalla del cuadro de diálogo tipos de archivos, donde puede hacer clic en el icono resultados de investigación situado junto a un tipo de archivo."]
+
+. Investigue los datos buscando, ordenando, ampliando los detalles de un archivo específico, haciendo clic en *investigar resultados* para ver la información enmascarada o descargando la lista de archivos.
+
+
+
+
+== Visualización de datos de Dashboard para entornos de trabajo específicos
+
+Puede filtrar el contenido del panel Cloud Data Sense para ver los datos de cumplimiento de normativas de todos los entornos y bases de datos de trabajo, o bien solo para entornos de trabajo específicos.
+
+Cuando se filtra el panel, detección de datos define los datos de cumplimiento e informa únicamente a los entornos de trabajo seleccionados.
+
+.Pasos
+. Haga clic en el menú desplegable filtro, seleccione los entornos de trabajo para los que desea ver datos y haga clic en *Ver*.
++
+image:screenshot_cloud_compliance_filter.gif["Una captura de pantalla que muestra cómo filtrar los resultados de la investigación para entornos de trabajo específicos."]
+
+

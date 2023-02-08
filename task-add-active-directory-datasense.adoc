@@ -1,0 +1,119 @@
+---
+sidebar: sidebar 
+permalink: task-add-active-directory-datasense.html 
+keywords: active directory, ad, data sense, cloud data sense 
+summary: Puede integrar un Active Directory global con Cloud Data Sense para mejorar los resultados de los informes de detección de datos sobre los propietarios de archivos y qué usuarios y grupos tienen acceso a sus archivos. 
+---
+= Integre su Active Directory con Cloud Data Sense
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+Puede integrar un Active Directory global con Cloud Data Sense para mejorar los resultados de los informes de detección de datos sobre los propietarios de archivos y qué usuarios y grupos tienen acceso a sus archivos.
+
+Al configurar determinados orígenes de datos (que se enumeran a continuación), debe introducir credenciales de Active Directory para que Data Sense analice volúmenes CIFS. Esta integración proporciona Data Sense con el propietario del archivo y los detalles de permisos para los datos que residen en esos orígenes de datos. El directorio activo introducido para esos orígenes de datos puede ser diferente de las credenciales globales de Active Directory especificadas aquí. Data sense buscará en todos los directorios activos integrados para los detalles de permisos y usuarios.
+
+Esta integración proporciona información adicional en las siguientes ubicaciones en el sentido de datos:
+
+* Puede utilizar el "propietario del archivo" link:task-investigate-data.html#filtering-data-in-the-data-investigation-page["filtro"] Y consulte los resultados en los metadatos del archivo en el panel Investigación. En lugar del propietario del archivo que contiene el SID (identificador de seguridad), se rellena con el nombre de usuario real.
+* Puede ver link:task-investigate-data.html#viewing-permissions-for-files-and-directories["permisos completos de archivos"] Para cada archivo y directorio al hacer clic en el botón "Ver todos los permisos".
+* En la link:task-controlling-governance-data.html["Consola de gobernanza"], El panel permisos abiertos mostrará un mayor nivel de detalle acerca de los datos.
+
+
+
+NOTE: Los SID del usuario local y los SID de dominios desconocidos no se traducen al nombre de usuario real.
+
+
+
+== Orígenes de datos compatibles
+
+Una integración de Active Directory con Cloud Data Sense puede identificar datos procedentes de los siguientes orígenes de datos:
+
+* Sistemas ONTAP en las instalaciones
+* Cloud Volumes ONTAP
+* Azure NetApp Files
+* FSX para ONTAP
+* Recursos compartidos de archivos CIFS de otros proveedores (no recursos compartidos de archivos NFS)
+
+
+No se ofrece compatibilidad para identificar la información de usuarios y permisos de esquemas de base de datos, cuentas de OneDrive, cuentas de SharePoint, cuentas de Google Drive, cuentas de Amazon S3, O almacenamiento de objetos que utiliza el protocolo simple Storage Service (S3).
+
+
+
+== Conectarse al servidor de Active Directory
+
+Después de implementar detección de datos y haber activado el análisis en sus orígenes de datos, puede integrar detección de datos con Active Directory. Se puede acceder a Active Directory mediante una dirección IP del servidor DNS o una dirección IP del servidor LDAP.
+
+Las credenciales de Active Directory pueden ser de sólo lectura, pero proporcionar credenciales de administrador garantiza que Data Sense pueda leer cualquier dato que requiera permisos elevados. Las credenciales se almacenan en la instancia de Cloud Data Sense.
+
+En el caso de volúmenes CIFS/recursos compartidos de archivos, si desea asegurarse de que los análisis de clasificación de detección de datos no modifican los archivos “horas a las que se accedió por última vez”, recomendamos que el usuario tenga permiso atributos de escritura. Si es posible, recomendamos que el usuario configurado de Active Directory sea parte de un grupo padre en la organización que tenga permisos para todos los archivos.
+
+.Requisitos
+* Debe tener un Active Directory ya configurado para los usuarios de su empresa.
+* Debe tener la información de Active Directory:
++
+** Dirección IP del servidor DNS o varias direcciones IP
++
+o.
+
++
+Dirección IP del servidor LDAP o varias direcciones IP
+
+** Nombre de usuario y contraseña para acceder al servidor
+** Nombre de dominio (nombre de Active Directory)
+** Si utiliza o no un LDAP seguro (LDAPS)
+** Puerto de servidor LDAP (normalmente 389 para LDAP y 636 para LDAP seguro)
+
+
+* La instancia de detección de datos debe abrir los siguientes puertos para la comunicación saliente:
++
+[cols="20,20,30,30"]
+|===
+| Protocolo | Puerto | Destino | Específico 
+
+
+| TCP Y UDP | 389 | Active Directory | LDAP 
+
+
+| TCP | 636 | Active Directory | LDAP sobre SSL 
+
+
+| TCP | 3268 | Active Directory | Catálogo global 
+
+
+| TCP | 3269 | Active Directory | Catálogo global sobre SSL 
+|===
+
+
+.Pasos
+. En la página Configuración de detección de datos en la nube, haga clic en *Agregar Active Directory*.
++
+image:screenshot_compliance_integrate_active_directory.png["Captura de pantalla que muestra hacer clic en el botón para agregar un servidor de Active Directory a Cloud Data Sense."]
+
+. En el cuadro de diálogo conectarse a Active Directory, introduzca los detalles de Active Directory y haga clic en *conectar*.
++
+Si es necesario, puede agregar varias direcciones IP haciendo clic en *Agregar IP*.
+
++
+image:screenshot_compliance_active_directory_dialog.png["Captura de pantalla del cuadro de diálogo en el que se define el Active Directory que se desea integrar con Data Sense."]
+
++
+Data Sense se integra en Active Directory y se agrega una nueva sección a la página Configuration.
+
++
+image:screenshot_compliance_active_directory_added.png["Captura de pantalla que muestra el nuevo Active Directory integrado en el sentido de datos."]
+
+
+
+
+
+== Administración de la integración con Active Directory
+
+Si necesita modificar algún valor de su integración con Active Directory, haga clic en el botón *Editar* y realice los cambios.
+
+También puede eliminar la integración si ya no la necesita haciendo clic en el image:screenshot_gallery_options.gif["Botón más"] Y a continuación *Quitar Active Directory*.

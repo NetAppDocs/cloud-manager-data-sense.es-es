@@ -1,0 +1,183 @@
+---
+sidebar: sidebar 
+permalink: task-controlling-governance-data.html 
+keywords: savings, stale data, non-business data, duplicate data, age or data, size of data, highlights, policies 
+summary: Controle los costes relacionados con los datos que residen en los recursos de almacenamiento de su organización. Cloud Data Sense identifica la cantidad de datos desfasados, datos no empresariales, archivos duplicados y archivos de gran tamaño de sus sistemas para poder decidir si desea quitar o organizar algunos archivos en niveles en un almacenamiento de objetos menos costoso. 
+---
+= Ver los detalles de gobernanza sobre los datos almacenados en su organización
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+Controle los costes relacionados con los datos que residen en los recursos de almacenamiento de su organización. Cloud Data Sense identifica la cantidad de datos desfasados, datos no empresariales, archivos duplicados y archivos de gran tamaño de sus sistemas para poder decidir si desea quitar o organizar algunos archivos en niveles en un almacenamiento de objetos menos costoso.
+
+Además, si tiene pensado migrar datos desde ubicaciones locales al cloud, puede visualizar el tamaño de los datos y si alguno de ellos contiene información confidencial antes de moverlos.
+
+
+
+== El panel de control de gobierno
+
+La consola de gobernanza proporciona información para que pueda aumentar la eficiencia y controlar los costes relacionados con los datos almacenados en sus recursos de almacenamiento.
+
+image:screenshot_compliance_governance_dashboard.png["Una captura de pantalla del panel Cloud Data Sense Governance."]
+
+
+
+=== Guardando oportunidades
+
+Puede que desee investigar los elementos del área _Saving Opportunities_ para ver si hay datos que debe eliminar o organizar en niveles un almacenamiento de objetos menos costoso. Haga clic en cada elemento para ver los resultados filtrados en la página Investigación.
+
+* * Datos obsoletos* - datos que se modificaron por última vez hace 3 años.
+* *Datos no profesionales* - datos que se consideran no relacionados con el negocio, en función de su categoría o tipo de archivo. Estos recursos incluyen:
++
+** Datos de aplicaciones
+** Audio
+** Ejecutables
+** Imágenes
+** Registros
+** Vídeos
+** Varios (categoría general "otros")
+
+
+* *Duplicar archivos*: Archivos duplicados en otras ubicaciones de los orígenes de datos que está analizando. link:task-investigate-data.html#viewing-all-duplicated-files["Consulte qué tipos de archivos duplicados se muestran"].
+
+
+
+
+=== Políticas con el mayor número de resultados
+
+En el área _Policies_, las políticas con mayor número de resultados aparecen en la parte superior de la lista. Haga clic en el nombre de una directiva para mostrar los resultados en la página Investigación. Haga clic en *Ver todo* para ver la lista de todas las directivas disponibles.
+
+Haga clic en link:task-using-policies.html["aquí"] Para obtener más información acerca de las políticas.
+
+
+
+=== Descripción general de los datos
+
+La sección _Data Overview_ proporciona una rápida descripción general de todos los datos que se están analizando. Haga clic en el botón para descargar un informe completo de asignación de datos que incluya capacidad de uso, antigüedad de los datos, tamaño de los datos y tipos de archivo para todos los entornos de trabajo y orígenes de datos. Consulte <<Informe de asignación de datos,Informe de asignación de datos>> para obtener todos los detalles de este informe.
+
+
+
+=== Principales repositorios de datos listados por sensibilidad de datos
+
+El área _Top Data Repository by Sensitivity Level_ enumera los cuatro principales repositorios de datos (entornos de trabajo y orígenes de datos) que contienen los elementos más sensibles. El gráfico de barras de cada entorno de trabajo se divide en:
+
+* Datos no confidenciales
+* Datos personales
+* Datos personales confidenciales
+
+
+Puede pasar el ratón sobre cada sección para ver el número total de elementos de cada categoría.
+
+Haga clic en cada área para ver los resultados filtrados en la página Investigación para que pueda seguir investigando.
+
+
+
+=== Datos listados por sensibilidad y permisos amplios
+
+El área _Sensitive Data y Wide Permissions_ proporciona un mapa térmico de los archivos que contienen datos confidenciales (incluidos datos personales confidenciales y confidenciales) y que son demasiado permisivos. Esto puede ayudarle a ver dónde puede tener algunos riesgos con datos confidenciales.
+
+Los archivos se clasifican en función del número de usuarios con permiso para acceder a los archivos del eje X (del más bajo al más alto) y del número de identificadores confidenciales dentro de los archivos del eje y (del más bajo al más alto). Los bloques representan el número de archivos que coinciden con los elementos de los ejes X e Y. El bloque de color más claro es bueno; con menos usuarios capaces de acceder a los archivos y con menos identificadores confidenciales por archivo. Los bloques más oscuros son los elementos que tal vez desee investigar. Por ejemplo, la siguiente pantalla muestra el texto de desplazamiento del bloque azul oscuro. Muestra que tiene 1,500 archivos en los que 751-100 usuarios tienen acceso y donde hay 501-100 identificadores confidenciales por archivo.
+
+image:screenshot_compliance_sensitive_data.png["Captura de pantalla que muestra los datos mostrados al colocar el cursor sobre un elemento de este panel."]
+
+Puede hacer clic en el bloque en el que está interesado para ver los resultados filtrados de los archivos afectados en la página Investigación para poder seguir investigando.
+
+No se muestra ningún dato en este panel si no ha integrado un servicio de identidad con detección de datos. link:task-add-active-directory-datasense.html["Descubra cómo integrar su servicio Active Directory con Data Sense"^].
+
+
+TIP: Este panel admite archivos en recursos compartidos de CIFS, OneDrive y orígenes de datos de SharePoint. Actualmente no existe compatibilidad con bases de datos, Google Drive, Amazon S3 y el almacenamiento de objetos genérico.
+
+
+
+=== Datos listados por tipos de permisos abiertos
+
+El área _Open Permissions_ muestra el porcentaje de cada tipo de permisos que existen para todos los archivos que se están analizando. El gráfico muestra los siguientes tipos de permisos:
+
+* Sin permisos abiertos
+* Abierto a la organización
+* Abierto al público
+* Acceso desconocido
+
+
+Puede pasar el ratón sobre cada sección para ver el número total de archivos de cada categoría. Haga clic en cada área para ver los resultados filtrados en la página Investigación para que pueda seguir investigando.
+
+
+
+=== Antigüedad de los datos y tamaño de los gráficos de datos
+
+Puede que desee investigar los elementos de los gráficos _Age_ y _Size_ para ver si hay datos que debe eliminar o organizar en niveles un almacenamiento de objetos menos costoso.
+
+Puede pasar el ratón sobre un punto de los gráficos para ver detalles sobre la antigüedad o el tamaño de los datos de esa categoría. Haga clic para ver todos los archivos filtrados por esa edad o rango de tamaño.
+
+* * Edad del Gráfico de datos* - categoriza los datos en función de la hora en que se creó, la última vez que se accedió o la última vez que se modificó.
+* * Tamaño del gráfico de datos* - categoriza los datos en función del tamaño.
+
+
+
+
+=== La mayoría de las clasificaciones de datos identificadas
+
+El área _Classification_ proporciona una lista de los más identificados link:task-controlling-private-data.html#viewing-files-by-categories["Categorías"^], link:task-controlling-private-data.html#viewing-files-by-file-types["Tipos de archivo"^], y. link:task-org-private-data.html#categorizing-your-data-using-aip-labels["Etiquetas AIP"^] en los datos escaneados.
+
+
+
+==== Categorías
+
+Las categorías pueden ayudarle a entender lo que está pasando con sus datos mostrándole los tipos de información que tiene. Por ejemplo, una categoría como "currículos" o "contratos de empleados" puede incluir datos confidenciales. Cuando investiga los resultados, puede que encuentre que los contratos de empleados están almacenados en una ubicación insegura. Entonces puede corregir ese problema.
+
+Consulte link:task-controlling-private-data.html#viewing-files-by-categories["Ver archivos por categorías"^] si quiere más información.
+
+
+
+==== Tipos de archivo
+
+La revisión de los tipos de archivo puede ayudarle a controlar los datos confidenciales porque puede encontrar que determinados tipos de archivo no se almacenan correctamente.
+
+Consulte link:task-controlling-private-data.html#viewing-files-by-file-types["Visualización de tipos de archivo"^] si quiere más información.
+
+
+
+==== Etiquetas AIP
+
+Si se ha suscrito a la protección de información de Azure (AIP), puede clasificar y proteger documentos y archivos aplicando etiquetas al contenido. La revisión de las etiquetas AIP más utilizadas que se asignan a los archivos le permite ver qué etiquetas se utilizan más en sus archivos.
+
+Consulte link:task-org-private-data.html#categorizing-your-data-using-aip-labels["Etiquetas AIP"^] si quiere más información.
+
+
+
+=== Informe de asignación de datos
+
+El informe de asignación de datos proporciona una descripción general de los datos que se almacenan en sus fuentes de datos empresariales para ayudarle en la toma de decisiones de migración, copia de seguridad, seguridad y procesos de cumplimiento de normativas. En el informe se incluye, en primer lugar, un informe general en el que se resumen todos sus entornos de trabajo y fuentes de datos y, a continuación, se presenta un desglose de cada entorno de trabajo.
+
+El informe incluye la siguiente información:
+
+Capacidad de uso:: Para todos los entornos de trabajo: Enumera el número de archivos y la capacidad utilizada para cada entorno de trabajo. Para entornos de trabajo individuales: Enumera los archivos que utilizan la mayor capacidad.
+Antigüedad de los datos:: Proporciona tres gráficos para cuándo se crearon los archivos, la última modificación o el último acceso. Enumera el número de archivos y su capacidad utilizada, en función de determinados rangos de fechas.
+Tamaño de los datos:: Enumera el número de archivos que existen dentro de determinados rangos de tamaño en los entornos de trabajo.
+Tipos de archivo:: Enumera el número total de archivos y la capacidad utilizada para cada tipo de archivo que se almacena en sus entornos de trabajo.
+
+
+
+
+==== Generación del Informe de asignación de datos
+
+Vaya a la ficha detección de datos para generar el informe.
+
+.Pasos
+. En el menú BlueXP, haga clic en *Gobierno > Clasificación*.
+. Haga clic en *Gobierno* y, a continuación, haga clic en el botón *Informe de visión general de mapas de datos completos* del Panel de gobierno.
++
+image:screenshot_compliance_data_mapping_report_button.png["Captura de pantalla del panel de gobierno que muestra cómo iniciar el informe de asignación de datos."]
+
+
+
+.Resultado
+Cloud Data Sense genera un informe en PDF que puede revisar y enviar a otros grupos según sea necesario.
+
+Tenga en cuenta que puede personalizar el nombre de la empresa que aparece en la primera página del informe desde la parte superior de la página de detección de datos haciendo clic en image:screenshot_gallery_options.gif["El botón más"] Y, a continuación, haga clic en *Cambiar nombre de compañía*. La próxima vez que genere el informe, incluirá el nuevo nombre.

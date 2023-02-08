@@ -1,0 +1,41 @@
+---
+sidebar: sidebar 
+permalink: task-view-compliance-actions.html 
+keywords: compliance, actions, view progress 
+summary: Cuando ejecuta una acción desde el panel de resultados de la investigación en varios archivos, por ejemplo, al eliminar archivos 100, el proceso puede tardar algún tiempo. Puede supervisar el estado de estas acciones asíncronas en el panel Estado de la acción para saber cuándo se ha aplicado a todos los archivos. 
+---
+= Ver el estado de las acciones de cumplimiento
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+Cuando ejecuta una acción asincrónica desde el panel de resultados de la investigación en muchos archivos, por ejemplo, al mover o eliminar archivos 100, el proceso puede tardar algún tiempo. Puede supervisar el estado de estas acciones en el panel _Action Status_ para saber cuándo se ha aplicado a todos los archivos.
+
+Esto permite ver las acciones que se completaron correctamente, las que están en curso en ese momento y las que han fallado para poder diagnosticar y corregir cualquier problema.
+
+El estado puede ser:
+
+* Éxito: Se ha completado Una acción de detección de datos y todos los elementos se han realizado correctamente.
+* Éxito parcial: Una acción de detección de datos ha finalizado y algunos elementos han fallado y otros han sido correctamente.
+* En curso: La acción sigue en curso.
+* Queued: La acción no ha comenzado.
+* Cancelado: La acción se ha cancelado.
+* Error: La acción ha fallado.
+
+
+Tenga en cuenta que puede cancelar cualquier acción que tenga el estado "en cola" o "en curso".
+
+.Pasos
+. En la parte inferior derecha de la interfaz de usuario de detección de datos puede ver el botón *Estado de acciones* image:button_actions_status.png[""].
+. Haga clic en este botón y se muestran las 20 acciones más recientes.
++
+image:screenshot_compliance_action_status.png["Captura de pantalla que muestra las últimas 20 acciones y su estado en la página Configuración."]
+
+
+
+Puede hacer clic en el nombre de una acción para ver los detalles correspondientes a esa operación.

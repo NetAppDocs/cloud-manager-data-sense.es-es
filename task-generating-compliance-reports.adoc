@@ -1,0 +1,238 @@
+---
+sidebar: sidebar 
+permalink: task-generating-compliance-reports.html 
+keywords: report, privacy, risk, privacy risk assessment, compliance status, severity, compliance, privacy risk, data subjects, privacy, credit cards, pci dss, hipaa, csv file, json file 
+summary: Cloud Data Sense ofrece informes que puede usar para comprender mejor el estado del programa de privacidad de datos de su organización. 
+---
+= Ver informes de cumplimiento
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+Cloud Data Sense ofrece informes que puede usar para comprender mejor el estado del programa de privacidad de datos de su organización.
+
+De forma predeterminada, los paneles Cloud Data Sense muestran datos de cumplimiento de normativas y gobierno de todos los entornos de trabajo, bases de datos y orígenes de datos. Si desea ver informes que contengan datos sólo para algunos de los entornos de trabajo, <<Selección de los entornos de trabajo para los informes,seleccione esos entornos de trabajo>>.
+
+[NOTE]
+====
+* Los informes descritos en esta sección sólo están disponibles si ha elegido realizar un análisis de clasificación completo en sus orígenes de datos. Los orígenes de datos que han tenido un análisis de sólo asignación sólo pueden generar el informe de asignación de datos.
+* NetApp no puede garantizar una precisión del 100 % de los datos personales y los datos personales confidenciales que identifique Cloud Data. Siempre debe validar la información revisando los datos.
+
+
+====
+
+
+== Informe de evaluación del riesgo de privacidad
+
+El informe de evaluación de riesgos de privacidad ofrece una descripción general del estado de riesgo de privacidad de su organización, tal y como lo exigen las normativas de privacidad como el RGPD y la CCPA. El informe incluye la siguiente información:
+
+Estado de cumplimiento:: A. <<Puntuación de gravedad,puntuación de gravedad>> y la distribución de los datos, ya sean personales, confidenciales o no confidenciales.
+Descripción general de la evaluación:: Desglose de los tipos de datos personales encontrados, así como de las categorías de datos.
+Datos sujetos en esta evaluación:: El número de personas, por ubicación, para las cuales se encontraron identificadores nacionales.
+
+
+
+
+=== Generación del Informe de Evaluación de riesgo de Privacidad
+
+Vaya a la ficha detección de datos para generar el informe.
+
+.Pasos
+. En el menú BlueXP, haga clic en *Gobierno > Clasificación*.
+. Haga clic en *cumplimiento* y, a continuación, haga clic en el icono de descarga situado junto a *Evaluación de riesgo de privacidad* en *Informes*.
++
+image:screenshot_privacy_risk_assessment.gif["Captura de pantalla de la ficha cumplimiento de BlueXP que muestra el panel Informes en el que puede hacer clic en Evaluación de riesgo de privacidad."]
+
+
+
+.Resultado
+Cloud Data Sense genera un informe en PDF que puede revisar y enviar a otros grupos según sea necesario.
+
+
+
+=== Puntuación de gravedad
+
+Cloud Data Sense calcula la puntuación de gravedad del informe de evaluación del riesgo de privacidad basándose en tres variables:
+
+* El porcentaje de datos personales de todos los datos.
+* El porcentaje de datos personales confidenciales de todos los datos.
+* El porcentaje de archivos que incluyen temas de datos, determinado por identificadores nacionales como ID nacionales, números de Seguro Social y números de identificación fiscal.
+
+
+La lógica utilizada para determinar la puntuación es la siguiente:
+
+[cols="27,73"]
+|===
+| Puntuación de gravedad | Lógica 
+
+
+| 0 | Las tres variables son exactamente 0 % 
+
+
+| 1 | Una de las variables es mayor que 0 % 
+
+
+| 2 | Una de las variables es mayor que el 3 % 
+
+
+| 3 | Dos de las variables son mayores que el 3% 
+
+
+| 4 | Tres de las variables son mayores que el 3% 
+
+
+| 5 | Una de las variables es mayor que el 6 % 
+
+
+| 6 | Dos de las variables son mayores que el 6% 
+
+
+| 7 | Tres de las variables son mayores que el 6% 
+
+
+| 8 | Una de las variables es mayor que el 15 % 
+
+
+| 9 | Dos de las variables son mayores que el 15% 
+
+
+| 10 | Tres de las variables son mayores que el 15% 
+|===
+
+
+== Informe PCI DSS
+
+El Informe de estándares de seguridad de datos del sector de la tarjeta de pago (PCI DSS) puede ayudarle a identificar la distribución de información de la tarjeta de crédito a través de sus archivos. El informe incluye la siguiente información:
+
+Descripción general:: Cuántos archivos contienen información de tarjeta de crédito y en qué entornos de trabajo.
+Cifrado:: Porcentaje de archivos que contienen información de la tarjeta de crédito en entornos de trabajo cifrados o no cifrados. Esta información es específica de Cloud Volumes ONTAP.
+Protección contra ransomware:: Porcentaje de archivos que contienen información de tarjetas de crédito en entornos de trabajo que tienen o no la protección contra ransomware habilitada. Esta información es específica de Cloud Volumes ONTAP.
+Retención:: El periodo de tiempo en el que se modificaron por última vez los archivos. Esto es útil porque no debe mantener la información de la tarjeta de crédito por más tiempo de lo que necesita para procesarla.
+Distribución de la información de la tarjeta de crédito:: Entornos en los que se encontró la información de la tarjeta de crédito y si la protección mediante cifrado y ransomware están habilitadas.
+
+
+
+
+=== Generación del informe PCI DSS
+
+Vaya a la ficha detección de datos para generar el informe.
+
+.Pasos
+. En el menú BlueXP, haga clic en *Gobierno > Clasificación*.
+. Haga clic en *conformidad* y, a continuación, haga clic en el icono de descarga situado junto a *Informe DSS de PCI* en *Informes*.
++
+image:screenshot_pci_dss.gif["Captura de pantalla de la ficha cumplimiento de BlueXP que muestra el panel Informes en el que puede hacer clic en Evaluación de riesgo de privacidad."]
+
+
+
+.Resultado
+Cloud Data Sense genera un informe en PDF que puede revisar y enviar a otros grupos según sea necesario.
+
+
+
+== Informe HIPAA
+
+El Informe de la Ley de Portabilidad y responsabilidad de los Seguros médicos (HIPAA) puede ayudarle a identificar archivos que contengan información médica. Se ha diseñado para ayudar en el requisito de su organización a cumplir las leyes de privacidad de datos HIPAA. El Cloud Data Sense de información incluye:
+
+* Patrón de referencia de salud
+* Código médico ICD-10-cm
+* Código médico ICD-9-cm
+* HR - Categoría de salud
+* Datos de aplicación de Salud
+
+
+El informe incluye la siguiente información:
+
+Descripción general:: Cuántos archivos contienen información médica y en qué entornos de trabajo.
+Cifrado:: Porcentaje de archivos que contienen información médica en entornos de trabajo cifrados o no cifrados. Esta información es específica de Cloud Volumes ONTAP.
+Protección contra ransomware:: Porcentaje de archivos que contienen información médica en entornos de trabajo que tienen o no la protección contra ransomware activada. Esta información es específica de Cloud Volumes ONTAP.
+Retención:: El periodo de tiempo en el que se modificaron por última vez los archivos. Esto es útil porque no debe mantener la información de salud por más tiempo de lo que necesita para procesarla.
+Distribución de la información de salud:: Entornos en los que se encontró la información médica y si está habilitada el cifrado y la protección contra ransomware.
+
+
+
+
+=== Generación del informe HIPAA
+
+Vaya a la ficha detección de datos para generar el informe.
+
+.Pasos
+. En el menú BlueXP, haga clic en *Gobierno > Clasificación*.
+. Haga clic en *cumplimiento* y, a continuación, haga clic en el icono de descarga situado junto a *Informe HIPAA* en *Informes*.
++
+image:screenshot_hipaa.gif["Captura de pantalla de la ficha cumplimiento de BlueXP que muestra el panel Informes en el que puede hacer clic en HIPAA."]
+
+
+
+.Resultado
+Cloud Data Sense genera un informe en PDF que puede revisar y enviar a otros grupos según sea necesario.
+
+
+
+== ¿Qué es una solicitud de acceso de asunto de datos?
+
+Las normas de privacidad, como el GDPR europeo, otorgan a sujetos de datos (como clientes o empleados) el derecho a acceder a sus datos personales. Cuando un sujeto de datos solicita esta información, se le conoce como DSAR (solicitud de acceso a sujetos de datos). Las organizaciones deben responder a estas solicitudes "sin demora indebida" y, a más tardar, en el plazo de un mes a partir de su recepción.
+
+Puede responder a un DSAR buscando el nombre completo o el identificador conocido de un sujeto (como una dirección de correo electrónico) y, a continuación, descargando un informe. El informe está diseñado para ayudar en el requisito de su organización a cumplir con el RGPD o con leyes de privacidad de datos similares.
+
+
+
+=== ¿Cómo puede ayudarle Cloud Data Sense a responder a un DSAR?
+
+Cuando se realiza una búsqueda de asunto de datos, Cloud Data Sense encuentra en ella todos los archivos, bloques, OneDrive y cuentas de SharePoint que tienen el nombre o el identificador de esa persona. Data Sense comprueba el nombre o identificador de los datos preindexados más recientes. No inicia una nueva exploración.
+
+Una vez finalizada la búsqueda, puede descargar la lista de archivos para un informe de solicitud de acceso a un sujeto de datos. El informe agrega información procedente de los datos y los coloca en términos legales de los que se puede enviar a la persona.
+
+
+NOTE: La búsqueda de sujetos de datos no es compatible en las bases de datos en este momento.
+
+
+
+=== Búsqueda de sujetos de datos y descarga de informes
+
+Busque el nombre completo o el identificador conocido del sujeto de datos y, a continuación, descargue un informe de la lista de archivos o un informe DSAR. Puede buscar por link:reference-private-data-categories.html#types-of-personal-data["cualquier tipo de información personal"^].
+
+
+NOTE: Se admiten el inglés, el alemán y el español cuando se buscan los nombres de los temas de datos. Más adelante se añadirá compatibilidad con más idiomas.
+
+.Pasos
+. En el menú BlueXP, haga clic en *Gobierno > Clasificación*.
+. Haga clic en *Temas de datos*.
+. Busque el nombre completo o el identificador conocido del sujeto de datos.
++
+A continuación se muestra un ejemplo que muestra una búsqueda del nombre _john doe_:
+
++
+image:screenshot_dsar_search.gif["Una captura de pantalla que muestra una búsqueda del nombre \"John Doe\" para un DSAR."]
+
+. Elija una de las opciones disponibles:
++
+** *Descargar informe DSAR*: Respuesta formal a la solicitud de acceso que se puede enviar al sujeto de datos. Este informe contiene información generada automáticamente en función de los datos de que Cloud Data Sense se encuentra en el asunto de los datos y está diseñado para su uso como plantilla. Debe completar el formulario y revisarlo internamente antes de enviarlo al sujeto de datos.
+** *investigar resultados*: Página que permite investigar los datos mediante la búsqueda, clasificación, ampliación de los detalles de un archivo específico y descarga de la lista de archivos.
++
+
+NOTE: Si hay más de 10,000 resultados, sólo los 10,000 primeros aparecen en la lista de archivos.
+
+
+
+
+
+
+
+== Selección de los entornos de trabajo para los informes
+
+Puede filtrar el contenido de la consola Cloud Data Sense Compliance para ver los datos de cumplimiento de normativas de todos los entornos de trabajo y bases de datos, o solo en entornos de trabajo específicos.
+
+Cuando se filtra el panel, detección de datos define los datos de cumplimiento e informa únicamente a los entornos de trabajo seleccionados.
+
+.Pasos
+. Haga clic en el menú desplegable filtro, seleccione los entornos de trabajo para los que desea ver datos y haga clic en *Ver*.
++
+image:screenshot_cloud_compliance_filter.gif["Captura de pantalla de la selección de los entornos de trabajo para los informes que desea ejecutar."]
+
+

@@ -1,0 +1,349 @@
+---
+sidebar: sidebar 
+permalink: task-investigate-data.html 
+keywords: personal files, personal data, sensitive personal files, sensitive personal data, health data, ethnic origin, political opinions, gdpr, email address, credit card, ip address, iban, national ID, identifier, password, sex, criminal, compliance, privacy, filter data, permissions, csv file, json file, highlights, policies 
+summary: Puede investigar los datos de su organización visualizando los detalles en la página Investigación de datos. Puede desplazarse a esta página desde muchas áreas de la interfaz de usuario de Data Sense, incluidos los paneles de control de gobierno y cumplimiento de normativas. 
+---
+= Investigue los datos almacenados en su organización
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+Puede investigar los datos de su organización visualizando los detalles en la página Investigación de datos. Puede desplazarse a esta página desde muchas áreas de la interfaz de usuario de Data Sense, incluidos los paneles de control de gobierno y cumplimiento de normativas.
+
+
+NOTE: Las capacidades descritas en esta sección sólo están disponibles si ha elegido realizar un análisis de clasificación completo en sus orígenes de datos. Los orígenes de datos que han tenido un análisis de sólo asignación no muestran detalles de nivel de archivo.
+
+
+
+== Filtrar datos en la página Investigación de datos
+
+Puede filtrar el contenido de la página de investigación para que muestre solo los resultados que desea ver. Esta es una característica muy eficaz porque después de afinar los datos, puede utilizar la barra de botones en la parte superior de la página para realizar una variedad de acciones, incluyendo copiar archivos, mover archivos, agregar una etiqueta o etiqueta AIP a los archivos, y mucho más.
+
+Si desea descargar el contenido de la página como un informe después de haberlo afinado, haga clic en image:button_download.png["botón de descarga"] botón. <<Informe de investigación de datos,Vaya aquí para obtener detalles sobre el informe de investigación de datos>>.
+
+image:screenshot_compliance_investigation_filtered.png["Captura de pantalla de los filtros disponibles al afinar los resultados en la página Investigación."]
+
+* Las pestañas de nivel superior le permiten ver datos de archivos (datos no estructurados), directorios (carpetas y archivos compartidos) o de bases de datos (datos estructurados).
+* Los controles de la parte superior de cada columna permiten ordenar los resultados en orden numérico o alfabético.
+* Los filtros del panel izquierdo permiten afinar los resultados seleccionando los atributos descritos en las secciones siguientes.
+
+
+
+
+=== Filtrar datos por sensibilidad y contenido
+
+Utilice los siguientes filtros para ver cuánta información confidencial contiene los datos.
+
+[cols="30,60"]
+|===
+| Filtro | Detalles 
+
+
+| Categoría | Seleccione la link:reference-private-data-categories.html#types-of-categories["tipos de categorías"^]. 
+
+
+| Nivel de sensibilidad | Seleccione el nivel de sensibilidad: Personal, personal sensible o no confidencial. 
+
+
+| Número de identificadores | Seleccione el rango de identificadores confidenciales detectados por archivo. Incluye datos personales y datos personales confidenciales. Al filtrar en directorios, Data Sense suma las coincidencias de todos los archivos de cada carpeta (y subcarpetas). 
+
+
+| Datos personales | Seleccione la link:reference-private-data-categories.html#types-of-personal-data["tipos de datos personales"^]. 
+
+
+| Datos personales confidenciales | Seleccione la link:reference-private-data-categories.html#types-of-sensitive-personal-data["tipos de datos personales confidenciales"^]. 
+
+
+| Asunto de los datos | Introduzca el nombre completo o el identificador conocido de un sujeto de datos. 
+|===
+
+
+=== Filtrar los datos por propietario y permisos de usuario
+
+Utilice los siguientes filtros para ver los propietarios de archivos y los permisos para acceder a los datos.
+
+[cols="30,60"]
+|===
+| Filtro | Detalles 
+
+
+| Abra permisos | Seleccione el tipo de permisos dentro de los datos y dentro de carpetas o recursos compartidos. 
+
+
+| Permisos de usuario/grupo | Seleccione uno o varios nombres de usuario y/o grupos, o introduzca un nombre parcial. 
+
+
+| Propietario del archivo | Introduzca el nombre del propietario del archivo. 
+
+
+| Número de usuarios con acceso | Seleccione uno o varios rangos de categorías para mostrar qué archivos y carpetas están abiertos a un determinado número de usuarios. 
+|===
+
+
+=== Filtrar los datos por tiempo
+
+Utilice los siguientes filtros para ver datos según criterios de tiempo.
+
+[cols="30,60"]
+|===
+| Filtro | Detalles 
+
+
+| Hora de creación | Seleccione un intervalo de tiempo cuando se creó el archivo. También puede especificar un intervalo de tiempo personalizado para restringir aún más los resultados de la búsqueda. 
+
+
+| Hora de detección | Seleccione un intervalo de tiempo cuando Data Sense detectó el archivo. También puede especificar un intervalo de tiempo personalizado para restringir aún más los resultados de la búsqueda. 
+
+
+| Última modificación | Seleccione un intervalo de tiempo en el que se modificó por última vez el archivo. También puede especificar un intervalo de tiempo personalizado para restringir aún más los resultados de la búsqueda. 
+
+
+| Último acceso | Seleccione un intervalo de tiempo en el que se accedió por última vez al archivo. También puede especificar un intervalo de tiempo personalizado para restringir aún más los resultados de la búsqueda. En el caso de los tipos de archivos que analiza Data Sense, es la última vez que Data Sense analizó el archivo. 
+|===
+
+
+=== Filtrar datos por metadatos
+
+Utilice los siguientes filtros para ver los datos según la ubicación, el tamaño y el directorio o el tipo de archivo.
+
+[cols="30,60"]
+|===
+| Filtro | Detalles 
+
+
+| Ruta del archivo | Introduzca hasta 20 rutas parciales o completas que desee incluir o excluir de la consulta. Si introduce ambas rutas de acceso de inclusión y rutas de exclusión, Data Sense busca primero todos los archivos de las rutas de acceso incluidas, quita los archivos de las rutas de acceso excluidas y, a continuación, muestra los resultados. 
+
+
+| Tipo de directorio | Seleccione el tipo de directorio; "Compartir" o "carpeta". 
+
+
+| Tipo de archivo | Seleccione la link:reference-private-data-categories.html#types-of-files["tipos de archivos"^]. 
+
+
+| Tamaño de archivo | Seleccione el rango de tamaño del archivo. 
+
+
+| Hash de archivo | Introduzca el hash del archivo para buscar un archivo específico, aunque el nombre sea diferente. 
+|===
+
+
+=== Filtre los datos por tipo de almacenamiento
+
+Utilice los siguientes filtros para ver datos por tipo de almacenamiento.
+
+[cols="30,60"]
+|===
+| Filtro | Detalles 
+
+
+| Tipo de entorno de trabajo | Seleccione el tipo de entorno de trabajo. OneDrive, SharePoint y Google Drive están clasificados en "aplicaciones". 
+
+
+| Nombre del entorno de trabajo | Seleccione entornos de trabajo específicos. 
+
+
+| Repositorio de almacenamiento | Seleccione el repositorio de almacenamiento, por ejemplo, un volumen o un esquema. 
+|===
+
+
+=== Filtre los datos por etiquetas, usuarios asignados y políticas
+
+Utilice los siguientes filtros para ver los datos por etiquetas o etiquetas AIP.
+
+[cols="30,60"]
+|===
+| Filtro | Detalles 
+
+
+| Normativas | Seleccione una política o políticas. Vaya link:task-using-policies.html["aquí"^] para ver la lista de directivas existentes y crear sus propias directivas personalizadas. 
+
+
+| Etiqueta | Seleccione link:task-org-private-data.html#categorizing-your-data-using-aip-labels["Etiquetas AIP"] que se asignan a sus archivos. 
+
+
+| Etiquetas | Seleccione link:task-org-private-data.html#applying-tags-to-manage-your-scanned-files["la etiqueta o las etiquetas"] que se asignan a sus archivos. 
+
+
+| Asignado a. | Seleccione el nombre de la persona a la que se asigna el archivo. 
+|===
+
+
+=== Filtrar datos por estado de análisis
+
+Utilice el siguiente filtro para ver datos por el estado de análisis de detección de datos.
+
+[cols="30,60"]
+|===
+| Filtro | Detalles 
+
+
+| Estado del análisis | Seleccione una opción para mostrar la lista de archivos que están pendientes de primer análisis, que se han finalizado el análisis, que se han reescaneado pendiente o que no se han podido analizar. 
+|===
+
+
+=== Filtrar datos por duplicados
+
+Utilice el siguiente filtro para ver los archivos duplicados en su almacenamiento.
+
+[cols="30,60"]
+|===
+| Filtro | Detalles 
+
+
+| Duplicados | Seleccione si el archivo está duplicado en los repositorios. 
+|===
+
+
+== Visualización de metadatos de archivo
+
+En el panel resultados de la investigación de datos puede hacer clic en image:button_down_caret.png["signo de intercalación descendente"] para cualquier archivo individual para ver los metadatos del archivo.
+
+image:screenshot_compliance_file_details.png["Captura de pantalla que muestra los detalles de metadatos de un archivo en la página Investigación de datos."]
+
+Además de mostrarle el entorno de trabajo y el volumen en el que reside el archivo, los metadatos muestran mucha más información, incluidos los permisos de archivo, el propietario del archivo, si hay duplicados de este archivo y la etiqueta AIP asignada (si lo tiene link:task-org-private-data.html#categorizing-your-data-using-aip-labels["AIP integrado en Cloud Data Sense"^]). Esta información es útil si tiene previsto hacerlo link:task-using-policies.html#creating-custom-policies["Crear políticas"] porque puede ver toda la información que puede utilizar para filtrar sus datos.
+
+Tenga en cuenta que no toda la información está disponible para todas las fuentes de datos - sólo lo que es apropiado para ese origen de datos. Por ejemplo, el nombre de volumen, los permisos y las etiquetas AIP no son relevantes para los archivos de la base de datos.
+
+Al ver los detalles de un único archivo, hay algunas acciones que puede realizar en el archivo:
+
+* Puede mover o copiar el archivo a cualquier recurso compartido NFS. Consulte link:task-managing-highlights.html#moving-source-files-to-an-nfs-share["Mover archivos de origen a un recurso compartido NFS"] y.. link:task-managing-highlights.html#copying-source-files["Copiando archivos de origen a un recurso compartido NFS"] para obtener más detalles.
+* Puede eliminar el archivo. Consulte link:task-managing-highlights.html#deleting-source-files["Eliminando archivos de origen"] para obtener más detalles.
+* Puede asignar un estado determinado al archivo. Consulte link:task-org-private-data.html#applying-tags-to-manage-your-scanned-files["Aplicación de etiquetas"] para obtener más detalles.
+* Puede asignar el archivo a un usuario de BlueXP para que sea responsable de las acciones de seguimiento que se deban realizar en el archivo. Consulte link:task-org-private-data.html#assigning-users-to-manage-certain-files["Asignar usuarios a un archivo"] para obtener más detalles.
+* Si ha integrado etiquetas AIP con Cloud Data Sense, puede asignar una etiqueta a este archivo o cambiar a una etiqueta diferente si ya existe. Consulte link:task-org-private-data.html#assigning-aip-labels-manually["Asignación manual de etiquetas AIP"] para obtener más detalles.
+
+
+
+
+== Ver permisos para archivos y directorios
+
+Para ver una lista de todos los usuarios o grupos que tienen acceso a un archivo o directorio y los tipos de permisos que tienen, haga clic en *Ver todos los permisos*. Este botón solo está disponible para datos en recursos compartidos CIFS, SharePoint Online, SharePoint en las instalaciones y OneDrive.
+
+Tenga en cuenta que si ve SID (identificadores de seguridad) en lugar de nombres de usuario y de grupo, debe integrar Active Directory en el sentido de datos. link:task-add-active-directory-datasense.html["Descubra cómo hacerlo"].
+
+image:screenshot_compliance_permissions.png["Captura de pantalla que muestra los permisos de archivo detallados."]
+
+Puede hacer clic en image:button_down_caret.png["signo de intercalación descendente"] para que cualquier grupo vea la lista de usuarios que forman parte del grupo.
+
+Además, Puede hacer clic en el nombre de un usuario o un grupo y la página de investigación se muestra con el nombre de ese usuario o grupo rellenado en el filtro “permisos de usuario/grupo” para poder ver todos los archivos y directorios a los que tiene acceso el usuario o grupo.
+
+
+
+== Buscando archivos duplicados en los sistemas de almacenamiento
+
+Puede ver si se están almacenando ficheros duplicados en los sistemas de almacenamiento. Esto resulta útil para identificar áreas en las que puede ahorrar espacio de almacenamiento. También puede ser útil asegurarse de que determinados archivos que tienen permisos específicos o información confidencial no se dupliquen innecesariamente en sus sistemas de almacenamiento.
+
+La detección de datos utiliza la tecnología de hashing para determinar los archivos duplicados. Si algún archivo tiene el mismo código hash que otro archivo, podemos estar 100% seguros de que los archivos son duplicados exactos, incluso si los nombres de archivo son diferentes.
+
+Puede descargar la lista de archivos duplicados y enviarlos al administrador de almacenamiento para que puedan decidir qué archivos se pueden eliminar, si los hay. O usted puede link:task-managing-highlights.html#deleting-source-files["elimine el archivo"] usted mismo si está seguro de que una versión específica del archivo no es necesaria.
+
+
+
+=== Ver todos los archivos duplicados
+
+Si desea obtener una lista de todos los archivos duplicados en los entornos de trabajo y los orígenes de datos que está analizando, puede utilizar el filtro llamado *duplicados > tiene duplicados* en la página Investigación de datos.
+
+Todos los archivos con duplicados de todos los tipos de archivo (sin incluir bases de datos), con un tamaño mínimo de 50 MB y/o que contengan información personal personal o confidencial, se mostrarán en la página de resultados.
+
+
+
+=== Ver si se duplica un archivo específico
+
+Si desea ver si un único archivo tiene duplicados, en el panel resultados de investigación de datos puede hacer clic en image:button_down_caret.png["signo de intercalación descendente"] para cualquier archivo individual para ver los metadatos del archivo. Si hay duplicados de un archivo determinado, esta información aparece junto al campo _Duplicates_.
+
+Para ver la lista de archivos duplicados y su ubicación, haga clic en *Ver detalles*. En la página siguiente, haga clic en *Ver duplicados* para ver los archivos en la página Investigación.
+
+image:screenshot_compliance_duplicate_file.png["Una captura de pantalla que muestra cómo ver dónde se encuentran los archivos duplicados."]
+
+
+TIP: Puede usar el valor "hash de archivo" que se proporciona en esta página e introducirlo directamente en la página Investigación para buscar un archivo duplicado específico en cualquier momento, o puede usarlo en una directiva.
+
+
+
+== Informe de investigación de datos
+
+El Informe de investigación de datos es una descarga del contenido filtrado de la página Investigación de datos.
+
+Puede guardar el informe en la máquina local como un archivo .CSV (que puede incluir hasta 5,000 filas de datos) o como un archivo .JSON que exporte a un recurso compartido NFS (que puede incluir un número ilimitado de filas). Si la detección de datos está analizando archivos (datos no estructurados), directorios (carpetas y recursos compartidos de archivos) o bases de datos (datos estructurados), puede descargar hasta tres archivos de informes.
+
+Al exportar a un recurso compartido de archivos, asegúrese de que Data Sense tiene los permisos correctos para el acceso de exportación.
+
+
+
+=== Generación del informe de investigación de datos
+
+.Pasos
+. En la página Data Investigation, haga clic en image:button_download.png["botón de descarga"] en la parte superior derecha de la página.
+. Seleccione si desea descargar un informe .CSV o un informe .JSON de los datos y haga clic en *Descargar informe*.
++
+image:screenshot_compliance_investigation_report.png["Captura de pantalla de la página Informe de investigación de descargas con varias opciones."]
+
++
+Al seleccionar un informe .JSON, introduzca el nombre del recurso compartido NFS al que se descargará el informe con el formato `<host_name>:/<share_path>`.
+
+
+
+.Resultado
+Un cuadro de diálogo muestra un mensaje que indica que los informes se están descargando.
+
+Puede ver el progreso de la generación de informes JSON en la link:task-view-compliance-actions.html["Panel Estado de acciones"].
+
+
+
+=== Lo que se incluye en cada informe de investigación de datos
+
+El *Informe de datos de archivos no estructurados* incluye la siguiente información sobre sus archivos:
+
+* Nombre de archivo
+* Tipo de ubicación
+* Nombre del entorno de trabajo
+* Repositorio de almacenamiento (por ejemplo, un volumen, un bloque, recursos compartidos)
+* Tipo de entorno de trabajo
+* Ruta del archivo
+* Tipo de archivo
+* Tamaño de archivo
+* Hora de creación
+* Última modificación
+* Último acceso
+* Propietario del archivo
+* Categoría
+* Información personal
+* Información personal confidencial
+* Fecha de detección de eliminación
++
+Una fecha de detección de eliminación identifica la fecha en la que se eliminó o movió el archivo. Esto le permite identificar cuándo se han movido los archivos confidenciales. Los archivos eliminados no forman parte del recuento de números de archivo que aparece en el panel o en la página Investigación. Los archivos solo aparecen en los informes CSV.
+
+
+
+*Informe de datos de directorios no estructurados* incluye la siguiente información sobre sus carpetas y recursos compartidos de archivos:
+
+* Nombre del entorno de trabajo
+* Repositorio de almacenamiento (por ejemplo, una carpeta o archivos compartidos)
+* Tipo de entorno de trabajo
+* Ruta del archivo (nombre de directorio)
+* Propietario del archivo
+* Hora de creación
+* Hora de detección
+* Última modificación
+* Último acceso
+* Permisos abiertos
+* Tipo de directorio
+
+
+El *Informe de datos estructurados* incluye la siguiente información sobre las tablas de la base de datos:
+
+* Nombre de tabla DE BASE de DATOS
+* Tipo de ubicación
+* Nombre del entorno de trabajo
+* Repositorio de almacenamiento (por ejemplo, un esquema)
+* Recuento de columnas
+* Recuento de filas
+* Información personal
+* Información personal confidencial
+

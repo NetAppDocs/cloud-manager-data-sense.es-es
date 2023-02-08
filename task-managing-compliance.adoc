@@ -1,0 +1,70 @@
+---
+sidebar: sidebar 
+permalink: task-managing-compliance.html 
+keywords: remove, stop, stop scans, stop scanning, cloud compliance, stop cloud compliance, deactivate, deactivating cloud compliance, data sense 
+summary: Si lo necesita, puede detener Cloud Data Sense analizando uno o más entornos de trabajo, bases de datos, grupos de recursos compartidos de archivos, cuentas de OneDrive, cuentas de Google Drive, O cuentas de SharePoint. 
+---
+= Eliminando orígenes de datos del Cloud Data Sense
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+Si lo necesita, puede detener Cloud Data Sense analizando uno o más entornos de trabajo, bases de datos, grupos de recursos compartidos de archivos, cuentas de OneDrive, cuentas de Google Drive, O cuentas de SharePoint.
+
+
+
+== Desactivar los análisis de cumplimiento de normativas en un entorno de trabajo
+
+Al desactivar los análisis, Cloud Data Sense ya no analiza los datos del entorno de trabajo y elimina la información de cumplimiento indexada de la instancia de detección de datos (los datos del entorno de trabajo en sí no se eliminan).
+
+. En la página _Configuration_, haga clic en image:screenshot_gallery_options.gif["Botón más"] En la fila del entorno de trabajo y, a continuación, haga clic en *Desactivar detección de datos*.
+
+
+image:screenshot_deactivate_compliance_scan.png["Una captura de pantalla del icono de acción en la que puede seleccionar Desactivar detección de datos. Esta opción está disponible después de seleccionar un entorno de trabajo de la página lienzo."]
+
+
+TIP: También puede desactivar los análisis de cumplimiento de un entorno de trabajo desde el panel Servicios cuando seleccione el entorno de trabajo.
+
+
+
+== Eliminación de una base de datos de Cloud Data Sense
+
+Si ya no desea analizar una determinada base de datos, puede eliminarla de la interfaz de Cloud Data Sense y detener todos los análisis.
+
+. En la página _Configuration_, haga clic en image:screenshot_gallery_options.gif["Botón más"] En la fila de la base de datos y, a continuación, haga clic en *Quitar servidor de base de datos*.
+
+
+image:screenshot_compliance_remove_db.png["Captura de pantalla del botón Eliminar servidor de base de datos de la página Configuración de exploración."]
+
+
+
+== Eliminar una cuenta de OneDrive, SharePoint o Google Drive de Cloud Data Sense
+
+Si ya no desea analizar archivos de usuario desde una cuenta de OneDrive determinada, desde una cuenta de SharePoint específica o desde una cuenta de Google Drive, puede eliminar la cuenta desde la interfaz de Cloud Data Sense y detener todos los análisis.
+
+.Pasos
+. En la página _Configuration_, haga clic en image:screenshot_gallery_options.gif["Botón más"] En la fila de la cuenta de OneDrive, SharePoint o Google Drive y, a continuación, haga clic en *Eliminar cuenta de OneDrive*, *Eliminar cuenta de SharePoint* o *Eliminar cuenta de Google Drive*.
++
+image:screenshot_compliance_remove_onedrive.png["Captura de pantalla del botón Remove OneDrive de la página Scan Configuration."]
+
+. Haga clic en *Eliminar cuenta* en el cuadro de diálogo de confirmación.
+
+
+
+
+== Quitar un grupo de recursos compartidos de archivos de Cloud Data Sense
+
+Si ya no desea analizar archivos de usuario de un grupo de recursos compartidos de archivos, puede eliminar el grupo de recursos compartidos de archivos de la interfaz de Cloud Data Sense y detener todos los análisis.
+
+.Pasos
+. En la página _Configuration_, haga clic en image:screenshot_gallery_options.gif["Botón más"] En la fila del grupo de recursos compartidos de archivos y, a continuación, haga clic en *Quitar grupo de recursos compartidos de archivos*.
++
+image:screenshot_compliance_remove_fileshare_group.png["Captura de pantalla del botón Eliminar grupo de archivos compartidos de la página Configuración de exploración."]
+
+. Haga clic en *Eliminar grupo de recursos compartidos* en el cuadro de diálogo de confirmación.
+

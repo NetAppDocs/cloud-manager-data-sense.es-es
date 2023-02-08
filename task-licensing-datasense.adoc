@@ -1,0 +1,193 @@
+---
+sidebar: sidebar 
+permalink: task-licensing-datasense.html 
+keywords: subscribe, trial, marketplace, subscription, paygo, pay as you go, byol, bring your own license, data sense, cloud data sense 
+summary: Los primeros 1 TB de datos que Cloud Data Sense analiza en un espacio de trabajo BlueXP son gratuitos. Debe contar con una licencia BYOL de NetApp o una suscripción a su mercado proveedor de cloud para continuar analizando los datos después de ese punto. 
+---
+= Configure la licencia de Cloud Data Sense
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+Los primeros 1 TB de datos que Cloud Data Sense analiza en un espacio de trabajo BlueXP se pueden disponer de forma gratuita durante 30 días. Debe seguir analizando los datos después de ese momento una licencia BYOL de NetApp o una suscripción al mercado de su proveedor de cloud.
+
+Antes de leer más:
+
+* Si ya está suscrito a la suscripción de pago por uso (PAYGO, por sus siglas en inglés) de BlueXP en el mercado de su proveedor de la nube, entonces también estará suscrito automáticamente a Cloud Data Sense. No tendrá que volver a suscribirse.
+* Cloud Data Sense Bring-Your-Own-License (BYOL) es una licencia _floating_ que puede utilizar en todos los entornos de trabajo y orígenes de datos del espacio de trabajo que tiene pensado analizar. Verá una suscripción activa en Digital Wallet.
+
+
+link:concept-cloud-compliance.html#cost["Obtenga más información acerca de las licencias y los costes relacionados con Cloud Data Sense"].
+
+
+
+== Utilice una suscripción a Cloud Data Sense PAYGO
+
+Las suscripciones de pago por uso del mercado de su proveedor de cloud le permiten obtener la licencia del uso de sistemas Cloud Volumes ONTAP y de muchos servicios de datos en el cloud, como Cloud Data Sense.
+
+Puede suscribirse en cualquier momento y no se le cobrará hasta que finalice la prueba de 30 días o la cantidad de datos supere 1 TB. Siempre puede ver la cantidad total de datos que se van a analizar desde el panel de detección de datos. Y el botón _Subscribe Now_ facilita la suscripción cuando esté listo.
+
+image:screenshot_compliance_subscribe.png["Una captura de pantalla que muestra la cantidad de datos que se están analizando y el botón Suscribirse para suscribirse al servicio."]
+
+.Pasos
+Un usuario que tenga la función _Account Admin_ debe completar estos pasos.
+
+. En la parte superior derecha de la consola de BlueXP, haga clic en el icono Configuración y seleccione *credenciales*.
++
+image:screenshot_settings_icon.gif["Una captura de pantalla del banner superior derecho de BlueXP donde puede seleccionar el icono Configuración."]
+
+. Busque las credenciales de AWS Instance Profile, Azure Managed Service Identity o Google Project.
++
+La suscripción se debe agregar al perfil de instancia, la identidad de servicio gestionado o Google Project. La carga no funcionará de otro modo.
+
++
+Si ya tiene una suscripción a BlueXP (que se muestra a continuación para AWS), entonces está preparado, no hay nada más que hacer.
+
++
+image:screenshot_profile_subscription.gif["Captura de pantalla de la página credenciales que muestra el perfil de instancia con una suscripción activa."]
+
+. Si todavía no tiene una suscripción, pase el cursor sobre las credenciales, haga clic en el menú de acciones y haga clic en *Suscripción asociada*.
++
+image:screenshot_add_subscription.gif["Una captura de pantalla del menú en la página credenciales. Muestra un botón para asociar una suscripción a las credenciales."]
+
+. Seleccione una suscripción existente y haga clic en *asociado*, o haga clic en *Agregar suscripción* y siga los pasos.
++
+El siguiente vídeo muestra cómo asociar un https://aws.amazon.com/marketplace/pp/prodview-oorxakq6lq7m4?sr=0-8&ref_=beagle&applicationId=AWSMPContessa["Mercado AWS"^] Suscripción a una suscripción a AWS:
+
++
+video::video_subscribing_aws.mp4[width=848,height=480]
++
+El siguiente vídeo muestra cómo asociar un https://azuremarketplace.microsoft.com/en-us/marketplace/apps/netapp.cloud-manager?tab=Overview["Azure Marketplace"^] Suscripción a una suscripción de Azure:
+
++
+video::video_subscribing_azure.mp4[width=848,height=480]
++
+El siguiente vídeo muestra cómo asociar un https://console.cloud.google.com/marketplace/details/netapp-cloudmanager/cloud-manager?supportedpurview=project&rif_reserved["Mercado para GCP"^] Suscripción a una suscripción a GCP:
+
++
+video::video_subscribing_gcp.mp4[width=848,height=480]
+
+
+
+
+== Use una licencia BYOL de Cloud Data Sense
+
+Las licencias que traiga sus propias de NetApp proporcionan períodos de 1, 2 o 3 años. La licencia BYOL *Cloud Data Sense* es una licencia _flotante_ donde la capacidad total se comparte entre *todos* de sus entornos de trabajo y fuentes de datos, lo que facilita las licencias y la renovación iniciales.
+
+Si no tiene una licencia de Cloud Data Sense, póngase en contacto con nosotros para adquirir una:
+
+* Mailto:ng-contact-data-sense@netapp.com?Subject=Licensing[Enviar correo electrónico para adquirir una licencia].
+* Haga clic en el icono de chat situado en la parte inferior derecha de BlueXP para solicitar una licencia.
+
+
+De manera opcional, si tiene una licencia basada en nodo sin asignar para Cloud Volumes ONTAP que no usará, puede convertirla en una licencia de Cloud Data Sense con la misma equivalencia en dólares y la misma fecha de caducidad. https://docs.netapp.com/us-en/cloud-manager-cloud-volumes-ontap/task-manage-node-licenses.html#exchange-unassigned-node-based-licenses["Vaya aquí para obtener más información"^].
+
+La página de Digital Wallet de BlueXP se utiliza para gestionar licencias BYOL de Cloud Data Sense. Puede añadir licencias nuevas y actualizar las licencias existentes.
+
+
+
+=== Obtenga su archivo de licencia de Cloud Data Sense
+
+Después de adquirir la licencia de Cloud Data Sense, activa la licencia en BlueXP introduciendo el número de serie y la cuenta NSS de Cloud Data Sense o cargando el archivo de licencia de NLF. Los pasos a continuación muestran cómo obtener el archivo de licencia de NLF si planea utilizar ese método.
+
+Si ha implementado Cloud Data Sense en un host de un sitio en las instalaciones que no tiene acceso a Internet, necesitará obtener el archivo de licencia de un sistema conectado a Internet. La activación de la licencia mediante el número de serie y la cuenta de NSS no está disponible para las instalaciones de sitios oscuros.
+
+.Pasos
+. Inicie sesión en la https://mysupport.netapp.com["Sitio de soporte de NetApp"^] Y haga clic en *sistemas > licencias de software*.
+. Introduzca el número de serie de la licencia de Cloud Data Sense.
++
+image:screenshot_cloud_tiering_license_step1.gif["Captura de pantalla que muestra una tabla de licencias después de buscar por número de serie."]
+
+. En *clave de licencia*, haga clic en *obtener archivo de licencia de NetApp*.
+. Introduzca su ID de cuenta de BlueXP (esto se denomina ID de inquilino en el sitio de soporte) y haga clic en *Enviar* para descargar el archivo de licencia.
++
+image:screenshot_cloud_tiering_license_step2.gif["Una captura de pantalla que muestra el cuadro de diálogo obtener licencia donde se introduce el ID de inquilino y, a continuación, haga clic en Enviar para descargar el archivo de licencia."]
+
++
+Puede encontrar su ID de cuenta de BlueXP seleccionando el menú desplegable *cuenta* de la parte superior de BlueXP y, a continuación, haciendo clic en *Administrar cuenta* junto a su cuenta. Su ID de cuenta se encuentra en la ficha Descripción general.
+
+
+
+
+
+=== Añada licencias BYOL de Cloud Data Sense a su cuenta
+
+Después de adquirir una licencia de Cloud Data Sense para su cuenta de BlueXP, debe agregar la licencia a BlueXP para utilizar el servicio de detección de datos.
+
+.Pasos
+. En el menú BlueXP, haga clic en *Gobierno > cartera digital* y, a continuación, seleccione la ficha *licencias de servicios de datos*.
+. Haga clic en *Agregar licencia*.
+. En el cuadro de diálogo _Add License_, introduzca la información de la licencia y haga clic en *Add License*:
++
+** Si tiene el número de serie de la licencia de Data Sense y conoce su cuenta de NSS, seleccione la opción *introducir número de serie* e introduzca esa información.
++
+Si su cuenta del sitio de soporte de NetApp no está disponible en la lista desplegable, https://docs.netapp.com/us-en/cloud-manager-setup-admin/task-adding-nss-accounts.html["Agregue la cuenta NSS a BlueXP"^].
+
+** Si tiene el archivo de licencia de Data Sense (requerido cuando está instalado en un sitio oscuro), seleccione la opción *cargar archivo de licencia* y siga las indicaciones para adjuntar el archivo.
++
+image:screenshot_services_license_add.png["Una captura de pantalla que muestra la página para añadir la licencia BYOL de Cloud Data Sense."]
+
+
+
+
+
+.Resultado
+BlueXP agrega la licencia para que su servicio Cloud Data Sense esté activo.
+
+
+
+=== Actualice una licencia BYOL de Cloud Data Sense
+
+Si el término con licencia se acerca a la fecha de vencimiento o si la capacidad con licencia alcanza el límite, se le notificará en Cloud Data Sense.
+
+image:screenshot_services_license_expire_cc1.png["Una captura de pantalla que muestra una licencia que caduca en la página Cloud Data Sense."]
+
+Este estado también aparece en la cartera digital.
+
+image:screenshot_services_license_expire_cc2.png["Una captura de pantalla que muestra una licencia que está a punto de caducar en la página de Digital Wallet."]
+
+Puede actualizar su licencia de Cloud Data Sense antes de que caduque para que no se interrumpa su capacidad para acceder a los datos analizados.
+
+.Pasos
+. Haga clic en el icono de chat situado en la parte inferior derecha de BlueXP para solicitar una extensión de su término o capacidad adicional a su licencia de Cloud Data Sense para el número de serie concreto. También puede mailto:ng-contact-data-sense@netapp.com?Subject=Licensing[enviar un correo electrónico para solicitar una actualización a su licencia].
++
+Tras pagar la licencia y registrarse en el sitio de soporte de NetApp, BlueXP actualiza automáticamente la licencia en la cartera digital y la página licencias de servicios de datos reflejarán el cambio en 5 a 10 minutos.
+
+. Si BlueXP no puede actualizar automáticamente la licencia (por ejemplo, cuando está instalada en un sitio oscuro), deberá cargar manualmente el archivo de licencia.
++
+.. Puede hacerlo <<Obtenga su archivo de licencia de Cloud Data Sense,Obtenga el archivo de licencia del sitio de soporte de NetApp>>.
+.. En la página cartera digital de la ficha _Data Services Licenses_, haga clic en image:screenshot_horizontal_more_button.gif["Icono más"] Para el número de serie del servicio que está actualizando y haga clic en *Actualizar licencia*.
++
+image:screenshot_services_license_update.png["Captura de pantalla de la selección del botón Actualizar licencia de un servicio concreto."]
+
+.. En la página _Update License_, cargue el archivo de licencia y haga clic en *Actualizar licencia*.
+
+
+
+
+.Resultado
+BlueXP actualiza la licencia para que su servicio Cloud Data Sense siga activo.
+
+
+
+=== Consideraciones sobre la licencia de BYOL
+
+Al utilizar una licencia BYOL de Cloud Data Sense, BlueXP muestra una advertencia en la interfaz de usuario de Data Sense y en la interfaz de usuario de Digital Wallet cuando el tamaño de todos los datos que está analizando se acerca al límite de capacidad o se acerca a la fecha de caducidad de la licencia. Recibe estas advertencias:
+
+* Cuando la cantidad de datos que está analizando ha alcanzado el 80% de la capacidad con licencia y, de nuevo, cuando ha alcanzado el límite
+* 30 días antes de que caduque una licencia, y de nuevo cuando caduque la licencia
+
+
+Utilice el icono de chat situado en la parte inferior derecha de la interfaz de BlueXP para renovar su licencia cuando vea estas advertencias.
+
+Si la licencia caduca, Data Sense continúa ejecutándose, pero el acceso a los paneles está bloqueado para que no pueda ver información sobre ninguno de los datos analizados. Solo la página _Configuration_ está disponible en caso de que se desee reducir la cantidad de volúmenes que se van a analizar para lograr que su uso de capacidad esté dentro del límite de licencia.
+
+Una vez que renueve su licencia BYOL, BlueXP actualiza automáticamente la licencia de Digital Wallet y ofrece acceso completo a todas las consolas. Si BlueXP no puede acceder al archivo de licencia a través de la conexión segura a Internet (por ejemplo, cuando está instalado en un sitio oscuro), puede obtener el archivo usted mismo y cargarlo manualmente en BlueXP. Para ver instrucciones, consulte <<Actualice una licencia BYOL de Cloud Data Sense,cómo actualizar una licencia de Cloud Data Sense>>.
+
+
+TIP: Si la cuenta que está utilizando tiene una licencia BYOL y una suscripción a PAYGO, Data Sense _no pasará a la suscripción a PAYGO cuando caduque la licencia BYOL. Debe renovar la licencia de BYOL.

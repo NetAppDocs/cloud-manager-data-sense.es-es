@@ -1,0 +1,139 @@
+---
+sidebar: sidebar 
+permalink: task-scanning-onedrive.html 
+keywords: cloud compliance, enable cloud compliance, privacy, compliance, onedrive, Data Sense 
+summary: Complete unos pasos para empezar a analizar archivos en las carpetas de OneDrive de su usuario con Cloud Data Sense. 
+---
+= Analizando cuentas de OneDrive
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+Complete unos pasos para empezar a analizar archivos en las carpetas de OneDrive de su usuario con Cloud Data Sense.
+
+
+
+== Inicio rápido
+
+Empiece rápidamente siguiendo estos pasos o desplácese hacia abajo hasta las secciones restantes para obtener todos los detalles.
+
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-1.png["Uno"] Revise los requisitos previos de OneDrive
+[role="quick-margin-para"]
+Compruebe que tiene las credenciales de administrador para iniciar sesión en la cuenta de OneDrive.
+
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-2.png["Dos"] Ponga en marcha la instancia de Cloud Data Sense
+[role="quick-margin-para"]
+link:task-deploy-cloud-compliance.html["Ponga en marcha Cloud Data Sense"^] si aún no hay una instancia implementada.
+
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-3.png["Tres"] Añada la cuenta de OneDrive
+[role="quick-margin-para"]
+Con las credenciales de usuario de administrador, inicie sesión en la cuenta de OneDrive a la que desee acceder para que se agregue como nuevo entorno de trabajo.
+
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-4.png["Cuatro"] Agregue los usuarios y seleccione el tipo de análisis
+[role="quick-margin-para"]
+Agregue la lista de usuarios de la cuenta de OneDrive que desee analizar y seleccione el tipo de análisis. Puede añadir hasta 100 usuarios al mismo tiempo.
+
+
+
+== Revisión de los requisitos de OneDrive
+
+Revise los siguientes requisitos previos para asegurarse de tener una configuración compatible antes de habilitar Cloud Data Sense.
+
+* Debe tener las credenciales de inicio de sesión de administrador para la cuenta de OneDrive para la Empresa que proporcione acceso de lectura a los archivos del usuario.
+* Necesitará una lista separada por líneas de las direcciones de correo electrónico para todos los usuarios cuyas carpetas de OneDrive desee analizar.
+
+
+
+
+== Implementar la instancia de Cloud Data Sense
+
+Si todavía no hay una instancia implementada, implemente Cloud Data Sense.
+
+El sentido de los datos puede ser link:task-deploy-cloud-compliance.html["implementado en el cloud"^] o. link:task-deploy-compliance-onprem.html["en una ubicación en el hotel que tiene acceso a internet"^].
+
+Las actualizaciones del software Data Sense se automatizan siempre que la instancia tenga conectividad a Internet.
+
+La detección de datos también puede ser link:task-deploy-compliance-dark-site.html["se implementa en una ubicación local que no tiene acceso a internet"^]. Sin embargo, deberá proporcionar acceso a Internet a unos pocos extremos seleccionados para analizar sus archivos de OneDrive locales. link:task-deploy-compliance-dark-site.html#sharepoint-and-onedrive-special-requirements["Consulte la lista de puntos finales necesarios aquí"].
+
+
+
+== Adición de la cuenta de OneDrive
+
+Agregue la cuenta de OneDrive donde residen los archivos de usuario.
+
+.Pasos
+. En la página Configuración de entornos de trabajo, haga clic en *Agregar origen de datos* > *Agregar cuenta de OneDrive*.
++
+image:screenshot_compliance_add_onedrive_button.png["Captura de pantalla de la página Configuración de exploración donde puede hacer clic en el botón Agregar OneDrive."]
+
+. En el cuadro de diálogo Agregar cuenta de OneDrive, haga clic en *Iniciar sesión en OneDrive*.
+. En la página de Microsoft que aparece, seleccione la cuenta de OneDrive e introduzca el usuario y la contraseña del administrador necesarios y, a continuación, haga clic en *Aceptar* para permitir que Cloud Data Sense lea datos de esta cuenta.
+
+
+La cuenta de OneDrive se agrega a la lista de entornos de trabajo.
+
+
+
+== Añadir usuarios de OneDrive a los análisis de cumplimiento de normativas
+
+Puede añadir usuarios individuales de OneDrive o todos sus usuarios de OneDrive para que sus archivos se puedan analizar mediante Cloud Data Sense.
+
+.Pasos
+. En la página _Configuration_, haga clic en el botón *Configuration* de la cuenta de OneDrive.
++
+image:screenshot_compliance_onedrive_add_users.png["Captura de pantalla de la página Configuración de exploración donde puede seleccionar el botón Configuración."]
+
+. Si es la primera vez que añade usuarios para esta cuenta de OneDrive, haga clic en *Agregar sus primeros usuarios de OneDrive*.
++
+image:screenshot_compliance_onedrive_add_initial_users.png["Una captura de pantalla que muestra el botón Añadir los primeros usuarios de OneDrive para agregar usuarios iniciales a una cuenta."]
+
++
+Si va a agregar usuarios adicionales desde una cuenta de OneDrive, haga clic en *Agregar usuarios de OneDrive*.
+
++
+image:screenshot_compliance_onedrive_add_more_users.png["Una captura de pantalla que muestra el botón Agregar usuarios de OneDrive para agregar más usuarios a una cuenta."]
+
+. Agregue las direcciones de correo electrónico de los usuarios cuyos archivos desea escanear - una dirección de correo electrónico por línea (hasta 100 máximo por sesión) - y haga clic en *Agregar usuarios*.
++
+image:screenshot_compliance_onedrive_add_email_addresses.png["Captura de pantalla de la página de usuarios de Add OneDrive en la que puede agregar usuarios para su análisis."]
+
++
+Un cuadro de diálogo de confirmación muestra el número de usuarios que se han agregado.
+
++
+Si el cuadro de diálogo enumera los usuarios que no se han podido agregar, capture esta información para que pueda resolver el problema. En algunos casos, puede volver a agregar al usuario con una dirección de correo electrónico corregida.
+
+. Active análisis de sólo asignación o análisis de asignación y clasificación en archivos de usuario.
++
+[cols="45,45"]
+|===
+| Para: | Haga lo siguiente: 
+
+
+| Active los análisis de sólo asignación en los archivos de usuario | Haga clic en *Mapa* 
+
+
+| Activar análisis completos en archivos de usuario | Haga clic en *Mapa y clasificación* 
+
+
+| Desactive el análisis en archivos de usuario | Haga clic en *Desactivado* 
+|===
+
+
+.Resultado
+Cloud Data Sense comienza a analizar los archivos de los usuarios agregados y los resultados se muestran en el Panel y en otras ubicaciones.
+
+
+
+== La eliminación de un usuario de OneDrive de los análisis de cumplimiento de normativas
+
+Si dejan la compañía o cambia su dirección de correo electrónico, puede eliminar a usuarios individuales de OneDrive para que puedan analizar sus archivos en cualquier momento. Sólo tiene que hacer clic en *Eliminar usuario de OneDrive* en la página Configuración.
+
+image:screenshot_compliance_onedrive_remove_user.png["Una captura de pantalla que muestra cómo eliminar a un solo usuario de que se escaneen sus archivos."]
+
+Tenga en cuenta que puede link:task-managing-compliance.html#removing-a-onedrive-sharepoint-or-google-drive-account-from-cloud-data-sense["Elimine toda la cuenta de OneDrive de Data Sense"] Si ya no desea analizar ningún dato de usuario desde la cuenta de OneDrive.

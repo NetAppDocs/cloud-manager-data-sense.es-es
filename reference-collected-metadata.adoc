@@ -1,0 +1,36 @@
+---
+sidebar: sidebar 
+permalink: reference-collected-metadata.html 
+keywords: compliance, metadata, permissions, time stamps, privacy 
+summary: El sentido de los datos recopila ciertos metadatos al realizar análisis de clasificación de los datos de sus orígenes de datos y entornos de trabajo. El sentido de los datos puede acceder a la mayoría de los metadatos que necesitamos para clasificar sus datos, pero hay algunos orígenes en los que no podemos acceder a los datos que necesitamos. 
+---
+= Metadatos recogidos de orígenes de datos
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+El sentido de los datos recopila ciertos metadatos al realizar análisis de clasificación de los datos de sus orígenes de datos y entornos de trabajo. El sentido de los datos puede acceder a la mayoría de los metadatos que necesitamos para clasificar sus datos, pero hay algunos orígenes en los que no podemos acceder a los datos que necesitamos.
+
+|===
+|  | *Metadatos* | *CIFS* | *NFS* 
+
+
+.3+| *Sellos de tiempo* | *Tiempo de creación* | Disponible | No disponible (no se admite en Linux) 
+
+
+| *Última hora de acceso* | Disponible | Disponible 
+
+
+| *Última hora de modificación* | Disponible | Disponible 
+
+
+.2+| *Permisos* | *Abrir permisos* | Si el grupo "TODOS" tiene acceso al archivo, se considera "abierto a la organización" | Si "otros" tienen acceso al archivo, se considera "abierto a la organización" 
+
+
+| *Acceso de usuarios/grupos* | La información de usuarios y grupos se toma de LDAP | No disponible (los usuarios NFS suelen gestionarse localmente en el servidor; por tanto, el mismo individuo puede tener un UID diferente en cada servidor) 
+|===
