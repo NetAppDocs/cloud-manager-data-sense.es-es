@@ -1,0 +1,2183 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head class="at-element-marker">
+  <title>Implemente Cloud Data Sense en un host Linux que tenga acceso a Internet | NetApp Documentation</title>
+  <meta charset="utf-8">
+  <meta http-equiv="x-ua-compatible" content="ie=edge,chrome=1">
+  <meta http-equiv="language" content="en">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta property="og:title" content="Implemente Cloud Data Sense en un host Linux que tenga acceso a Internet | NetApp Documentation" />
+	<meta property="og:type" content="website" />
+	<meta property="og:url" content="https://docs.netapp.com/es-es/cloud-manager-data-sense/task-deploy-compliance-onprem.html" />
+	<meta property="og:description" content="Complete unos pasos para implementar Cloud Data Sense en un host Linux de su red, o en un host Linux en la nube, que tenga acceso a Internet." />
+  <meta property="og:image" content="https://docs.netapp.com/es-es/cloud-manager-data-sense/images/logo-tophat-social.png" />
+  <meta property="og:image:alt" content="NetApp Logo" />
+  <meta name="format-detection" content="telephone=no">
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <meta http-equiv="encoding" content="utf-8">
+  <meta http-equiv="nss-type" content="Product Documentation"/>
+  <meta http-equiv="nss-subtype" content="User Guide"/><meta name="description" content="Complete unos pasos para implementar Cloud Data Sense en un host Linux de su red, o en un host Linux en la nube, que tenga acceso a Internet.">
+  <meta name="keywords" content=" cloud compliance, data sense, get started, deploy cloud data sense, outbound internet, endpoints, cloud compliance internet, web browser connectivity, cloud compliance access, privacy, compliance, on-premises"><!-- Icons -->
+  <link rel="icon" href="/es-es/cloud-manager-data-sense/images/favicon.ico" type="image/x-icon">
+
+  <!-- RSS Feed --><link rel="alternate" type="application/rss+xml" title="NetApp Documentation" href="/es-es/cloud-manager-data-sense/feed.xml"><!-- CSS Definitions: NetApp CSS should be defined after generic css -->
+
+  <!-- Elastic Search -->
+  <link rel="stylesheet" href="//cdn.jsdelivr.net/searchkit/0.10.0/theme.css">
+
+  <!-- Combined CSS -->
+  <link rel="stylesheet" type="text/css" href="/es-es/cloud-manager-data-sense/css/netappdocs.css">
+
+  
+  <link rel="stylesheet" href="/es-es/cloud-manager-data-sense/css/landing-page.css" type="text/css">
+  <link rel="stylesheet" href="/es-es/cloud-manager-data-sense/css/tabbed-blocks.css" type="text/css">
+  <!-- Canonical url -->
+  <link rel='stylesheet' href='/es-es/cloud-manager-data-sense/css/na-feature.css' type='text/css'><!-- Top level site integrations --><script>
+    function addAdobeLaunch(adobeId) {
+      var head = document.getElementsByTagName('head')[0];
+      var adobe = document.createElement("script");
+      adobe.type = "text/plain";
+      adobe.className = "optanon-category-C0002";
+      adobe.src = "//assets.adobedtm.com/60287eadf1ee/c284da483c83/"+adobeId+".min.js";
+      head.appendChild(adobe);
+    }
+
+    function addGoogleAnalytics(gtagId) {
+      var google = document.createElement("script");
+      google.type = "text/plain";
+      google.className = "optanon-category-C0002";
+      google.src = "https://www.googletagmanager.com/gtag/js?id="+gtagId;
+      var head = document.getElementsByTagName('head')[0];
+      head.appendChild(google);
+
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', gtagId);
+    }
+
+    function addConsent(consentId) {
+      var head = document.getElementsByTagName('head')[0];
+      var onetrustConsent = document.createElement("script");
+      onetrustConsent.type = "text/javascript";
+      onetrustConsent.src = "https://cdn.cookielaw.org/consent/"+consentId+"/OtAutoBlock.js";
+      head.appendChild(onetrustConsent);
+
+      var onetrustScript = document.createElement("script");
+      onetrustScript.type = "text/javascript";
+      onetrustScript.src = "https://cdn.cookielaw.org/scripttemplates/otSDKStub.js";
+      onetrustScript.charset = "UTF-8";
+      onetrustScript.dataset.documentLanguage = "true";
+      onetrustScript.dataset.domainScript = consentId;
+      head.appendChild(onetrustScript);
+    }addConsent("72570c5c-fe30-465f-b0e0-b77f7fb4ae34");
+    addAdobeLaunch("launch-e9ff3acac59f");
+    addGoogleAnalytics("UA-81697994-3");function OptanonWrapper() { }
+  </script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.1/jquery.cookie.min.js"></script>
+
+  <!-- Used for Product Family Page Sidebar Visibility --><!-- Used to import Promise for IE. Required for SearchKit -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/bluebird/3.3.5/bluebird.min.js"></script><script src='/es-es/cloud-manager-data-sense/js/na-search.js'></script><script src='/es-es/cloud-manager-data-sense/js/na-pagenav.js'></script><script src='/es-es/cloud-manager-data-sense/js/na-utility.js'></script>
+  <script src='/es-es/cloud-manager-data-sense/js/clouddocs.js'></script>
+  <script src='/es-es/cloud-manager-data-sense/js/jquery.navgoco.min.js'></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+  <script src='/es-es/cloud-manager-data-sense/js/toc.js'></script>
+  <script src='/es-es/cloud-manager-data-sense/js/customscripts.js'></script><script>
+      $(document).ready(function() {
+          
+          var collapseOnInit = true;
+          
+
+          var navSettings = {
+              "caretHtml": '',
+              "accordion": collapseOnInit,
+              "openClass": 'active', // open
+              "save": false, // leave false or nav highlighting doesn't work right
+              "cookie": {
+                  "name": 'navgoco',
+                  "expires": false,
+                  "path": '/'
+              },
+              "slide": {
+                  "duration": 400,
+                  "easing": 'swing'
+              }
+          };
+
+          // Initialize navgoco with default options
+          $("#mysidebar").navgoco(navSettings);
+          
+
+          $("#collapseAll").click(function(e) {
+              e.preventDefault();
+              $("#mysidebar").navgoco('toggle', false);
+          });
+
+          $("#expandAll").click(function(e) {
+              e.preventDefault();
+              $("#mysidebar").navgoco('toggle', true);
+          });
+
+          $(".sidebar-nav-container").on("scroll", function() {
+            $.cookie("sidebarScroll", $(".sidebar-nav-container").scrollTop(), {
+              path    : "/es-es/cloud-manager-data-sense"  
+            });
+          });
+          $(function() {
+            if ($.cookie("sidebarScroll")) {
+              $(".sidebar-nav-container").scrollTop($.cookie("sidebarScroll"));
+            }
+          });
+
+      });
+
+  </script>
+  <script>
+      $(document).ready(function() {
+          $("#tg-sb-link").click(function() {
+              $("#tg-sb-sidebar").toggle();
+              $("#tg-sb-content").toggleClass('col-md-9');
+              $("#tg-sb-content").toggleClass('col-md-12');
+              $("#tg-sb-icon").toggleClass('fa-toggle-on');
+              $("#tg-sb-icon").toggleClass('fa-toggle-off');
+          });
+      });
+  </script>
+  <script src='/es-es/cloud-manager-data-sense/js/custom-dropdown.js'></script>
+  <script src='/es-es/cloud-manager-data-sense/js/FileSaver.min.js'></script>
+  <script src='/es-es/cloud-manager-data-sense/js/jszip-utils.min.js'></script>
+  <script src='/es-es/cloud-manager-data-sense/js/jszip.min.js'></script>
+  <script src='/es-es/cloud-manager-data-sense/js/pdf-ux.js'></script>
+</head>
+
+
+  <body class role="document" data-flavor="">
+    <div id="page" class="n-off-canvas-menu">
+      <div class="n-off-canvas-menu__menu"><!--TODO: Add offcanvas code --></div>
+      <div class="n-off-canvas-menu__content-wrap">
+        <header class="site-header" id="banner">
+  
+  <!-- Start Page Toolbar -->
+  
+  <div class="page-nav-toolbar"><div class="page-nav-contribute"><a target="_blank" href="https://github.com/NetAppDocs/cloud-manager-data-sense/issues/new?body=Page%3A%20[Implemente Cloud Data Sense en un host Linux que tenga acceso a Internet](https://docs.netapp.com/es-es/cloud-manager-data-sense/task-deploy-compliance-onprem.html)&template=public-issue-template.md" class="page-nav-contribute-link" role="button"><img src="/es-es/cloud-manager-data-sense/images/discuss-sm.svg" alt="" class="github-icon" />Solicitar cambios en el documento</a><a target="_blank" href="https://github.com/NetAppDocs/cloud-manager-data-sense/blob/main/task-deploy-compliance-onprem.adoc" class="page-nav-contribute-link" role="button"><img src="/es-es/cloud-manager-data-sense/images/edit-sm.svg" alt="" class="github-icon" />Editar en GitHub</a><a target="_blank" href="https://docs.netapp.com/us-en/contribute/" class="page-nav-contribute-link"  ><img src="/es-es/cloud-manager-data-sense/images/article-sm.svg" alt="" class="github-icon" />Guía del colaborador</a></div>
+    <div class="page-nav-container">
+      <nav class="page-nav-fixed">
+        <div class="page-nav-title">EN ESTA PÁGINA</div>
+        <div class="page-nav-links">
+          <ul class="page-nav-inner" id="page-menu"></ul>
+        </div>
+      </nav>
+    </div>
+  </div>
+  
+  
+  <!-- Start top_hat -->
+  <div class="n-top-hat">
+    <div class="n-container">
+      <div class="n-top-hat__cross-property-nav">
+        <ul class="n-top-hat__list">
+          <li class="n-top-hat__list-item">
+            <a href="https://www.netapp.com/products-a-z/" class="n-top-hat__link">Producto y soluciones</a>
+          </li>
+          <li class="n-top-hat__list-item">
+            <a href="https://www.netapp.com/support-and-training/netapp-university/" class="n-top-hat__link">Asistencia y capacitación</a>
+          </li>
+          <li class="n-top-hat__list-item">
+            <a href="https://cloud.netapp.com" class="n-top-hat__link">Cloud Central</a>
+          </li>
+          <li class="n-top-hat__list-item">
+            <a href="https://community.netapp.com/" class="n-top-hat__link">Comunidad</a>
+          </li>
+          <li class="n-top-hat__list-item">
+            <a href="https://blog.netapp.com/" class="n-top-hat__link">Blog</a>
+          </li>
+          <li class="n-top-hat__list-item">
+            <a href="https://customers.netapp.com/en/" class="n-top-hat__link">Historias de clientes</a>
+          </li>
+        </ul>
+      </div>
+      <div class="n-top-hat__utils">
+        <ul class="n-top-hat__list">
+          <li class="n-top-hat__list-item">
+            <a href="https://www.netapp.com/company/contact-us/" target="_self" class="n-top-hat__link" data-ntap-ui="contact-us">Contacto</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <!-- End top_hat -->
+
+  <!-- Start property bar -->
+  <style>
+    .n-property-navigation-bar__menus--desktop-experience .n-menu--mega__default-content__heading span {
+    color: #34B0FF;
+    }
+  </style>
+  <div class="n-property-bar " data-ntap-ui="sticky-nav">
+    <div class="n-property-bar__inner-wrap">
+      <div class="n-property-bar__menu-toggle">
+        <a href="#" class="n-property-bar__menu-toggle-link">
+          <span class="n-property-bar__menu-toggle-text">Menu</span>
+          <svg class="n-icon-bars n-property-bar__menu-toggle-icon" aria-labelledby="title">
+            <title>bars</title>
+            <use xlink:href="/es-es/cloud-manager-data-sense/common/svg/sprite.svg#bars"></use>
+          </svg>
+        </a>
+      </div>
+      <div class="n-property-bar__property-mark ">
+        <a href="https://www.netapp.com" class="n-property-bar__property-link">
+          <div class="n-property-bar__logo">
+            <svg class="n-icon-netapp-mark n-icon-netapp-mark n-property-bar__netapp-mark-icon" aria-labelledby="title">
+              <title>netapp-mark</title>
+              <use xlink:href="/es-es/cloud-manager-data-sense/common/svg/sprite.svg#netapp-mark"></use>
+            </svg>
+            <svg class="n-icon-netapp-logo n-property-bar__logo-svg" aria-labelledby="title">
+              <title>netapp-logo</title>
+              <use xlink:href="/es-es/cloud-manager-data-sense/common/svg/sprite.svg#netapp-logo"></use>
+            </svg>
+          </div>
+        </a>
+      </div>
+
+      
+      
+      
+      <div class="search-property-bar">
+        <div id="search-demo-container" class="searchbox n-property-bar__search">
+          <div id="react-search" 
+          data-search-html="/es-es/cloud-manager-data-sense/search.html"
+          data-type="widget" 
+          data-placeholder="Buscar documentación"
+          data-no-results-found="No se encontraron resultados para {query}"
+          data-did-you-mean="Buscar {suggestion}."
+          data-no-results-found-did-you-mean="No se encontraron resultados para {query}. ¿Quiso decir {suggestion}?"
+          data-results-found="{hitCount} resultados encontrados"
+          data-error-message="We're sorry, an issue occurred when fetching your results. Please try again."
+          data-error-reset="Reset Search"
+          data-sk-es-pf-indexes=""
+          data-flavor=""></div>
+          <button class="n-property-bar__search-toggle-button" type="button">
+            <svg class="n-icon-search n-property-bar__search-toggle-button-icon" aria-labelledby="title">
+              <title>search</title>
+              <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="/es-es/cloud-manager-data-sense/common/svg/sprite.svg#search"></use>
+            </svg>
+          </button>
+        </div>
+      </div>
+      
+    </div>
+  </div>
+  <div class="n-property-bar__toolbar">
+    <!-- Start Language Selector --><div id="language-dropdown" class="custom-dropdown custom-dropdown-lang">
+      <div class="custom-dropdown-select custom-dropdown-select-lang">
+      <span class="lang-name">Español</span>
+          <svg class="n-globe__icon" aria-labelledby="title">
+            <title>globe</title>
+            <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="/es-es/cloud-manager-data-sense/common/svg/sprite.svg#globe"></use>
+          </svg>
+        </button>
+      </div>
+
+      <ul class="custom-dropdown-menu"><li>
+          <a href="https://docs.netapp.com/es-es/cloud-manager-data-sense/task-deploy-compliance-onprem.html" target="_self"><span translate="no" class="notranslate">Español</span></a>
+        </li><li>
+          <a href="https://docs.netapp.com/us-en/cloud-manager-data-sense/task-deploy-compliance-onprem.html" target="_self"><span translate="no" class="notranslate">English</span></a>
+        </li><li>
+          <a href="https://docs.netapp.com/ja-jp/cloud-manager-data-sense/task-deploy-compliance-onprem.html" target="_self"><span translate="no" class="notranslate">日本語</span></a>
+        </li><li>
+          <a href="https://docs.netapp.com/ko-kr/cloud-manager-data-sense/task-deploy-compliance-onprem.html" target="_self"><span translate="no" class="notranslate">한국어</span></a>
+        </li><li>
+          <a href="https://docs.netapp.com/zh-cn/cloud-manager-data-sense/task-deploy-compliance-onprem.html" target="_self"><span translate="no" class="notranslate">简体中文</span></a>
+        </li><li>
+          <a href="https://docs.netapp.com/zh-tw/cloud-manager-data-sense/task-deploy-compliance-onprem.html" target="_self"><span translate="no" class="notranslate">繁體中文</span></a>
+        </li><li>
+          <a href="https://docs.netapp.com/de-de/cloud-manager-data-sense/task-deploy-compliance-onprem.html" target="_self"><span translate="no" class="notranslate">Deutsch</span></a>
+        </li><li>
+          <a href="https://docs.netapp.com/fr-fr/cloud-manager-data-sense/task-deploy-compliance-onprem.html" target="_self"><span translate="no" class="notranslate">Français</span></a>
+        </li></ul>
+    </div><!-- End Language Selector -->
+
+    <div class="n-property-bar__cta"></div>
+  </div>
+  <!-- End property bar -->
+</header>
+
+
+        <main id="n-main-content" class="n-main-content">
+          <!-- Start Documentation Content -->
+<div class="ie-main">
+  <!-- Sidebar Column -->
+  
+  <div class="col-md-3" id="sidebar-height">
+      <button id="btn-sidebar-collapse" onclick="hideSidebar()"><img src="/es-es/cloud-manager-data-sense/images/collapse.png" alt="Contraer panel de navegación"></button>
+      <div class="n-pdf-header">
+  <a id="toggleButtonPdf" class="n-pdf-button" type="button">
+    <img src="/es-es/cloud-manager-data-sense/images/pdf.png" alt="" width="16" height="16"/>PDFs disponibles<span>
+    </span>
+  </a>
+</div>
+<div class="n-pdf-body-container">
+  <ul id="toggleContainerPdf" class="n-pdf-body" style="display:none;"><li class="pdf-ux-container">
+        
+        
+        
+        <a target="_blank" href="/es-es/cloud-manager-data-sense/pdfs/fullsite-sidebar/Documentación_de_Cloud_Data_Sense.pdf" >
+          <img src="/es-es/cloud-manager-data-sense/images/pdf.png" alt="" width="16" height="16"/>PDF de este sitio de documentos</a>
+
+
+
+
+
+    
+      <ul class="subfolders" style="display:none;">
+        <li class="pdf-ux-container">
+          
+          
+          
+          <a target="_blank" 
+            
+              href="/es-es/cloud-manager-data-sense/pdfs/sidebar/Manos_a_la_obra.pdf" 
+            
+          >
+            <img src="/es-es/cloud-manager-data-sense/images/pdf.png" alt="" width="16" height="16"/>
+            Manos a la obra
+          </a>
+          
+
+
+
+    
+      <ul class="subfolders" style="display:none;">
+        <li class="pdf-ux-container">
+          
+          
+          
+          <a target="_blank" 
+            
+              href="/es-es/cloud-manager-data-sense/pdfs/sidebar/Ponga_en_marcha_Cloud_Data_Sense.pdf" 
+            
+          >
+            <img src="/es-es/cloud-manager-data-sense/images/pdf.png" alt="" width="16" height="16"/>
+            Ponga en marcha Cloud Data Sense
+          </a>
+          
+
+
+    <ul class="subfolders" id="pdf-remove" style="display:none;"><li class="active"></li></ul>
+  
+
+
+
+
+        </li>
+      </ul>
+    
+
+  
+
+
+
+    
+      <ul class="subfolders" style="display:none;">
+        <li class="pdf-ux-container">
+          
+          
+          
+          <a target="_blank" 
+            
+              href="/es-es/cloud-manager-data-sense/pdfs/sidebar/Active_el_análisis_en_sus_orígenes_de_datos.pdf" 
+            
+          >
+            <img src="/es-es/cloud-manager-data-sense/images/pdf.png" alt="" width="16" height="16"/>
+            Active el análisis en sus orígenes de datos
+          </a>
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        </li>
+      </ul>
+    
+
+  
+
+
+
+
+
+
+
+
+        </li>
+      </ul>
+    
+
+  
+
+
+
+    
+      <ul class="subfolders" style="display:none;">
+        <li class="pdf-ux-container">
+          
+          
+          
+          <a target="_blank" 
+            
+              href="/es-es/cloud-manager-data-sense/pdfs/sidebar/Utilice_Cloud_Data_Sense.pdf" 
+            
+          >
+            <img src="/es-es/cloud-manager-data-sense/images/pdf.png" alt="" width="16" height="16"/>
+            Utilice Cloud Data Sense
+          </a>
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        </li>
+      </ul>
+    
+
+  
+
+
+
+    
+      <ul class="subfolders" style="display:none;">
+        <li class="pdf-ux-container">
+          
+          
+          
+          <a target="_blank" 
+            
+              href="/es-es/cloud-manager-data-sense/pdfs/sidebar/Gestione_el_sentido_de_los_datos_en_el_cloud.pdf" 
+            
+          >
+            <img src="/es-es/cloud-manager-data-sense/images/pdf.png" alt="" width="16" height="16"/>
+            Gestione el sentido de los datos en el cloud
+          </a>
+          
+
+
+
+
+
+
+
+
+
+
+
+
+        </li>
+      </ul>
+    
+
+  
+
+
+
+    
+      <ul class="subfolders" style="display:none;">
+        <li class="pdf-ux-container">
+          
+          
+          
+          <a target="_blank" 
+            
+              href="/es-es/cloud-manager-data-sense/pdfs/sidebar/Referencia.pdf" 
+            
+          >
+            <img src="/es-es/cloud-manager-data-sense/images/pdf.png" alt="" width="16" height="16"/>
+            Referencia
+          </a>
+          
+
+
+        </li>
+      </ul>
+    
+
+  
+
+
+
+    
+      <ul class="subfolders" style="display:none;">
+        <li class="pdf-ux-container">
+          
+          
+          
+          <a target="_blank" 
+            
+              href="/es-es/cloud-manager-data-sense/pdfs/sidebar/Conocimiento_y_apoyo.pdf" 
+            
+          >
+            <img src="/es-es/cloud-manager-data-sense/images/pdf.png" alt="" width="16" height="16"/>
+            Conocimiento y apoyo
+          </a>
+          
+
+
+
+
+        </li>
+      </ul>
+    
+
+  
+
+
+
+</li></ul>
+  <div class="zip-pdf-link-container" style="display: none;">   
+    <a href="#" id="zipPdf">
+      <img src="/es-es/cloud-manager-data-sense/images/pdf-zip.png" alt="" width="16" height="16"/>
+      <pre>Colección de documentos PDF separados<span class="zip-size"></span></pre>
+    </a><div id="zip-link-popup" class="hide">
+    <div class="inner-modal">
+        <div class="downloading-progress">
+            <div class="spinner"></div>
+            <h1>Creating your file...</h1>
+            <div>This may take a few minutes. Thanks for your patience.</div>
+            <button class="cancel-download-btn" type="button">Cancel</button>
+        </div>
+        <div class="download-complete hide">
+            <div class="done-icon">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M20.285 2l-11.285 11.567-5.286-5.011-3.714 3.716 9 8.728 15-15.285z"/></svg>
+            </div>
+            <div>Your file is ready</div>
+            <button class="cancel-download-btn" type="button">OK</button>
+        </div>
+    </div>
+</div>
+<script>
+    $(".cancel-download-btn").click(function(){
+        $("#zip-link-popup").addClass("hide");
+        $("#zip-link-popup .downloading-progress").removeClass("hide");
+        $("#zip-link-popup .download-complete").addClass("hide");
+    });
+</script></div>
+</div>
+<script>
+  $("#toggleContainerPdf li.active:last-child").parents('ul.subfolders').toggle('display');
+  $("#toggleButtonPdf").click(function () {
+    $("#toggleContainerPdf").toggle('display');
+    $(".n-pdf-body-container .zip-pdf-link-container").toggle('display');
+  });
+</script><div class="prod-nav" id="product-nav">
+  <a target="_self" class="prod-fam-nav" href="https://docs.netapp.com/es-es/cloud-manager-family/"><img src="/es-es/cloud-manager-data-sense/images/left_arrow.png" alt=""><pre>Toda la documentación de BlueXP</pre></a>
+</div><div class="sidebar-nav-container" id="mysidebardiv">
+  <ul id="mysidebar" class="nav"><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Documentos de Cloud Data Sense"
+      data-li-level="1#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/es-es/cloud-manager-data-sense/index.html">
+        Documentos de Cloud Data Sense
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Notas de la versión"
+      data-li-level="1#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/es-es/cloud-manager-data-sense/whats-new.html">
+        Notas de la versión
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Manos a la obra"
+      data-li-level="1" 
+      class="subfolders "
+    ><a href="#">
+        <div class="na-navbar-padding"> Manos a la obra</div>
+      </a>
+      <ul style="display: none;">
+        <li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Más información acerca de Cloud Data Sense"
+      data-li-level="2#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/es-es/cloud-manager-data-sense/concept-cloud-compliance.html">
+        Más información acerca de Cloud Data Sense
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Ponga en marcha Cloud Data Sense"
+      data-li-level="2" 
+      class="subfolders "
+    ><a href="#">
+        <div class="na-navbar-padding"> Ponga en marcha Cloud Data Sense</div>
+      </a>
+      <ul style="display: none;">
+        <li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Realice puestas en marcha en el cloud"
+      data-li-level="3#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/es-es/cloud-manager-data-sense/task-deploy-cloud-compliance.html">
+        Realice puestas en marcha en el cloud
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Se implementa en un host Linux con acceso a Internet"
+      data-li-level="3#" 
+      class="  active "
+    ><a class="na-navbar-padding" href="/es-es/cloud-manager-data-sense/task-deploy-compliance-onprem.html">
+        Se implementa en un host Linux con acceso a Internet
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Puesta en marcha en las instalaciones sin acceso a Internet"
+      data-li-level="3#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/es-es/cloud-manager-data-sense/task-deploy-compliance-dark-site.html">
+        Puesta en marcha en las instalaciones sin acceso a Internet
+      </a></li></ul></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Active el análisis en sus orígenes de datos"
+      data-li-level="2" 
+      class="subfolders "
+    ><a href="#">
+        <div class="na-navbar-padding"> Active el análisis en sus orígenes de datos</div>
+      </a>
+      <ul style="display: none;">
+        <li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Cloud Volumes ONTAP y ONTAP en las instalaciones"
+      data-li-level="3#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/es-es/cloud-manager-data-sense/task-getting-started-compliance.html">
+        Cloud Volumes ONTAP y ONTAP en las instalaciones
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Azure NetApp Files"
+      data-li-level="3#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/es-es/cloud-manager-data-sense/task-scanning-anf.html">
+        Azure NetApp Files
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Amazon FSX para ONTAP"
+      data-li-level="3#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/es-es/cloud-manager-data-sense/task-scanning-fsx.html">
+        Amazon FSX para ONTAP
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Cubos de Amazon S3"
+      data-li-level="3#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/es-es/cloud-manager-data-sense/task-scanning-s3.html">
+        Cubos de Amazon S3
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Esquemas de base de datos"
+      data-li-level="3#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/es-es/cloud-manager-data-sense/task-scanning-databases.html">
+        Esquemas de base de datos
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Cuentas de OneDrive"
+      data-li-level="3#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/es-es/cloud-manager-data-sense/task-scanning-onedrive.html">
+        Cuentas de OneDrive
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Cuentas de SharePoint"
+      data-li-level="3#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/es-es/cloud-manager-data-sense/task-scanning-sharepoint.html">
+        Cuentas de SharePoint
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Cuentas de Google Drive"
+      data-li-level="3#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/es-es/cloud-manager-data-sense/task-scanning-google-drive.html">
+        Cuentas de Google Drive
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Recursos compartidos de archivos"
+      data-li-level="3#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/es-es/cloud-manager-data-sense/task-scanning-file-shares.html">
+        Recursos compartidos de archivos
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Almacenamiento de objetos"
+      data-li-level="3#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/es-es/cloud-manager-data-sense/task-scanning-object-storage.html">
+        Almacenamiento de objetos
+      </a></li></ul></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Integre Active Directory"
+      data-li-level="2#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/es-es/cloud-manager-data-sense/task-add-active-directory-datasense.html">
+        Integre Active Directory
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Configurar la licencia"
+      data-li-level="2#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/es-es/cloud-manager-data-sense/task-licensing-datasense.html">
+        Configurar la licencia
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="PREGUNTAS FRECUENTES"
+      data-li-level="2#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/es-es/cloud-manager-data-sense/faq-cloud-compliance.html">
+        PREGUNTAS FRECUENTES
+      </a></li></ul></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Utilice Cloud Data Sense"
+      data-li-level="1" 
+      class="subfolders "
+    ><a href="#">
+        <div class="na-navbar-padding"> Utilice Cloud Data Sense</div>
+      </a>
+      <ul style="display: none;">
+        <li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Ver detalles sobre gobernanza de sus datos"
+      data-li-level="2#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/es-es/cloud-manager-data-sense/task-controlling-governance-data.html">
+        Ver detalles sobre gobernanza de sus datos
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Vea detalles de cumplimiento de normativas sobre sus datos"
+      data-li-level="2#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/es-es/cloud-manager-data-sense/task-controlling-private-data.html">
+        Vea detalles de cumplimiento de normativas sobre sus datos
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Categorías de datos privados"
+      data-li-level="2#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/es-es/cloud-manager-data-sense/reference-private-data-categories.html">
+        Categorías de datos privados
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Investigue sus datos"
+      data-li-level="2#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/es-es/cloud-manager-data-sense/task-investigate-data.html">
+        Investigue sus datos
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Organice sus datos privados"
+      data-li-level="2#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/es-es/cloud-manager-data-sense/task-org-private-data.html">
+        Organice sus datos privados
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Asigne políticas a sus datos"
+      data-li-level="2#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/es-es/cloud-manager-data-sense/task-using-policies.html">
+        Asigne políticas a sus datos
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Gestione sus datos privados"
+      data-li-level="2#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/es-es/cloud-manager-data-sense/task-managing-highlights.html">
+        Gestione sus datos privados
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Cambiar la configuración de exploración"
+      data-li-level="2#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/es-es/cloud-manager-data-sense/task-managing-repo-scanning.html">
+        Cambiar la configuración de exploración
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Generar informes de cumplimiento"
+      data-li-level="2#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/es-es/cloud-manager-data-sense/task-generating-compliance-reports.html">
+        Generar informes de cumplimiento
+      </a></li></ul></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Gestione el sentido de los datos en el cloud"
+      data-li-level="1" 
+      class="subfolders "
+    ><a href="#">
+        <div class="na-navbar-padding"> Gestione el sentido de los datos en el cloud</div>
+      </a>
+      <ul style="display: none;">
+        <li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Agregar identificadores de datos personales personalizados"
+      data-li-level="2#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/es-es/cloud-manager-data-sense/task-managing-data-fusion.html">
+        Agregar identificadores de datos personales personalizados
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Ver el estado de las acciones de detección de datos"
+      data-li-level="2#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/es-es/cloud-manager-data-sense/task-view-compliance-actions.html">
+        Ver el estado de las acciones de detección de datos
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Auditar el historial de acciones de detección de datos"
+      data-li-level="2#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/es-es/cloud-manager-data-sense/task-audit-data-sense-actions.html">
+        Auditar el historial de acciones de detección de datos
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Reduzca la velocidad de exploración de detección de datos"
+      data-li-level="2#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/es-es/cloud-manager-data-sense/task-reduce-scan-speed.html">
+        Reduzca la velocidad de exploración de detección de datos
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Eliminar orígenes de datos de Data Sense"
+      data-li-level="2#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/es-es/cloud-manager-data-sense/task-managing-compliance.html">
+        Eliminar orígenes de datos de Data Sense
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Desinstale Data Sense"
+      data-li-level="2#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/es-es/cloud-manager-data-sense/task-uninstall-data-sense.html">
+        Desinstale Data Sense
+      </a></li></ul></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Referencia"
+      data-li-level="1" 
+      class="subfolders "
+    ><a href="#">
+        <div class="na-navbar-padding"> Referencia</div>
+      </a>
+      <ul style="display: none;">
+        <li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Metadatos recogidos de orígenes de datos"
+      data-li-level="2#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/es-es/cloud-manager-data-sense/reference-collected-metadata.html">
+        Metadatos recogidos de orígenes de datos
+      </a></li></ul></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Conocimiento y apoyo"
+      data-li-level="1" 
+      class="subfolders "
+    ><a href="#">
+        <div class="na-navbar-padding"> Conocimiento y apoyo</div>
+      </a>
+      <ul style="display: none;">
+        <li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Regístrese para recibir soporte"
+      data-li-level="2#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/es-es/cloud-manager-data-sense/task-support-registration.html">
+        Regístrese para recibir soporte
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Obtenga ayuda"
+      data-li-level="2#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/es-es/cloud-manager-data-sense/task-get-help.html">
+        Obtenga ayuda
+      </a></li></ul></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Avisos legales"
+      data-li-level="1#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/es-es/cloud-manager-data-sense/legal-notices.html">
+        Avisos legales
+      </a></li></ul>
+</div>
+<script>
+  window.onscroll = () => {
+    const value = -40 - (document.body.scrollHeight - (window.innerHeight + document.scrollingElement.scrollTop));
+    
+    document.getElementById("sidebar-height").style.bottom = Math.max(0,value) + "px";
+};
+</script>
+<!-- this highlights the active parent class in the navgoco sidebar. this is critical so that the parent expands when you're viewing a page. This must appear below the sidebar code above. Otherwise, if placed inside customscripts.js, the script runs before the sidebar code runs and the class never gets inserted.-->
+<script>$("li.active").parents('li').toggleClass("active");</script>
+<script>$("#mysidebar li.active").parents('ul').css("display","block");</script>
+
+
+  </div>
+  
+
+  <div class="ie-content-pane n-doc__component-detail-content n-doc__component-detail-content--show-code">
+    <!-- Begin of page container --><article class="page-content" id="main">
+      <div class="ie-utility">
+  <button id="btn-sidebar-expand" onclick="showSidebar()"><img src="/es-es/cloud-manager-data-sense/images/expand.png" alt="Expandir panel de navegación"></button>
+  <div class="ie-menu">
+    <div class="n-breadcrumb">
+      <ul class="n-breadcrumb__list">
+        <li class="n-breadcrumb__list-item">
+          <a href="https://docs.netapp.com">docs.netapp.com</a>
+        </li>
+        
+        <li class="n-breadcrumb__list-item">
+          <a href="https://docs.netapp.com/us-en/cloud/">Cloud Docs</a>
+        </li>
+        
+
+        
+        <li class="n-breadcrumb__list-item">
+          <a href="https://docs.netapp.com/es-es/cloud-manager-family/">BlueXP</a>
+        </li>
+        
+
+        <li class="n-breadcrumb__list-item">
+          <a href="/es-es/cloud-manager-data-sense/">Cloud&nbsp;Data&nbsp;Sense</a>
+        </li>
+
+      </ul>
+    </div>
+    <div style="clear: both"></div><!-- Main needs to have height -->
+  </div>
+</div>
+
+      <div class="ie-nmt-disclaimer">
+  <span>
+    <div class="ie-nmt-disclaimer-container">
+      <div class="ie-nmt-disclaimer-icon">
+        <svg class="luci-icon" aria-hidden="true">
+          <use xlink:href="/es-es/cloud-manager-data-sense/common/svg/sprite.svg#circle-info">
+        </svg>
+      </div>
+      <div class="ie-nmt-disclaimer-content">
+        <span> Se proporciona el idioma español mediante traducción automática para su comodidad. En caso de alguna inconsistencia, el inglés precede al español. </span>
+      </div>
+      <div style="clear:both;"></div>
+    </div>
+  </span>
+</div><div class="n-doc__component-detail-heading-wrap">
+  <h1 class="n-doc__component-detail-heading">Implemente Cloud Data Sense en un host Linux que tenga acceso a Internet</h1>
+</div>
+
+
+<p class="page-details">
+  
+    
+    <time datetime="2023-02-20 16:43:26 +0000">02/20/2023</time>
+    
+  
+
+<span>Colaboradores
+</span>
+
+
+</p>
+
+<div id="preamble">
+<div class="sectionbody">
+<div class="paragraph lead">
+<p>Complete unos pasos para implementar Cloud Data Sense en un host Linux de su red, o en un host Linux en la nube, que tenga acceso a Internet.</p>
+</div>
+<div class="paragraph">
+<p>La instalación en las instalaciones puede ser una buena opción si prefiere analizar sistemas ONTAP en las instalaciones mediante una instancia de detección de datos que también está ubicada en las instalaciones, pero esto no es un requisito. El software funciona exactamente de la misma manera, independientemente del método de instalación que elija.</p>
+</div>
+<div class="paragraph">
+<p>La instalación típica en las instalaciones tiene los siguientes componentes y conexiones.</p>
+</div>
+<div class="paragraph">
+<p><span class="image"><img src="./media/diagram_deploy_onprem_overview.png" alt="Un diagrama de los componentes de red y BlueXP necesarios y las conexiones relacionadas."></span></p>
+</div>
+<div class="paragraph">
+<p>En configuraciones de gran tamaño en las que va a escanear petabytes de datos, puede incluir varios hosts para proporcionar una capacidad de procesamiento adicional. Cuando se utilizan varios sistemas host, el sistema principal se denomina <em>Manager node</em> y los sistemas adicionales que proporcionan potencia de procesamiento adicional se denominan <em>Scanner Nodes</em>.</p>
+</div>
+<div class="paragraph">
+<p>Tenga en cuenta que también puede <a href="task-deploy-compliance-dark-site.html">"Ponga en marcha la detección de datos en un sitio en las instalaciones que no tenga acceso a Internet"</a> para ubicaciones completamente seguras.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="inicio-rápido">Inicio rápido</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Empiece rápidamente siguiendo estos pasos o desplácese hacia abajo hasta las secciones restantes para obtener todos los detalles.</p>
+</div>
+<div class="paragraph quick-margin-para">
+<div class="title"><span class="image"><img src="https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-1.png" alt="Uno"></span> Cree un conector</div>
+<p>Si aún no tiene un conector, <a href="https://docs.netapp.com/us-en/cloud-manager-setup-admin/task-installing-linux.html" target="_blank" rel="noopener">"Ponga en marcha el conector en las instalaciones"</a> En un host Linux de su red o en un host Linux del cloud.</p>
+</div>
+<div class="paragraph quick-margin-para">
+<p>También puede crear un conector con su proveedor de cloud. Consulte <a href="https://docs.netapp.com/us-en/cloud-manager-setup-admin/task-creating-connectors-aws.html" target="_blank" rel="noopener">"Creación de un conector en AWS"</a>, <a href="https://docs.netapp.com/us-en/cloud-manager-setup-admin/task-creating-connectors-azure.html" target="_blank" rel="noopener">"Creación de un conector en Azure"</a>, o. <a href="https://docs.netapp.com/us-en/cloud-manager-setup-admin/task-creating-connectors-gcp.html" target="_blank" rel="noopener">"Creación de un conector en GCP"</a>.</p>
+</div>
+<div class="paragraph quick-margin-para">
+<div class="title"><span class="image"><img src="https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-2.png" alt="Dos"></span> Revise los requisitos previos</div>
+<p>Asegúrese de que el entorno pueda cumplir con los requisitos previos. Esto incluye acceso saliente a Internet para la instancia, conectividad entre el conector y Cloud Data SENSE a través del puerto 443, entre otros. <a href="#habilite-el-acceso-a-internet-de-salida-desde-cloud-data-sense">Vea la lista completa</a>.</p>
+</div>
+<div class="paragraph quick-margin-para">
+<p>También necesita un sistema Linux que cumpla con el <a href="#prepare-el-sistema-host-linux">siga los requisitos</a>.</p>
+</div>
+<div class="paragraph quick-margin-para">
+<div class="title"><span class="image"><img src="https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-3.png" alt="Tres"></span> Descargue e implemente Cloud Data Sense</div>
+<p>Descargue el software Cloud Data Sense del sitio de soporte de NetApp y copie el archivo del instalador en el host Linux que tiene pensado utilizar. A continuación, inicie el asistente de instalación y siga las instrucciones para implementar la instancia de detección de datos.</p>
+</div>
+<div class="paragraph quick-margin-para">
+<div class="title"><span class="image"><img src="https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-4.png" alt="Cuatro"></span> Suscríbase al servicio Cloud Data Sense</div>
+<p>Los primeros 1 TB de datos que analiza Cloud Data Sense en BlueXP son gratuitos durante 30 días. Debe suscribirse a su mercado de proveedores de cloud o una licencia de BYOL de NetApp para continuar analizando los datos después de ese punto.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="cree-un-conector">Cree un conector</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Se necesita un conector BlueXP para poder instalar y utilizar Data Sense. En la mayoría de los casos, es probable que tenga un conector configurado antes de intentar activar Cloud Data Sense porque la mayoría <a href="https://docs.netapp.com/us-en/cloud-manager-setup-admin/concept-connectors.html#when-a-connector-is-required">"Las funciones de BlueXP requieren un conector"</a>, pero hay casos en los que necesitará configurar uno ahora.</p>
+</div>
+<div class="paragraph">
+<p>Para crear una en su entorno de proveedor de cloud, consulte <a href="https://docs.netapp.com/us-en/cloud-manager-setup-admin/task-creating-connectors-aws.html" target="_blank" rel="noopener">"Creación de un conector en AWS"</a>, <a href="https://docs.netapp.com/us-en/cloud-manager-setup-admin/task-creating-connectors-azure.html" target="_blank" rel="noopener">"Creación de un conector en Azure"</a>, o. <a href="https://docs.netapp.com/us-en/cloud-manager-setup-admin/task-creating-connectors-gcp.html" target="_blank" rel="noopener">"Creación de un conector en GCP"</a>.</p>
+</div>
+<div class="paragraph">
+<p>Existen algunas situaciones en las que debe utilizar un conector implementado en un proveedor de cloud específico:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Cuando se escanear datos en Cloud Volumes ONTAP en AWS, Amazon FSX para ONTAP o en bloques AWS S3, se utiliza un conector en AWS.</p>
+</li>
+<li>
+<p>Al analizar datos en Cloud Volumes ONTAP en Azure o en Azure NetApp Files, utiliza un conector en Azure.</p>
+<div class="paragraph">
+<p>Para Azure NetApp Files, debe implementarse en la misma región que los volúmenes que desea analizar.</p>
+</div>
+</li>
+<li>
+<p>Al analizar datos en Cloud Volumes ONTAP en GCP, se utiliza un conector en GCP.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Los sistemas ONTAP en las instalaciones, recursos compartidos de archivos que no son de NetApp, almacenamiento de objetos genérico de S3, bases de datos, carpetas de OneDrive, cuentas de SharePoint y cuentas de Google Drive se pueden analizar con cualquiera de estos conectores de cloud.</p>
+</div>
+<div class="paragraph">
+<p>Tenga en cuenta que también puede <a href="https://docs.netapp.com/us-en/cloud-manager-setup-admin/task-installing-linux.html" target="_blank" rel="noopener">"Ponga en marcha el conector en las instalaciones"</a> En un host Linux en su red o en la nube. Algunos usuarios que planean instalar Data Sense on-prem también pueden optar por instalar el conector on-prem.</p>
+</div>
+<div class="paragraph">
+<p>Como puede ver, puede que haya algunas situaciones en las que necesite utilizar <a href="https://docs.netapp.com/us-en/cloud-manager-setup-admin/concept-connectors.html#when-to-use-multiple-connectors">"Múltiples conectores"</a>.</p>
+</div>
+<div class="paragraph">
+<p>Necesitará la dirección IP o el nombre de host del sistema conector al instalar Data Sense. Tendrá esta información si instaló el conector en sus instalaciones. Si el conector está implementado en la nube, puede encontrar esta información desde la consola BlueXP: Haga clic en el icono Ayuda, seleccione <strong>Soporte</strong> y haga clic en <strong>conector BlueXP</strong>.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="prepare-el-sistema-host-linux">Prepare el sistema host Linux</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>El software de detección de datos debe ejecutarse en un host que cumpla con requisitos específicos del sistema operativo, requisitos de RAM, requisitos de software, etc. El host Linux puede estar en su red o en la nube. No se admite la detección de datos en un host que se comparte con otras aplicaciones; el host debe ser un host dedicado.</p>
+</div>
+<div class="paragraph">
+<p>Asegúrese de que puede mantener en funcionamiento Cloud Data Sense. El equipo Cloud Data Sense tiene que seguir para analizar sus datos de forma continua.</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>CPU</strong>: 16 núcleos</p>
+</li>
+<li>
+<p><strong>RAM</strong>: 64 GB (la memoria de intercambio debe estar desactivada en el host)</p>
+</li>
+<li>
+<p><strong>Disco</strong>: SSD con 500 GIB disponibles en /, o.</p>
+<div class="ulist">
+<ul>
+<li>
+<p>100 GIB disponibles en /opt</p>
+</li>
+<li>
+<p>400 GIB disponibles en /var</p>
+</li>
+<li>
+<p>5 GIB en /tmp</p>
+<div class="paragraph">
+<p>Tenga en cuenta que puede implementar la detección de datos en un sistema con menos CPU y menos RAM, pero existen limitaciones al utilizar estos sistemas. Consulte <a href="concept-cloud-compliance.html#using-a-smaller-instance-type">"Con un tipo de instancia más pequeño"</a> para obtener más detalles.</p>
+</div>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><strong>Tipo de instancia de AWS EC2</strong>: Tipo de instancia que cumple los requisitos de CPU y RAM anteriores. Lo recomendamos <a href="https://aws.amazon.com/ec2/instance-types/m5/" target="_blank" rel="noopener">"m5.4xgrande"</a>.</p>
+</li>
+<li>
+<p><strong>Tamaño de máquina virtual de Azure</strong>: Tipo de instancia que cumple los requisitos de CPU y RAM anteriores. Lo recomendamos <a href="https://docs.microsoft.com/en-us/azure/virtual-machines/dv3-dsv3-series#dsv3-series" target="_blank" rel="noopener">"Standard_D16s_v3"</a>.</p>
+</li>
+<li>
+<p><strong>Tipo de máquina GCP</strong>: Tipo de instancia que cumple los requisitos de CPU y RAM anteriores. Lo recomendamos <a href="https://cloud.google.com/compute/docs/general-purpose-machines#n2_machines" target="_blank" rel="noopener">"n2-estándar-16"</a>.</p>
+</li>
+<li>
+<p><strong>Sistema operativo</strong>: Red Hat Enterprise Linux o CentOS versiones 8.0 a 8.7</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Se pueden utilizar las versiones 7.8 o 7.9, pero la versión de kernel de Linux debe ser 4.0 o posterior</p>
+</li>
+<li>
+<p>El sistema operativo debe ser capaz de instalar el motor del docker</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><strong>Red Hat Subscription Management</strong>: Un sistema Red Hat Enterprise Linux debe estar registrado con Red Hat Subscription Management. Si no está registrado, el sistema no puede acceder a los repositorios para actualizar el software de terceros necesario durante la instalación.</p>
+</li>
+<li>
+<p><strong>Software adicional</strong>: Debe instalar el siguiente software en el host antes de instalar Data Sense:</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Docker Engine versión 19.3.1 o posterior. <a href="https://docs.docker.com/engine/install/" target="_blank" rel="noopener">"Ver las instrucciones de instalación"</a>.</p>
+</li>
+<li>
+<p>Python 3 versión 3.6 o posterior. <a href="https://www.python.org/downloads/" target="_blank" rel="noopener">"Ver las instrucciones de instalación"</a>.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>* Consideraciones de Firewalld*: Si usted está planeando utilizar <code>firewalld</code>, Le recomendamos que lo habilite antes de instalar Data Sense. Ejecute los siguientes comandos para configurar <code>firewalld</code> Para que sea compatible con Data Sense:</p>
+<div class="literalblock">
+<div class="content">
+<pre>firewall-cmd --permanent --add-service=http
+firewall-cmd --permanent --add-service=https
+firewall-cmd --permanent --add-port=80/tcp
+firewall-cmd --permanent --add-port=8080/tcp
+firewall-cmd --permanent --add-port=443/tcp
+firewall-cmd --reload</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Si tiene pensado utilizar hosts de detección de datos adicionales como nodos de escáner, agregue estas reglas al sistema principal en este momento:</p>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>firewall-cmd --permanent --add-port=2377/tcp
+firewall-cmd --permanent --add-port=7946/udp
+firewall-cmd --permanent --add-port=7946/tcp
+firewall-cmd --permanent --add-port=4789/udp</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Si activa <code>firewalld</code> Después de instalar Data Sense, debe reiniciar docker.</p>
+</div>
+</li>
+</ul>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<img src="/us-en/cloud-manager-data-sense/images/note.svg" alt="Nota">
+</td>
+<td class="content">
+La dirección IP del sistema host Data Sense no se puede cambiar tras la instalación.
+</td>
+</tr>
+</table>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="habilite-el-acceso-a-internet-de-salida-desde-cloud-data-sense">Habilite el acceso a Internet de salida desde Cloud Data Sense</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Cloud Data Sense requiere acceso saliente a Internet. Si la red virtual o física utiliza un servidor proxy para el acceso a Internet, asegúrese de que la instancia de detección de datos tiene acceso saliente a Internet para contactar con los siguientes puntos finales.</p>
+</div>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 43%;">
+<col style="width: 57%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Puntos finales</th>
+<th class="tableblock halign-left valign-top">Específico</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">https://api.bluexp.netapp.com</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Comunicación con el servicio BlueXP, que incluye cuentas de NetApp.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">https://netapp-cloud-account.auth0.com https://auth0.com</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Comunicación con el sitio Web de BlueXP para la autenticación centralizada del usuario.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">https://support.compliance.api.bluexp.netapp.com/ https://hub.docker.com https://auth.docker.io https://registry-1.docker.io https://index.docker.io/ https://dseasb33srnrn.cloudfront.net/ https://production.cloudflare.docker.com/</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Proporciona acceso a imágenes de software, manifiestos, plantillas y para enviar registros y métricas.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">https://support.compliance.api.bluexp.netapp.com/</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Permite a NetApp transmitir datos desde registros de auditoría.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">https://github.com/docker https://download.docker.com http://mirror.centos.org http://mirrorlist.centos.org http://mirror.centos.org/centos/7/extras/x86_64/Packages/container-selinux-2.107-3.el7.noarch.rpm</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Proporciona paquetes de requisitos previos para la instalación.</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="sect1">
+<h2 id="verifique-que-todos-los-puertos-necesarios-estén-habilitados">Verifique que todos los puertos necesarios estén habilitados</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Debe asegurarse de que todos los puertos necesarios estén abiertos para la comunicación entre el conector, detección de datos, Active Directory y sus orígenes de datos.</p>
+</div>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 25%;">
+<col style="width: 25%;">
+<col style="width: 50%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Tipo de conexión</th>
+<th class="tableblock halign-left valign-top">Puertos</th>
+<th class="tableblock halign-left valign-top">Descripción</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Conector &lt;&gt; detección de datos</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">8080 (TCP), 443 (TCP) y 80</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">El firewall o las reglas de enrutamiento del conector deben permitir el tráfico entrante y saliente a través del puerto 443 hacia y desde la instancia de detección de datos. Asegúrese de que el puerto 8080 está abierto para que pueda ver el progreso de la instalación en BlueXP.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Conector &lt;&gt; clúster ONTAP (NAS)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">443 (TCP)</p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>BlueXP detecta los clústeres de ONTAP mediante HTTPS. Si utiliza directivas de firewall personalizadas, deben cumplir los siguientes requisitos:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>El host del conector debe permitir el acceso HTTPS de salida a través del puerto 443. Si el conector está en la nube, todas las comunicaciones salientes se permiten mediante el firewall predefinido o las reglas de enrutamiento.</p>
+</li>
+<li>
+<p>El clúster ONTAP debe permitir el acceso HTTPS de entrada a través del puerto 443. La política de firewall "mgmt" predeterminada permite el acceso HTTPS entrante desde todas las direcciones IP. Si ha modificado esta directiva predeterminada o si ha creado su propia directiva de firewall, debe asociar el protocolo HTTPS con esa directiva y habilitar el acceso desde el host de Connector.</p>
+</li>
+</ul>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Detección de los datos &lt;&gt; clúster de ONTAP</p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="ulist">
+<ul>
+<li>
+<p>Para NFS: 111 (TCP\UDP) y 2049 (TCP\UDP)</p>
+</li>
+<li>
+<p>Para CIFS: 139 (TCP\UDP) y 445 (TCP\UDP)</p>
+</li>
+</ul>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Data Sense necesita una conexión de red a cada subred de Cloud Volumes ONTAP o a cada sistema ONTAP en las instalaciones. Los firewalls o las reglas de enrutamiento para Cloud Volumes ONTAP deben permitir conexiones entrantes desde la instancia de detección de datos.</p>
+</div>
+<div class="paragraph">
+<p>Asegúrese de que estos puertos estén abiertos a la instancia de Data Sense:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Para NFS: 111 y 2049</p>
+</li>
+<li>
+<p>Para CIFS - 139 y 445</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Las políticas de exportación de volúmenes NFS deben permitir el acceso desde la instancia de Data Sense.</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Sentido de los datos &lt;&gt; Active Directory</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">389 (TCP Y UDP), 636 (TCP), 3268 (TCP) Y 3269 (TCP)</p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Debe tener un Active Directory ya configurado para los usuarios de su empresa. Además, Data Sense necesita credenciales de Active Directory para analizar volúmenes CIFS.</p>
+</div>
+<div class="paragraph">
+<p>Debe tener la información de Active Directory:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>DNS Server IP Address o varias direcciones IP</p>
+</li>
+<li>
+<p>Nombre de usuario y contraseña para el servidor</p>
+</li>
+<li>
+<p>Nombre de dominio (nombre de Active Directory)</p>
+</li>
+<li>
+<p>Si utiliza o no un LDAP seguro (LDAPS)</p>
+</li>
+<li>
+<p>Puerto de servidor LDAP (normalmente 389 para LDAP y 636 para LDAP seguro)</p>
+</li>
+</ul>
+</div></div></td>
+</tr>
+</tbody>
+</table>
+<div class="paragraph">
+<p>Si utiliza varios hosts de detección de datos para proporcionar potencia de procesamiento adicional para analizar sus fuentes de datos, tendrá que habilitar puertos y protocolos adicionales. <a href="task-deploy-compliance-onprem.html#add-scanner-nodes-to-an-existing-deployment">"Consulte los requisitos de puerto adicionales"</a>.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="ponga-en-marcha-la-detección-de-datos-en-las-instalaciones">Ponga en marcha la detección de datos en las instalaciones</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>En configuraciones típicas, instalará el software en un único sistema host. <a href="#instalación-de-un-solo-host-para-configuraciones-típicas">Consulte estos pasos aquí</a>.</p>
+</div>
+<div class="paragraph">
+<p><span class="image"><img src="./media/diagram_deploy_onprem_single_host_internet.png" alt="Un diagrama que muestra la ubicación de los orígenes de datos que se pueden analizar al utilizar una única instancia de detección de datos implementada en las instalaciones con acceso a Internet."></span></p>
+</div>
+<div class="paragraph">
+<p>En configuraciones de gran tamaño en las que va a escanear petabytes de datos, puede incluir varios hosts para proporcionar una capacidad de procesamiento adicional. <a href="#instalación-de-varios-hosts-para-configuraciones-grandes">Consulte estos pasos aquí</a>.</p>
+</div>
+<div class="paragraph">
+<p><span class="image"><img src="./media/diagram_deploy_onprem_multi_host_internet.png" alt="Un diagrama que muestra la ubicación de los orígenes de datos que se pueden analizar cuando se utilizan varias instancias de detección de datos implementadas en las instalaciones con acceso a Internet."></span></p>
+</div>
+<div class="paragraph">
+<p>Consulte <a href="#prepare-el-sistema-host-linux">Preparar el sistema host Linux</a> y.. <a href="#habilite-el-acceso-a-internet-de-salida-desde-cloud-data-sense">Revisión de requisitos previos</a> Para ver la lista completa de requisitos antes de poner en marcha Cloud Data Sense.</p>
+</div>
+<div class="paragraph">
+<p>Las actualizaciones del software Data Sense se automatizan siempre que la instancia tenga conectividad a Internet.</p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<img src="/us-en/cloud-manager-data-sense/images/note.svg" alt="Nota">
+</td>
+<td class="content">
+Cloud Data Sense no puede analizar actualmente bloques de S3, Azure NetApp Files o FSX para ONTAP cuando el software está instalado en las instalaciones. En estos casos, deberá poner en marcha un conector e instancia aparte de detección de datos en el cloud y en <a href="https://docs.netapp.com/us-en/cloud-manager-setup-admin/concept-connectors.html#when-to-switch-between-connectors" target="_blank" rel="noopener">"Cambiar entre conectores"</a> para sus diferentes fuentes de datos.
+</td>
+</tr>
+</table>
+</div>
+<div class="sect2">
+<h3 id="instalación-de-un-solo-host-para-configuraciones-típicas">Instalación de un solo host para configuraciones típicas</h3>
+<div class="paragraph">
+<p>Siga estos pasos al instalar el software Data Sense en un solo host local.</p>
+</div>
+<div class="ulist">
+<div class="title">Lo que necesitará</div>
+<ul>
+<li>
+<p>Compruebe que su sistema Linux cumple con el <a href="#prepare-el-sistema-host-linux">requisitos del host</a>.</p>
+</li>
+<li>
+<p>Compruebe que el sistema tiene instalados los dos paquetes de software de requisitos previos (Docker Engine y Python 3).</p>
+</li>
+<li>
+<p>Asegúrese de tener privilegios de usuario raíz en el sistema Linux.</p>
+</li>
+<li>
+<p>Si utiliza un proxy y está realizando intercepción TLS, deberá conocer la ruta en el sistema Data Sense Linux donde están almacenados los certificados de CA TLS.</p>
+</li>
+<li>
+<p>Compruebe que su entorno sin conexión cumple con las necesidades <a href="#habilite-el-acceso-a-internet-de-salida-desde-cloud-data-sense">permisos y conectividad</a>.</p>
+</li>
+</ul>
+</div>
+<div class="olist arabic">
+<div class="title">Pasos</div>
+<ol class="arabic">
+<li>
+<p>Descargue el software Cloud Data Sense del <a href="https://mysupport.netapp.com/site/products/all/details/cloud-data-sense/downloads-tab/" target="_blank" rel="noopener">"Sitio de soporte de NetApp"</a>. El archivo que debe seleccionar se denomina <strong>DATASENSE-INSTALLER-&lt;version&gt;.tar.gz</strong>.</p>
+</li>
+<li>
+<p>Copie el archivo del instalador en el host Linux que tiene previsto utilizar (mediante <code>scp</code> o algún otro método).</p>
+</li>
+<li>
+<p>En BlueXP, seleccione <strong>Gobierno &gt; Clasificación</strong>.</p>
+</li>
+<li>
+<p>Haga clic en <strong>Activar detección de datos</strong>.</p>
+<div class="paragraph">
+<p><span class="image"><img src="./media/screenshot_cloud_compliance_deploy_start.png" alt="Una captura de pantalla de cómo seleccionar el botón para activar Cloud Data Sense."></span></p>
+</div>
+</li>
+<li>
+<p>En función de si está implementando una instancia en la nube o una instancia en sus instalaciones, haga clic en el botón <strong>Deploy</strong> correspondiente para iniciar el asistente de implementación de Data Sense.</p>
+<div class="paragraph">
+<p><span class="image"><img src="./media/screenshot_cloud_compliance_deploy_onprem.png" alt="Una captura de pantalla de cómo seleccionar el botón para poner en marcha Cloud Data Sense en una máquina del cloud o en sus instalaciones."></span></p>
+</div>
+</li>
+<li>
+<p>Aparece el cuadro de diálogo <em>Deploy Data Sense on local</em>. Copie el comando proporcionado y péguelo en un archivo de texto para poder usarlo más tarde y haga clic en <strong>Cerrar</strong>. Por ejemplo:</p>
+<div class="paragraph">
+<p><code>sudo ./install.sh -a 12345 -c 27AG75 -t 2198qq</code></p>
+</div>
+</li>
+<li>
+<p>Descomprima el archivo del instalador en el equipo host; por ejemplo:</p>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-cli" data-lang="cli">tar -xzf DATASENSE-INSTALLER-V1.16.1.tar.gz</code></pre>
+</div>
+</div>
+</li>
+<li>
+<p>Cuando el instalador lo solicite, puede introducir los valores necesarios en una serie de mensajes o puede proporcionar los parámetros necesarios como argumentos de línea de comandos al instalador.</p>
+<div class="paragraph">
+<p>Tenga en cuenta que el instalador realiza una comprobación previa para asegurarse de que el sistema y los requisitos de red están en su lugar para una instalación correcta.</p>
+</div>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 50%;">
+<col style="width: 50%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Introduzca los parámetros según se le solicite:</th>
+<th class="tableblock halign-left valign-top">Introduzca el comando Full:</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Pegue la información que ha copiado del paso 6:<br>
+<code>sudo ./install.sh -a &lt;account_id&gt; -c &lt;agent_id&gt; -t &lt;token&gt;</code></p>
+</li>
+<li>
+<p>Introduzca la dirección IP o el nombre de host del equipo host de Data Sense para que pueda accederse a él mediante la instancia de Connector.</p>
+</li>
+<li>
+<p>Introduzca la dirección IP o el nombre de host de la máquina host de BlueXP Connector para que pueda accederse a ella mediante la instancia de detección de datos.</p>
+</li>
+<li>
+<p>Introduzca los detalles del proxy según se le solicite. Si su conector BlueXP ya utiliza un proxy, no es necesario volver a introducir esta información ya que detección de datos utilizará automáticamente el proxy utilizado por el conector.</p>
+</li>
+</ol>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">También puede crear el comando completo por adelantado, proporcionando los parámetros de host y proxy necesarios:<br>
+<code>sudo ./install.sh -a &lt;account_id&gt; -c &lt;agent_id&gt; -t &lt;token&gt; --host &lt;ds_host&gt; --manager-host &lt;cm_host&gt; --proxy-host &lt;proxy_host&gt; --proxy-port &lt;proxy_port&gt; --proxy-scheme &lt;proxy_scheme&gt; --proxy-user &lt;proxy_user&gt; --proxy-password &lt;proxy_password&gt; --cacert-folder-path &lt;ca_cert_dir&gt;</code></p></td>
+</tr>
+</tbody>
+</table>
+<div class="paragraph">
+<p>Valores de variable:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><em>account_id</em> = ID de cuenta de NetApp</p>
+</li>
+<li>
+<p><em>Agent_id</em> = ID del conector</p>
+</li>
+<li>
+<p><em>token</em> = token de usuario jwt</p>
+</li>
+<li>
+<p><em>DS_host</em> = dirección IP o nombre de host del sistema Data Sense Linux.</p>
+</li>
+<li>
+<p><em>Cm_host</em> = dirección IP o nombre de host del sistema BlueXP Connector.</p>
+</li>
+<li>
+<p><em>proxy_host</em> = IP o nombre de host del servidor proxy si el host está detrás de un servidor proxy.</p>
+</li>
+<li>
+<p><em>proxy_Port</em> = Puerto para conectarse al servidor proxy (predeterminado 80).</p>
+</li>
+<li>
+<p><em>Proxy_Scheme</em> = combinación de conexiones: https o http (valor predeterminado http).</p>
+</li>
+<li>
+<p><em>proxy_USER</em> = Usuario autenticado para conectarse al servidor proxy, si se requiere autenticación básica.</p>
+</li>
+<li>
+<p><em>proxy_password</em> = Contraseña del nombre de usuario especificado.</p>
+</li>
+<li>
+<p><em>CA_cert_dir</em> = Ruta en el sistema Data Sense Linux que contiene paquetes de certificados de CA TLS adicionales. Sólo es necesario si el proxy está realizando intercepción TLS.</p>
+</li>
+</ul>
+</div>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<div class="title">Resultado</div>
+<p>El instalador de Cloud Data Sense instala paquetes, registra la instalación e instala Data Sense. La instalación puede tardar entre 10 y 20 minutos.</p>
+</div>
+<div class="paragraph">
+<p>Si hay conectividad sobre el puerto 8080 entre el equipo host y la instancia de conector, verá el progreso de instalación en la ficha detección de datos de BlueXP.</p>
+</div>
+<div class="paragraph">
+<div class="title">El futuro</div>
+<p>En la página Configuración puede seleccionar los orígenes de datos que desea analizar.</p>
+</div>
+<div class="paragraph">
+<p>También puede hacerlo <a href="task-licensing-datasense.html">"Configure la licencia de Cloud Data Sense"</a> en este momento. No se le cobrará hasta que finalice su prueba gratuita de 30 días.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="agregar-nodos-de-escáner-a-una-implementación-existente">Agregar nodos de escáner a una implementación existente</h3>
+<div class="paragraph">
+<p>Puede añadir más nodos de escáner si necesita más potencia de procesamiento de escaneado para analizar sus orígenes de datos. Puede añadir los nodos del escáner inmediatamente después de instalar el nodo Manager, o bien puede añadir un nodo de escáner más adelante. Por ejemplo, si se da cuenta de que la cantidad de datos de uno de sus orígenes de datos se ha duplicado o triplicado en tamaño después de 6 meses, puede añadir un nuevo nodo de escáner para ayudar con el análisis de datos.</p>
+</div>
+<div class="paragraph">
+<p>Existen dos formas de añadir nodos de escáner adicionales:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>agregue un nodo para ayudarle a analizar todos los orígenes de datos</p>
+</li>
+<li>
+<p>agregar un nodo para ayudarle a escanear un origen de datos específico o un grupo específico de orígenes de datos (normalmente basado en la ubicación)</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>De forma predeterminada, los nuevos nodos de escáner que agregue se agregarán al pool general de recursos de digitalización. Esto se denomina "grupo de escáner predeterminado". En la siguiente imagen, hay 1 nodo de administrador y 3 nodos de escáner en el grupo "predeterminado" que están analizando todos los datos de los 6 orígenes de datos.</p>
+</div>
+<div class="paragraph">
+<p><span class="image"><img src="./media/diagram_onprem_scanner_groups_default.png" alt="Un diagrama de cómo los escáneres de detección de datos analizan orígenes de datos cuando se encuentran en el grupo de análisis predeterminado."></span></p>
+</div>
+<div class="paragraph">
+<p>Si tiene ciertos orígenes de datos que desea analizar mediante nodos de escáner que están físicamente más cercanos a los orígenes de datos, puede definir un nodo de escáner o un grupo de nodos de escáner, para analizar un origen de datos específico o un grupo de orígenes de datos. En la siguiente imagen, hay 1 nodo de administrador y 3 nodos de escáner.</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>El nodo Administrador está en el grupo "predeterminado" y está analizando 1 origen de datos</p>
+</li>
+<li>
+<p>El nodo 1 del escáner se encuentra en el grupo "estados Unidos" y está analizando 2 orígenes de datos</p>
+</li>
+<li>
+<p>Los nodos de escáner 2 y 3 se encuentran en el grupo "europa" y comparten las tareas de escaneo para 3 fuentes de datos</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p><span class="image"><img src="./media/diagram_onprem_scanner_groups.png" alt="Un diagrama de cómo los escáneres de detección de datos analizan orígenes de datos cuando se asignan a diferentes grupos de escáneres."></span></p>
+</div>
+<div class="paragraph">
+<p>Los grupos de análisis de detección de datos se pueden definir como áreas geográficas independientes en las que se almacenan los datos. Puede implementar varios nodos de escáner de detección de datos en todo el mundo y elegir un grupo de escáner para cada nodo. De esta forma, cada nodo de escáner analizará los datos más cercanos. Cuanto más cerca esté el nodo del escáner de los datos, mejor será porque reduce la latencia de red tanto como sea posible mientras escanea datos.</p>
+</div>
+<div class="paragraph">
+<p>Puede elegir los grupos de escáneres que desea agregar a Data Sense y elegir sus nombres. El sentido de datos no impone que un nodo asignado a un grupo de escáner llamado "europa" se implemente en Europa.</p>
+</div>
+<div class="paragraph">
+<p>Siga estos pasos para instalar nodos adicionales del escáner de detección de datos:</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Prepare los sistemas host Linux que actuarán como nodos del escáner</p>
+</li>
+<li>
+<p>Descargue el software Data Sense en estos sistemas Linux</p>
+</li>
+<li>
+<p>Ejecute un comando en el nodo Administrador para identificar los nodos del escáner</p>
+</li>
+<li>
+<p>Siga los pasos para implementar el software en los nodos del escáner (y para definir opcionalmente un "grupo de escáner" para determinados nodos del escáner)</p>
+</li>
+<li>
+<p>Si ha definido un grupo de escáner, en el nodo Administrador:</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Abra el archivo "working_Environment_to_scanner_group_config.yml" y defina los entornos de trabajo que explorarán cada grupo de escáneres</p>
+</li>
+<li>
+<p>Ejecute la siguiente secuencia de comandos para registrar esta información de asignación en todos los nodos del escáner: <code>update_we_scanner_group_from_config_file.sh</code></p>
+</li>
+</ol>
+</div>
+</li>
+</ol>
+</div>
+<div class="ulist">
+<div class="title">Lo que necesitará</div>
+<ul>
+<li>
+<p>Compruebe que todos los sistemas Linux para los nodos del escáner cumplen con el <a href="#prepare-el-sistema-host-linux">requisitos del host</a>.</p>
+</li>
+<li>
+<p>Compruebe que los sistemas tienen instalados los dos paquetes de software de requisitos previos (Docker Engine y Python 3).</p>
+</li>
+<li>
+<p>Asegúrese de tener privilegios de usuario raíz en los sistemas Linux.</p>
+</li>
+<li>
+<p>Compruebe que su entorno cumple con las necesidades <a href="#habilite-el-acceso-a-internet-de-salida-desde-cloud-data-sense">permisos y conectividad</a>.</p>
+</li>
+<li>
+<p>Debe tener las direcciones IP de los hosts del nodo Scanner que desea añadir.</p>
+</li>
+<li>
+<p>Debe tener la dirección IP del sistema host del nodo Data Sense Manager</p>
+</li>
+<li>
+<p>Debe tener la dirección IP o el nombre de host del sistema Connector, su ID de cuenta de NetApp, su identificador de cliente conector y el token de acceso de usuario. Si tiene previsto utilizar grupos de escáner, deberá conocer el identificador de entorno de trabajo de cada origen de datos de su cuenta. Consulte los pasos <strong><em>Prerrequisito</em></strong> siguientes para obtener esta información.</p>
+</li>
+<li>
+<p>Deben habilitarse los siguientes puertos y protocolos en todos los hosts:</p>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 16.6666%;">
+<col style="width: 22.2222%;">
+<col style="width: 61.1112%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Puerto</th>
+<th class="tableblock halign-left valign-top">Protocolos</th>
+<th class="tableblock halign-left valign-top">Descripción</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">2377</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">TCP</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Comunicaciones de gestión de clústeres</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">7946</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">TCP, UDP</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Comunicación entre nodos</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">4789</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">UDP</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Superpone el tráfico de red</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">50</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">ESP</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Tráfico de red de superposición (ESP) IPsec cifrada</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">111</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">TCP, UDP</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Servidor NFS para compartir archivos entre los hosts (necesario de cada nodo de escáner al nodo de administración)</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">2049</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">TCP, UDP</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Servidor NFS para compartir archivos entre los hosts (necesario de cada nodo de escáner al nodo de administración)</p></td>
+</tr>
+</tbody>
+</table>
+</li>
+<li>
+<p>Si está utilizando <code>firewalld</code> En sus máquinas de Data Sense, le recomendamos que la habilite antes de instalar Data Sense. Ejecute los siguientes comandos para configurar <code>firewalld</code> Para que sea compatible con Data Sense:</p>
+<div class="literalblock">
+<div class="content">
+<pre>firewall-cmd --permanent --add-service=http
+firewall-cmd --permanent --add-service=https
+firewall-cmd --permanent --add-port=80/tcp
+firewall-cmd --permanent --add-port=8080/tcp
+firewall-cmd --permanent --add-port=443/tcp
+firewall-cmd --permanent --add-port=2377/tcp
+firewall-cmd --permanent --add-port=7946/udp
+firewall-cmd --permanent --add-port=7946/tcp
+firewall-cmd --permanent --add-port=4789/udp
+firewall-cmd --reload</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Si activa <code>firewalld</code> Después de instalar Data Sense, debe reiniciar docker.</p>
+</div>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<div class="title">Requisitos previos</div>
+<p>Siga estos pasos para obtener el identificador de cuenta de NetApp, el identificador de cliente del conector, el nombre de servidor del conector y el token de acceso de usuario necesarios para añadir nodos de escáner.</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>En la barra de menús de BlueXP, haga clic en <strong>cuenta &gt; Administrar cuentas</strong>.</p>
+<div class="paragraph">
+<p><span class="image"><img src="./media/screenshot_account_id.png" alt="Una captura de pantalla de los detalles de la cuenta BlueXP."></span></p>
+</div>
+</li>
+<li>
+<p>Copie el <em>ID de cuenta</em>.</p>
+</li>
+<li>
+<p>En la barra de menús de BlueXP, haga clic en <strong>Ayuda &gt; Soporte &gt; conector BlueXP</strong>.</p>
+<div class="paragraph">
+<p><span class="image"><img src="./media/screenshot_connector_client_id.png" alt="Una captura de pantalla de los ajustes de configuración de BlueXP Connector."></span></p>
+</div>
+</li>
+<li>
+<p>Copie el conector <em>Client ID</em> y el <em>Server Name</em>.</p>
+</li>
+<li>
+<p>Si tiene previsto utilizar grupos de escáneres, en la ficha Configuración de detección de datos , copie el identificador de entorno de trabajo de cada entorno de trabajo que desee agregar a un grupo de escáneres.</p>
+<div class="paragraph">
+<p><span class="image"><img src="./media/screenshot_work_env_id.png" alt="Una captura de pantalla del ID de entorno de trabajo desde la página Configuración de detección de datos."></span></p>
+</div>
+</li>
+<li>
+<p>Vaya a la <a href="https://services.cloud.netapp.com/developer-hub" target="_blank" rel="noopener">"Centro de desarrollo de documentación de API"</a> Y haga clic en <strong>aprender a autenticar</strong>.</p>
+<div class="paragraph">
+<p><span class="image"><img src="./media/screenshot_client_access_token.png" alt="Captura de pantalla de la página Documentación de la API, con un enlace a las instrucciones de autenticación."></span></p>
+</div>
+</li>
+<li>
+<p>Siga las instrucciones de autenticación y copie el <em>access token</em> de la respuesta.</p>
+</li>
+</ol>
+</div>
+<div class="olist arabic">
+<div class="title">Pasos</div>
+<ol class="arabic">
+<li>
+<p>En el nodo de Data Sense Manager, ejecute el script "add_scanner_node.sh". Por ejemplo, este comando añade 2 nodos de escáner:</p>
+<div class="paragraph">
+<p><code>sudo ./add_scanner_node.sh -a &lt;account_id&gt; -c &lt;client_id&gt; -m &lt;cm_host&gt; -h &lt;ds_manager_ip&gt; <strong>-n &lt;node_private_ip_1,node_private_ip_2&gt;</strong> -t &lt;user_token&gt;</code></p>
+</div>
+<div class="paragraph">
+<p>Valores de variable:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><em>account_id</em> = ID de cuenta de NetApp</p>
+</li>
+<li>
+<p><em>Client_id</em> = ID de cliente del conector</p>
+</li>
+<li>
+<p><em>Cm_host</em> = dirección IP o nombre de host del sistema conector</p>
+</li>
+<li>
+<p><em>DS_Manager_ip</em> = Dirección IP privada del sistema de nodos de Data Sense Manager</p>
+</li>
+<li>
+<p><em>Node_Private_ip</em> = direcciones IP de los sistemas de nodos del escáner de detección de datos (varias IP de nodos del escáner están separadas por una coma)</p>
+</li>
+<li>
+<p><em>USER_token</em> = token de acceso de usuario JWT</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>Antes de que finalice la secuencia de comandos add_scanner_node, aparecerá un cuadro de diálogo con el comando de instalación necesario para los nodos del escáner. Copie el comando y guárdelo en un archivo de texto. Por ejemplo:</p>
+<div class="paragraph">
+<p><code>sudo ./node_install.sh -m 10.11.12.13 -t ABCDEF1s35212 -u red95467j</code></p>
+</div>
+</li>
+<li>
+<p>En el host <strong>cada nodo del escáner</strong>:</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Copie el archivo de instalación de Data Sense (<strong>DATASENSE-INSTALLER-&lt;version&gt;.tar.gz</strong>) en el equipo host (usando <code>scp</code> o algún otro método).</p>
+</li>
+<li>
+<p>Descomprima el archivo del instalador.</p>
+</li>
+<li>
+<p>Pegue y ejecute el comando que copió en el paso 2.</p>
+</li>
+<li>
+<p>Si desea agregar un nodo de escáner a un "grupo de escáner", agregue el parámetro <strong>-r &lt;scanner_group_name&gt;</strong> al comando. De lo contrario, el nodo del escáner se agrega al grupo "predeterminado".</p>
+<div class="paragraph">
+<p>Cuando la instalación termina en todos los nodos del escáner y se han Unido al nodo del administrador, el script "add_scanner_node.sh" también finaliza. La instalación puede tardar entre 10 y 20 minutos.</p>
+</div>
+</li>
+</ol>
+</div>
+</li>
+<li>
+<p>Si ha agregado algún nodo de escáner a un grupo de escáner, vuelva al nodo Administrador y realice las dos tareas siguientes:</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Abra el archivo "/opt/netapp/Datashense/working_Environment_to_scanner_group_config.yml" e introduzca la asignación para la que los grupos de escáneres exploran entornos de trabajo específicos. Deberá tener el <em>ID de entorno de trabajo</em> para cada origen de datos. Por ejemplo, las siguientes entradas agregan 2 entornos de trabajo al grupo de escáneres "europa" y 2 al grupo de escáneres "estados Unidos":</p>
+<div class="literalblock">
+<div class="content">
+<pre>scanner_groups:
+ europe:
+   working_environments:
+     - "working_environment_id1"
+     - "working_environment_id2"
+ united_states:
+   working_environments:
+     - "working_environment_id3"
+     - "working_environment_id4"</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>El grupo "predeterminado" analiza cualquier entorno de trabajo que no se agregue a la lista; debe tener al menos un nodo de administrador o escáner en el grupo "predeterminado".</p>
+</div>
+</li>
+<li>
+<p>Ejecute la siguiente secuencia de comandos para registrar esta información de asignación en todos los nodos del escáner:<br>
+<code>/opt/netapp/Datasense/tools/update_we_scanner_group_from_config_file.sh</code></p>
+</li>
+</ol>
+</div>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<div class="title">Resultado</div>
+<p>Data Sense se configura con los nodos Manager y Scanner para analizar todos sus orígenes de datos.</p>
+</div>
+<div class="paragraph">
+<div class="title">El futuro</div>
+<p>En la página Configuración puede seleccionar los orígenes de datos que desea analizar, si aún no lo ha hecho. Si ha creado grupos de escáner, los nodos de escáner del grupo correspondiente escanean cada origen de datos.</p>
+</div>
+<div class="paragraph">
+<p>Puede ver el nombre del grupo de escáneres de cada entorno de trabajo en la página Configuración.</p>
+</div>
+<div class="paragraph">
+<p><span class="image"><img src="./media/screenshot_work_env_id.png" alt="Una captura de pantalla del ID de entorno de trabajo desde la página Configuración de detección de datos."></span></p>
+</div>
+<div class="paragraph">
+<p>También puede ver la lista de todos los grupos de escáneres junto con la dirección IP y el estado de cada nodo de escáner del grupo en la parte inferior de la página Configuración.</p>
+</div>
+<div class="paragraph">
+<p><span class="image"><img src="./media/screenshot_scanner_groups.png" alt="Una captura de pantalla que muestra todos los grupos de escáneres junto con la dirección IP de cada nodo de escáner del grupo."></span></p>
+</div>
+<div class="paragraph">
+<p>Puede hacerlo <a href="task-licensing-datasense.html">"Configure la licencia de Cloud Data Sense"</a> en este momento. No se le cobrará hasta que finalice su prueba gratuita de 30 días.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="instalación-de-varios-hosts-para-configuraciones-grandes">Instalación de varios hosts para configuraciones grandes</h3>
+<div class="paragraph">
+<p>En configuraciones de gran tamaño en las que va a escanear petabytes de datos, puede incluir varios hosts para proporcionar una capacidad de procesamiento adicional. Cuando se utilizan varios sistemas host, el sistema principal se denomina <em>Manager node</em> y los sistemas adicionales que proporcionan potencia de procesamiento adicional se denominan <em>Scanner Nodes</em>.</p>
+</div>
+<div class="paragraph">
+<p>Siga estos pasos cuando instale software Data Sense en varios hosts locales al mismo tiempo. Tenga en cuenta que no puede utilizar "grupos de escáneres" al implementar varios hosts de esta forma.</p>
+</div>
+<div class="ulist">
+<div class="title">Lo que necesitará</div>
+<ul>
+<li>
+<p>Verifique que todos los sistemas Linux para los nodos Manager y Scanner se adapten al <a href="#prepare-el-sistema-host-linux">requisitos del host</a>.</p>
+</li>
+<li>
+<p>Compruebe que los sistemas tienen instalados los dos paquetes de software de requisitos previos (Docker Engine y Python 3).</p>
+</li>
+<li>
+<p>Asegúrese de tener privilegios de usuario raíz en los sistemas Linux.</p>
+</li>
+<li>
+<p>Compruebe que su entorno cumple con las necesidades <a href="#habilite-el-acceso-a-internet-de-salida-desde-cloud-data-sense">permisos y conectividad</a>.</p>
+</li>
+<li>
+<p>Debe tener las direcciones IP de los hosts de nodos de escáner que desee utilizar.</p>
+</li>
+<li>
+<p>Deben habilitarse los siguientes puertos y protocolos en todos los hosts:</p>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 16.6666%;">
+<col style="width: 22.2222%;">
+<col style="width: 61.1112%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Puerto</th>
+<th class="tableblock halign-left valign-top">Protocolos</th>
+<th class="tableblock halign-left valign-top">Descripción</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">2377</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">TCP</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Comunicaciones de gestión de clústeres</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">7946</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">TCP, UDP</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Comunicación entre nodos</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">4789</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">UDP</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Superpone el tráfico de red</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">50</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">ESP</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Tráfico de red de superposición (ESP) IPsec cifrada</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">111</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">TCP, UDP</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Servidor NFS para compartir archivos entre los hosts (necesario de cada nodo de escáner al nodo de administración)</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">2049</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">TCP, UDP</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Servidor NFS para compartir archivos entre los hosts (necesario de cada nodo de escáner al nodo de administración)</p></td>
+</tr>
+</tbody>
+</table>
+</li>
+</ul>
+</div>
+<div class="olist arabic">
+<div class="title">Pasos</div>
+<ol class="arabic">
+<li>
+<p>Siga los pasos 1 a 7 de la <a href="#instalación-de-un-solo-host-para-configuraciones-típicas">Instalación de un solo host</a> en el nodo de gestión.</p>
+</li>
+<li>
+<p>Como se muestra en el paso 8, cuando el instalador lo solicite, puede introducir los valores necesarios en una serie de peticiones o puede proporcionar los parámetros necesarios como argumentos de línea de comandos al instalador.</p>
+<div class="paragraph">
+<p>Además de las variables disponibles para una instalación de un solo host, se utiliza una nueva opción <strong>-n &lt;node_ip&gt;</strong> para especificar las direcciones IP de los nodos del escáner. Las varias IP de nodos de escáner están separadas por una coma.</p>
+</div>
+<div class="paragraph">
+<p>Por ejemplo, este comando añade 3 nodos de escáner:<br>
+<code>sudo ./install.sh -a &lt;account_id&gt; -c &lt;agent_id&gt; -t &lt;token&gt; --host &lt;ds_host&gt; --manager-host &lt;cm_host&gt; <strong>-n &lt;node_ip1&gt;,&lt;node_ip2&gt;,&lt;node_ip3&gt;</strong> --proxy-host &lt;proxy_host&gt; --proxy-port &lt;proxy_port&gt; --proxy-scheme &lt;proxy_scheme&gt; --proxy-user &lt;proxy_user&gt; --proxy-password &lt;proxy_password&gt;</code></p>
+</div>
+</li>
+<li>
+<p>Antes de que se complete la instalación del nodo de gestión, se mostrará un cuadro de diálogo con el comando de instalación necesario para los nodos del escáner. Copie el comando y guárdelo en un archivo de texto. Por ejemplo:</p>
+<div class="paragraph">
+<p><code>sudo ./node_install.sh -m 10.11.12.13 -t ABCDEF-1-3u69m1-1s35212</code></p>
+</div>
+</li>
+<li>
+<p>En el host <strong>cada nodo del escáner</strong>:</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Copie el archivo de instalación de Data Sense (<strong>DATASENSE-INSTALLER-&lt;version&gt;.tar.gz</strong>) en el equipo host (usando <code>scp</code> o algún otro método).</p>
+</li>
+<li>
+<p>Descomprima el archivo del instalador.</p>
+</li>
+<li>
+<p>Pegue y ejecute el comando que copió en el paso 3.</p>
+<div class="paragraph">
+<p>Cuando la instalación finalice en todos los nodos de escáner y se han Unido al nodo de gestión, también se completa la instalación del nodo de gestión.</p>
+</div>
+</li>
+</ol>
+</div>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<div class="title">Resultado</div>
+<p>El instalador de Cloud Data Sense finaliza la instalación de los paquetes y registra la instalación. La instalación puede tardar entre 10 y 20 minutos.</p>
+</div>
+<div class="paragraph">
+<div class="title">El futuro</div>
+<p>En la página Configuración puede seleccionar los orígenes de datos que desea analizar.</p>
+</div>
+<div class="paragraph">
+<p>También puede hacerlo <a href="task-licensing-datasense.html">"Configure la licencia de Cloud Data Sense"</a> en este momento. No se le cobrará hasta que finalice su prueba gratuita de 30 días.</p>
+</div>
+</div>
+</div>
+</div>
+
+    </article>
+    <!-- Page Container -->
+  </div>
+
+  <div style="clear: both"></div><!-- Main needs to have height --></div>
+
+        </main>
+
+        <footer class="n-footer">
+  <div class="n-footer__bottom">
+    <div class="n-container">
+      <div class="n-footer__bottom-left">
+        <div class="n-footer__copyright">
+          <ul class="n-footer__copyright-list">
+            <li class="n-footer__copyright-link">
+              <a href="https://www.netapp.com/company/legal/copyright/">© 2023 NetApp, Inc.</a>
+            </li>
+            <li class="n-footer__copyright-link">
+              <a href="https://www.netapp.com/company/legal/terms-of-use/">Términos y condiciones</a>
+            </li>
+            <li class="n-footer__copyright-link">
+              <a href="https://www.netapp.com/company/legal/privacy-policy/">Política de privacidad</a>
+            </li>
+            <li class="n-footer__copyright-link">
+              <a href="https://www.netapp.com/company/legal/cookie-policy/">Política de Cookies</a>
+            </li>
+            <li class="n-footer__copyright-link">
+              <a class="ot-sdk-show-settings">Configuración de cookies</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+      <div class="n-footer__bottom-right">
+        <div class="n-footer__copyright">
+          <ul class="n-footer__copyright-list">
+            <li class="n-footer__copyright-link">
+              <a target="_self" href="javascript:netapp_mailto()">Enviar comentarios sobre esta página</a>
+            </li>
+          </ul>
+        </div>
+        <div class="n-footer__social-links">
+          <ul class="n-footer__social-link-list">
+            <li class="n-footer__social-link-list-item">
+              <a class="n-footer__social-link" data-ntap-social="follow-blog" href="https://blog.netapp.com"
+                target="_blank" title="blog" alt="blog">
+                <span class="n-footer__social-link-text">blog</span>
+                <svg class="n-icon-blog n-footer__social-link-icon" aria-labelledby="title">
+                  <title>blog@</title>
+                  <use xmlns:xlink="http://www.w3.org/1999/xlink"
+                    xlink:href="/es-es/cloud-manager-data-sense/common/svg/sprite.svg#blog"></use>
+                </svg>
+              </a>
+            </li>
+            <li class="n-footer__social-link-list-item">
+              <a class="n-footer__social-link" data-ntap-social="follow-community" href="https://community.netapp.com/"
+                target="_blank" title="community" alt="community">
+                <span class="n-footer__social-link-text">community</span>
+                <svg class="n-icon-community n-footer__social-link-icon" aria-labelledby="title">
+                  <title>community@</title>
+                  <use xmlns:xlink="http://www.w3.org/1999/xlink"
+                    xlink:href="/es-es/cloud-manager-data-sense/common/svg/sprite.svg#comments"></use>
+                </svg>
+              </a>
+            </li>
+            <li class="n-footer__social-link-list-item">
+              <a class="n-footer__social-link" data-ntap-social="follow-twitter" href="https://twitter.com/netapp"
+                target="_blank" title="twitter" alt="twitter">
+                <span class="n-footer__social-link-text">twitter</span>
+                <svg class="n-icon-twitter n-footer__social-link-icon" aria-labelledby="title">
+                  <title>twitter@</title>
+                  <use xmlns:xlink="http://www.w3.org/1999/xlink"
+                    xlink:href="/es-es/cloud-manager-data-sense/common/svg/sprite.svg#twitter"></use>
+                </svg>
+              </a>
+            </li>
+            <li class="n-footer__social-link-list-item">
+              <a class="n-footer__social-link" data-ntap-social="follow-facebook" href="https://www.facebook.com/NetApp"
+                target="_blank" title="facebook" alt="facebook">
+                <span class="n-footer__social-link-text">facebook</span>
+                <svg class="n-icon-facebook n-footer__social-link-icon" aria-labelledby="title">
+                  <title>facebook@</title>
+                  <use xmlns:xlink="http://www.w3.org/1999/xlink"
+                    xlink:href="/es-es/cloud-manager-data-sense/common/svg/sprite.svg#facebook"></use>
+                </svg>
+              </a>
+            </li>
+            <li class="n-footer__social-link-list-item">
+              <a class="n-footer__social-link" data-ntap-social="follow-linkedin"
+                href="https://www.linkedin.com/company/netapp" target="_blank" title="linkedin" alt="linkedin">
+                <span class="n-footer__social-link-text">linkedin</span>
+                <svg class="n-icon-linkedin n-footer__social-link-icon" aria-labelledby="title">
+                  <title>linkedin@</title>
+                  <use xmlns:xlink="http://www.w3.org/1999/xlink"
+                    xlink:href="/es-es/cloud-manager-data-sense/common/svg/sprite.svg#linkedin"></use>
+                </svg>
+              </a>
+            </li>
+            <li class="n-footer__social-link-list-item">
+              <a class="n-footer__social-link" data-ntap-social="follow-youtube"
+                href="https://www.youtube.com/user/NetAppTV" target="_blank" title="youtube" alt="youtube">
+                <span class="n-footer__social-link-text">youtube</span>
+                <svg class="n-icon-youtube n-footer__social-link-icon" aria-labelledby="title">
+                  <title>youtube@</title>
+                  <use xmlns:xlink="http://www.w3.org/1999/xlink"
+                    xlink:href="/es-es/cloud-manager-data-sense/common/svg/sprite.svg#youtube"></use>
+                </svg>
+              </a>
+            </li>
+            <li class="n-footer__social-link-list-item">
+              <a class="n-footer__social-link" data-ntap-social="follow-slideshare"
+                href="https://www.slideshare.net/NetApp" target="_blank" title="slideshare" alt="slideshare">
+                <span class="n-footer__social-link-text">slideshare</span>
+                <svg class="n-icon-slideshare n-footer__social-link-icon" aria-labelledby="title">
+                  <title>slideshare@</title>
+                  <use xmlns:xlink="http://www.w3.org/1999/xlink"
+                    xlink:href="/es-es/cloud-manager-data-sense/common/svg/sprite.svg#slideshare"></use>
+                </svg>
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+
+      </div><!-- Elasticsearch JS -->
+      <script type="text/javascript" src='/es-es/cloud-manager-data-sense/js/bundle.js'></script>
+
+      <!-- Syntax Highlighting -->
+      <script type="text/javascript" src='/es-es/cloud-manager-data-sense/js/prism.js'></script>
+      <script type="text/javascript" src='/es-es/cloud-manager-data-sense/js/prism-curl.js'></script>
+    </div>
+    <script>
+      document.body.offsetWidth=1903;
+      cookieLaw = {}
+      cookieLaw.euCountry = "US";
+      cookieLaw.invoke = function(){return false;}
+    </script>
+    <script src='/es-es/cloud-manager-data-sense/js/www-ntap.js'></script>
+    <script src='/es-es/cloud-manager-data-sense/js/tabbed-blocks.js'></script>
+    <script src='/es-es/cloud-manager-data-sense/js/sidebar.js'></script>
+  </body></html>

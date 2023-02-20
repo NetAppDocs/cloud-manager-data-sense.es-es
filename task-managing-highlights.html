@@ -1,0 +1,1668 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head class="at-element-marker">
+  <title>Gestione sus datos privados | NetApp Documentation</title>
+  <meta charset="utf-8">
+  <meta http-equiv="x-ua-compatible" content="ie=edge,chrome=1">
+  <meta http-equiv="language" content="en">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta property="og:title" content="Gestione sus datos privados | NetApp Documentation" />
+	<meta property="og:type" content="website" />
+	<meta property="og:url" content="https://docs.netapp.com/es-es/cloud-manager-data-sense/task-managing-highlights.html" />
+	<meta property="og:description" content="Cloud Data Sense ofrece varias formas de gestionar sus datos privados. Algunas funcionalidades facilitan la preparación para la migración de datos, mientras ..." />
+  <meta property="og:image" content="https://docs.netapp.com/es-es/cloud-manager-data-sense/images/logo-tophat-social.png" />
+  <meta property="og:image:alt" content="NetApp Logo" />
+  <meta name="format-detection" content="telephone=no">
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <meta http-equiv="encoding" content="utf-8">
+  <meta http-equiv="nss-type" content="Product Documentation"/>
+  <meta http-equiv="nss-subtype" content="User Guide"/><meta name="description" content="Cloud Data Sense ofrece varias formas de gestionar sus datos privados. Algunas funcionalidades facilitan la preparación para la migración de datos, mientras ...">
+  <meta name="keywords" content=" compliance, privacy, filter data, delete files, move files, copy files, clone files, sync files, data sense, migration"><!-- Icons -->
+  <link rel="icon" href="/es-es/cloud-manager-data-sense/images/favicon.ico" type="image/x-icon">
+
+  <!-- RSS Feed --><link rel="alternate" type="application/rss+xml" title="NetApp Documentation" href="/es-es/cloud-manager-data-sense/feed.xml"><!-- CSS Definitions: NetApp CSS should be defined after generic css -->
+
+  <!-- Elastic Search -->
+  <link rel="stylesheet" href="//cdn.jsdelivr.net/searchkit/0.10.0/theme.css">
+
+  <!-- Combined CSS -->
+  <link rel="stylesheet" type="text/css" href="/es-es/cloud-manager-data-sense/css/netappdocs.css">
+
+  
+  <link rel="stylesheet" href="/es-es/cloud-manager-data-sense/css/landing-page.css" type="text/css">
+  <link rel="stylesheet" href="/es-es/cloud-manager-data-sense/css/tabbed-blocks.css" type="text/css">
+  <!-- Canonical url -->
+  <link rel='stylesheet' href='/es-es/cloud-manager-data-sense/css/na-feature.css' type='text/css'><!-- Top level site integrations --><script>
+    function addAdobeLaunch(adobeId) {
+      var head = document.getElementsByTagName('head')[0];
+      var adobe = document.createElement("script");
+      adobe.type = "text/plain";
+      adobe.className = "optanon-category-C0002";
+      adobe.src = "//assets.adobedtm.com/60287eadf1ee/c284da483c83/"+adobeId+".min.js";
+      head.appendChild(adobe);
+    }
+
+    function addGoogleAnalytics(gtagId) {
+      var google = document.createElement("script");
+      google.type = "text/plain";
+      google.className = "optanon-category-C0002";
+      google.src = "https://www.googletagmanager.com/gtag/js?id="+gtagId;
+      var head = document.getElementsByTagName('head')[0];
+      head.appendChild(google);
+
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', gtagId);
+    }
+
+    function addConsent(consentId) {
+      var head = document.getElementsByTagName('head')[0];
+      var onetrustConsent = document.createElement("script");
+      onetrustConsent.type = "text/javascript";
+      onetrustConsent.src = "https://cdn.cookielaw.org/consent/"+consentId+"/OtAutoBlock.js";
+      head.appendChild(onetrustConsent);
+
+      var onetrustScript = document.createElement("script");
+      onetrustScript.type = "text/javascript";
+      onetrustScript.src = "https://cdn.cookielaw.org/scripttemplates/otSDKStub.js";
+      onetrustScript.charset = "UTF-8";
+      onetrustScript.dataset.documentLanguage = "true";
+      onetrustScript.dataset.domainScript = consentId;
+      head.appendChild(onetrustScript);
+    }addConsent("72570c5c-fe30-465f-b0e0-b77f7fb4ae34");
+    addAdobeLaunch("launch-e9ff3acac59f");
+    addGoogleAnalytics("UA-81697994-3");function OptanonWrapper() { }
+  </script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.1/jquery.cookie.min.js"></script>
+
+  <!-- Used for Product Family Page Sidebar Visibility --><!-- Used to import Promise for IE. Required for SearchKit -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/bluebird/3.3.5/bluebird.min.js"></script><script src='/es-es/cloud-manager-data-sense/js/na-search.js'></script><script src='/es-es/cloud-manager-data-sense/js/na-pagenav.js'></script><script src='/es-es/cloud-manager-data-sense/js/na-utility.js'></script>
+  <script src='/es-es/cloud-manager-data-sense/js/clouddocs.js'></script>
+  <script src='/es-es/cloud-manager-data-sense/js/jquery.navgoco.min.js'></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+  <script src='/es-es/cloud-manager-data-sense/js/toc.js'></script>
+  <script src='/es-es/cloud-manager-data-sense/js/customscripts.js'></script><script>
+      $(document).ready(function() {
+          
+          var collapseOnInit = true;
+          
+
+          var navSettings = {
+              "caretHtml": '',
+              "accordion": collapseOnInit,
+              "openClass": 'active', // open
+              "save": false, // leave false or nav highlighting doesn't work right
+              "cookie": {
+                  "name": 'navgoco',
+                  "expires": false,
+                  "path": '/'
+              },
+              "slide": {
+                  "duration": 400,
+                  "easing": 'swing'
+              }
+          };
+
+          // Initialize navgoco with default options
+          $("#mysidebar").navgoco(navSettings);
+          
+
+          $("#collapseAll").click(function(e) {
+              e.preventDefault();
+              $("#mysidebar").navgoco('toggle', false);
+          });
+
+          $("#expandAll").click(function(e) {
+              e.preventDefault();
+              $("#mysidebar").navgoco('toggle', true);
+          });
+
+          $(".sidebar-nav-container").on("scroll", function() {
+            $.cookie("sidebarScroll", $(".sidebar-nav-container").scrollTop(), {
+              path    : "/es-es/cloud-manager-data-sense"  
+            });
+          });
+          $(function() {
+            if ($.cookie("sidebarScroll")) {
+              $(".sidebar-nav-container").scrollTop($.cookie("sidebarScroll"));
+            }
+          });
+
+      });
+
+  </script>
+  <script>
+      $(document).ready(function() {
+          $("#tg-sb-link").click(function() {
+              $("#tg-sb-sidebar").toggle();
+              $("#tg-sb-content").toggleClass('col-md-9');
+              $("#tg-sb-content").toggleClass('col-md-12');
+              $("#tg-sb-icon").toggleClass('fa-toggle-on');
+              $("#tg-sb-icon").toggleClass('fa-toggle-off');
+          });
+      });
+  </script>
+  <script src='/es-es/cloud-manager-data-sense/js/custom-dropdown.js'></script>
+  <script src='/es-es/cloud-manager-data-sense/js/FileSaver.min.js'></script>
+  <script src='/es-es/cloud-manager-data-sense/js/jszip-utils.min.js'></script>
+  <script src='/es-es/cloud-manager-data-sense/js/jszip.min.js'></script>
+  <script src='/es-es/cloud-manager-data-sense/js/pdf-ux.js'></script>
+</head>
+
+
+  <body class role="document" data-flavor="">
+    <div id="page" class="n-off-canvas-menu">
+      <div class="n-off-canvas-menu__menu"><!--TODO: Add offcanvas code --></div>
+      <div class="n-off-canvas-menu__content-wrap">
+        <header class="site-header" id="banner">
+  
+  <!-- Start Page Toolbar -->
+  
+  <div class="page-nav-toolbar"><div class="page-nav-contribute"><a target="_blank" href="https://github.com/NetAppDocs/cloud-manager-data-sense/issues/new?body=Page%3A%20[Gestione sus datos privados](https://docs.netapp.com/es-es/cloud-manager-data-sense/task-managing-highlights.html)&template=public-issue-template.md" class="page-nav-contribute-link" role="button"><img src="/es-es/cloud-manager-data-sense/images/discuss-sm.svg" alt="" class="github-icon" />Solicitar cambios en el documento</a><a target="_blank" href="https://github.com/NetAppDocs/cloud-manager-data-sense/blob/main/task-managing-highlights.adoc" class="page-nav-contribute-link" role="button"><img src="/es-es/cloud-manager-data-sense/images/edit-sm.svg" alt="" class="github-icon" />Editar en GitHub</a><a target="_blank" href="https://docs.netapp.com/us-en/contribute/" class="page-nav-contribute-link"  ><img src="/es-es/cloud-manager-data-sense/images/article-sm.svg" alt="" class="github-icon" />Guía del colaborador</a></div>
+    <div class="page-nav-container">
+      <nav class="page-nav-fixed">
+        <div class="page-nav-title">EN ESTA PÁGINA</div>
+        <div class="page-nav-links">
+          <ul class="page-nav-inner" id="page-menu"></ul>
+        </div>
+      </nav>
+    </div>
+  </div>
+  
+  
+  <!-- Start top_hat -->
+  <div class="n-top-hat">
+    <div class="n-container">
+      <div class="n-top-hat__cross-property-nav">
+        <ul class="n-top-hat__list">
+          <li class="n-top-hat__list-item">
+            <a href="https://www.netapp.com/products-a-z/" class="n-top-hat__link">Producto y soluciones</a>
+          </li>
+          <li class="n-top-hat__list-item">
+            <a href="https://www.netapp.com/support-and-training/netapp-university/" class="n-top-hat__link">Asistencia y capacitación</a>
+          </li>
+          <li class="n-top-hat__list-item">
+            <a href="https://cloud.netapp.com" class="n-top-hat__link">Cloud Central</a>
+          </li>
+          <li class="n-top-hat__list-item">
+            <a href="https://community.netapp.com/" class="n-top-hat__link">Comunidad</a>
+          </li>
+          <li class="n-top-hat__list-item">
+            <a href="https://blog.netapp.com/" class="n-top-hat__link">Blog</a>
+          </li>
+          <li class="n-top-hat__list-item">
+            <a href="https://customers.netapp.com/en/" class="n-top-hat__link">Historias de clientes</a>
+          </li>
+        </ul>
+      </div>
+      <div class="n-top-hat__utils">
+        <ul class="n-top-hat__list">
+          <li class="n-top-hat__list-item">
+            <a href="https://www.netapp.com/company/contact-us/" target="_self" class="n-top-hat__link" data-ntap-ui="contact-us">Contacto</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <!-- End top_hat -->
+
+  <!-- Start property bar -->
+  <style>
+    .n-property-navigation-bar__menus--desktop-experience .n-menu--mega__default-content__heading span {
+    color: #34B0FF;
+    }
+  </style>
+  <div class="n-property-bar " data-ntap-ui="sticky-nav">
+    <div class="n-property-bar__inner-wrap">
+      <div class="n-property-bar__menu-toggle">
+        <a href="#" class="n-property-bar__menu-toggle-link">
+          <span class="n-property-bar__menu-toggle-text">Menu</span>
+          <svg class="n-icon-bars n-property-bar__menu-toggle-icon" aria-labelledby="title">
+            <title>bars</title>
+            <use xlink:href="/es-es/cloud-manager-data-sense/common/svg/sprite.svg#bars"></use>
+          </svg>
+        </a>
+      </div>
+      <div class="n-property-bar__property-mark ">
+        <a href="https://www.netapp.com" class="n-property-bar__property-link">
+          <div class="n-property-bar__logo">
+            <svg class="n-icon-netapp-mark n-icon-netapp-mark n-property-bar__netapp-mark-icon" aria-labelledby="title">
+              <title>netapp-mark</title>
+              <use xlink:href="/es-es/cloud-manager-data-sense/common/svg/sprite.svg#netapp-mark"></use>
+            </svg>
+            <svg class="n-icon-netapp-logo n-property-bar__logo-svg" aria-labelledby="title">
+              <title>netapp-logo</title>
+              <use xlink:href="/es-es/cloud-manager-data-sense/common/svg/sprite.svg#netapp-logo"></use>
+            </svg>
+          </div>
+        </a>
+      </div>
+
+      
+      
+      
+      <div class="search-property-bar">
+        <div id="search-demo-container" class="searchbox n-property-bar__search">
+          <div id="react-search" 
+          data-search-html="/es-es/cloud-manager-data-sense/search.html"
+          data-type="widget" 
+          data-placeholder="Buscar documentación"
+          data-no-results-found="No se encontraron resultados para {query}"
+          data-did-you-mean="Buscar {suggestion}."
+          data-no-results-found-did-you-mean="No se encontraron resultados para {query}. ¿Quiso decir {suggestion}?"
+          data-results-found="{hitCount} resultados encontrados"
+          data-error-message="We're sorry, an issue occurred when fetching your results. Please try again."
+          data-error-reset="Reset Search"
+          data-sk-es-pf-indexes=""
+          data-flavor=""></div>
+          <button class="n-property-bar__search-toggle-button" type="button">
+            <svg class="n-icon-search n-property-bar__search-toggle-button-icon" aria-labelledby="title">
+              <title>search</title>
+              <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="/es-es/cloud-manager-data-sense/common/svg/sprite.svg#search"></use>
+            </svg>
+          </button>
+        </div>
+      </div>
+      
+    </div>
+  </div>
+  <div class="n-property-bar__toolbar">
+    <!-- Start Language Selector --><div id="language-dropdown" class="custom-dropdown custom-dropdown-lang">
+      <div class="custom-dropdown-select custom-dropdown-select-lang">
+      <span class="lang-name">Español</span>
+          <svg class="n-globe__icon" aria-labelledby="title">
+            <title>globe</title>
+            <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="/es-es/cloud-manager-data-sense/common/svg/sprite.svg#globe"></use>
+          </svg>
+        </button>
+      </div>
+
+      <ul class="custom-dropdown-menu"><li>
+          <a href="https://docs.netapp.com/es-es/cloud-manager-data-sense/task-managing-highlights.html" target="_self"><span translate="no" class="notranslate">Español</span></a>
+        </li><li>
+          <a href="https://docs.netapp.com/us-en/cloud-manager-data-sense/task-managing-highlights.html" target="_self"><span translate="no" class="notranslate">English</span></a>
+        </li><li>
+          <a href="https://docs.netapp.com/ja-jp/cloud-manager-data-sense/task-managing-highlights.html" target="_self"><span translate="no" class="notranslate">日本語</span></a>
+        </li><li>
+          <a href="https://docs.netapp.com/ko-kr/cloud-manager-data-sense/task-managing-highlights.html" target="_self"><span translate="no" class="notranslate">한국어</span></a>
+        </li><li>
+          <a href="https://docs.netapp.com/zh-cn/cloud-manager-data-sense/task-managing-highlights.html" target="_self"><span translate="no" class="notranslate">简体中文</span></a>
+        </li><li>
+          <a href="https://docs.netapp.com/zh-tw/cloud-manager-data-sense/task-managing-highlights.html" target="_self"><span translate="no" class="notranslate">繁體中文</span></a>
+        </li><li>
+          <a href="https://docs.netapp.com/de-de/cloud-manager-data-sense/task-managing-highlights.html" target="_self"><span translate="no" class="notranslate">Deutsch</span></a>
+        </li><li>
+          <a href="https://docs.netapp.com/fr-fr/cloud-manager-data-sense/task-managing-highlights.html" target="_self"><span translate="no" class="notranslate">Français</span></a>
+        </li></ul>
+    </div><!-- End Language Selector -->
+
+    <div class="n-property-bar__cta"></div>
+  </div>
+  <!-- End property bar -->
+</header>
+
+
+        <main id="n-main-content" class="n-main-content">
+          <!-- Start Documentation Content -->
+<div class="ie-main">
+  <!-- Sidebar Column -->
+  
+  <div class="col-md-3" id="sidebar-height">
+      <button id="btn-sidebar-collapse" onclick="hideSidebar()"><img src="/es-es/cloud-manager-data-sense/images/collapse.png" alt="Contraer panel de navegación"></button>
+      <div class="n-pdf-header">
+  <a id="toggleButtonPdf" class="n-pdf-button" type="button">
+    <img src="/es-es/cloud-manager-data-sense/images/pdf.png" alt="" width="16" height="16"/>PDFs disponibles<span>
+    </span>
+  </a>
+</div>
+<div class="n-pdf-body-container">
+  <ul id="toggleContainerPdf" class="n-pdf-body" style="display:none;"><li class="pdf-ux-container">
+        
+        
+        
+        <a target="_blank" href="/es-es/cloud-manager-data-sense/pdfs/fullsite-sidebar/Documentación_de_Cloud_Data_Sense.pdf" >
+          <img src="/es-es/cloud-manager-data-sense/images/pdf.png" alt="" width="16" height="16"/>PDF de este sitio de documentos</a>
+
+
+
+
+
+    
+      <ul class="subfolders" style="display:none;">
+        <li class="pdf-ux-container">
+          
+          
+          
+          <a target="_blank" 
+            
+              href="/es-es/cloud-manager-data-sense/pdfs/sidebar/Manos_a_la_obra.pdf" 
+            
+          >
+            <img src="/es-es/cloud-manager-data-sense/images/pdf.png" alt="" width="16" height="16"/>
+            Manos a la obra
+          </a>
+          
+
+
+
+    
+      <ul class="subfolders" style="display:none;">
+        <li class="pdf-ux-container">
+          
+          
+          
+          <a target="_blank" 
+            
+              href="/es-es/cloud-manager-data-sense/pdfs/sidebar/Ponga_en_marcha_Cloud_Data_Sense.pdf" 
+            
+          >
+            <img src="/es-es/cloud-manager-data-sense/images/pdf.png" alt="" width="16" height="16"/>
+            Ponga en marcha Cloud Data Sense
+          </a>
+          
+
+
+
+
+
+
+        </li>
+      </ul>
+    
+
+  
+
+
+
+    
+      <ul class="subfolders" style="display:none;">
+        <li class="pdf-ux-container">
+          
+          
+          
+          <a target="_blank" 
+            
+              href="/es-es/cloud-manager-data-sense/pdfs/sidebar/Active_el_análisis_en_sus_orígenes_de_datos.pdf" 
+            
+          >
+            <img src="/es-es/cloud-manager-data-sense/images/pdf.png" alt="" width="16" height="16"/>
+            Active el análisis en sus orígenes de datos
+          </a>
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        </li>
+      </ul>
+    
+
+  
+
+
+
+
+
+
+
+
+        </li>
+      </ul>
+    
+
+  
+
+
+
+    
+      <ul class="subfolders" style="display:none;">
+        <li class="pdf-ux-container">
+          
+          
+          
+          <a target="_blank" 
+            
+              href="/es-es/cloud-manager-data-sense/pdfs/sidebar/Utilice_Cloud_Data_Sense.pdf" 
+            
+          >
+            <img src="/es-es/cloud-manager-data-sense/images/pdf.png" alt="" width="16" height="16"/>
+            Utilice Cloud Data Sense
+          </a>
+          
+
+
+
+
+
+
+
+
+
+
+
+
+    <ul class="subfolders" id="pdf-remove" style="display:none;"><li class="active"></li></ul>
+  
+
+
+
+
+
+
+        </li>
+      </ul>
+    
+
+  
+
+
+
+    
+      <ul class="subfolders" style="display:none;">
+        <li class="pdf-ux-container">
+          
+          
+          
+          <a target="_blank" 
+            
+              href="/es-es/cloud-manager-data-sense/pdfs/sidebar/Gestione_el_sentido_de_los_datos_en_el_cloud.pdf" 
+            
+          >
+            <img src="/es-es/cloud-manager-data-sense/images/pdf.png" alt="" width="16" height="16"/>
+            Gestione el sentido de los datos en el cloud
+          </a>
+          
+
+
+
+
+
+
+
+
+
+
+
+
+        </li>
+      </ul>
+    
+
+  
+
+
+
+    
+      <ul class="subfolders" style="display:none;">
+        <li class="pdf-ux-container">
+          
+          
+          
+          <a target="_blank" 
+            
+              href="/es-es/cloud-manager-data-sense/pdfs/sidebar/Referencia.pdf" 
+            
+          >
+            <img src="/es-es/cloud-manager-data-sense/images/pdf.png" alt="" width="16" height="16"/>
+            Referencia
+          </a>
+          
+
+
+        </li>
+      </ul>
+    
+
+  
+
+
+
+    
+      <ul class="subfolders" style="display:none;">
+        <li class="pdf-ux-container">
+          
+          
+          
+          <a target="_blank" 
+            
+              href="/es-es/cloud-manager-data-sense/pdfs/sidebar/Conocimiento_y_apoyo.pdf" 
+            
+          >
+            <img src="/es-es/cloud-manager-data-sense/images/pdf.png" alt="" width="16" height="16"/>
+            Conocimiento y apoyo
+          </a>
+          
+
+
+
+
+        </li>
+      </ul>
+    
+
+  
+
+
+
+</li></ul>
+  <div class="zip-pdf-link-container" style="display: none;">   
+    <a href="#" id="zipPdf">
+      <img src="/es-es/cloud-manager-data-sense/images/pdf-zip.png" alt="" width="16" height="16"/>
+      <pre>Colección de documentos PDF separados<span class="zip-size"></span></pre>
+    </a><div id="zip-link-popup" class="hide">
+    <div class="inner-modal">
+        <div class="downloading-progress">
+            <div class="spinner"></div>
+            <h1>Creating your file...</h1>
+            <div>This may take a few minutes. Thanks for your patience.</div>
+            <button class="cancel-download-btn" type="button">Cancel</button>
+        </div>
+        <div class="download-complete hide">
+            <div class="done-icon">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M20.285 2l-11.285 11.567-5.286-5.011-3.714 3.716 9 8.728 15-15.285z"/></svg>
+            </div>
+            <div>Your file is ready</div>
+            <button class="cancel-download-btn" type="button">OK</button>
+        </div>
+    </div>
+</div>
+<script>
+    $(".cancel-download-btn").click(function(){
+        $("#zip-link-popup").addClass("hide");
+        $("#zip-link-popup .downloading-progress").removeClass("hide");
+        $("#zip-link-popup .download-complete").addClass("hide");
+    });
+</script></div>
+</div>
+<script>
+  $("#toggleContainerPdf li.active:last-child").parents('ul.subfolders').toggle('display');
+  $("#toggleButtonPdf").click(function () {
+    $("#toggleContainerPdf").toggle('display');
+    $(".n-pdf-body-container .zip-pdf-link-container").toggle('display');
+  });
+</script><div class="prod-nav" id="product-nav">
+  <a target="_self" class="prod-fam-nav" href="https://docs.netapp.com/es-es/cloud-manager-family/"><img src="/es-es/cloud-manager-data-sense/images/left_arrow.png" alt=""><pre>Toda la documentación de BlueXP</pre></a>
+</div><div class="sidebar-nav-container" id="mysidebardiv">
+  <ul id="mysidebar" class="nav"><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Documentos de Cloud Data Sense"
+      data-li-level="1#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/es-es/cloud-manager-data-sense/index.html">
+        Documentos de Cloud Data Sense
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Notas de la versión"
+      data-li-level="1#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/es-es/cloud-manager-data-sense/whats-new.html">
+        Notas de la versión
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Manos a la obra"
+      data-li-level="1" 
+      class="subfolders "
+    ><a href="#">
+        <div class="na-navbar-padding"> Manos a la obra</div>
+      </a>
+      <ul style="display: none;">
+        <li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Más información acerca de Cloud Data Sense"
+      data-li-level="2#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/es-es/cloud-manager-data-sense/concept-cloud-compliance.html">
+        Más información acerca de Cloud Data Sense
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Ponga en marcha Cloud Data Sense"
+      data-li-level="2" 
+      class="subfolders "
+    ><a href="#">
+        <div class="na-navbar-padding"> Ponga en marcha Cloud Data Sense</div>
+      </a>
+      <ul style="display: none;">
+        <li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Realice puestas en marcha en el cloud"
+      data-li-level="3#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/es-es/cloud-manager-data-sense/task-deploy-cloud-compliance.html">
+        Realice puestas en marcha en el cloud
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Se implementa en un host Linux con acceso a Internet"
+      data-li-level="3#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/es-es/cloud-manager-data-sense/task-deploy-compliance-onprem.html">
+        Se implementa en un host Linux con acceso a Internet
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Puesta en marcha en las instalaciones sin acceso a Internet"
+      data-li-level="3#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/es-es/cloud-manager-data-sense/task-deploy-compliance-dark-site.html">
+        Puesta en marcha en las instalaciones sin acceso a Internet
+      </a></li></ul></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Active el análisis en sus orígenes de datos"
+      data-li-level="2" 
+      class="subfolders "
+    ><a href="#">
+        <div class="na-navbar-padding"> Active el análisis en sus orígenes de datos</div>
+      </a>
+      <ul style="display: none;">
+        <li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Cloud Volumes ONTAP y ONTAP en las instalaciones"
+      data-li-level="3#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/es-es/cloud-manager-data-sense/task-getting-started-compliance.html">
+        Cloud Volumes ONTAP y ONTAP en las instalaciones
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Azure NetApp Files"
+      data-li-level="3#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/es-es/cloud-manager-data-sense/task-scanning-anf.html">
+        Azure NetApp Files
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Amazon FSX para ONTAP"
+      data-li-level="3#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/es-es/cloud-manager-data-sense/task-scanning-fsx.html">
+        Amazon FSX para ONTAP
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Cubos de Amazon S3"
+      data-li-level="3#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/es-es/cloud-manager-data-sense/task-scanning-s3.html">
+        Cubos de Amazon S3
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Esquemas de base de datos"
+      data-li-level="3#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/es-es/cloud-manager-data-sense/task-scanning-databases.html">
+        Esquemas de base de datos
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Cuentas de OneDrive"
+      data-li-level="3#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/es-es/cloud-manager-data-sense/task-scanning-onedrive.html">
+        Cuentas de OneDrive
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Cuentas de SharePoint"
+      data-li-level="3#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/es-es/cloud-manager-data-sense/task-scanning-sharepoint.html">
+        Cuentas de SharePoint
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Cuentas de Google Drive"
+      data-li-level="3#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/es-es/cloud-manager-data-sense/task-scanning-google-drive.html">
+        Cuentas de Google Drive
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Recursos compartidos de archivos"
+      data-li-level="3#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/es-es/cloud-manager-data-sense/task-scanning-file-shares.html">
+        Recursos compartidos de archivos
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Almacenamiento de objetos"
+      data-li-level="3#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/es-es/cloud-manager-data-sense/task-scanning-object-storage.html">
+        Almacenamiento de objetos
+      </a></li></ul></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Integre Active Directory"
+      data-li-level="2#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/es-es/cloud-manager-data-sense/task-add-active-directory-datasense.html">
+        Integre Active Directory
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Configurar la licencia"
+      data-li-level="2#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/es-es/cloud-manager-data-sense/task-licensing-datasense.html">
+        Configurar la licencia
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="PREGUNTAS FRECUENTES"
+      data-li-level="2#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/es-es/cloud-manager-data-sense/faq-cloud-compliance.html">
+        PREGUNTAS FRECUENTES
+      </a></li></ul></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Utilice Cloud Data Sense"
+      data-li-level="1" 
+      class="subfolders "
+    ><a href="#">
+        <div class="na-navbar-padding"> Utilice Cloud Data Sense</div>
+      </a>
+      <ul style="display: none;">
+        <li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Ver detalles sobre gobernanza de sus datos"
+      data-li-level="2#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/es-es/cloud-manager-data-sense/task-controlling-governance-data.html">
+        Ver detalles sobre gobernanza de sus datos
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Vea detalles de cumplimiento de normativas sobre sus datos"
+      data-li-level="2#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/es-es/cloud-manager-data-sense/task-controlling-private-data.html">
+        Vea detalles de cumplimiento de normativas sobre sus datos
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Categorías de datos privados"
+      data-li-level="2#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/es-es/cloud-manager-data-sense/reference-private-data-categories.html">
+        Categorías de datos privados
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Investigue sus datos"
+      data-li-level="2#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/es-es/cloud-manager-data-sense/task-investigate-data.html">
+        Investigue sus datos
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Organice sus datos privados"
+      data-li-level="2#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/es-es/cloud-manager-data-sense/task-org-private-data.html">
+        Organice sus datos privados
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Asigne políticas a sus datos"
+      data-li-level="2#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/es-es/cloud-manager-data-sense/task-using-policies.html">
+        Asigne políticas a sus datos
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Gestione sus datos privados"
+      data-li-level="2#" 
+      class="  active "
+    ><a class="na-navbar-padding" href="/es-es/cloud-manager-data-sense/task-managing-highlights.html">
+        Gestione sus datos privados
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Cambiar la configuración de exploración"
+      data-li-level="2#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/es-es/cloud-manager-data-sense/task-managing-repo-scanning.html">
+        Cambiar la configuración de exploración
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Generar informes de cumplimiento"
+      data-li-level="2#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/es-es/cloud-manager-data-sense/task-generating-compliance-reports.html">
+        Generar informes de cumplimiento
+      </a></li></ul></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Gestione el sentido de los datos en el cloud"
+      data-li-level="1" 
+      class="subfolders "
+    ><a href="#">
+        <div class="na-navbar-padding"> Gestione el sentido de los datos en el cloud</div>
+      </a>
+      <ul style="display: none;">
+        <li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Agregar identificadores de datos personales personalizados"
+      data-li-level="2#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/es-es/cloud-manager-data-sense/task-managing-data-fusion.html">
+        Agregar identificadores de datos personales personalizados
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Ver el estado de las acciones de detección de datos"
+      data-li-level="2#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/es-es/cloud-manager-data-sense/task-view-compliance-actions.html">
+        Ver el estado de las acciones de detección de datos
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Auditar el historial de acciones de detección de datos"
+      data-li-level="2#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/es-es/cloud-manager-data-sense/task-audit-data-sense-actions.html">
+        Auditar el historial de acciones de detección de datos
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Reduzca la velocidad de exploración de detección de datos"
+      data-li-level="2#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/es-es/cloud-manager-data-sense/task-reduce-scan-speed.html">
+        Reduzca la velocidad de exploración de detección de datos
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Eliminar orígenes de datos de Data Sense"
+      data-li-level="2#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/es-es/cloud-manager-data-sense/task-managing-compliance.html">
+        Eliminar orígenes de datos de Data Sense
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Desinstale Data Sense"
+      data-li-level="2#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/es-es/cloud-manager-data-sense/task-uninstall-data-sense.html">
+        Desinstale Data Sense
+      </a></li></ul></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Referencia"
+      data-li-level="1" 
+      class="subfolders "
+    ><a href="#">
+        <div class="na-navbar-padding"> Referencia</div>
+      </a>
+      <ul style="display: none;">
+        <li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Metadatos recogidos de orígenes de datos"
+      data-li-level="2#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/es-es/cloud-manager-data-sense/reference-collected-metadata.html">
+        Metadatos recogidos de orígenes de datos
+      </a></li></ul></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Conocimiento y apoyo"
+      data-li-level="1" 
+      class="subfolders "
+    ><a href="#">
+        <div class="na-navbar-padding"> Conocimiento y apoyo</div>
+      </a>
+      <ul style="display: none;">
+        <li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Regístrese para recibir soporte"
+      data-li-level="2#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/es-es/cloud-manager-data-sense/task-support-registration.html">
+        Regístrese para recibir soporte
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Obtenga ayuda"
+      data-li-level="2#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/es-es/cloud-manager-data-sense/task-get-help.html">
+        Obtenga ayuda
+      </a></li></ul></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Avisos legales"
+      data-li-level="1#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/es-es/cloud-manager-data-sense/legal-notices.html">
+        Avisos legales
+      </a></li></ul>
+</div>
+<script>
+  window.onscroll = () => {
+    const value = -40 - (document.body.scrollHeight - (window.innerHeight + document.scrollingElement.scrollTop));
+    
+    document.getElementById("sidebar-height").style.bottom = Math.max(0,value) + "px";
+};
+</script>
+<!-- this highlights the active parent class in the navgoco sidebar. this is critical so that the parent expands when you're viewing a page. This must appear below the sidebar code above. Otherwise, if placed inside customscripts.js, the script runs before the sidebar code runs and the class never gets inserted.-->
+<script>$("li.active").parents('li').toggleClass("active");</script>
+<script>$("#mysidebar li.active").parents('ul').css("display","block");</script>
+
+
+  </div>
+  
+
+  <div class="ie-content-pane n-doc__component-detail-content n-doc__component-detail-content--show-code">
+    <!-- Begin of page container --><article class="page-content" id="main">
+      <div class="ie-utility">
+  <button id="btn-sidebar-expand" onclick="showSidebar()"><img src="/es-es/cloud-manager-data-sense/images/expand.png" alt="Expandir panel de navegación"></button>
+  <div class="ie-menu">
+    <div class="n-breadcrumb">
+      <ul class="n-breadcrumb__list">
+        <li class="n-breadcrumb__list-item">
+          <a href="https://docs.netapp.com">docs.netapp.com</a>
+        </li>
+        
+        <li class="n-breadcrumb__list-item">
+          <a href="https://docs.netapp.com/us-en/cloud/">Cloud Docs</a>
+        </li>
+        
+
+        
+        <li class="n-breadcrumb__list-item">
+          <a href="https://docs.netapp.com/es-es/cloud-manager-family/">BlueXP</a>
+        </li>
+        
+
+        <li class="n-breadcrumb__list-item">
+          <a href="/es-es/cloud-manager-data-sense/">Cloud&nbsp;Data&nbsp;Sense</a>
+        </li>
+
+      </ul>
+    </div>
+    <div style="clear: both"></div><!-- Main needs to have height -->
+  </div>
+</div>
+
+      <div class="ie-nmt-disclaimer">
+  <span>
+    <div class="ie-nmt-disclaimer-container">
+      <div class="ie-nmt-disclaimer-icon">
+        <svg class="luci-icon" aria-hidden="true">
+          <use xlink:href="/es-es/cloud-manager-data-sense/common/svg/sprite.svg#circle-info">
+        </svg>
+      </div>
+      <div class="ie-nmt-disclaimer-content">
+        <span> Se proporciona el idioma español mediante traducción automática para su comodidad. En caso de alguna inconsistencia, el inglés precede al español. </span>
+      </div>
+      <div style="clear:both;"></div>
+    </div>
+  </span>
+</div><div class="n-doc__component-detail-heading-wrap">
+  <h1 class="n-doc__component-detail-heading">Gestione sus datos privados</h1>
+</div>
+
+
+<p class="page-details">
+  
+    
+    <time datetime="2023-02-20 16:43:26 +0000">02/20/2023</time>
+    
+  
+
+<span>Colaboradores
+</span>
+
+
+</p>
+
+<div id="preamble">
+<div class="sectionbody">
+<div class="paragraph lead">
+<p>Cloud Data Sense ofrece varias formas de gestionar sus datos privados. Algunas funcionalidades facilitan la preparación para la migración de datos, mientras que otras permiten realizar cambios en los datos.</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Puede copiar archivos en un recurso compartido NFS de destino si desea realizar una copia de determinados datos y moverlos a una ubicación NFS diferente.</p>
+</li>
+<li>
+<p>Es posible clonar un volumen de ONTAP en un volumen nuevo, e incluir solo los archivos seleccionados del volumen de origen en el nuevo volumen clonado. Esto resulta útil en situaciones en las que se migran datos y se desean excluir determinados archivos del volumen original.</p>
+</li>
+<li>
+<p>Puede copiar y sincronizar archivos de un repositorio de origen a un directorio en una ubicación de destino específica. Esto resulta útil en situaciones en las que se migran datos de un sistema de origen a otro mientras todavía hay alguna actividad final en los archivos de origen.</p>
+</li>
+<li>
+<p>Puede mover los archivos de origen que Data Sense esté analizando a cualquier recurso compartido de NFS.</p>
+</li>
+<li>
+<p>Puede eliminar archivos que parecen poco seguros o demasiado arriesgados para dejar en el sistema de almacenamiento, o que ha identificado como duplicados.</p>
+</li>
+</ul>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<img src="/us-en/cloud-manager-data-sense/images/note.svg" alt="Nota">
+</td>
+<td class="content">
+<div class="ulist">
+<ul>
+<li>
+<p>Las capacidades descritas en esta sección sólo están disponibles si ha elegido realizar un análisis de clasificación completo en sus orígenes de datos. Los orígenes de datos que han tenido un análisis de sólo asignación no muestran detalles de nivel de archivo.</p>
+</li>
+<li>
+<p>Los datos de cuentas de Google Drive no pueden usar ninguna de estas funcionalidades en este momento.</p>
+</li>
+</ul>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="copiando-archivos-de-origen">Copiando archivos de origen</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Puede copiar cualquier archivo de origen que Data Sense esté analizando. Existen tres tipos de operaciones de copia en función de lo que intente lograr:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Copiar archivos</strong> de los mismos volúmenes o orígenes de datos o diferentes a un recurso compartido NFS de destino.</p>
+<div class="paragraph">
+<p>Esto resulta útil si se desea realizar una copia de ciertos datos y moverlos a una ubicación NFS diferente.</p>
+</div>
+</li>
+<li>
+<p><strong>Clonar un volumen ONTAP</strong> en un volumen nuevo del mismo agregado, pero incluir sólo los archivos seleccionados del volumen de origen en el nuevo volumen clonado.</p>
+<div class="paragraph">
+<p>Esto resulta útil en situaciones en las que se migran datos y se desean excluir determinados archivos del volumen original. Esta acción utiliza <a href="https://docs.netapp.com/us-en/ontap/volumes/flexclone-efficient-copies-concept.html" target="_blank" rel="noopener">"FlexClone de NetApp"</a> funcionalidad para duplicar rápidamente el volumen y, a continuación, eliminar los archivos que <strong>no</strong> seleccionó.</p>
+</div>
+</li>
+<li>
+<p><strong>Copiar y sincronizar archivos</strong> desde un único repositorio de origen (volumen ONTAP, bloque S3, recurso compartido NFS, etc.) a un directorio en una ubicación de destino específica.</p>
+<div class="paragraph">
+<p>Esto resulta útil en situaciones en las que se migran datos de un sistema de origen a otro. Después de la copia inicial, el servicio sincroniza los datos modificados con la programación que se haya establecido. Esta acción utiliza <a href="https://docs.netapp.com/us-en/cloud-manager-sync/concept-cloud-sync.html" target="_blank" rel="noopener">"Cloud Sync de NetApp"</a> funcionalidad para copiar y sincronizar datos de un origen en un destino.</p>
+</div>
+</li>
+</ul>
+</div>
+<div class="sect2">
+<h3 id="copiando-archivos-de-origen-a-un-recurso-compartido-nfs">Copiando archivos de origen a un recurso compartido NFS</h3>
+<div class="paragraph">
+<p>Puede copiar archivos de origen que Data Sense esté analizando en cualquier recurso compartido de NFS. El recurso compartido NFS no necesita integrarse con Data Sense, simplemente necesita saber el nombre del recurso compartido NFS donde se copiarán todos los archivos seleccionados en el formato <code>&lt;host_name&gt;:/&lt;share_path&gt;</code>.</p>
+</div>
+<div class="admonitionblock tip">
+<table>
+<tr>
+<td class="icon">
+<img src="/us-en/cloud-manager-data-sense/images/tip.svg" alt="Sugerencia">
+</td>
+<td class="content">
+No se pueden copiar archivos que residen en bases de datos.
+</td>
+</tr>
+</table>
+</div>
+<div class="ulist">
+<div class="title">Requisitos</div>
+<ul>
+<li>
+<p>Debe tener el rol de administrador de cuentas o administrador de área de trabajo para copiar archivos.</p>
+</li>
+<li>
+<p>La copia de archivos requiere que el recurso compartido NFS de destino permita el acceso desde la instancia de Data Sense.</p>
+</li>
+<li>
+<p>Puede copiar un máximo de 100,000 archivos al mismo tiempo.</p>
+</li>
+</ul>
+</div>
+<div class="olist arabic">
+<div class="title">Pasos</div>
+<ol class="arabic">
+<li>
+<p>En el panel resultados de la investigación de datos, seleccione el archivo o los archivos que desea copiar y haga clic en <strong>Copiar</strong>.</p>
+<div class="paragraph">
+<p><span class="image"><img src="./media/screenshot_compliance_copy_multi_files.png" alt="Una captura de pantalla que muestra cómo seleccionar los archivos que se van a copiar y el botón Copiar de la página Investigación de datos."></span></p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Para seleccionar archivos individuales, marque la casilla de cada archivo (<span class="image"><img src="./media/button_backup_1_volume.png" alt=""></span>).</p>
+</li>
+<li>
+<p>Para seleccionar todos los archivos de la página actual, active la casilla de la fila de título (<span class="image"><img src="./media/button_select_all_files.png" alt=""></span>).</p>
+</li>
+<li>
+<p>Para seleccionar todos los archivos de todas las páginas, active la casilla de la fila de título (<span class="image"><img src="./media/button_select_all_files.png" alt=""></span>) y, a continuación, en el mensaje emergente <span class="image"><img src="./media/screenshot_select_all_items.png" alt="acerca de la selección de todos los archivos"></span>, Haga clic en <strong>Seleccionar todos los elementos de la lista (xxx elementos)</strong>.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>En el cuadro de diálogo <em>Copy Files</em>, seleccione la ficha <strong>copia normal</strong>.</p>
+<div class="paragraph">
+<p><span class="image"><img src="./media/screenshot_compliance_copy_files_dialog.png" alt="Una captura de pantalla que muestra el cuadro de diálogo Copiar archivos para poder especificar el nombre del recurso compartido NFS donde se copiarán todos los archivos seleccionados."></span></p>
+</div>
+</li>
+<li>
+<p>Introduzca el nombre del recurso compartido NFS donde se copiarán todos los archivos seleccionados en el formato `&lt;host_name&gt;:/&lt;share_path&gt;`Y haga clic en <strong>Copiar</strong>.</p>
+<div class="paragraph">
+<p>Se muestra un cuadro de diálogo con el estado de la operación de copia.</p>
+</div>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p>Puede ver el progreso de la operación de copia en <a href="task-view-compliance-actions.html">"Panel Estado de acciones"</a>.</p>
+</div>
+<div class="paragraph">
+<p>Tenga en cuenta que también puede copiar un archivo individual al ver los detalles de metadatos de un archivo. Haga clic en <strong>Copiar archivo</strong>.</p>
+</div>
+<div class="paragraph">
+<p><span class="image"><img src="./media/screenshot_compliance_copy_file.png" alt="Captura de pantalla que muestra la selección del botón Copiar archivo de los detalles de metadatos de un archivo de la página Investigación de datos."></span></p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="clonar-datos-de-volumen-en-un-volumen-nuevo">Clonar datos de volumen en un volumen nuevo</h3>
+<div class="paragraph">
+<p>Puede clonar un volumen de ONTAP existente que detección de datos está analizando con la funcionalidad <em>FlexClone</em> de NetApp. Esto le permite duplicar rápidamente el volumen e incluir únicamente los archivos seleccionados. Esto resulta útil si va a migrar datos y desea excluir determinados archivos del volumen original o si desea crear una copia de un volumen para realizar las pruebas.</p>
+</div>
+<div class="paragraph">
+<p>El nuevo volumen se creará en el mismo agregado que el volumen de origen. Asegúrese de tener suficiente espacio para este nuevo volumen en el agregado antes de iniciar esta tarea. Si es necesario, póngase en contacto con el administrador de almacenamiento.</p>
+</div>
+<div class="paragraph">
+<p><strong>Nota:</strong> los volúmenes FlexGroup no se pueden clonar porque FlexClone no los admite.</p>
+</div>
+<div class="ulist">
+<div class="title">Requisitos</div>
+<ul>
+<li>
+<p>Debe tener el rol de administrador de cuentas o administrador de área de trabajo para copiar archivos.</p>
+</li>
+<li>
+<p>Todos los archivos seleccionados deben ser del mismo volumen y el volumen debe estar en línea.</p>
+</li>
+<li>
+<p>El volumen debe ser de un sistema ONTAP Cloud Volumes ONTAP o en las instalaciones. Actualmente no se admiten otros orígenes de datos.</p>
+</li>
+<li>
+<p>Debe instalar la licencia de FlexClone en el clúster. Esta licencia se instala de manera predeterminada en sistemas Cloud Volumes ONTAP.</p>
+</li>
+</ul>
+</div>
+<div class="olist arabic">
+<div class="title">Pasos</div>
+<ol class="arabic">
+<li>
+<p>En el panel Investigación de datos, cree un filtro seleccionando un solo <strong>entorno de trabajo</strong> y un único <strong>repositorio de almacenamiento</strong> para asegurarse de que todos los archivos pertenecen al mismo volumen ONTAP.</p>
+<div class="paragraph">
+<p><span class="image"><img src="./media/screenshot_compliance_filter_1_repo.png" alt="Captura de pantalla de creación de un filtro que incluya archivos de un único repositorio de almacenamiento en un único entorno de trabajo."></span></p>
+</div>
+<div class="paragraph">
+<p>Aplique otros filtros para ver solo los archivos que desea clonar en el nuevo volumen.</p>
+</div>
+</li>
+<li>
+<p>En el panel resultados de la investigación, seleccione los archivos que desea clonar y haga clic en <strong>Copiar</strong>.</p>
+<div class="paragraph">
+<p><span class="image"><img src="./media/screenshot_compliance_copy_multi_files.png" alt="Una captura de pantalla que muestra cómo seleccionar los archivos que se van a copiar y el botón Copiar de la página Investigación de datos."></span></p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Para seleccionar archivos individuales, marque la casilla de cada archivo (<span class="image"><img src="./media/button_backup_1_volume.png" alt=""></span>).</p>
+</li>
+<li>
+<p>Para seleccionar todos los archivos de la página actual, active la casilla de la fila de título (<span class="image"><img src="./media/button_select_all_files.png" alt=""></span>).</p>
+</li>
+<li>
+<p>Para seleccionar todos los archivos de todas las páginas, active la casilla de la fila de título (<span class="image"><img src="./media/button_select_all_files.png" alt=""></span>) y, a continuación, en el mensaje emergente <span class="image"><img src="./media/screenshot_select_all_items.png" alt="acerca de la selección de todos los archivos"></span>, Haga clic en <strong>Seleccionar todos los elementos de la lista (xxx elementos)</strong>.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>En el cuadro de diálogo <em>Copy Files</em>, seleccione la ficha <strong>FlexClone</strong>. Esta página muestra el número total de archivos que se clonarán desde el volumen (los archivos seleccionados) y el número de archivos que no se incluyen o eliminan (los archivos que no seleccionó) del volumen clonado.</p>
+<div class="paragraph">
+<p><span class="image"><img src="./media/screenshot_compliance_clone_files_dialog.png" alt="Captura de pantalla que muestra el cuadro de diálogo Copiar archivos para poder especificar el nombre del nuevo volumen que se clonará desde el volumen de origen."></span></p>
+</div>
+</li>
+<li>
+<p>Introduzca el nombre del nuevo volumen y haga clic en <strong>FlexClone</strong>.</p>
+<div class="paragraph">
+<p>Se muestra un cuadro de diálogo con el estado de la operación de clonado.</p>
+</div>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<div class="title">Resultado</div>
+<p>El nuevo volumen clonado se crea en el mismo agregado que el volumen de origen.</p>
+</div>
+<div class="paragraph">
+<p>Puede ver el progreso de la operación de clonado en el <a href="task-view-compliance-actions.html">"Panel Estado de acciones"</a>.</p>
+</div>
+<div class="paragraph">
+<p>Si seleccionó inicialmente <strong>asignar todos los volúmenes</strong> o <strong>asignar y clasificar todos los volúmenes</strong> cuando habilita detección de datos para el entorno de trabajo donde reside el volumen de origen, entonces detección de datos escaneará automáticamente el nuevo volumen clonado. Si inicialmente no ha utilizado ninguna de estas selecciones, si desea explorar este nuevo volumen, deberá hacerlo <a href="task-getting-started-compliance.html#enabling-and-disabling-compliance-scans-on-volumes">"active la exploración en el volumen manualmente"</a>.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="copiar-y-sincronizar-archivos-de-origen-en-un-sistema-de-destino">Copiar y sincronizar archivos de origen en un sistema de destino</h3>
+<div class="paragraph">
+<p>Puede copiar archivos de origen que Data Sense esté analizando desde cualquier origen de datos no estructurados admitido a un directorio en una ubicación de destino específica (<a href="https://docs.netapp.com/us-en/cloud-manager-sync/reference-supported-relationships.html" target="_blank" rel="noopener">"Ubicaciones de destino compatibles con Cloud Sync"</a>). Después de la copia inicial, los datos modificados en los archivos se sincronizan en función de la programación que configure.</p>
+</div>
+<div class="paragraph">
+<p>Esto resulta útil en situaciones en las que se migran datos de un sistema de origen a otro. Esta acción utiliza <a href="https://docs.netapp.com/us-en/cloud-manager-sync/concept-cloud-sync.html" target="_blank" rel="noopener">"Cloud Sync de NetApp"</a> funcionalidad para copiar y sincronizar datos de un origen en un destino.</p>
+</div>
+<div class="admonitionblock tip">
+<table>
+<tr>
+<td class="icon">
+<img src="/us-en/cloud-manager-data-sense/images/tip.svg" alt="Sugerencia">
+</td>
+<td class="content">
+No se pueden copiar y sincronizar archivos que residen en cuentas de SharePoint, cuentas de OneDrive o bases de datos.
+</td>
+</tr>
+</table>
+</div>
+<div class="ulist">
+<div class="title">Requisitos</div>
+<ul>
+<li>
+<p>Debe tener el rol de administrador de cuentas o administrador de área de trabajo para copiar y sincronizar archivos.</p>
+</li>
+<li>
+<p>Todos los archivos seleccionados deben ser del mismo repositorio de origen (volumen ONTAP, bloque de S3, recurso compartido NFS o CIFS, etc.).</p>
+</li>
+<li>
+<p>Tendrá que activar el servicio Cloud Sync y configurar un mínimo de un agente de datos que se puede utilizar para transferir archivos entre los sistemas de origen y destino. Revise los requisitos de Cloud Sync que comienzan con <a href="https://docs.netapp.com/us-en/cloud-manager-sync/task-quick-start.html" target="_blank" rel="noopener">"Descripción de Inicio rápido"</a>.</p>
+<div class="paragraph">
+<p>Tenga en cuenta que el servicio Cloud Sync tiene cargos por servicio independientes para sus relaciones de sincronización y incurrirá en cargos por recursos si implementa el agente de datos en el cloud.</p>
+</div>
+</li>
+</ul>
+</div>
+<div class="olist arabic">
+<div class="title">Pasos</div>
+<ol class="arabic">
+<li>
+<p>En el panel Investigación de datos, cree un filtro seleccionando un solo <strong>entorno de trabajo</strong> y un único <strong>repositorio de almacenamiento</strong> para asegurarse de que todos los archivos están del mismo repositorio.</p>
+<div class="paragraph">
+<p><span class="image"><img src="./media/screenshot_compliance_filter_1_repo.png" alt="Captura de pantalla de creación de un filtro que incluya archivos de un único repositorio de almacenamiento en un único entorno de trabajo."></span></p>
+</div>
+<div class="paragraph">
+<p>Aplique cualquier otro filtro para que sólo vea los archivos que desea copiar y sincronizar con el sistema de destino.</p>
+</div>
+</li>
+<li>
+<p>En el panel resultados de la investigación, seleccione todos los archivos de todas las páginas marcando la casilla de la fila de título (<span class="image"><img src="./media/button_select_all_files.png" alt=""></span>), luego en el mensaje emergente <span class="image"><img src="./media/screenshot_select_all_items.png" alt="acerca de la selección de todos los archivos"></span> Haga clic en <strong>Seleccionar todos los elementos de la lista (xxx elementos)</strong> y, a continuación, haga clic en <strong>Copiar</strong>.</p>
+<div class="paragraph">
+<p><span class="image"><img src="./media/screenshot_compliance_sync_multi_files.png" alt="Una captura de pantalla que muestra cómo seleccionar los archivos que se van a copiar y el botón Copiar de la página Investigación de datos."></span></p>
+</div>
+</li>
+<li>
+<p>En el cuadro de diálogo <em>Copy Files</em>, seleccione la ficha <strong>Sync</strong>.</p>
+<div class="paragraph">
+<p><span class="image"><img src="./media/screenshot_compliance_sync_files_dialog.png" alt="Una captura de pantalla que muestra el cuadro de diálogo Copiar archivos para poder seleccionar la opción Sincronizar."></span></p>
+</div>
+</li>
+<li>
+<p>Si está seguro de que desea sincronizar los archivos seleccionados con una ubicación de destino, haga clic en <strong>Aceptar</strong>.</p>
+<div class="paragraph">
+<p>La interfaz de usuario de Cloud Sync se abre en BlueXP.</p>
+</div>
+<div class="paragraph">
+<p>Se le solicitará que defina la relación de sincronización. El sistema de origen se rellena previamente en función del repositorio y los archivos que ya haya seleccionado en detección de datos.</p>
+</div>
+</li>
+<li>
+<p>Deberá seleccionar el sistema de destino y, a continuación, seleccionar (o crear) el agente de datos que desea utilizar. Revise los requisitos de Cloud Sync que comienzan con <a href="https://docs.netapp.com/us-en/cloud-manager-sync/task-quick-start.html" target="_blank" rel="noopener">"Descripción de Inicio rápido"</a>.</p>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<div class="title">Resultado</div>
+<p>Los archivos se copian en el sistema de destino y se sincronizarán según la programación que defina. Si selecciona una sincronización única, los archivos se copiarán y sincronizarán una vez. Si elige una sincronización periódica, los archivos se sincronizan según la programación. Tenga en cuenta que si el sistema de origen agrega nuevos archivos que coinciden con la consulta creada mediante filtros, esos archivos <em>new</em> se copiarán en el destino y se sincronizarán en el futuro.</p>
+</div>
+<div class="paragraph">
+<p>Tenga en cuenta que algunas de las operaciones habituales de Cloud Sync están deshabilitadas cuando se invoca desde Data Sense:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>No puede utilizar los botones <strong>Eliminar archivos en origen</strong> o <strong>Eliminar archivos en destino</strong>.</p>
+</li>
+<li>
+<p>La ejecución de un informe está deshabilitada.</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="mover-archivos-de-origen-a-un-recurso-compartido-nfs">Mover archivos de origen a un recurso compartido NFS</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Puede mover los archivos de origen que Data Sense esté analizando a cualquier recurso compartido de NFS. El recurso compartido de NFS no necesita estar integrado con Data Sense (consulte <a href="task-scanning-file-shares.html">"Analizando recursos compartidos de archivos"</a>).</p>
+</div>
+<div class="paragraph">
+<p>De manera opcional, puede dejar un archivo de rastro en la ubicación del archivo movido. Un archivo de rastro ayuda a los usuarios a comprender por qué se trasladó un archivo desde su ubicación original. Para cada archivo movido, el sistema crea un archivo de rastro en la ubicación de origen llamada <code>&lt;filename&gt;-breadcrumb-&lt;date&gt;.txt</code>. Puede añadir texto al cuadro de diálogo que se añadirá al archivo de rastro para indicar la ubicación donde se trasladó el archivo y el usuario que trasladó el archivo.</p>
+</div>
+<div class="paragraph">
+<p>Si existe un archivo con el mismo nombre en la ubicación de destino, el archivo no se moverá.</p>
+</div>
+<div class="admonitionblock tip">
+<table>
+<tr>
+<td class="icon">
+<img src="/us-en/cloud-manager-data-sense/images/tip.svg" alt="Sugerencia">
+</td>
+<td class="content">
+No se pueden mover los archivos que residen en las bases de datos.
+</td>
+</tr>
+</table>
+</div>
+<div class="ulist">
+<div class="title">Requisitos</div>
+<ul>
+<li>
+<p>Debe tener el rol Administrador de cuentas o Administrador de área de trabajo para mover archivos.</p>
+</li>
+<li>
+<p>Los archivos de origen se pueden ubicar en los siguientes orígenes de datos: ONTAP en las instalaciones, Cloud Volumes ONTAP, Azure NetApp Files, recursos compartidos de archivos y SharePoint Online.</p>
+</li>
+<li>
+<p>Mover archivos requiere que el recurso compartido NFS permita el acceso desde la dirección IP de la instancia de Data Sense.</p>
+</li>
+<li>
+<p>Puede mover un máximo de 15 millones de archivos al mismo tiempo.</p>
+</li>
+</ul>
+</div>
+<div class="olist arabic">
+<div class="title">Pasos</div>
+<ol class="arabic">
+<li>
+<p>En el panel resultados de la investigación de datos, seleccione el archivo o los archivos que desee mover.</p>
+<div class="paragraph">
+<p><span class="image"><img src="./media/screenshot_compliance_move_multi_files.png" alt="Una captura de pantalla que muestra cómo seleccionar los archivos que se van a mover y el botón mover de la página Investigación de datos."></span></p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Para seleccionar archivos individuales, marque la casilla de cada archivo (<span class="image"><img src="./media/button_backup_1_volume.png" alt=""></span>).</p>
+</li>
+<li>
+<p>Para seleccionar todos los archivos de la página actual, active la casilla de la fila de título (<span class="image"><img src="./media/button_select_all_files.png" alt=""></span>).</p>
+</li>
+<li>
+<p>Para seleccionar todos los archivos de todas las páginas, active la casilla de la fila de título (<span class="image"><img src="./media/button_select_all_files.png" alt=""></span>) y, a continuación, en el mensaje emergente <span class="image"><img src="./media/screenshot_select_all_items.png" alt="acerca de la selección de todos los archivos"></span>, Haga clic en <strong>Seleccionar todos los elementos de la lista (xxx elementos)</strong>.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>En la barra de botones, haga clic en <strong>mover</strong>.</p>
+<div class="paragraph">
+<p><span class="image"><img src="./media/screenshot_compliance_move_files_dialog.png" alt="Una captura de pantalla que muestra el cuadro de diálogo mover archivos para poder especificar el nombre del recurso compartido NFS donde se moverán todos los archivos seleccionados."></span></p>
+</div>
+</li>
+<li>
+<p>En el cuadro de diálogo <em>Move Files</em>, escriba el nombre del recurso compartido NFS donde se moverán todos los archivos seleccionados en el formato <code>&lt;host_name&gt;:/&lt;share_path&gt;</code>.</p>
+</li>
+<li>
+<p>Si desea dejar un archivo de rastro, marque la casilla <em>Leave wexploración</em>. Puede escribir texto en el cuadro de diálogo para indicar la ubicación en la que se ha movido el archivo y el usuario que lo ha movido, así como cualquier otra información, como el motivo por el que se ha movido el archivo.</p>
+</li>
+<li>
+<p>Haga clic en <strong>mover archivos</strong>.</p>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p>Tenga en cuenta que también puede mover un archivo individual al ver los detalles de los metadatos de un archivo. Simplemente haga clic en <strong>mover archivo</strong>.</p>
+</div>
+<div class="paragraph">
+<p><span class="image"><img src="./media/screenshot_compliance_move_file.png" alt="Captura de pantalla que muestra la selección del botón mover archivo de los detalles de metadatos de un archivo en la página Investigación de datos."></span></p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="eliminando-archivos-de-origen">Eliminando archivos de origen</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Puede eliminar de forma permanente los archivos de origen que parezcan poco seguros o demasiado arriesgados para dejar su sistema de almacenamiento, o que haya identificado como duplicados. Esta acción es permanente y no hay deshacer ni restaurar.</p>
+</div>
+<div class="paragraph">
+<p>Puede eliminar archivos manualmente desde el panel Investigación, o. <a href="task-using-policies.html#deleting-source-files-automatically-using-policies" target="_blank" rel="noopener">"Uso automático de directivas"</a>.</p>
+</div>
+<div class="admonitionblock tip">
+<table>
+<tr>
+<td class="icon">
+<img src="/us-en/cloud-manager-data-sense/images/tip.svg" alt="Sugerencia">
+</td>
+<td class="content">
+No se pueden eliminar los archivos que residen en las bases de datos.
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>Para eliminar archivos, es necesario contar con los siguientes permisos:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Para datos NFS: La política de exportación debe definirse con permisos de escritura.</p>
+</li>
+<li>
+<p>Para datos CIFS: Las credenciales CIFS necesitan permisos de escritura.</p>
+</li>
+<li>
+<p>Para datos S3 - el rol IAM debe incluir el siguiente permiso: <code>s3:DeleteObject</code>.</p>
+</li>
+</ul>
+</div>
+<div class="sect2">
+<h3 id="eliminación-manual-de-archivos-de-origen">Eliminación manual de archivos de origen</h3>
+<div class="ulist">
+<div class="title">Requisitos</div>
+<ul>
+<li>
+<p>Debe tener el rol de administrador de cuentas o administrador de área de trabajo para eliminar archivos.</p>
+</li>
+<li>
+<p>Puede eliminar un máximo de 100,000 archivos al mismo tiempo.</p>
+</li>
+</ul>
+</div>
+<div class="olist arabic">
+<div class="title">Pasos</div>
+<ol class="arabic">
+<li>
+<p>En el panel resultados de la investigación de datos, seleccione el archivo o los archivos que desea eliminar.</p>
+<div class="paragraph">
+<p><span class="image"><img src="./media/screenshot_compliance_delete_multi_files.png" alt="Una captura de pantalla que muestra cómo seleccionar los archivos que se van a eliminar y el botón Eliminar en la página Investigación de datos."></span></p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Para seleccionar archivos individuales, marque la casilla de cada archivo (<span class="image"><img src="./media/button_backup_1_volume.png" alt=""></span>).</p>
+</li>
+<li>
+<p>Para seleccionar todos los archivos de la página actual, active la casilla de la fila de título (<span class="image"><img src="./media/button_select_all_files.png" alt=""></span>).</p>
+</li>
+<li>
+<p>Para seleccionar todos los archivos de todas las páginas, active la casilla de la fila de título (<span class="image"><img src="./media/button_select_all_files.png" alt=""></span>) y, a continuación, en el mensaje emergente <span class="image"><img src="./media/screenshot_select_all_items.png" alt="acerca de la selección de todos los archivos"></span>, Haga clic en <strong>Seleccionar todos los elementos de la lista (xxx elementos)</strong>.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>En la barra de botones, haga clic en <strong>Eliminar</strong>.</p>
+</li>
+<li>
+<p>Debido a que la operación de eliminación es permanente, debe escribir "<strong>permanentemente delete</strong>" en el diálogo posterior <em>Delete File</em> y hacer clic en <strong>Delete File</strong>.</p>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p>Puede ver el progreso de la operación de eliminación en la <a href="task-view-compliance-actions.html">"Panel Estado de acciones"</a>.</p>
+</div>
+<div class="paragraph">
+<p>Tenga en cuenta que también puede eliminar un archivo individual al ver los detalles de metadatos de un archivo. Simplemente haga clic en <strong>Eliminar archivo</strong>.</p>
+</div>
+<div class="paragraph">
+<p><span class="image"><img src="./media/screenshot_compliance_delete_file.png" alt="Captura de pantalla que muestra la selección del botón Eliminar archivo de los detalles de metadatos de un archivo en la página Investigación de datos."></span></p>
+</div>
+</div>
+</div>
+</div>
+
+    </article>
+    <!-- Page Container -->
+  </div>
+
+  <div style="clear: both"></div><!-- Main needs to have height --></div>
+
+        </main>
+
+        <footer class="n-footer">
+  <div class="n-footer__bottom">
+    <div class="n-container">
+      <div class="n-footer__bottom-left">
+        <div class="n-footer__copyright">
+          <ul class="n-footer__copyright-list">
+            <li class="n-footer__copyright-link">
+              <a href="https://www.netapp.com/company/legal/copyright/">© 2023 NetApp, Inc.</a>
+            </li>
+            <li class="n-footer__copyright-link">
+              <a href="https://www.netapp.com/company/legal/terms-of-use/">Términos y condiciones</a>
+            </li>
+            <li class="n-footer__copyright-link">
+              <a href="https://www.netapp.com/company/legal/privacy-policy/">Política de privacidad</a>
+            </li>
+            <li class="n-footer__copyright-link">
+              <a href="https://www.netapp.com/company/legal/cookie-policy/">Política de Cookies</a>
+            </li>
+            <li class="n-footer__copyright-link">
+              <a class="ot-sdk-show-settings">Configuración de cookies</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+      <div class="n-footer__bottom-right">
+        <div class="n-footer__copyright">
+          <ul class="n-footer__copyright-list">
+            <li class="n-footer__copyright-link">
+              <a target="_self" href="javascript:netapp_mailto()">Enviar comentarios sobre esta página</a>
+            </li>
+          </ul>
+        </div>
+        <div class="n-footer__social-links">
+          <ul class="n-footer__social-link-list">
+            <li class="n-footer__social-link-list-item">
+              <a class="n-footer__social-link" data-ntap-social="follow-blog" href="https://blog.netapp.com"
+                target="_blank" title="blog" alt="blog">
+                <span class="n-footer__social-link-text">blog</span>
+                <svg class="n-icon-blog n-footer__social-link-icon" aria-labelledby="title">
+                  <title>blog@</title>
+                  <use xmlns:xlink="http://www.w3.org/1999/xlink"
+                    xlink:href="/es-es/cloud-manager-data-sense/common/svg/sprite.svg#blog"></use>
+                </svg>
+              </a>
+            </li>
+            <li class="n-footer__social-link-list-item">
+              <a class="n-footer__social-link" data-ntap-social="follow-community" href="https://community.netapp.com/"
+                target="_blank" title="community" alt="community">
+                <span class="n-footer__social-link-text">community</span>
+                <svg class="n-icon-community n-footer__social-link-icon" aria-labelledby="title">
+                  <title>community@</title>
+                  <use xmlns:xlink="http://www.w3.org/1999/xlink"
+                    xlink:href="/es-es/cloud-manager-data-sense/common/svg/sprite.svg#comments"></use>
+                </svg>
+              </a>
+            </li>
+            <li class="n-footer__social-link-list-item">
+              <a class="n-footer__social-link" data-ntap-social="follow-twitter" href="https://twitter.com/netapp"
+                target="_blank" title="twitter" alt="twitter">
+                <span class="n-footer__social-link-text">twitter</span>
+                <svg class="n-icon-twitter n-footer__social-link-icon" aria-labelledby="title">
+                  <title>twitter@</title>
+                  <use xmlns:xlink="http://www.w3.org/1999/xlink"
+                    xlink:href="/es-es/cloud-manager-data-sense/common/svg/sprite.svg#twitter"></use>
+                </svg>
+              </a>
+            </li>
+            <li class="n-footer__social-link-list-item">
+              <a class="n-footer__social-link" data-ntap-social="follow-facebook" href="https://www.facebook.com/NetApp"
+                target="_blank" title="facebook" alt="facebook">
+                <span class="n-footer__social-link-text">facebook</span>
+                <svg class="n-icon-facebook n-footer__social-link-icon" aria-labelledby="title">
+                  <title>facebook@</title>
+                  <use xmlns:xlink="http://www.w3.org/1999/xlink"
+                    xlink:href="/es-es/cloud-manager-data-sense/common/svg/sprite.svg#facebook"></use>
+                </svg>
+              </a>
+            </li>
+            <li class="n-footer__social-link-list-item">
+              <a class="n-footer__social-link" data-ntap-social="follow-linkedin"
+                href="https://www.linkedin.com/company/netapp" target="_blank" title="linkedin" alt="linkedin">
+                <span class="n-footer__social-link-text">linkedin</span>
+                <svg class="n-icon-linkedin n-footer__social-link-icon" aria-labelledby="title">
+                  <title>linkedin@</title>
+                  <use xmlns:xlink="http://www.w3.org/1999/xlink"
+                    xlink:href="/es-es/cloud-manager-data-sense/common/svg/sprite.svg#linkedin"></use>
+                </svg>
+              </a>
+            </li>
+            <li class="n-footer__social-link-list-item">
+              <a class="n-footer__social-link" data-ntap-social="follow-youtube"
+                href="https://www.youtube.com/user/NetAppTV" target="_blank" title="youtube" alt="youtube">
+                <span class="n-footer__social-link-text">youtube</span>
+                <svg class="n-icon-youtube n-footer__social-link-icon" aria-labelledby="title">
+                  <title>youtube@</title>
+                  <use xmlns:xlink="http://www.w3.org/1999/xlink"
+                    xlink:href="/es-es/cloud-manager-data-sense/common/svg/sprite.svg#youtube"></use>
+                </svg>
+              </a>
+            </li>
+            <li class="n-footer__social-link-list-item">
+              <a class="n-footer__social-link" data-ntap-social="follow-slideshare"
+                href="https://www.slideshare.net/NetApp" target="_blank" title="slideshare" alt="slideshare">
+                <span class="n-footer__social-link-text">slideshare</span>
+                <svg class="n-icon-slideshare n-footer__social-link-icon" aria-labelledby="title">
+                  <title>slideshare@</title>
+                  <use xmlns:xlink="http://www.w3.org/1999/xlink"
+                    xlink:href="/es-es/cloud-manager-data-sense/common/svg/sprite.svg#slideshare"></use>
+                </svg>
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+
+      </div><!-- Elasticsearch JS -->
+      <script type="text/javascript" src='/es-es/cloud-manager-data-sense/js/bundle.js'></script>
+
+      <!-- Syntax Highlighting -->
+      <script type="text/javascript" src='/es-es/cloud-manager-data-sense/js/prism.js'></script>
+      <script type="text/javascript" src='/es-es/cloud-manager-data-sense/js/prism-curl.js'></script>
+    </div>
+    <script>
+      document.body.offsetWidth=1903;
+      cookieLaw = {}
+      cookieLaw.euCountry = "US";
+      cookieLaw.invoke = function(){return false;}
+    </script>
+    <script src='/es-es/cloud-manager-data-sense/js/www-ntap.js'></script>
+    <script src='/es-es/cloud-manager-data-sense/js/tabbed-blocks.js'></script>
+    <script src='/es-es/cloud-manager-data-sense/js/sidebar.js'></script>
+  </body></html>

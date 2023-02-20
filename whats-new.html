@@ -1,0 +1,1859 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head class="at-element-marker">
+  <title>Novedades de Cloud Data Sense | NetApp Documentation</title>
+  <meta charset="utf-8">
+  <meta http-equiv="x-ua-compatible" content="ie=edge,chrome=1">
+  <meta http-equiv="language" content="en">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta property="og:title" content="Novedades de Cloud Data Sense | NetApp Documentation" />
+	<meta property="og:type" content="website" />
+	<meta property="og:url" content="https://docs.netapp.com/es-es/cloud-manager-data-sense/whats-new.html" />
+	<meta property="og:description" content="Descubra las novedades en Cloud Data Sense." />
+  <meta property="og:image" content="https://docs.netapp.com/es-es/cloud-manager-data-sense/images/logo-tophat-social.png" />
+  <meta property="og:image:alt" content="NetApp Logo" />
+  <meta name="format-detection" content="telephone=no">
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <meta http-equiv="encoding" content="utf-8">
+  <meta http-equiv="nss-type" content="Product Documentation"/>
+  <meta http-equiv="nss-subtype" content="User Guide"/><meta name="description" content="Descubra las novedades en Cloud Data Sense.">
+  <meta name="keywords" content=" what"s new, features, new, release notes, bugs, limitations, known issues, enhancements, fixes, data sense"><!-- Icons -->
+  <link rel="icon" href="/es-es/cloud-manager-data-sense/images/favicon.ico" type="image/x-icon">
+
+  <!-- RSS Feed --><link rel="alternate" type="application/rss+xml" title="NetApp Documentation" href="/es-es/cloud-manager-data-sense/feed.xml"><!-- CSS Definitions: NetApp CSS should be defined after generic css -->
+
+  <!-- Elastic Search -->
+  <link rel="stylesheet" href="//cdn.jsdelivr.net/searchkit/0.10.0/theme.css">
+
+  <!-- Combined CSS -->
+  <link rel="stylesheet" type="text/css" href="/es-es/cloud-manager-data-sense/css/netappdocs.css">
+
+  
+  <link rel="stylesheet" href="/es-es/cloud-manager-data-sense/css/landing-page.css" type="text/css">
+  <link rel="stylesheet" href="/es-es/cloud-manager-data-sense/css/tabbed-blocks.css" type="text/css">
+  <!-- Canonical url -->
+  <link rel='stylesheet' href='/es-es/cloud-manager-data-sense/css/na-feature.css' type='text/css'><!-- Top level site integrations --><script>
+    function addAdobeLaunch(adobeId) {
+      var head = document.getElementsByTagName('head')[0];
+      var adobe = document.createElement("script");
+      adobe.type = "text/plain";
+      adobe.className = "optanon-category-C0002";
+      adobe.src = "//assets.adobedtm.com/60287eadf1ee/c284da483c83/"+adobeId+".min.js";
+      head.appendChild(adobe);
+    }
+
+    function addGoogleAnalytics(gtagId) {
+      var google = document.createElement("script");
+      google.type = "text/plain";
+      google.className = "optanon-category-C0002";
+      google.src = "https://www.googletagmanager.com/gtag/js?id="+gtagId;
+      var head = document.getElementsByTagName('head')[0];
+      head.appendChild(google);
+
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', gtagId);
+    }
+
+    function addConsent(consentId) {
+      var head = document.getElementsByTagName('head')[0];
+      var onetrustConsent = document.createElement("script");
+      onetrustConsent.type = "text/javascript";
+      onetrustConsent.src = "https://cdn.cookielaw.org/consent/"+consentId+"/OtAutoBlock.js";
+      head.appendChild(onetrustConsent);
+
+      var onetrustScript = document.createElement("script");
+      onetrustScript.type = "text/javascript";
+      onetrustScript.src = "https://cdn.cookielaw.org/scripttemplates/otSDKStub.js";
+      onetrustScript.charset = "UTF-8";
+      onetrustScript.dataset.documentLanguage = "true";
+      onetrustScript.dataset.domainScript = consentId;
+      head.appendChild(onetrustScript);
+    }addConsent("72570c5c-fe30-465f-b0e0-b77f7fb4ae34");
+    addAdobeLaunch("launch-e9ff3acac59f");
+    addGoogleAnalytics("UA-81697994-3");function OptanonWrapper() { }
+  </script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.1/jquery.cookie.min.js"></script>
+
+  <!-- Used for Product Family Page Sidebar Visibility --><!-- Used to import Promise for IE. Required for SearchKit -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/bluebird/3.3.5/bluebird.min.js"></script><script src='/es-es/cloud-manager-data-sense/js/na-search.js'></script><script src='/es-es/cloud-manager-data-sense/js/na-pagenav.js'></script><script src='/es-es/cloud-manager-data-sense/js/na-utility.js'></script>
+  <script src='/es-es/cloud-manager-data-sense/js/clouddocs.js'></script>
+  <script src='/es-es/cloud-manager-data-sense/js/jquery.navgoco.min.js'></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+  <script src='/es-es/cloud-manager-data-sense/js/toc.js'></script>
+  <script src='/es-es/cloud-manager-data-sense/js/customscripts.js'></script><script>
+      $(document).ready(function() {
+          
+          var collapseOnInit = true;
+          
+
+          var navSettings = {
+              "caretHtml": '',
+              "accordion": collapseOnInit,
+              "openClass": 'active', // open
+              "save": false, // leave false or nav highlighting doesn't work right
+              "cookie": {
+                  "name": 'navgoco',
+                  "expires": false,
+                  "path": '/'
+              },
+              "slide": {
+                  "duration": 400,
+                  "easing": 'swing'
+              }
+          };
+
+          // Initialize navgoco with default options
+          $("#mysidebar").navgoco(navSettings);
+          
+
+          $("#collapseAll").click(function(e) {
+              e.preventDefault();
+              $("#mysidebar").navgoco('toggle', false);
+          });
+
+          $("#expandAll").click(function(e) {
+              e.preventDefault();
+              $("#mysidebar").navgoco('toggle', true);
+          });
+
+          $(".sidebar-nav-container").on("scroll", function() {
+            $.cookie("sidebarScroll", $(".sidebar-nav-container").scrollTop(), {
+              path    : "/es-es/cloud-manager-data-sense"  
+            });
+          });
+          $(function() {
+            if ($.cookie("sidebarScroll")) {
+              $(".sidebar-nav-container").scrollTop($.cookie("sidebarScroll"));
+            }
+          });
+
+      });
+
+  </script>
+  <script>
+      $(document).ready(function() {
+          $("#tg-sb-link").click(function() {
+              $("#tg-sb-sidebar").toggle();
+              $("#tg-sb-content").toggleClass('col-md-9');
+              $("#tg-sb-content").toggleClass('col-md-12');
+              $("#tg-sb-icon").toggleClass('fa-toggle-on');
+              $("#tg-sb-icon").toggleClass('fa-toggle-off');
+          });
+      });
+  </script>
+  <script src='/es-es/cloud-manager-data-sense/js/custom-dropdown.js'></script>
+  <script src='/es-es/cloud-manager-data-sense/js/FileSaver.min.js'></script>
+  <script src='/es-es/cloud-manager-data-sense/js/jszip-utils.min.js'></script>
+  <script src='/es-es/cloud-manager-data-sense/js/jszip.min.js'></script>
+  <script src='/es-es/cloud-manager-data-sense/js/pdf-ux.js'></script>
+</head>
+
+
+  <body class role="document" data-flavor="">
+    <div id="page" class="n-off-canvas-menu">
+      <div class="n-off-canvas-menu__menu"><!--TODO: Add offcanvas code --></div>
+      <div class="n-off-canvas-menu__content-wrap">
+        <header class="site-header" id="banner">
+  
+  <!-- Start Page Toolbar -->
+  
+  <div class="page-nav-toolbar"><div class="page-nav-contribute"><a target="_blank" href="https://github.com/NetAppDocs/cloud-manager-data-sense/issues/new?body=Page%3A%20[Novedades de Cloud Data Sense](https://docs.netapp.com/es-es/cloud-manager-data-sense/whats-new.html)&template=public-issue-template.md" class="page-nav-contribute-link" role="button"><img src="/es-es/cloud-manager-data-sense/images/discuss-sm.svg" alt="" class="github-icon" />Solicitar cambios en el documento</a><a target="_blank" href="https://github.com/NetAppDocs/cloud-manager-data-sense/blob/main/whats-new.adoc" class="page-nav-contribute-link" role="button"><img src="/es-es/cloud-manager-data-sense/images/edit-sm.svg" alt="" class="github-icon" />Editar en GitHub</a><a target="_blank" href="https://docs.netapp.com/us-en/contribute/" class="page-nav-contribute-link"  ><img src="/es-es/cloud-manager-data-sense/images/article-sm.svg" alt="" class="github-icon" />Guía del colaborador</a></div>
+    <div class="page-nav-container">
+      <nav class="page-nav-fixed">
+        <div class="page-nav-title">EN ESTA PÁGINA</div>
+        <div class="page-nav-links">
+          <ul class="page-nav-inner" id="page-menu"></ul>
+        </div>
+      </nav>
+    </div>
+  </div>
+  
+  
+  <!-- Start top_hat -->
+  <div class="n-top-hat">
+    <div class="n-container">
+      <div class="n-top-hat__cross-property-nav">
+        <ul class="n-top-hat__list">
+          <li class="n-top-hat__list-item">
+            <a href="https://www.netapp.com/products-a-z/" class="n-top-hat__link">Producto y soluciones</a>
+          </li>
+          <li class="n-top-hat__list-item">
+            <a href="https://www.netapp.com/support-and-training/netapp-university/" class="n-top-hat__link">Asistencia y capacitación</a>
+          </li>
+          <li class="n-top-hat__list-item">
+            <a href="https://cloud.netapp.com" class="n-top-hat__link">Cloud Central</a>
+          </li>
+          <li class="n-top-hat__list-item">
+            <a href="https://community.netapp.com/" class="n-top-hat__link">Comunidad</a>
+          </li>
+          <li class="n-top-hat__list-item">
+            <a href="https://blog.netapp.com/" class="n-top-hat__link">Blog</a>
+          </li>
+          <li class="n-top-hat__list-item">
+            <a href="https://customers.netapp.com/en/" class="n-top-hat__link">Historias de clientes</a>
+          </li>
+        </ul>
+      </div>
+      <div class="n-top-hat__utils">
+        <ul class="n-top-hat__list">
+          <li class="n-top-hat__list-item">
+            <a href="https://www.netapp.com/company/contact-us/" target="_self" class="n-top-hat__link" data-ntap-ui="contact-us">Contacto</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <!-- End top_hat -->
+
+  <!-- Start property bar -->
+  <style>
+    .n-property-navigation-bar__menus--desktop-experience .n-menu--mega__default-content__heading span {
+    color: #34B0FF;
+    }
+  </style>
+  <div class="n-property-bar " data-ntap-ui="sticky-nav">
+    <div class="n-property-bar__inner-wrap">
+      <div class="n-property-bar__menu-toggle">
+        <a href="#" class="n-property-bar__menu-toggle-link">
+          <span class="n-property-bar__menu-toggle-text">Menu</span>
+          <svg class="n-icon-bars n-property-bar__menu-toggle-icon" aria-labelledby="title">
+            <title>bars</title>
+            <use xlink:href="/es-es/cloud-manager-data-sense/common/svg/sprite.svg#bars"></use>
+          </svg>
+        </a>
+      </div>
+      <div class="n-property-bar__property-mark ">
+        <a href="https://www.netapp.com" class="n-property-bar__property-link">
+          <div class="n-property-bar__logo">
+            <svg class="n-icon-netapp-mark n-icon-netapp-mark n-property-bar__netapp-mark-icon" aria-labelledby="title">
+              <title>netapp-mark</title>
+              <use xlink:href="/es-es/cloud-manager-data-sense/common/svg/sprite.svg#netapp-mark"></use>
+            </svg>
+            <svg class="n-icon-netapp-logo n-property-bar__logo-svg" aria-labelledby="title">
+              <title>netapp-logo</title>
+              <use xlink:href="/es-es/cloud-manager-data-sense/common/svg/sprite.svg#netapp-logo"></use>
+            </svg>
+          </div>
+        </a>
+      </div>
+
+      
+      
+      
+      <div class="search-property-bar">
+        <div id="search-demo-container" class="searchbox n-property-bar__search">
+          <div id="react-search" 
+          data-search-html="/es-es/cloud-manager-data-sense/search.html"
+          data-type="widget" 
+          data-placeholder="Buscar documentación"
+          data-no-results-found="No se encontraron resultados para {query}"
+          data-did-you-mean="Buscar {suggestion}."
+          data-no-results-found-did-you-mean="No se encontraron resultados para {query}. ¿Quiso decir {suggestion}?"
+          data-results-found="{hitCount} resultados encontrados"
+          data-error-message="We're sorry, an issue occurred when fetching your results. Please try again."
+          data-error-reset="Reset Search"
+          data-sk-es-pf-indexes=""
+          data-flavor=""></div>
+          <button class="n-property-bar__search-toggle-button" type="button">
+            <svg class="n-icon-search n-property-bar__search-toggle-button-icon" aria-labelledby="title">
+              <title>search</title>
+              <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="/es-es/cloud-manager-data-sense/common/svg/sprite.svg#search"></use>
+            </svg>
+          </button>
+        </div>
+      </div>
+      
+    </div>
+  </div>
+  <div class="n-property-bar__toolbar">
+    <!-- Start Language Selector --><div id="language-dropdown" class="custom-dropdown custom-dropdown-lang">
+      <div class="custom-dropdown-select custom-dropdown-select-lang">
+      <span class="lang-name">Español</span>
+          <svg class="n-globe__icon" aria-labelledby="title">
+            <title>globe</title>
+            <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="/es-es/cloud-manager-data-sense/common/svg/sprite.svg#globe"></use>
+          </svg>
+        </button>
+      </div>
+
+      <ul class="custom-dropdown-menu"><li>
+          <a href="https://docs.netapp.com/es-es/cloud-manager-data-sense/whats-new.html" target="_self"><span translate="no" class="notranslate">Español</span></a>
+        </li><li>
+          <a href="https://docs.netapp.com/us-en/cloud-manager-data-sense/whats-new.html" target="_self"><span translate="no" class="notranslate">English</span></a>
+        </li><li>
+          <a href="https://docs.netapp.com/ja-jp/cloud-manager-data-sense/whats-new.html" target="_self"><span translate="no" class="notranslate">日本語</span></a>
+        </li><li>
+          <a href="https://docs.netapp.com/ko-kr/cloud-manager-data-sense/whats-new.html" target="_self"><span translate="no" class="notranslate">한국어</span></a>
+        </li><li>
+          <a href="https://docs.netapp.com/zh-cn/cloud-manager-data-sense/whats-new.html" target="_self"><span translate="no" class="notranslate">简体中文</span></a>
+        </li><li>
+          <a href="https://docs.netapp.com/zh-tw/cloud-manager-data-sense/whats-new.html" target="_self"><span translate="no" class="notranslate">繁體中文</span></a>
+        </li><li>
+          <a href="https://docs.netapp.com/de-de/cloud-manager-data-sense/whats-new.html" target="_self"><span translate="no" class="notranslate">Deutsch</span></a>
+        </li><li>
+          <a href="https://docs.netapp.com/fr-fr/cloud-manager-data-sense/whats-new.html" target="_self"><span translate="no" class="notranslate">Français</span></a>
+        </li></ul>
+    </div><!-- End Language Selector -->
+
+    <div class="n-property-bar__cta"></div>
+  </div>
+  <!-- End property bar -->
+</header>
+
+
+        <main id="n-main-content" class="n-main-content">
+          <!-- Start Documentation Content -->
+<div class="ie-main">
+  <!-- Sidebar Column -->
+  
+  <div class="col-md-3" id="sidebar-height">
+      <button id="btn-sidebar-collapse" onclick="hideSidebar()"><img src="/es-es/cloud-manager-data-sense/images/collapse.png" alt="Contraer panel de navegación"></button>
+      <div class="n-pdf-header">
+  <a id="toggleButtonPdf" class="n-pdf-button" type="button">
+    <img src="/es-es/cloud-manager-data-sense/images/pdf.png" alt="" width="16" height="16"/>PDFs disponibles<span>
+    </span>
+  </a>
+</div>
+<div class="n-pdf-body-container">
+  <ul id="toggleContainerPdf" class="n-pdf-body" style="display:none;"><li class="pdf-ux-container">
+        
+        
+        
+        <a target="_blank" href="/es-es/cloud-manager-data-sense/pdfs/fullsite-sidebar/Documentación_de_Cloud_Data_Sense.pdf" >
+          <img src="/es-es/cloud-manager-data-sense/images/pdf.png" alt="" width="16" height="16"/>PDF de este sitio de documentos</a>
+
+
+    <ul class="subfolders" id="pdf-remove" style="display:none;"><li class="active"></li></ul>
+  
+
+
+
+    
+      <ul class="subfolders" style="display:none;">
+        <li class="pdf-ux-container">
+          
+          
+          
+          <a target="_blank" 
+            
+              href="/es-es/cloud-manager-data-sense/pdfs/sidebar/Manos_a_la_obra.pdf" 
+            
+          >
+            <img src="/es-es/cloud-manager-data-sense/images/pdf.png" alt="" width="16" height="16"/>
+            Manos a la obra
+          </a>
+          
+
+
+
+    
+      <ul class="subfolders" style="display:none;">
+        <li class="pdf-ux-container">
+          
+          
+          
+          <a target="_blank" 
+            
+              href="/es-es/cloud-manager-data-sense/pdfs/sidebar/Ponga_en_marcha_Cloud_Data_Sense.pdf" 
+            
+          >
+            <img src="/es-es/cloud-manager-data-sense/images/pdf.png" alt="" width="16" height="16"/>
+            Ponga en marcha Cloud Data Sense
+          </a>
+          
+
+
+
+
+
+
+        </li>
+      </ul>
+    
+
+  
+
+
+
+    
+      <ul class="subfolders" style="display:none;">
+        <li class="pdf-ux-container">
+          
+          
+          
+          <a target="_blank" 
+            
+              href="/es-es/cloud-manager-data-sense/pdfs/sidebar/Active_el_análisis_en_sus_orígenes_de_datos.pdf" 
+            
+          >
+            <img src="/es-es/cloud-manager-data-sense/images/pdf.png" alt="" width="16" height="16"/>
+            Active el análisis en sus orígenes de datos
+          </a>
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        </li>
+      </ul>
+    
+
+  
+
+
+
+
+
+
+
+
+        </li>
+      </ul>
+    
+
+  
+
+
+
+    
+      <ul class="subfolders" style="display:none;">
+        <li class="pdf-ux-container">
+          
+          
+          
+          <a target="_blank" 
+            
+              href="/es-es/cloud-manager-data-sense/pdfs/sidebar/Utilice_Cloud_Data_Sense.pdf" 
+            
+          >
+            <img src="/es-es/cloud-manager-data-sense/images/pdf.png" alt="" width="16" height="16"/>
+            Utilice Cloud Data Sense
+          </a>
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        </li>
+      </ul>
+    
+
+  
+
+
+
+    
+      <ul class="subfolders" style="display:none;">
+        <li class="pdf-ux-container">
+          
+          
+          
+          <a target="_blank" 
+            
+              href="/es-es/cloud-manager-data-sense/pdfs/sidebar/Gestione_el_sentido_de_los_datos_en_el_cloud.pdf" 
+            
+          >
+            <img src="/es-es/cloud-manager-data-sense/images/pdf.png" alt="" width="16" height="16"/>
+            Gestione el sentido de los datos en el cloud
+          </a>
+          
+
+
+
+
+
+
+
+
+
+
+
+
+        </li>
+      </ul>
+    
+
+  
+
+
+
+    
+      <ul class="subfolders" style="display:none;">
+        <li class="pdf-ux-container">
+          
+          
+          
+          <a target="_blank" 
+            
+              href="/es-es/cloud-manager-data-sense/pdfs/sidebar/Referencia.pdf" 
+            
+          >
+            <img src="/es-es/cloud-manager-data-sense/images/pdf.png" alt="" width="16" height="16"/>
+            Referencia
+          </a>
+          
+
+
+        </li>
+      </ul>
+    
+
+  
+
+
+
+    
+      <ul class="subfolders" style="display:none;">
+        <li class="pdf-ux-container">
+          
+          
+          
+          <a target="_blank" 
+            
+              href="/es-es/cloud-manager-data-sense/pdfs/sidebar/Conocimiento_y_apoyo.pdf" 
+            
+          >
+            <img src="/es-es/cloud-manager-data-sense/images/pdf.png" alt="" width="16" height="16"/>
+            Conocimiento y apoyo
+          </a>
+          
+
+
+
+
+        </li>
+      </ul>
+    
+
+  
+
+
+
+</li></ul>
+  <div class="zip-pdf-link-container" style="display: none;">   
+    <a href="#" id="zipPdf">
+      <img src="/es-es/cloud-manager-data-sense/images/pdf-zip.png" alt="" width="16" height="16"/>
+      <pre>Colección de documentos PDF separados<span class="zip-size"></span></pre>
+    </a><div id="zip-link-popup" class="hide">
+    <div class="inner-modal">
+        <div class="downloading-progress">
+            <div class="spinner"></div>
+            <h1>Creating your file...</h1>
+            <div>This may take a few minutes. Thanks for your patience.</div>
+            <button class="cancel-download-btn" type="button">Cancel</button>
+        </div>
+        <div class="download-complete hide">
+            <div class="done-icon">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M20.285 2l-11.285 11.567-5.286-5.011-3.714 3.716 9 8.728 15-15.285z"/></svg>
+            </div>
+            <div>Your file is ready</div>
+            <button class="cancel-download-btn" type="button">OK</button>
+        </div>
+    </div>
+</div>
+<script>
+    $(".cancel-download-btn").click(function(){
+        $("#zip-link-popup").addClass("hide");
+        $("#zip-link-popup .downloading-progress").removeClass("hide");
+        $("#zip-link-popup .download-complete").addClass("hide");
+    });
+</script></div>
+</div>
+<script>
+  $("#toggleContainerPdf li.active:last-child").parents('ul.subfolders').toggle('display');
+  $("#toggleButtonPdf").click(function () {
+    $("#toggleContainerPdf").toggle('display');
+    $(".n-pdf-body-container .zip-pdf-link-container").toggle('display');
+  });
+</script><div class="prod-nav" id="product-nav">
+  <a target="_self" class="prod-fam-nav" href="https://docs.netapp.com/es-es/cloud-manager-family/"><img src="/es-es/cloud-manager-data-sense/images/left_arrow.png" alt=""><pre>Toda la documentación de BlueXP</pre></a>
+</div><div class="sidebar-nav-container" id="mysidebardiv">
+  <ul id="mysidebar" class="nav"><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Documentos de Cloud Data Sense"
+      data-li-level="1#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/es-es/cloud-manager-data-sense/index.html">
+        Documentos de Cloud Data Sense
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Notas de la versión"
+      data-li-level="1#" 
+      class="  active "
+    ><a class="na-navbar-padding" href="/es-es/cloud-manager-data-sense/whats-new.html">
+        Notas de la versión
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Manos a la obra"
+      data-li-level="1" 
+      class="subfolders "
+    ><a href="#">
+        <div class="na-navbar-padding"> Manos a la obra</div>
+      </a>
+      <ul style="display: none;">
+        <li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Más información acerca de Cloud Data Sense"
+      data-li-level="2#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/es-es/cloud-manager-data-sense/concept-cloud-compliance.html">
+        Más información acerca de Cloud Data Sense
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Ponga en marcha Cloud Data Sense"
+      data-li-level="2" 
+      class="subfolders "
+    ><a href="#">
+        <div class="na-navbar-padding"> Ponga en marcha Cloud Data Sense</div>
+      </a>
+      <ul style="display: none;">
+        <li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Realice puestas en marcha en el cloud"
+      data-li-level="3#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/es-es/cloud-manager-data-sense/task-deploy-cloud-compliance.html">
+        Realice puestas en marcha en el cloud
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Se implementa en un host Linux con acceso a Internet"
+      data-li-level="3#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/es-es/cloud-manager-data-sense/task-deploy-compliance-onprem.html">
+        Se implementa en un host Linux con acceso a Internet
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Puesta en marcha en las instalaciones sin acceso a Internet"
+      data-li-level="3#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/es-es/cloud-manager-data-sense/task-deploy-compliance-dark-site.html">
+        Puesta en marcha en las instalaciones sin acceso a Internet
+      </a></li></ul></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Active el análisis en sus orígenes de datos"
+      data-li-level="2" 
+      class="subfolders "
+    ><a href="#">
+        <div class="na-navbar-padding"> Active el análisis en sus orígenes de datos</div>
+      </a>
+      <ul style="display: none;">
+        <li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Cloud Volumes ONTAP y ONTAP en las instalaciones"
+      data-li-level="3#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/es-es/cloud-manager-data-sense/task-getting-started-compliance.html">
+        Cloud Volumes ONTAP y ONTAP en las instalaciones
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Azure NetApp Files"
+      data-li-level="3#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/es-es/cloud-manager-data-sense/task-scanning-anf.html">
+        Azure NetApp Files
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Amazon FSX para ONTAP"
+      data-li-level="3#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/es-es/cloud-manager-data-sense/task-scanning-fsx.html">
+        Amazon FSX para ONTAP
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Cubos de Amazon S3"
+      data-li-level="3#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/es-es/cloud-manager-data-sense/task-scanning-s3.html">
+        Cubos de Amazon S3
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Esquemas de base de datos"
+      data-li-level="3#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/es-es/cloud-manager-data-sense/task-scanning-databases.html">
+        Esquemas de base de datos
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Cuentas de OneDrive"
+      data-li-level="3#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/es-es/cloud-manager-data-sense/task-scanning-onedrive.html">
+        Cuentas de OneDrive
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Cuentas de SharePoint"
+      data-li-level="3#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/es-es/cloud-manager-data-sense/task-scanning-sharepoint.html">
+        Cuentas de SharePoint
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Cuentas de Google Drive"
+      data-li-level="3#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/es-es/cloud-manager-data-sense/task-scanning-google-drive.html">
+        Cuentas de Google Drive
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Recursos compartidos de archivos"
+      data-li-level="3#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/es-es/cloud-manager-data-sense/task-scanning-file-shares.html">
+        Recursos compartidos de archivos
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Almacenamiento de objetos"
+      data-li-level="3#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/es-es/cloud-manager-data-sense/task-scanning-object-storage.html">
+        Almacenamiento de objetos
+      </a></li></ul></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Integre Active Directory"
+      data-li-level="2#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/es-es/cloud-manager-data-sense/task-add-active-directory-datasense.html">
+        Integre Active Directory
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Configurar la licencia"
+      data-li-level="2#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/es-es/cloud-manager-data-sense/task-licensing-datasense.html">
+        Configurar la licencia
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="PREGUNTAS FRECUENTES"
+      data-li-level="2#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/es-es/cloud-manager-data-sense/faq-cloud-compliance.html">
+        PREGUNTAS FRECUENTES
+      </a></li></ul></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Utilice Cloud Data Sense"
+      data-li-level="1" 
+      class="subfolders "
+    ><a href="#">
+        <div class="na-navbar-padding"> Utilice Cloud Data Sense</div>
+      </a>
+      <ul style="display: none;">
+        <li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Ver detalles sobre gobernanza de sus datos"
+      data-li-level="2#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/es-es/cloud-manager-data-sense/task-controlling-governance-data.html">
+        Ver detalles sobre gobernanza de sus datos
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Vea detalles de cumplimiento de normativas sobre sus datos"
+      data-li-level="2#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/es-es/cloud-manager-data-sense/task-controlling-private-data.html">
+        Vea detalles de cumplimiento de normativas sobre sus datos
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Categorías de datos privados"
+      data-li-level="2#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/es-es/cloud-manager-data-sense/reference-private-data-categories.html">
+        Categorías de datos privados
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Investigue sus datos"
+      data-li-level="2#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/es-es/cloud-manager-data-sense/task-investigate-data.html">
+        Investigue sus datos
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Organice sus datos privados"
+      data-li-level="2#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/es-es/cloud-manager-data-sense/task-org-private-data.html">
+        Organice sus datos privados
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Asigne políticas a sus datos"
+      data-li-level="2#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/es-es/cloud-manager-data-sense/task-using-policies.html">
+        Asigne políticas a sus datos
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Gestione sus datos privados"
+      data-li-level="2#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/es-es/cloud-manager-data-sense/task-managing-highlights.html">
+        Gestione sus datos privados
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Cambiar la configuración de exploración"
+      data-li-level="2#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/es-es/cloud-manager-data-sense/task-managing-repo-scanning.html">
+        Cambiar la configuración de exploración
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Generar informes de cumplimiento"
+      data-li-level="2#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/es-es/cloud-manager-data-sense/task-generating-compliance-reports.html">
+        Generar informes de cumplimiento
+      </a></li></ul></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Gestione el sentido de los datos en el cloud"
+      data-li-level="1" 
+      class="subfolders "
+    ><a href="#">
+        <div class="na-navbar-padding"> Gestione el sentido de los datos en el cloud</div>
+      </a>
+      <ul style="display: none;">
+        <li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Agregar identificadores de datos personales personalizados"
+      data-li-level="2#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/es-es/cloud-manager-data-sense/task-managing-data-fusion.html">
+        Agregar identificadores de datos personales personalizados
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Ver el estado de las acciones de detección de datos"
+      data-li-level="2#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/es-es/cloud-manager-data-sense/task-view-compliance-actions.html">
+        Ver el estado de las acciones de detección de datos
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Auditar el historial de acciones de detección de datos"
+      data-li-level="2#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/es-es/cloud-manager-data-sense/task-audit-data-sense-actions.html">
+        Auditar el historial de acciones de detección de datos
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Reduzca la velocidad de exploración de detección de datos"
+      data-li-level="2#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/es-es/cloud-manager-data-sense/task-reduce-scan-speed.html">
+        Reduzca la velocidad de exploración de detección de datos
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Eliminar orígenes de datos de Data Sense"
+      data-li-level="2#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/es-es/cloud-manager-data-sense/task-managing-compliance.html">
+        Eliminar orígenes de datos de Data Sense
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Desinstale Data Sense"
+      data-li-level="2#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/es-es/cloud-manager-data-sense/task-uninstall-data-sense.html">
+        Desinstale Data Sense
+      </a></li></ul></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Referencia"
+      data-li-level="1" 
+      class="subfolders "
+    ><a href="#">
+        <div class="na-navbar-padding"> Referencia</div>
+      </a>
+      <ul style="display: none;">
+        <li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Metadatos recogidos de orígenes de datos"
+      data-li-level="2#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/es-es/cloud-manager-data-sense/reference-collected-metadata.html">
+        Metadatos recogidos de orígenes de datos
+      </a></li></ul></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Conocimiento y apoyo"
+      data-li-level="1" 
+      class="subfolders "
+    ><a href="#">
+        <div class="na-navbar-padding"> Conocimiento y apoyo</div>
+      </a>
+      <ul style="display: none;">
+        <li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Regístrese para recibir soporte"
+      data-li-level="2#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/es-es/cloud-manager-data-sense/task-support-registration.html">
+        Regístrese para recibir soporte
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Obtenga ayuda"
+      data-li-level="2#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/es-es/cloud-manager-data-sense/task-get-help.html">
+        Obtenga ayuda
+      </a></li></ul></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Avisos legales"
+      data-li-level="1#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/es-es/cloud-manager-data-sense/legal-notices.html">
+        Avisos legales
+      </a></li></ul>
+</div>
+<script>
+  window.onscroll = () => {
+    const value = -40 - (document.body.scrollHeight - (window.innerHeight + document.scrollingElement.scrollTop));
+    
+    document.getElementById("sidebar-height").style.bottom = Math.max(0,value) + "px";
+};
+</script>
+<!-- this highlights the active parent class in the navgoco sidebar. this is critical so that the parent expands when you're viewing a page. This must appear below the sidebar code above. Otherwise, if placed inside customscripts.js, the script runs before the sidebar code runs and the class never gets inserted.-->
+<script>$("li.active").parents('li').toggleClass("active");</script>
+<script>$("#mysidebar li.active").parents('ul').css("display","block");</script>
+
+
+  </div>
+  
+
+  <div class="ie-content-pane n-doc__component-detail-content n-doc__component-detail-content--show-code">
+    <!-- Begin of page container --><article class="page-content" id="main">
+      <div class="ie-utility">
+  <button id="btn-sidebar-expand" onclick="showSidebar()"><img src="/es-es/cloud-manager-data-sense/images/expand.png" alt="Expandir panel de navegación"></button>
+  <div class="ie-menu">
+    <div class="n-breadcrumb">
+      <ul class="n-breadcrumb__list">
+        <li class="n-breadcrumb__list-item">
+          <a href="https://docs.netapp.com">docs.netapp.com</a>
+        </li>
+        
+        <li class="n-breadcrumb__list-item">
+          <a href="https://docs.netapp.com/us-en/cloud/">Cloud Docs</a>
+        </li>
+        
+
+        
+        <li class="n-breadcrumb__list-item">
+          <a href="https://docs.netapp.com/es-es/cloud-manager-family/">BlueXP</a>
+        </li>
+        
+
+        <li class="n-breadcrumb__list-item">
+          <a href="/es-es/cloud-manager-data-sense/">Cloud&nbsp;Data&nbsp;Sense</a>
+        </li>
+
+      </ul>
+    </div>
+    <div style="clear: both"></div><!-- Main needs to have height -->
+  </div>
+</div>
+
+      <div class="ie-nmt-disclaimer">
+  <span>
+    <div class="ie-nmt-disclaimer-container">
+      <div class="ie-nmt-disclaimer-icon">
+        <svg class="luci-icon" aria-hidden="true">
+          <use xlink:href="/es-es/cloud-manager-data-sense/common/svg/sprite.svg#circle-info">
+        </svg>
+      </div>
+      <div class="ie-nmt-disclaimer-content">
+        <span> Se proporciona el idioma español mediante traducción automática para su comodidad. En caso de alguna inconsistencia, el inglés precede al español. </span>
+      </div>
+      <div style="clear:both;"></div>
+    </div>
+  </span>
+</div><div class="n-doc__component-detail-heading-wrap">
+  <h1 class="n-doc__component-detail-heading">Novedades de Cloud Data Sense</h1>
+</div>
+
+
+<p class="page-details">
+  
+    
+    <time datetime="2023-02-20 16:43:26 +0000">02/20/2023</time>
+    
+  
+
+<span>Colaboradores
+</span>
+
+
+<a target="_blank" class="ext-link-indicator" href="/es-es/cloud-manager-data-sense/feed.xml"><img width="48" height="20" src="/es-es/cloud-manager-data-sense/common/media/rss-button.png" alt="RSS" title="Suscríbase para recibir actualizaciones RSS de esta página" /></a>
+
+</p>
+
+<div id="preamble">
+<div class="sectionbody">
+<div class="paragraph lead">
+<p>Descubra las novedades en Cloud Data Sense.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="5-de-febrero-de-2023-versión-1-20">5 de febrero de 2023 (versión 1.20)</h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="posibilidad-de-enviar-correos-electrónicos-de-notificación-basados-en-políticas-a-cualquier-dirección-de-correo-electrónico">Posibilidad de enviar correos electrónicos de notificación basados en políticas a cualquier dirección de correo electrónico</h3>
+<div class="paragraph">
+<p>En versiones anteriores de Cloud Data Sense, puede enviar alertas de correo electrónico a los usuarios de BlueXP de su cuenta cuando ciertas políticas críticas devuelven resultados. Esta función le permite obtener notificaciones para proteger sus datos cuando no está en línea. Ahora también puede enviar alertas de correo electrónico desde Directivas a cualquier otro usuario - hasta 20 direcciones de correo electrónico - que no se encuentren en su cuenta de BlueXP.</p>
+</div>
+<div class="paragraph">
+<p><a href="https://docs.netapp.com/us-en/cloud-manager-data-sense/task-using-policies.html#sending-email-alerts-when-non-compliant-data-is-found">"Obtenga más información sobre el envío de alertas por correo electrónico basadas en los resultados de la directiva"</a>.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="ahora-puede-agregar-patrones-personales-que-el-sentido-de-datos-identificará-desde-la-interfaz-de-usuario">Ahora puede agregar patrones personales que el sentido de datos identificará desde la interfaz de usuario</h3>
+<div class="paragraph">
+<p>La detección de datos ha tenido la capacidad de agregar "datos personales" personalizados que la detección de datos identificará en futuros análisis durante un tiempo. Sin embargo, tenía que iniciar sesión en el host Linux de Data Sense y utilizar una línea de comandos para agregar los patrones personalizados. En esta versión, la capacidad de agregar patrones personales con un regex está en la interfaz de usuario de detección de datos, lo que hace muy fácil agregar y editar estos patrones personalizados.</p>
+</div>
+<div class="paragraph">
+<p><a href="https://docs.netapp.com/us-en/cloud-manager-data-sense/task-managing-data-fusion.html#add-custom-personal-data-identifiers-using-a-regex" target="_blank" rel="noopener">"Obtenga más información sobre cómo agregar patrones personalizados desde la interfaz de usuario de Data Sense"</a>.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="capacidad-de-mover-15-millones-de-archivos-con-data-sense">Capacidad de mover 15 millones de archivos con Data Sense</h3>
+<div class="paragraph">
+<p>Anteriormente, podría hacer que Data Sense trasladara un máximo de 100,000 archivos de origen a cualquier recurso compartido de NFS. Ahora puede mover hasta 15 millones de archivos a la vez. <a href="https://docs.netapp.com/us-en/cloud-manager-data-sense/task-managing-highlights.html#moving-source-files-to-an-nfs-share">"Obtenga más información acerca de cómo mover archivos de origen con Data Sense"</a>.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="capacidad-para-ver-el-número-de-usuarios-que-tienen-acceso-a-archivos-de-sharepoint-online">Capacidad para ver el número de usuarios que tienen acceso a archivos de SharePoint Online</h3>
+<div class="paragraph">
+<p>El filtro "número de usuarios con acceso" ahora admite archivos almacenados en repositorios en línea de SharePoint. Anteriormente, solo se admitía los ficheros con recursos compartidos CIFS. Tenga en cuenta que los grupos de SharePoint que no están basados en directorios activos no se contarán en este filtro en este momento.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="se-ha-agregado-un-nuevo-estado-éxito-parcial-al-panel-estado-de-acción">Se ha agregado un nuevo estado "éxito parcial" al panel Estado de acción</h3>
+<div class="paragraph">
+<p>El nuevo estado "éxito parcial" indica que una acción de detección de datos ha finalizado y que algunos elementos han fallado y algunos elementos han tenido éxito, por ejemplo, al mover o eliminar archivos 100. Además, se ha cambiado el nombre del estado "terminado" por "correcto". En el pasado, el estado "terminado" podría incluir acciones que se han realizado correctamente y que han fallado. Ahora el estado "éxito" significa que todas las acciones se han realizado correctamente en todos los elementos. <a href="https://docs.netapp.com/us-en/cloud-manager-data-sense/task-view-compliance-actions.html">"Consulte cómo ver el panel Estado de acciones"</a>.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="9-de-enero-de-2023-versión-1-19">9 de enero de 2023 (versión 1.19)</h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="capacidad-para-ver-un-gráfico-de-archivos-que-contienen-datos-confidenciales-y-que-son-excesivamente-permisivos">Capacidad para ver un gráfico de archivos que contienen datos confidenciales y que son excesivamente permisivos</h3>
+<div class="paragraph">
+<p>El panel de control de gobierno ha agregado un área nueva <em>sensible Data y permisos amplios</em> que proporciona un mapa térmico de archivos que contienen datos confidenciales (incluidos datos personales confidenciales y confidenciales) y que son demasiado permisivos. Esto puede ayudarle a ver dónde puede tener algunos riesgos con datos confidenciales. <a href="https://docs.netapp.com/us-en/cloud-manager-data-sense/task-controlling-governance-data.html#data-listed-by-sensitivity-and-wide-permissions">"Leer más"</a>.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="hay-tres-filtros-nuevos-disponibles-en-la-página-investigación-de-datos">Hay tres filtros nuevos disponibles en la página Investigación de datos</h3>
+<div class="paragraph">
+<p>Hay nuevos filtros disponibles para refinar los resultados que se muestran en la página Investigación de datos:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>El filtro "número de usuarios con acceso" muestra qué archivos y carpetas están abiertos a un determinado número de usuarios. Puede elegir un intervalo de números para refinar los resultados, por ejemplo, para ver los archivos a los que pueden acceder 51-100 usuarios.</p>
+</li>
+<li>
+<p>Los filtros "Hora de creación", "Hora descubierta", "última modificación" y "último acceso" ahora permiten crear un intervalo de fechas personalizado en lugar de sólo seleccionar un intervalo de días predefinido. Por ejemplo, puede buscar archivos con una "hora creada" "más de 6 meses" o con una fecha "última modificación" dentro de los "últimos 10 días".</p>
+</li>
+<li>
+<p>El filtro "Ruta de acceso" le permite especificar rutas que desea excluir de los resultados de la consulta filtrada. Si introduce rutas de acceso para incluir y excluir determinados datos, detección de datos busca primero todos los archivos en las rutas de acceso incluidas, quita los archivos de las rutas de acceso excluidas y, a continuación, muestra los resultados.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p><a href="https://docs.netapp.com/us-en/cloud-manager-data-sense/task-investigate-data.html#filtering-data-in-the-data-investigation-page">"Consulte la lista de todos los filtros que puede utilizar para investigar los datos"</a>.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="el-sentido-de-los-datos-puede-identificar-el-número-individual-japonés">El sentido de los datos puede identificar el número individual japonés</h3>
+<div class="paragraph">
+<p>Data Sense puede identificar y categorizar archivos que contengan el número individual japonés (también conocido como Mi número). Esto incluye tanto el número personal como el número de mi corporativo. <a href="https://docs.netapp.com/us-en/cloud-manager-data-sense/reference-private-data-categories.html#types-of-personal-data">"Vea todos los tipos de datos personales que Data Sense puede identificar en sus datos"</a>.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="11-de-diciembre-de-2022-versión-1-18">11 de diciembre de 2022 (versión 1.18)</h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="mejoras-en-la-instalación-en-las-instalaciones">Mejoras en la instalación en las instalaciones</h3>
+<div class="paragraph">
+<p>Se han agregado las siguientes mejoras para la instalación de detección de datos en las instalaciones:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Ahora se comprueban algunos requisitos previos adicionales antes de que la instalación comience en un host local. Esto ayuda a asegurarse de que el sistema host esté preparado al 100 % para tener instalado el software Data Sense:</p>
+<div class="ulist">
+<ul>
+<li>
+<p>comprobar si hay suficiente espacio en <code>/var/lib/docker</code>, <code>/tmp</code>, y. <code>/opt</code></p>
+</li>
+<li>
+<p>pruebe los permisos pertinentes en todas las carpetas necesarias</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>En la página Configuración, la sección entornos de trabajo muestra ahora <em>Working Environment ID</em> y el <em>Scanner Group</em> name. Necesitará conocer el identificador de entorno de trabajo si planea utilizar varios hosts de detección de datos para proporcionar potencia de procesamiento adicional para analizar sus fuentes de datos.</p>
+</li>
+<li>
+<p>También en la página Configuración, una nueva sección muestra los grupos de escáner que ha configurado y los nodos de escáner de cada grupo.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p><a href="https://docs.netapp.com/us-en/cloud-manager-data-sense/task-deploy-compliance-onprem.html">"Obtenga más información acerca de la instalación de Data Sense en un solo servidor host y en varios hosts"</a>.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="13-de-noviembre-de-2022-versión-1-17">13 de noviembre de 2022 (versión 1.17)</h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="compatibilidad-para-analizar-cuentas-en-las-instalaciones-de-sharepoint">Compatibilidad para analizar cuentas en las instalaciones de SharePoint</h3>
+<div class="paragraph">
+<p>Ahora, el sentido de los datos puede analizar tanto cuentas en línea de SharePoint como cuentas en las instalaciones de SharePoint (SharePoint Server). Si necesita instalar SharePoint en sus propios servidores, o en sitios sin acceso a Internet, ahora puede hacer que Data Sense analice los archivos de usuario en esas cuentas. <a href="https://docs.netapp.com/us-en/cloud-manager-data-sense/task-scanning-sharepoint.html#adding-a-sharepoint-on-premise-account" target="_blank" rel="noopener">"Leer más"</a>.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="capacidad-para-volver-a-analizar-varios-directorios-carpetas-o-recursos-compartidos">Capacidad para volver a analizar varios directorios (carpetas o recursos compartidos)</h3>
+<div class="paragraph">
+<p>Ahora puede volver a analizar varios directorios (carpetas o recursos compartidos) inmediatamente para que los cambios se reflejen en el sistema. Esto le permite priorizar el reexamen de determinados datos antes de otros. <a href="https://docs.netapp.com/us-en/cloud-manager-data-sense/task-managing-repo-scanning.html#rescanning-data-for-an-existing-repository" target="_blank" rel="noopener">"Consulte cómo volver a analizar un directorio"</a>.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="posibilidad-de-añadir-nodos-de-escáner-locales-adicionales-para-analizar-orígenes-de-datos-específicos">Posibilidad de añadir nodos de "escáner" locales adicionales para analizar orígenes de datos específicos</h3>
+<div class="paragraph">
+<p>Si ha instalado Data Sense en una ubicación local y necesita más potencia de procesamiento de análisis para analizar determinados orígenes de datos, puede añadir más nodos de "escáner" y asignarles datos de origen. Puede añadir los nodos del escáner inmediatamente después de instalar el nodo Manager, o bien puede añadir un nodo de escáner más adelante.</p>
+</div>
+<div class="paragraph">
+<p>Si es necesario, los nodos de escáner pueden instalarse en sistemas host que estén físicamente más cerca de los orígenes de datos que esté analizando. Cuanto más cerca esté el nodo del escáner de los datos, mejor será porque reduce la latencia de red tanto como sea posible mientras escanea datos. <a href="https://docs.netapp.com/us-en/cloud-manager-data-sense/task-deploy-compliance-onprem.html#add-scanner-nodes-to-an-existing-deployment" target="_blank" rel="noopener">"Consulte cómo instalar nodos de escáner para analizar orígenes de datos adicionales"</a>.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="los-instaladores-en-las-instalaciones-ahora-realizan-una-comprobación-previa-antes-de-iniciar-la-instalación">Los instaladores en las instalaciones ahora realizan una comprobación previa antes de iniciar la instalación</h3>
+<div class="paragraph">
+<p>Al instalar Data Sense en un sistema Linux, el instalador comprueba si el sistema cumple todos los requisitos necesarios (CPU, RAM, capacidad, red, etc.) antes de iniciar la instalación real. Esto ayuda a detectar problemas <strong>antes</strong> usted pasa tiempo en la instalación.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="6-de-septiembre-de-2022-versión-1-16">6 de septiembre de 2022 (versión 1.16)</h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="capacidad-de-volver-a-analizar-un-repositorio-inmediatamente-para-reflejar-cambios-en-los-archivos">Capacidad de volver a analizar un repositorio inmediatamente para reflejar cambios en los archivos</h3>
+<div class="paragraph">
+<p>Si necesita volver a analizar un repositorio determinado de inmediato para que los cambios se reflejen en el sistema, puede seleccionar el repositorio y volver a analizar dicho repositorio. Esto le permite priorizar el reexamen de determinados datos antes de otros. <a href="https://docs.netapp.com/us-en/cloud-manager-data-sense/task-managing-repo-scanning.html#rescanning-data-for-an-existing-repository" target="_blank" rel="noopener">"Consulte cómo volver a analizar un directorio"</a>.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="nuevo-filtro-para-el-estado-del-análisis-de-detección-de-datos-en-la-página-investigación-de-datos">Nuevo filtro para el estado del análisis de detección de datos en la página Investigación de datos</h3>
+<div class="paragraph">
+<p>El filtro “Analysis Status” (Estado del análisis) permite enumerar los archivos que se encuentran en una etapa específica del análisis de detección de datos. Puede seleccionar una opción para mostrar la lista de archivos que están <strong>primer escaneo pendiente</strong>, <strong>completado</strong>, <strong>Rescan pendiente</strong> o que <strong>ha fallado</strong> para ser escaneados.</p>
+</div>
+<div class="paragraph">
+<p><a href="https://docs.netapp.com/us-en/cloud-manager-data-sense/task-controlling-private-data.html#filtering-data-in-the-data-investigation-page" target="_blank" rel="noopener">"Consulte la lista de todos los filtros que puede utilizar para investigar los datos"</a>.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="los-sujetos-de-datos-se-consideran-ahora-parte-de-los-datos-personales-encontrados-en-los-escaneos">Los sujetos de datos se consideran ahora parte de los "datos personales" encontrados en los escaneos</h3>
+<div class="paragraph">
+<p>Data Sense ahora reconoce a los sujetos de datos como parte de los resultados personales que aparecen en el Panel de cumplimiento. Además, al realizar una búsqueda en la página de investigación, puede seleccionar "Temas de datos" en "datos personales" para ver sólo los archivos que contengan sujetos de datos.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="los-archivos-de-rastro-de-detección-de-datos-ahora-se-consideran-parte-de-las-categorías-que-se-encuentran-en-los-análisis">Los archivos de rastro de detección de datos ahora se consideran parte de las "Categorías" que se encuentran en los análisis</h3>
+<div class="paragraph">
+<p>El sensor de datos ahora reconoce los archivos de rastro como parte de las categorías que aparecen en la consola de cumplimiento de normativas. Son archivos que crea Data Sense al mover archivos de la ubicación de origen a un recurso compartido NFS. <a href="https://docs.netapp.com/us-en/cloud-manager-data-sense/task-managing-highlights.html#moving-source-files-to-an-nfs-share" target="_blank" rel="noopener">"Obtenga más información acerca de la forma en que se crean los archivos de rastro"</a>.</p>
+</div>
+<div class="paragraph">
+<p>Además, al realizar una búsqueda en la página de investigación, puede seleccionar "Data Sense Breadmigbs" en "Category" (Categoría) para ver sólo los archivos de exploración de detección de datos.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="7-de-agosto-de-2022-versión-1-15">7 de agosto de 2022 (versión 1.15)</h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="cinco-nuevos-tipos-de-datos-personales-de-nueva-zelanda-se-identifican-por-el-sentido-de-los-datos">Cinco nuevos tipos de datos personales de Nueva Zelanda se identifican por el sentido de los datos</h3>
+<div class="paragraph">
+<p>Data Sense puede identificar y categorizar archivos que contengan los siguientes tipos de datos:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Número de cuenta bancaria de Nueva Zelanda</p>
+</li>
+<li>
+<p>Número de Licencia de conducir de Nueva Zelanda</p>
+</li>
+<li>
+<p>Número IRD de Nueva Zelanda (ID fiscal)</p>
+</li>
+<li>
+<p>Número NHI (Índice Nacional de Salud) de Nueva Zelandia</p>
+</li>
+<li>
+<p>Número de pasaporte de Nueva Zelanda</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p><a href="reference-private-data-categories.html#types-of-personal-data">"Vea todos los tipos de datos personales que Data Sense puede identificar en sus datos"</a>.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="capacidad-de-añadir-un-archivo-de-rastro-para-indicar-por-qué-se-trasladó-un-archivo">Capacidad de añadir un archivo de rastro para indicar por qué se trasladó un archivo</h3>
+<div class="paragraph">
+<p>Si utiliza la función Data Sense para mover archivos de origen a un recurso compartido de NFS, ahora puede dejar un archivo de rastro en la ubicación del archivo movido. Un archivo de rastro ayuda a los usuarios a comprender por qué se trasladó un archivo desde su ubicación original. Para cada archivo movido, el sistema crea un archivo de rastro en la ubicación de origen llamada <code>&lt;filename&gt;-breadcrumb-&lt;date&gt;.txt</code> para mostrar la ubicación en la que se ha movido el archivo y el usuario que lo ha movido. <a href="https://docs.netapp.com/us-en/cloud-manager-data-sense/task-managing-highlights.html#moving-source-files-to-an-nfs-share" target="_blank" rel="noopener">"Leer más"</a>.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="los-datos-personales-y-los-datos-personales-confidenciales-que-se-encuentran-en-sus-directorios-se-muestran-en-los-resultados-de-la-investigación">Los datos personales y los datos personales confidenciales que se encuentran en sus directorios se muestran en los resultados de la investigación</h3>
+<div class="paragraph">
+<p>La página Investigación de datos ahora muestra los resultados de datos personales y datos personales confidenciales que se encuentran en sus directorios (carpetas y recursos compartidos). <a href="https://docs.netapp.com/us-en/cloud-manager-data-sense/task-controlling-private-data.html#viewing-files-that-contain-personal-data" target="_blank" rel="noopener">"Vea un ejemplo aquí"</a>.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="ver-el-estado-de-cuántos-volúmenes-bloques-etc-se-han-clasificado-correctamente">Ver el estado de cuántos volúmenes, bloques, etc. se han clasificado correctamente</h3>
+<div class="paragraph">
+<p>Al ver los repositorios individuales que Data Sense está analizando (volúmenes, bloques, etc.), ahora puede ver cuántos se han "asignado" y cuántos se han "clasificado". La clasificación tarda más tiempo en realizarse la identificación de IA completa en todos los datos. <a href="https://docs.netapp.com/us-en/cloud-manager-data-sense/task-managing-repo-scanning.html#viewing-the-scan-status-for-your-repositories" target="_blank" rel="noopener">"Vea cómo ver esta información"</a>.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="ahora-puede-agregar-patrones-personalizados-que-detección-de-datos-identificará-en-sus-datos">Ahora puede agregar patrones personalizados que detección de datos identificará en sus datos</h3>
+<div class="paragraph">
+<p>Hay dos formas de agregar "datos personales" personalizados que el sentido de datos identificará en futuras exploraciones. Esto le permite ver la imagen completa sobre dónde residen los datos potencialmente confidenciales en todos los archivos de su organización.</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Puede agregar palabras clave personalizadas desde un archivo de texto.</p>
+</li>
+<li>
+<p>Puede agregar un patrón personal utilizando una expresión regular (regex).</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Estas palabras clave y patrones se agregan a los patrones predefinidos existentes que Data Sense ya utiliza, y los resultados serán visibles en la sección patrones personales. <a href="https://docs.netapp.com/us-en/cloud-manager-data-sense/task-managing-data-fusion.html" target="_blank" rel="noopener">"Leer más"</a>.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="6-de-julio-de-2022-versión-1-14">6 de julio de 2022 (versión 1.14)</h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="ahora-puede-ver-los-usuarios-y-grupos-que-tienen-acceso-a-sus-directorios">Ahora puede ver los usuarios y grupos que tienen acceso a sus directorios</h3>
+<div class="paragraph">
+<p>Anteriormente, podría ver los tipos de permisos abiertos concedidos en archivos individuales. Ahora puede ver una lista de todos los usuarios o grupos que tienen acceso a directorios (carpetas y recursos compartidos de archivos) y los tipos de permisos que tienen. <a href="https://docs.netapp.com/us-en/cloud-manager-data-sense/task-controlling-private-data.html#viewing-permissions-for-files-and-directories">"Vea cómo ver los usuarios y grupos que tienen acceso a las carpetas y los recursos compartidos de archivos"</a>.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="puede-pausar-el-análisis-de-un-repositorio-para-detener-temporalmente-el-análisis-de-cierto-contenido">Puede "pausar" el análisis de un repositorio para detener temporalmente el análisis de cierto contenido</h3>
+<div class="paragraph">
+<p>Pausar el análisis significa que Data Sense no realizará más análisis futuro de adiciones o cambios en un volumen o bloque, pero que todavía estarán disponibles en el sistema todos los resultados actuales. <a href="https://docs.netapp.com/us-en/cloud-manager-data-sense/task-managing-repo-scanning.html#pausing-and-resuming-scanning-for-a-repository">"Consulte cómo pausar y reanudar la exploración"</a>.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="los-datos-de-licencias-de-conducir-de-ee-uu-procedentes-de-tres-estados-adicionales-pueden-ser-identificados-por-data-sense">Los datos DE licencias de conducir DE EE.UU. Procedentes de tres estados adicionales pueden ser identificados por Data Sense</h3>
+<div class="paragraph">
+<p>El sentido de los datos puede identificar y categorizar archivos que contengan datos de licencias de conducir de Indiana, Nueva York y Texas. <a href="reference-private-data-categories.html#types-of-personal-data">"Vea todos los tipos de datos personales que Data Sense puede identificar en sus datos"</a>.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="las-directivas-devuelven-ahora-directorios-que-coinciden-con-los-criterios-de-búsqueda">Las directivas devuelven ahora directorios que coinciden con los criterios de búsqueda</h3>
+<div class="paragraph">
+<p>En el pasado, cuando se creó una directiva personalizada, los resultados mostraban los archivos que coincidieron con los criterios de búsqueda. Ahora los resultados también muestran los directorios (carpetas y archivos compartidos) que coinciden con la consulta. <a href="https://docs.netapp.com/us-en/cloud-manager-data-sense/task-org-private-data.html#creating-custom-policies">"Más información acerca de la creación de políticas"</a>.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="data-sense-puede-transferir-hasta-100000-archivos-cada-vez">Data sense puede transferir hasta 100,000 archivos cada vez</h3>
+<div class="paragraph">
+<p>Si planea utilizar Data Sense para mover archivos de un origen de datos escaneado a un recurso compartido NFS, el número máximo de archivos se ha aumentado a 100,000. <a href="https://docs.netapp.com/us-en/cloud-manager-data-sense/task-managing-highlights.html#moving-source-files-to-an-nfs-share">"Vea cómo mover archivos con Data Sense"</a>.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="12-de-junio-de-2022-versión-1-13-1">12 de junio de 2022 (versión 1.13.1)</h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="ahora-puede-descargar-los-resultados-desde-la-página-investigación-de-datos-como-un-informe-json">Ahora puede descargar los resultados desde la página Investigación de datos como un informe .JSON</h3>
+<div class="paragraph">
+<p>Después de filtrar los datos en la página Investigación de datos, ahora puede guardar los datos como un informe en un archivo .JSON que puede exportar a un recurso compartido NFS, además de guardar los datos en un archivo .CSV en el sistema local. Asegúrese de que Data Sense tiene los permisos correctos para el acceso de exportación. <a href="https://docs.netapp.com/us-en/cloud-manager-data-sense/task-generating-compliance-reports.html#data-investigation-report">"Consulte cómo crear informes desde la página Investigación de datos"</a>.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="capacidad-para-desinstalar-data-sense-de-la-interfaz-de-usuario-de-data-sense">Capacidad para desinstalar Data Sense de la interfaz de usuario de Data Sense</h3>
+<div class="paragraph">
+<p>Puede desinstalar Data Sense para eliminar de forma permanente el software del host y, en el caso de una implementación de cloud, eliminar la máquina virtual/instancia en la que se ha implementado Data Sense. Al eliminar la instancia, se elimina permanentemente toda la información indexada que se ha analizado Data Sense. <a href="https://docs.netapp.com/us-en/cloud-manager-data-sense/task-uninstall-data-sense.html">"Descubra cómo"</a>.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="el-registro-de-auditoría-está-ahora-disponible-para-realizar-el-seguimiento-del-historial-de-acciones-que-ha-realizado-la-detección-de-datos">El registro de auditoría está ahora disponible para realizar el seguimiento del historial de acciones que ha realizado la detección de datos</h3>
+<div class="paragraph">
+<p>El registro de auditoría realiza un seguimiento de las actividades de administración que Data Sense ha realizado en archivos de todos los entornos de trabajo y orígenes de datos que Data Sense está analizando. Las actividades pueden ser generadas por el usuario (eliminar un archivo, crear una directiva, etc.) o generadas por una directiva (agregar etiquetas automáticamente a los archivos, eliminar archivos automáticamente, etc.).</p>
+</div>
+<div class="paragraph">
+<p><a href="https://docs.netapp.com/us-en/cloud-manager-data-sense/task-audit-data-sense-actions.html">"Consulte más detalles sobre el registro de auditoría"</a>.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="nuevo-filtro-para-el-número-de-identificadores-confidenciales-en-la-página-investigación-de-datos">Nuevo filtro para el número de identificadores confidenciales en la página Investigación de datos</h3>
+<div class="paragraph">
+<p>El filtro “número de identificadores” permite enumerar los archivos que tienen un cierto número de identificadores confidenciales, incluidos datos personales y datos personales confidenciales. Puede seleccionar un rango como 1-10 o 501-1000 para ver sólo los archivos que contienen ese número de identificadores confidenciales.</p>
+</div>
+<div class="paragraph">
+<p><a href="https://docs.netapp.com/us-en/cloud-manager-data-sense/task-controlling-private-data.html#filtering-data-in-the-data-investigation-page">"Consulte la lista de todos los filtros que puede utilizar para investigar los datos"</a>.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="ahora-puede-editar-las-directivas-existentes-que-ha-creado">Ahora puede editar las directivas existentes que ha creado</h3>
+<div class="paragraph">
+<p>Si necesita realizar un cambio en una directiva personalizada que ha creado anteriormente, ahora puede editar la directiva en lugar de crear una nueva. <a href="https://docs.netapp.com/us-en/cloud-manager-data-sense/task-org-private-data.html#editing-policies">"Vea cómo editar una directiva"</a>.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="11-de-mayo-de-2022-versión-1-12-1">11 de mayo de 2022 (versión 1.12.1)</h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="se-ha-agregado-compatibilidad-para-analizar-datos-en-cuentas-de-google-drive">Se ha agregado compatibilidad para analizar datos en cuentas de Google Drive</h3>
+<div class="paragraph">
+<p>Ahora puede agregar sus cuentas de Google Drive a Data Sense para poder escanear los documentos y archivos de esas cuentas de Google Drive. <a href="https://docs.netapp.com/us-en/cloud-manager-data-sense/task-scanning-google-drive.html">"Descubra cómo analizar sus cuentas de Google Drive"</a>.</p>
+</div>
+<div class="paragraph">
+<p>El sentido de los datos puede identificar la Información personal identificable (PII) en los siguientes tipos de archivos de Google desde la suite Google Docs&#8201;&#8212;&#8201;Docs, Sheets, and Slides&#8201;&#8212;&#8201;además de la <a href="https://docs.netapp.com/us-en/cloud-manager-data-sense/reference-private-data-categories.html#types-of-files">"tipos de archivo existentes"</a>.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="vista-de-nivel-de-directorio-agregada-a-la-página-investigación-de-datos">Vista de nivel de directorio agregada a la página Investigación de datos</h3>
+<div class="paragraph">
+<p>Además de ver y filtrar datos de todos los archivos y bases de datos, ahora puede ver y filtrar datos en función de todos los datos de carpetas y recursos compartidos de la página Investigación de datos. Los directorios se indexarán para recursos compartidos CIFS y NFS analizados, así como para carpetas de OneDrive, SharePoint y Google Drive. Ahora puede ver los permisos y gestionar los datos en el nivel de directorio. <a href="https://docs.netapp.com/us-en/cloud-manager-data-sense/task-controlling-private-data.html#filtering-data-in-the-data-investigation-page">"Vea cómo seleccionar la vista directorios de los datos escaneados"</a>.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="expanda-grupos-para-mostrar-los-usuarios-o-miembros-que-tienen-permisos-para-tener-acceso-a-un-archivo">Expanda grupos para mostrar los usuarios o miembros que tienen permisos para tener acceso a un archivo</h3>
+<div class="paragraph">
+<p>Como parte de las capacidades de permisos de detección de datos, ahora puede ver la lista de usuarios y grupos que tienen acceso a un archivo. Cada grupo se puede expandir para mostrar la lista de usuarios del grupo. <a href="https://docs.netapp.com/us-en/cloud-manager-data-sense/task-controlling-private-data.html#viewing-permissions-for-files">"Vea cómo ver usuarios y grupos que tienen permisos de lectura y/o escritura en sus archivos"</a>.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="se-han-agregado-dos-nuevos-filtros-a-la-página-investigación-de-datos">Se han agregado dos nuevos filtros a la página Investigación de datos</h3>
+<div class="ulist">
+<ul>
+<li>
+<p>El filtro “Tipo de directorio” permite afinar los datos para ver sólo carpetas o recursos compartidos. Los resultados se mostrarán en la nueva pestaña <strong>directorios</strong>.</p>
+</li>
+<li>
+<p>El filtro "permisos de usuario/grupo" le permite enumerar los archivos, carpetas y recursos compartidos a los que un usuario o grupo específico tiene permisos de lectura y/o escritura. Puede seleccionar varios usuarios y/o nombres de grupo - o introducir un nombre parcial.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p><a href="https://docs.netapp.com/us-en/cloud-manager-data-sense/task-controlling-private-data.html#filtering-data-in-the-data-investigation-page">"Consulte la lista de todos los filtros que puede utilizar para investigar los datos"</a>.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="5-de-abril-de-2022-versión-1-11-1">5 de abril de 2022 (versión 1.11.1)</h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="cuatro-nuevos-tipos-de-datos-personales-australianos-se-pueden-identificar-mediante-detección-de-datos">Cuatro nuevos tipos de datos personales australianos se pueden identificar mediante detección de datos</h3>
+<div class="paragraph">
+<p>Data Sense puede identificar y categorizar archivos que contengan el TFN (número de archivo fiscal) australiano, el número de licencia de conducir australiano, el número de Medicare australiano y el número de pasaporte australiano. <a href="reference-private-data-categories.html#types-of-personal-data">"Vea todos los tipos de datos personales que Data Sense puede identificar en sus datos"</a>.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="el-servidor-de-active-directory-global-puede-ser-ahora-un-servidor-ldap">El servidor de Active Directory global puede ser ahora un servidor LDAP</h3>
+<div class="paragraph">
+<p>El servidor global de Active Directory que se integra con Data Sense puede ser ahora un servidor LDAP además del servidor DNS previamente admitido. <a href="task-add-active-directory-datasense.html">"Vaya aquí para obtener más información"</a>.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="15-de-marzo-de-2022-versión-1-10-0">15 de marzo de 2022 (versión 1.10.0)</h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="nuevo-filtro-para-mostrar-los-archivos-a-los-que-un-usuario-o-grupo-específico-tiene-permisos-de-lectura-o-escritura">Nuevo filtro para mostrar los archivos a los que un usuario o grupo específico tiene permisos de lectura o escritura</h3>
+<div class="paragraph">
+<p>Se ha agregado un nuevo filtro denominado "permisos de usuario/grupo" para que pueda enumerar los archivos a los que un usuario o grupo específico tiene permisos de lectura y/o escritura. Puede seleccionar uno o más nombres de usuario o de grupo, o bien introducir un nombre parcial. Esta funcionalidad está disponible para volúmenes en Cloud Volumes ONTAP, ONTAP en las instalaciones, Azure NetApp Files, Amazon FSX para ONTAP y recursos compartidos de archivos.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="el-sentido-de-los-datos-puede-determinar-los-permisos-para-los-archivos-en-cuentas-de-sharepoint-y-onedrive">El sentido de los datos puede determinar los permisos para los archivos en cuentas de SharePoint y OneDrive</h3>
+<div class="paragraph">
+<p>Data Sense puede leer los permisos existentes para los archivos que se están analizando en cuentas de OneDrive y cuentas de SharePoint ahora. Esta información aparece en los detalles del panel de investigación de los archivos y en el área permisos abiertos del Panel de control de gobierno.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="dos-tipos-adicionales-de-datos-personales-pueden-ser-identificados-por-data-sense">Dos tipos adicionales de datos personales pueden ser identificados por Data Sense</h3>
+<div class="ulist">
+<ul>
+<li>
+<p>INSEE Francés - el código INSEE es un código numérico utilizado por el Instituto Nacional de Estadística y Estudios Económicos de Francia (INSEE) para identificar diversas entidades.</p>
+</li>
+<li>
+<p>Contraseñas: Esta información se identifica mediante la validación de proximidad buscando permutaciones de la palabra "password" junto a una cadena alfanumérica. El número de elementos encontrados se enumerará en "resultados personales" en el Panel de cumplimiento. Puede buscar archivos que contengan contraseñas en el panel Investigación mediante el filtro * datos personales &gt; Contraseña*.</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="compatibilidad-con-el-análisis-de-datos-de-onedrive-y-sharepoint-cuando-se-implementa-en-un-sitio-oscuro">Compatibilidad con el análisis de datos de OneDrive y SharePoint cuando se implementa en un sitio oscuro</h3>
+<div class="paragraph">
+<p>Cuando ha puesto en marcha Cloud Data Sense en un host en una ubicación en las instalaciones que no tiene acceso a Internet, ahora puede analizar datos locales de cuentas de OneDrive o de SharePoint. <a href="task-deploy-compliance-dark-site.html#sharepoint-and-onedrive-special-requirements">"Deberá permitir el acceso a los siguientes puntos finales."</a></p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="la-capacidad-beta-para-usar-cloud-data-sense-para-analizar-sus-archivos-de-cloud-backup-se-ha-interrumpido-en-esta-versión">La capacidad Beta para usar Cloud Data Sense para analizar sus archivos de Cloud Backup se ha interrumpido en esta versión</h3>
+
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="9-de-febrero-de-2022">9 de febrero de 2022</h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="se-ha-agregado-compatibilidad-para-analizar-cuentas-en-línea-de-microsoft-sharepoint">Se ha agregado compatibilidad para analizar cuentas en línea de Microsoft SharePoint</h3>
+<div class="paragraph">
+<p>Ahora puede agregar sus cuentas en línea de SharePoint a Data Sense para poder analizar los documentos y archivos de sus sitios de SharePoint. <a href="task-scanning-sharepoint.html">"Vea cómo analizar sus cuentas de SharePoint"</a>.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="data-sense-puede-copiar-archivos-de-un-origen-de-datos-a-una-ubicación-de-destino-y-sincronizar-dichos-archivos">Data Sense puede copiar archivos de un origen de datos a una ubicación de destino y sincronizar dichos archivos</h3>
+<div class="paragraph">
+<p>Esto es útil para situaciones en las que se están migrando datos y se desea detectar los últimos cambios que se están realizando en los archivos. Esta acción utiliza <a href="https://docs.netapp.com/us-en/cloud-manager-sync/concept-cloud-sync.html" target="_blank" rel="noopener">"Cloud Sync de NetApp"</a> funcionalidad para copiar y sincronizar datos de un origen en un destino.</p>
+</div>
+<div class="paragraph">
+<p><a href="task-managing-highlights.html#copying-and-synchronizing-source-files-to-a-target-system">"Vea cómo copiar y sincronizar archivos"</a>.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="nueva-compatibilidad-de-idiomas-para-los-informes-dsar">Nueva compatibilidad de idiomas para los informes DSAR</h3>
+<div class="paragraph">
+<p>Ahora se admiten alemán y español cuando se buscan nombres de sujetos de datos para crear informes de solicitud de acceso a sujetos de datos (DSAR). Este informe está diseñado para ayudar en el requisito de su organización a cumplir con el RGPD o con leyes de privacidad de datos similares.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="se-pueden-identificar-tres-tipos-adicionales-de-datos-personales-mediante-data-sense">Se pueden identificar tres tipos adicionales de datos personales mediante Data Sense</h3>
+<div class="paragraph">
+<p>Data Sense ahora puede encontrar números franceses de seguridad social, ID franceses y números de licencia de controlador francés en archivos. <a href="reference-private-data-categories.html#types-of-personal-data">"Consulte la lista de todos los tipos de datos personales que detección de datos identifica en los análisis"</a>.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="se-ha-cambiado-el-puerto-del-grupo-de-seguridad-para-la-comunicación-de-detección-de-datos-con-el-conector">Se ha cambiado el puerto del grupo de seguridad para la comunicación de detección de datos con el conector</h3>
+<div class="paragraph">
+<p>El grupo de seguridad de Cloud Manager Connector utilizará el puerto 443 en lugar del puerto 80 para el tráfico entrante y saliente hacia y desde la instancia de detección de datos para mayor seguridad. Ambos puertos permanecen abiertos en este momento, por lo que no debería ver ningún problema, pero debería actualizar el grupo de seguridad en cualquier despliegue anterior del conector como el puerto 80 quedará obsoleto en una versión futura.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="2-de-enero-de-2022">2 de enero de 2022</h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="capacidad-de-integrar-un-active-directory-global-para-identificar-los-propietarios-de-archivos-y-permisos">Capacidad de integrar un Active Directory global para identificar los propietarios de archivos y permisos</h3>
+<div class="paragraph">
+<p>Ahora puede integrar un Active Directory global con Cloud Data Sense para mejorar los resultados que los informes de Data Sense sobre los propietarios de los archivos y qué usuarios y grupos tienen acceso a los archivos.</p>
+</div>
+<div class="paragraph">
+<p>Además de las credenciales de Active Directory que introduzca para que Data Sense pueda analizar volúmenes de CIFS desde ciertos orígenes de datos, esta nueva integración ofrece como integración adicional para otros usuarios y sistemas. Data sense buscará en todos los directorios activos integrados para los detalles de permisos y usuarios. <a href="task-add-active-directory-datasense.html">"Descubra cómo configurar su Active Directory global"</a>.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="las-políticas-de-detección-de-datos-ahora-se-pueden-utilizar-para-eliminar-archivos">Las "políticas" de detección de datos ahora se pueden utilizar para eliminar archivos</h3>
+<div class="paragraph">
+<p>Data Sense puede eliminar automáticamente los archivos que coinciden con la consulta definida en una directiva. <a href="task-managing-highlights.html#deleting-source-files-automatically-using-policies">"Vea cómo crear directivas personalizadas"</a>.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="16-de-diciembre-de-2021">16 de diciembre de 2021</h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="capacidad-de-detección-de-datos-para-analizar-datos-en-sitios-oscuros">Capacidad de detección de datos para analizar datos en sitios oscuros</h3>
+<div class="paragraph">
+<p>Cloud Manager (el conector) y Cloud Data Sense se pueden implementar en un sitio local que no tiene acceso a Internet. Ahora, sus sitios seguros pueden usar Cloud Manager para gestionar sus clústeres de ONTAP en las instalaciones, replicar datos entre clústeres y analizar datos de esos clústeres mediante Cloud Data Sense.</p>
+</div>
+<div class="paragraph">
+<p><a href="task-deploy-compliance-dark-site.html" target="_blank" rel="noopener">"Descubra cómo implementar Cloud Data Sense en un sitio sin acceso a Internet"</a>.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="28-de-noviembre-de-2021">28 de noviembre de 2021</h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="es-posible-utilizar-la-detección-de-datos-para-clonar-un-volumen-desde-un-sistema-ontap">Es posible utilizar la detección de datos para clonar un volumen desde un sistema ONTAP</h3>
+<div class="paragraph">
+<p>Es posible usar Data SENSE para clonar un volumen de ONTAP, pero solo se pueden incluir los archivos seleccionados del volumen de origen en el nuevo volumen clonado. Esto resulta útil en situaciones en las que se están migrando datos y se desean excluir determinados archivos o si se desea crear una copia de un volumen para la realización de pruebas.</p>
+</div>
+<div class="paragraph">
+<p><a href="task-managing-highlights.html#cloning-volume-data-to-a-new-volume">"Vea cómo clonar un volumen"</a>.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="la-suscripción-a-gcp-marketplace-para-cloud-manager-ahora-incluye-compatibilidad-con-cloud-data-sense">La suscripción a GCP Marketplace para Cloud Manager ahora incluye compatibilidad con Cloud Data Sense</h3>
+<div class="paragraph">
+<p>La <a href="https://console.cloud.google.com/marketplace/details/netapp-cloudmanager/cloud-manager?supportedpurview=project&amp;rif_reserved" target="_blank" rel="noopener">"Suscripción a GCP Marketplace para Cloud Manager"</a> Ahora incluye compatibilidad con Cloud Data Sense. Ahora puede usar esta suscripción de pago por uso (PAYGO) para analizar datos de sistemas Cloud Volumes ONTAP implementados en el almacenamiento de Google Cloud, además de usar una licencia BYOL de NetApp.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="capacidad-para-ver-el-estado-de-sus-acciones-de-cumplimiento-a-largo-plazo">Capacidad para ver el estado de sus acciones de cumplimiento a largo plazo</h3>
+<div class="paragraph">
+<p>Cuando ejecuta una acción desde el panel de resultados de la investigación en varios archivos, por ejemplo, al eliminar archivos 50, el proceso puede tardar algún tiempo. Ahora puede supervisar el estado de estas acciones asincrónicas, de modo que sabrá cuándo se ha aplicado a todos los archivos.</p>
+</div>
+<div class="paragraph">
+<p><a href="task-view-compliance-actions.html">"Vea cómo ver el estado de sus acciones de cumplimiento en curso"</a>.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="dos-tipos-adicionales-de-datos-personales-pueden-ser-identificados-por-data-sense-2">Dos tipos adicionales de datos personales pueden ser identificados por Data Sense</h3>
+<div class="paragraph">
+<p>Ahora el sentido de los datos puede encontrar los tipos de datos personales "British Passport" y "número del Servicio Nacional de Salud (NHS)" en los archivos. <a href="reference-private-data-categories.html#types-of-personal-data">"Consulte la lista de todos los tipos de datos personales que Data Sense encuentra en los análisis"</a>.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="nuevo-filtro-para-mostrar-los-archivos-que-pertenecen-a-tipos-específicos-de-entornos-de-trabajo">Nuevo filtro para mostrar los archivos que pertenecen a tipos específicos de entornos de trabajo</h3>
+<div class="paragraph">
+<p>Al filtrar datos en la página Investigación de datos, se ha agregado un nuevo filtro para “Tipo de entorno de trabajo”. Esto le permite filtrar los resultados para sistemas Cloud Volumes ONTAP, FSX para sistemas ONTAP, sistemas ONTAP locales y mucho más.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="7-de-noviembre-de-2021">7 de noviembre de 2021</h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="ahora-puede-asignar-o-clasificar-volúmenes-individuales-en-sus-entornos-de-trabajo">Ahora puede asignar o clasificar volúmenes individuales en sus entornos de trabajo</h3>
+<div class="paragraph">
+<p>En el pasado, podría asignar todos los volúmenes o asignar y clasificar todos los volúmenes de cada entorno de trabajo. Ahora puede asignar <em>or</em> mapear y clasificar volúmenes individuales. Esta opción está disponible para volúmenes Cloud Volumes ONTAP, volúmenes ANF, volúmenes ONTAP en las instalaciones y FSX para volúmenes ONTAP.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="data-sense-puede-copiar-archivos-de-un-origen-de-datos-a-un-recurso-compartido-nfs-de-destino">Data Sense puede copiar archivos de un origen de datos a un recurso compartido NFS de destino</h3>
+<div class="paragraph">
+<p>Puede copiar cualquier archivo de origen que detección de datos esté analizando en un recurso compartido NFS de destino. Esto resulta útil si desea realizar una copia de ciertos datos y moverlos a una ubicación NFS diferente. <a href="task-managing-highlights.html#copying-source-files-to-an-nfs-share">"Leer más"</a>.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="capacidad-de-analizar-volúmenes-de-protección-de-datos-en-fsx-para-sistemas-de-archivos-ontap">Capacidad de analizar volúmenes de protección de datos en FSX para sistemas de archivos ONTAP</h3>
+<div class="paragraph">
+<p>Ahora puede analizar volúmenes de protección de datos en FSX para sistemas de archivos ONTAP. <a href="task-scanning-fsx.html#scanning-data-protection-volumes">"Leer más"</a>.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="nuevo-filtro-para-mostrar-los-archivos-según-el-intervalo-de-fechas-cuando-data-sense-los-detectó-por-primera-vez">Nuevo filtro para mostrar los archivos según el intervalo de fechas cuando Data Sense los detectó por primera vez</h3>
+<div class="paragraph">
+<p>Un nuevo filtro en la página de investigación denominado "Hora detectada" permite ver los archivos por el intervalo de fechas cuando detección de datos detectó los archivos por primera vez. La hora detectada también se ha añadido a la página File Details y a los informes que se generan en formato CSV para un archivo.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="certificación-soc-2-de-tipo-2">Certificación SOC 2 de tipo 2</h3>
+<div class="paragraph">
+<p>Una empresa independiente certificada de contables y un auditor de servicios examinaron Cloud Data Sense y afirmaron que ha alcanzado los informes de SOC 2 de tipo 2 según los criterios aplicables de los servicios de confianza.</p>
+</div>
+<div class="paragraph">
+<p><a href="https://www.netapp.com/company/trust-center/compliance/soc-2/" target="_blank" rel="noopener">"Consulte los informes de SOC 2 de NetApp"</a>.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="4-de-octubre-de-2021">4 de octubre de 2021</h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="soporte-para-las-licencias-byol-de-netapp">Soporte para las licencias BYOL de NetApp</h3>
+<div class="paragraph">
+<p>Además de tener sentido de las licencias a través de las plataformas de su proveedor de cloud, ahora puede comprar una licencia BYOL (con su propia licencia) de NetApp que puede usar en todos sus entornos de trabajo y orígenes de datos en su cuenta de Cloud Manager.</p>
+</div>
+<div class="paragraph">
+<p><a href="task-licensing-datasense.html#use-a-cloud-data-sense-byol-license">"Obtenga más información acerca de la nueva licencia BYOL de Cloud Data Sense"</a>.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="compatibilidad-con-google-cloud-platform">Compatibilidad con Google Cloud Platform</h3>
+<div class="paragraph">
+<p>Ahora Cloud Data Sense puede analizar datos de sus sistemas Cloud Volumes ONTAP implementados en GCP. La detección de datos debe ponerse en marcha en GCP y el conector debe ponerse en marcha en GCP o en las instalaciones. La cuenta de servicio de GCP asociada con el conector necesita los últimos permisos para implementar Cloud Data Sense en GCP.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="capacidad-de-analizar-volúmenes-cifs-en-fsx-para-sistemas-de-archivos-ontap">Capacidad de analizar volúmenes CIFS en FSX para sistemas de archivos ONTAP</h3>
+<div class="paragraph">
+<p>Data Sense ahora puede analizar volúmenes CIFS de FSX para sistemas ONTAP. <a href="task-scanning-fsx.html">"Descubra cómo analizar volúmenes de Amazon FSX para ONTAP"</a>.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="2-de-septiembre-de-2021">2 de septiembre de 2021</h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="capacidad-de-analizar-volúmenes-nfs-en-fsx-para-sistemas-de-archivos-ontap">Capacidad de analizar volúmenes NFS en FSX para sistemas de archivos ONTAP</h3>
+<div class="paragraph">
+<p>Compatibilidad añadida para analizar datos en volúmenes NFS en sistemas Amazon FSX para ONTAP. <a href="task-scanning-fsx.html">"Descubra cómo configurar el análisis para los sistemas FSX para ONTAP"</a>.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="las-entradas-de-estado-de-detección-de-datos-han-cambiado-a-entradas-de-etiquetas">Las entradas de "Estado" de detección de datos han cambiado a entradas de "etiquetas"</h3>
+<div class="paragraph">
+<p>La capacidad de agregar información de "Estado" a sus archivos mediante el uso de Data Sense ha cambiado la terminología a "Etiquetas". Son etiquetas a nivel de archivo: No hay que confundir con el etiquetado a nivel de recursos que se puede aplicar a volúmenes, instancias de EC2, máquinas virtuales, etc. <a href="task-org-private-data.html#applying-tags-to-manage-your-scanned-files">"Obtenga más información acerca de las etiquetas a nivel de archivo"</a>.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="1-de-agosto-de-2021">1 de agosto de 2021</h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="capacidad-de-administrar-la-configuración-de-archivos-para-varios-archivos-a-la-vez">Capacidad de administrar la configuración de archivos para varios archivos a la vez</h3>
+<div class="paragraph">
+<p>En versiones anteriores de Cloud Data Sense, puede realizar las siguientes acciones en un archivo cada vez: Agregue una etiqueta de estado, asigne un usuario y agregue una etiqueta AIP. Ahora puede seleccionar varios archivos de la página Investigación de datos y realizar cada una de estas acciones en varios archivos.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="la-consola-de-gobierno-muestra-datos-cuando-se-crearon-o-mediante-la-última-vez-que-se-accedió-a-ellos">La consola de gobierno muestra datos cuando se crearon o mediante la última vez que se accedió a ellos</h3>
+<div class="paragraph">
+<p>Al ver el gráfico Edad de datos en el panel Gobierno, además de ver datos basados en la última vez que se modificó, ahora puede ver los datos mediante el momento en que se crearon o el momento en que se accedió por última vez (cuando se leyeron). Esta información se proporciona también en el Informe de asignación de datos.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="posibilidad-de-utilizar-varios-hosts-para-poder-de-procesamiento-adicional-al-escanear-configuraciones-de-gran-tamaño">Posibilidad de utilizar varios hosts para poder de procesamiento adicional al escanear configuraciones de gran tamaño</h3>
+<div class="paragraph">
+<p>Al implementar la detección de datos en las instalaciones, ahora puede instalar el software de análisis en hosts adicionales en las instalaciones cuando tiene previsto analizar configuraciones que incluyen petabytes de datos. Estos <em>nodos de escáner</em> adicionales proporcionan mayor potencia de procesamiento al escanear configuraciones muy grandes.</p>
+</div>
+<div class="paragraph">
+<p>Descubra cómo <a href="task-deploy-compliance-onprem.html#multi-host-installation-for-large-configurations">"Implemente el software Data Sense en varios hosts"</a>.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="7-de-julio-de-2021">7 de julio de 2021</h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="data-sense-puede-mover-archivos-de-un-origen-de-datos-a-un-recurso-compartido-nfs-de-destino">Data Sense puede mover archivos de un origen de datos a un recurso compartido NFS de destino</h3>
+<div class="paragraph">
+<p>Una nueva función le permite <a href="task-managing-highlights.html#moving-source-files-to-an-nfs-share">"Mueva los archivos de origen que Data Sense esté analizando a cualquier recurso compartido NFS"</a>. Esto le permite mover archivos confidenciales o relacionados con la seguridad a un área especial para que pueda realizar más análisis.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="capacidad-de-clasificar-rápidamente-los-datos-en-lugar-de-realizar-una-exploración-de-clasificación-completa">Capacidad de clasificar rápidamente los datos en lugar de realizar una exploración de clasificación completa</h3>
+<div class="paragraph">
+<p>Ahora puede elegir asignar rápidamente datos a categorías en lugar de realizar una exploración de clasificación completa. Esto le permite <a href="task-generating-compliance-reports.html#data-mapping-report">"Abra el informe asignación de datos"</a> Desde el panel de control de gobierno para obtener una visión general de sus datos cuando existen determinados orígenes de datos que no necesita ejecutar un análisis completo.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="capacidad-de-asignar-archivos-a-usuarios-de-cloud-manager">Capacidad de asignar archivos a usuarios de Cloud Manager</h3>
+<div class="paragraph">
+<p>Ahora es posible <a href="task-org-private-data.html#assigning-users-to-manage-certain-files">"Asigne un archivo a un usuario específico de Cloud Manager"</a> para que la persona pueda ser responsable de las acciones de seguimiento que se deban realizar en el archivo. Esta capacidad se puede utilizar con la característica existente para agregar etiquetas personalizadas a un archivo.</p>
+</div>
+<div class="paragraph">
+<p>Un filtro nuevo en la página Investigación también permite ver fácilmente todos los archivos que tienen la misma persona en el campo "asignado a".</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="capacidad-de-usar-una-instancia-de-detección-de-datos-en-el-cloud-más-pequeña">Capacidad de usar una instancia de detección de datos en el cloud más pequeña</h3>
+<div class="paragraph">
+<p>Algunos usuarios con requisitos de análisis más pequeños han pedido poder utilizar una instancia de Cloud Data Sense más pequeña. Ahora es posible. Existen ciertas limitaciones al utilizar estas instancias más pequeñas <a href="concept-cloud-compliance.html#using-a-smaller-instance-type">"vea en primer lugar cuáles son estas restricciones"</a>.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="capacidad-para-realizar-exploraciones-lentas">Capacidad para realizar exploraciones lentas</h3>
+<div class="paragraph">
+<p>Los análisis de datos tienen un impacto insignificante en los sistemas de almacenamiento y en los datos. Sin embargo, si le preocupa incluso un impacto muy pequeño, puede configurar Data Sense para realizar exploraciones "lentas" ahora. <a href="task-reduce-scan-speed.html">"Descubra cómo"</a>.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="data-sense-realiza-un-seguimiento-de-la-última-vez-que-se-ha-accedido-a-un-archivo">Data Sense realiza un seguimiento de la última vez que se ha accedido a un archivo</h3>
+<div class="paragraph">
+<p>El valor de la última hora a la que se accedió se ha agregado a la página Detalles del archivo y a los informes que se generan en formato CSV para que pueda ver cuándo los usuarios han accedido por última vez al archivo.</p>
+</div>
+</div>
+</div>
+</div>
+
+    </article>
+    <!-- Page Container -->
+  </div>
+
+  <div style="clear: both"></div><!-- Main needs to have height --></div>
+
+        </main>
+
+        <footer class="n-footer">
+  <div class="n-footer__bottom">
+    <div class="n-container">
+      <div class="n-footer__bottom-left">
+        <div class="n-footer__copyright">
+          <ul class="n-footer__copyright-list">
+            <li class="n-footer__copyright-link">
+              <a href="https://www.netapp.com/company/legal/copyright/">© 2023 NetApp, Inc.</a>
+            </li>
+            <li class="n-footer__copyright-link">
+              <a href="https://www.netapp.com/company/legal/terms-of-use/">Términos y condiciones</a>
+            </li>
+            <li class="n-footer__copyright-link">
+              <a href="https://www.netapp.com/company/legal/privacy-policy/">Política de privacidad</a>
+            </li>
+            <li class="n-footer__copyright-link">
+              <a href="https://www.netapp.com/company/legal/cookie-policy/">Política de Cookies</a>
+            </li>
+            <li class="n-footer__copyright-link">
+              <a class="ot-sdk-show-settings">Configuración de cookies</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+      <div class="n-footer__bottom-right">
+        <div class="n-footer__copyright">
+          <ul class="n-footer__copyright-list">
+            <li class="n-footer__copyright-link">
+              <a target="_self" href="javascript:netapp_mailto()">Enviar comentarios sobre esta página</a>
+            </li>
+          </ul>
+        </div>
+        <div class="n-footer__social-links">
+          <ul class="n-footer__social-link-list">
+            <li class="n-footer__social-link-list-item">
+              <a class="n-footer__social-link" data-ntap-social="follow-blog" href="https://blog.netapp.com"
+                target="_blank" title="blog" alt="blog">
+                <span class="n-footer__social-link-text">blog</span>
+                <svg class="n-icon-blog n-footer__social-link-icon" aria-labelledby="title">
+                  <title>blog@</title>
+                  <use xmlns:xlink="http://www.w3.org/1999/xlink"
+                    xlink:href="/es-es/cloud-manager-data-sense/common/svg/sprite.svg#blog"></use>
+                </svg>
+              </a>
+            </li>
+            <li class="n-footer__social-link-list-item">
+              <a class="n-footer__social-link" data-ntap-social="follow-community" href="https://community.netapp.com/"
+                target="_blank" title="community" alt="community">
+                <span class="n-footer__social-link-text">community</span>
+                <svg class="n-icon-community n-footer__social-link-icon" aria-labelledby="title">
+                  <title>community@</title>
+                  <use xmlns:xlink="http://www.w3.org/1999/xlink"
+                    xlink:href="/es-es/cloud-manager-data-sense/common/svg/sprite.svg#comments"></use>
+                </svg>
+              </a>
+            </li>
+            <li class="n-footer__social-link-list-item">
+              <a class="n-footer__social-link" data-ntap-social="follow-twitter" href="https://twitter.com/netapp"
+                target="_blank" title="twitter" alt="twitter">
+                <span class="n-footer__social-link-text">twitter</span>
+                <svg class="n-icon-twitter n-footer__social-link-icon" aria-labelledby="title">
+                  <title>twitter@</title>
+                  <use xmlns:xlink="http://www.w3.org/1999/xlink"
+                    xlink:href="/es-es/cloud-manager-data-sense/common/svg/sprite.svg#twitter"></use>
+                </svg>
+              </a>
+            </li>
+            <li class="n-footer__social-link-list-item">
+              <a class="n-footer__social-link" data-ntap-social="follow-facebook" href="https://www.facebook.com/NetApp"
+                target="_blank" title="facebook" alt="facebook">
+                <span class="n-footer__social-link-text">facebook</span>
+                <svg class="n-icon-facebook n-footer__social-link-icon" aria-labelledby="title">
+                  <title>facebook@</title>
+                  <use xmlns:xlink="http://www.w3.org/1999/xlink"
+                    xlink:href="/es-es/cloud-manager-data-sense/common/svg/sprite.svg#facebook"></use>
+                </svg>
+              </a>
+            </li>
+            <li class="n-footer__social-link-list-item">
+              <a class="n-footer__social-link" data-ntap-social="follow-linkedin"
+                href="https://www.linkedin.com/company/netapp" target="_blank" title="linkedin" alt="linkedin">
+                <span class="n-footer__social-link-text">linkedin</span>
+                <svg class="n-icon-linkedin n-footer__social-link-icon" aria-labelledby="title">
+                  <title>linkedin@</title>
+                  <use xmlns:xlink="http://www.w3.org/1999/xlink"
+                    xlink:href="/es-es/cloud-manager-data-sense/common/svg/sprite.svg#linkedin"></use>
+                </svg>
+              </a>
+            </li>
+            <li class="n-footer__social-link-list-item">
+              <a class="n-footer__social-link" data-ntap-social="follow-youtube"
+                href="https://www.youtube.com/user/NetAppTV" target="_blank" title="youtube" alt="youtube">
+                <span class="n-footer__social-link-text">youtube</span>
+                <svg class="n-icon-youtube n-footer__social-link-icon" aria-labelledby="title">
+                  <title>youtube@</title>
+                  <use xmlns:xlink="http://www.w3.org/1999/xlink"
+                    xlink:href="/es-es/cloud-manager-data-sense/common/svg/sprite.svg#youtube"></use>
+                </svg>
+              </a>
+            </li>
+            <li class="n-footer__social-link-list-item">
+              <a class="n-footer__social-link" data-ntap-social="follow-slideshare"
+                href="https://www.slideshare.net/NetApp" target="_blank" title="slideshare" alt="slideshare">
+                <span class="n-footer__social-link-text">slideshare</span>
+                <svg class="n-icon-slideshare n-footer__social-link-icon" aria-labelledby="title">
+                  <title>slideshare@</title>
+                  <use xmlns:xlink="http://www.w3.org/1999/xlink"
+                    xlink:href="/es-es/cloud-manager-data-sense/common/svg/sprite.svg#slideshare"></use>
+                </svg>
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+
+      </div><!-- Elasticsearch JS -->
+      <script type="text/javascript" src='/es-es/cloud-manager-data-sense/js/bundle.js'></script>
+
+      <!-- Syntax Highlighting -->
+      <script type="text/javascript" src='/es-es/cloud-manager-data-sense/js/prism.js'></script>
+      <script type="text/javascript" src='/es-es/cloud-manager-data-sense/js/prism-curl.js'></script>
+    </div>
+    <script>
+      document.body.offsetWidth=1903;
+      cookieLaw = {}
+      cookieLaw.euCountry = "US";
+      cookieLaw.invoke = function(){return false;}
+    </script>
+    <script src='/es-es/cloud-manager-data-sense/js/www-ntap.js'></script>
+    <script src='/es-es/cloud-manager-data-sense/js/tabbed-blocks.js'></script>
+    <script src='/es-es/cloud-manager-data-sense/js/sidebar.js'></script>
+  </body></html>
