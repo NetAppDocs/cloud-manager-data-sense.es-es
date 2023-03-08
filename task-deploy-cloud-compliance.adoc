@@ -188,6 +188,8 @@ image:screenshot_cloud_compliance_wizard_start.png["Una captura de pantalla del 
 .Resultado
 BlueXP pone en marcha la instancia de Cloud Data Sense en su proveedor de cloud.
 
+Las actualizaciones al conector BlueXP y al software de detección de datos se automatizan siempre que las instancias tengan conexión a Internet.
+
 .El futuro
 En la página Configuración puede seleccionar los orígenes de datos que desea analizar.
 

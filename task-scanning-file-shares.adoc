@@ -55,7 +55,7 @@ Revise los siguientes requisitos previos para asegurarse de tener una configurac
 * Necesitará la lista de recursos compartidos que desea añadir en el formato `<host_name>:/<share_path>`. Puede introducir los recursos compartidos individualmente o proporcionar una lista separada por líneas de los recursos compartidos de archivos que desea escanear.
 * En el caso de los recursos compartidos CIFS (SMB), asegúrese de tener credenciales de Active Directory con acceso de lectura a los recursos compartidos. Las credenciales de administración son preferidas en caso de que Cloud Data Sense necesite analizar cualquier dato que requiera permisos elevados.
 +
-Si desea asegurarse de que los análisis de clasificación de detección de datos no modifican sus archivos “horas a las que se accedió por última vez”, recomendamos que el usuario tenga permiso escribir atributos. Si es posible, recomendamos que el usuario configurado de Active Directory sea parte de un grupo padre en la organización que tenga permisos para todos los archivos.
+Si desea asegurarse de que los análisis de clasificación de detección de datos no modifican sus archivos “horas a las que se accedió por última vez”, recomendamos que el usuario tenga permisos de atributos de escritura en CIFS o permisos de escritura en NFS. Si es posible, recomendamos que el usuario configurado de Active Directory sea parte de un grupo padre en la organización que tenga permisos para todos los archivos.
 
 
 
@@ -142,6 +142,9 @@ Si el cuadro de diálogo enumera los recursos compartidos que no se han podido a
 
 | Desactive el análisis en recursos compartidos de archivos | Haga clic en *Desactivado* 
 |===
++
+El conmutador situado en la parte superior de la página para *Buscar cuando faltan los permisos de "atributos de escritura"* está desactivado de forma predeterminada. Esto significa que si Data Sense no tiene permisos de atributos de escritura en CIFS o permisos de escritura en NFS, el sistema no analizará los archivos porque el sentido de datos no puede revertir la Marca de hora original a la "hora del último acceso". Si no le importa si se restablece la última hora de acceso, ENCIENDA el conmutador y se explorarán todos los archivos independientemente de los permisos. link:reference-collected-metadata.html#last-access-time-timestamp["Leer más"^].
+
 
 
 .Resultado

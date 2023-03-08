@@ -117,13 +117,13 @@ Habilite Cloud Data Sense en Amazon S3 después de verificar los requisitos prev
 +
 image:screenshot_s3_we.gif["Una captura de pantalla de un icono de entorno de trabajo de Amazon S3"]
 
-. En el panel de detección de datos de la derecha, haga clic en *Activar*.
+. En el panel Servicios de la derecha, haga clic en *Activar* junto a *Clasificación*.
 +
-image:screenshot_s3_enable_compliance.gif["Una captura de pantalla de cómo habilitar el servicio Cloud Data Sense desde el panel Servicios"]
+image:screenshot_s3_enable_compliance.png["Una captura de pantalla de cómo habilitar el servicio Cloud Data Sense desde el panel Servicios"]
 
 . Cuando se le solicite, asigne una función IAM a la instancia de detección de datos en la nube que tiene <<Revisión de los requisitos previos de S3,los permisos necesarios>>.
 +
-image:screenshot_s3_compliance_iam_role.gif["Una captura de pantalla de introducción del rol de IAM de AWS para Cloud Data Sense"]
+image:screenshot_s3_compliance_iam_role.png["Una captura de pantalla de introducción del rol de IAM de AWS para Cloud Data Sense"]
 
 . Haga clic en *Activar*.
 
@@ -146,9 +146,9 @@ El sentido de los datos en cloud también puede ser <<Escaneando bloques de cuen
 
 .Pasos
 . Seleccione el entorno de trabajo de Amazon S3.
-. En el panel de la derecha, haga clic en *Configurar cucharones*.
+. En el panel Servicios de la derecha, haga clic en *Configurar cucharones*.
 +
-image:screenshot_s3_configure_buckets.gif["Una captura de pantalla de cómo hacer clic en Configure Buckets para elegir S3 cubos que desea escanear"]
+image:screenshot_s3_configure_buckets.png["Una captura de pantalla de cómo hacer clic en Configure Buckets para elegir S3 cubos que desea escanear"]
 
 . Active escaneos de sólo asignación o escaneos de asignación y clasificación en los bloques.
 +

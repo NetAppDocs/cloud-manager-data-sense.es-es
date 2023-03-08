@@ -34,3 +34,26 @@ El sentido de los datos recopila ciertos metadatos al realizar análisis de clas
 
 | *Acceso de usuarios/grupos* | La información de usuarios y grupos se toma de LDAP | No disponible (los usuarios NFS suelen gestionarse localmente en el servidor; por tanto, el mismo individuo puede tener un UID diferente en cada servidor) 
 |===
+
+
+== Marca de hora del último acceso
+
+Cuando Data Sense extrae datos de archivos compartidos, el sistema operativo considera que accede a los datos y cambia la "última hora de acceso" en consecuencia. Después del análisis, detección de datos intenta revertir la última hora de acceso a la Marca de tiempo original. Si Data Sense no tiene permisos de atributos de escritura en CIFS o permisos de escritura en NFS, el sistema no puede revertir la última hora de acceso a la Marca de hora original.
+
+De forma predeterminada, si Data Sense no tiene estos permisos, el sistema no analizará esos archivos en los volúmenes porque Data Sense no puede revertir la "última hora de acceso" a la Marca de hora original. Sin embargo, si no le importa si la última hora de acceso se restablece a la hora original en sus archivos, puede hacer clic en el conmutador *Buscar cuando faltan los permisos de "atributos de escritura"* situado en la parte inferior de la página de configuración para que Data Sense analice los volúmenes independientemente de los permisos.
+
+image:screenshot_scan_missing_permissions.png["Una captura de pantalla que muestra el conmutador que puede utilizar para que Data Sense analice sus archivos aunque no tenga los permisos correctos para revertir la hora del último acceso a la Marca de hora original."]
+
+Esta funcionalidad se puede aplicar a sistemas ONTAP en las instalaciones, Cloud Volumes ONTAP, Azure NetApp Files, FSX para ONTAP y recursos compartidos de archivos no de NetApp.
+
+Tenga en cuenta que hay un filtro en la página de investigación llamado _Scan Analysis Event_ que permite mostrar los archivos que no se han clasificado porque la detección de datos no pudo revertir la última hora a la que se accedió, O los archivos que se clasificaron aunque Data Sense no haya podido revertir la última hora de acceso.
+
+image:screenshot_scan_analysis_event_filter.png["Captura de pantalla del filtro para ver qué archivos se han escaneado y no se han analizado, basándose en tener o no tener permisos de escritura."]
+
+Las selecciones de filtro son:
+
+* "No clasificado -- no se puede revertir el tiempo del último acceso" - muestra los archivos que no se han clasificado debido a que faltan permisos de escritura.
+* "Hora de último acceso clasificada y actualizada": Muestra los archivos que se han clasificado y la detección de datos no ha podido restablecer la hora del último acceso a la fecha original. Este filtro sólo es relevante para entornos en los que ha activado *Buscar cuando faltan permisos de "atributos de escritura"*.
+
+
+Si es necesario, puede exportar estos resultados a un informe para poder ver qué archivos se están analizando o no debido a permisos. https://docs.netapp.com/us-en/cloud-manager-data-sense/task-investigate-data.html#data-investigation-report["Obtenga más información sobre el informe de investigación de datos"^].

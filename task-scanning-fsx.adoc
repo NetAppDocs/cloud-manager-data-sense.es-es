@@ -118,6 +118,9 @@ Consulte <<Habilitar y deshabilitar los análisis de cumplimiento de normativas 
 Cloud Data Sense comienza a analizar los volúmenes seleccionados en el entorno de trabajo. Los resultados estarán disponibles en la consola de cumplimiento tan pronto como Cloud Data Sense termine los análisis iniciales. El tiempo que se tarda en depende de la cantidad de datos; puede que sea unos minutos u horas.
 
 
+NOTE: De forma predeterminada, si Data sense no tiene permisos de atributos de escritura en CIFS o permisos de escritura en NFS, el sistema no analizará los archivos de los volúmenes, ya que el detección de datos no puede revertir la "última hora de acceso" a la Marca de hora original. Si no le importa si se restablece la última hora de acceso, haga clic en *o seleccione el tipo de exploración para cada volumen*. Esa página tiene un valor que se puede habilitar para que Data Sense analice los volúmenes sin tener en cuenta los permisos.
+
+
 
 == Comprobar que Cloud Data Sense tiene acceso a volúmenes
 
@@ -153,7 +156,7 @@ NOTE: Para FSX para ONTAP, Cloud Data Sense puede analizar volúmenes sólo en l
 Las credenciales pueden ser de sólo lectura, pero si se proporcionan credenciales de administrador, se garantiza que Data Sense pueda leer cualquier dato que requiera permisos elevados. Las credenciales se almacenan en la instancia de Cloud Data Sense.
 
 +
-Si desea asegurarse de que los análisis de clasificación de detección de datos no modifican sus archivos “horas a las que se accedió por última vez”, recomendamos que el usuario tenga permiso escribir atributos. Si es posible, recomendamos que el usuario configurado de Active Directory sea parte de un grupo padre en la organización que tenga permisos para todos los archivos.
+Si desea asegurarse de que los análisis de clasificación de detección de datos no modifican sus archivos “horas a las que se accedió por última vez”, recomendamos que el usuario tenga permisos de atributos de escritura en CIFS o permisos de escritura en NFS. Si es posible, recomendamos que el usuario configurado de Active Directory sea parte de un grupo padre en la organización que tenga permisos para todos los archivos.
 
 +
 Después de introducir las credenciales, debe ver un mensaje que indica que todos los volúmenes CIFS se autenticaron correctamente.
@@ -167,6 +170,8 @@ Después de introducir las credenciales, debe ver un mensaje que indica que todo
 == Habilitar y deshabilitar los análisis de cumplimiento de normativas en los volúmenes
 
 Puede iniciar o detener exploraciones de sólo asignación, o bien análisis de asignación y clasificación, en un entorno de trabajo en cualquier momento desde la página Configuración. También puede cambiar de exploraciones de sólo asignación a exploraciones de asignación y clasificación, y viceversa. Le recomendamos que analice todos los volúmenes.
+
+El conmutador situado en la parte superior de la página para *Buscar cuando faltan los permisos de "atributos de escritura"* está desactivado de forma predeterminada. Esto significa que si Data Sense no tiene permisos de atributos de escritura en CIFS o permisos de escritura en NFS, el sistema no analizará los archivos porque el sentido de datos no puede revertir la Marca de hora original a la "hora del último acceso". Si no le importa si se restablece la última hora de acceso, ENCIENDA el conmutador y se explorarán todos los archivos independientemente de los permisos. link:reference-collected-metadata.html#last-access-time-timestamp["Leer más"^].
 
 image:screenshot_volume_compliance_selection.png["Captura de pantalla de la página Configuración en la que puede activar o desactivar el análisis de volúmenes individuales."]
 

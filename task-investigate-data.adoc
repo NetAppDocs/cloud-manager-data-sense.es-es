@@ -104,7 +104,7 @@ Utilice los siguientes filtros para ver datos según criterios de tiempo.
 | Última modificación | Seleccione un intervalo de tiempo en el que se modificó por última vez el archivo. También puede especificar un intervalo de tiempo personalizado para restringir aún más los resultados de la búsqueda. 
 
 
-| Último acceso | Seleccione un intervalo de tiempo en el que se accedió por última vez al archivo. También puede especificar un intervalo de tiempo personalizado para restringir aún más los resultados de la búsqueda. En el caso de los tipos de archivos que analiza Data Sense, es la última vez que Data Sense analizó el archivo. 
+| Último acceso | Seleccione un intervalo de tiempo cuando se accedió por última vez al archivo o directorio (solo CIFS o NFS). También puede especificar un intervalo de tiempo personalizado para restringir aún más los resultados de la búsqueda. En el caso de los tipos de archivos que analiza Data Sense, es la última vez que Data Sense analizó el archivo. 
 |===
 
 
@@ -117,7 +117,7 @@ Utilice los siguientes filtros para ver los datos según la ubicación, el tama�
 | Filtro | Detalles 
 
 
-| Ruta del archivo | Introduzca hasta 20 rutas parciales o completas que desee incluir o excluir de la consulta. Si introduce ambas rutas de acceso de inclusión y rutas de exclusión, Data Sense busca primero todos los archivos de las rutas de acceso incluidas, quita los archivos de las rutas de acceso excluidas y, a continuación, muestra los resultados. 
+| Ruta del archivo | Introduzca hasta 20 rutas parciales o completas que desee incluir o excluir de la consulta. Si introduce ambas rutas de acceso de inclusión y rutas de exclusión, Data Sense busca primero todos los archivos de las rutas de acceso incluidas, quita los archivos de las rutas de acceso excluidas y, a continuación, muestra los resultados. Tenga en cuenta que incluir "*" en este filtro no tiene ningún efecto; deberá buscar archivos y subcarpetas específicos utilizando rutas completas. 
 
 
 | Tipo de directorio | Seleccione el tipo de directorio; "Compartir" o "carpeta". 
@@ -184,7 +184,12 @@ Utilice el siguiente filtro para ver datos por el estado de análisis de detecci
 
 
 | Estado del análisis | Seleccione una opción para mostrar la lista de archivos que están pendientes de primer análisis, que se han finalizado el análisis, que se han reescaneado pendiente o que no se han podido analizar. 
+
+
+| Evento Análisis de exploración | Seleccione si desea ver los archivos que no estaban clasificados porque la detección de datos no pudo revertir la última hora a la que se accedió, o los archivos que se clasificaron aunque la detección de datos no pudo revertir la última hora a la que se accedió. 
 |===
+link:reference-collected-metadata.html#last-access-time-timestamp["Consulte los detalles acerca de la Marca de hora "última en la que se accedió""] Para obtener más información acerca de los elementos que aparecen en la página Investigación al filtrar mediante el filtrado del evento Análisis de Análisis.
+
 
 
 === Filtrar datos por duplicados

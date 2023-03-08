@@ -34,13 +34,13 @@ Tenga en cuenta que puede agregar a la lista de datos personales que se encuentr
 | Tipo | Identificador | ¿validación de proximidad? | Inglés | Alemán | Español | Francés | Japonés 
 
 
-.6+| Generales | Dirección de correo electrónico | No | ✓ | ✓ | ✓ |  | ✓ 
-
-
-| Número de tarjeta de crédito | No | ✓ | ✓ | ✓ |  | ✓ 
+.6+| Generales | Número de tarjeta de crédito | No | ✓ | ✓ | ✓ |  | ✓ 
 
 
 | Datos sujetos | No | ✓ | ✓ | ✓ |  |  
+
+
+| Dirección de correo electrónico | No | ✓ | ✓ | ✓ |  | ✓ 
 
 
 | Número de iban (número de cuenta bancaria internacional) | No | ✓ | ✓ | ✓ |  | ✓ 
@@ -52,7 +52,7 @@ Tenga en cuenta que puede agregar a la lista de datos personales que se encuentr
 | Contraseña | Sí | ✓ | ✓ | ✓ |  | ✓ 
 
 
-.51+| Identificadores nacionales | Australian TFN (número de archivo fiscal) | Sí | ✓ | ✓ | ✓ |  |  
+.54+| Identificadores nacionales | Australian TFN (número de archivo fiscal) | Sí | ✓ | ✓ | ✓ |  |  
 
 
 | Licencia Australian Driver's License | Sí | ✓ | ✓ | ✓ |  |  
@@ -70,6 +70,12 @@ Tenga en cuenta que puede agregar a la lista de datos personales que se encuentr
 | ID belga (Numero Nacional) | Sí | ✓ | ✓ | ✓ |  |  
 
 
+| Número de tarjeta de identidad de Botswana (Omang) | Sí | ✓ | ✓ | ✓ |  |  
+
+
+| Número de pasaporte de Botswana | Sí | ✓ | ✓ | ✓ |  |  
+
+
 | ID brasileño (CPF) | Sí | ✓ | ✓ | ✓ |  |  
 
 
@@ -77,9 +83,6 @@ Tenga en cuenta que puede agregar a la lista de datos personales que se encuentr
 
 
 | ID búlgaro (UCN) | Sí | ✓ | ✓ | ✓ |  |  
-
-
-| Licencia de conducir de California | Sí | ✓ | ✓ | ✓ |  |  
 
 
 | Croata ID (OIB) | Sí | ✓ | ✓ | ✓ |  |  
@@ -127,9 +130,6 @@ Tenga en cuenta que puede agregar a la lista de datos personales que se encuentr
 | Número de identificación fiscal húngaro | Sí | ✓ | ✓ | ✓ |  |  
 
 
-| Licencia de conducir de Indiana | Sí | ✓ | ✓ | ✓ |  |  
-
-
 | Irish ID (PPS) | Sí | ✓ | ✓ | ✓ |  |  
 
 
@@ -157,9 +157,6 @@ Tenga en cuenta que puede agregar a la lista de datos personales que se encuentr
 | Número del Servicio Nacional de Salud (NHS) | Sí | ✓ | ✓ | ✓ |  |  
 
 
-| Licencia de conducir de Nueva York | Sí | ✓ | ✓ | ✓ |  |  
-
-
 | Cuenta bancaria de Nueva Zelanda | Sí | ✓ | ✓ | ✓ |  |  
 
 
@@ -184,6 +181,9 @@ Tenga en cuenta que puede agregar a la lista de datos personales que se encuentr
 | Rumano ID (CNP) | Sí | ✓ | ✓ | ✓ |  |  
 
 
+| Tarjeta de identidad de registro nacional de Singapur (NRIC) | Sí | ✓ | ✓ | ✓ |  |  
+
+
 | ID esloveno (EMSO) | Sí | ✓ | ✓ | ✓ |  |  
 
 
@@ -200,6 +200,15 @@ Tenga en cuenta que puede agregar a la lista de datos personales que se encuentr
 
 
 | REINO UNIDO ID (NINO) | Sí | ✓ | ✓ | ✓ |  |  
+
+
+| Licencia de conducir de Estados Unidos California | Sí | ✓ | ✓ | ✓ |  |  
+
+
+| Licencia de conducir de Estados Unidos Indiana | Sí | ✓ | ✓ | ✓ |  |  
+
+
+| Licencia de conducir de los Estados Unidos de Nueva York | Sí | ✓ | ✓ | ✓ |  |  
 
 
 | Número de Seguro Social de Estados Unidos (SSN) | Sí | ✓ | ✓ | ✓ |  |  

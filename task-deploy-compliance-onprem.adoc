@@ -4,7 +4,7 @@ permalink: task-deploy-compliance-onprem.html
 keywords: cloud compliance, data sense, get started, deploy cloud data sense, outbound internet, endpoints, cloud compliance internet, web browser connectivity, cloud compliance access, privacy, compliance, on-premises 
 summary: Complete unos pasos para implementar Cloud Data Sense en un host Linux de su red, o en un host Linux en la nube, que tenga acceso a Internet. 
 ---
-= Implemente Cloud Data Sense en un host Linux que tenga acceso a Internet
+= Ponga en marcha Cloud Data Sense en un host que tiene acceso a Internet
 :hardbreaks:
 :allow-uri-read: 
 :nofooter: 
@@ -105,6 +105,7 @@ Tenga en cuenta que puede implementar la detección de datos en un sistema con m
 * *Tipo de máquina GCP*: Tipo de instancia que cumple los requisitos de CPU y RAM anteriores. Lo recomendamos https://cloud.google.com/compute/docs/general-purpose-machines#n2_machines["n2-estándar-16"^].
 * *Sistema operativo*: Red Hat Enterprise Linux o CentOS versiones 8.0 a 8.7
 +
+** CentOS Stream 8 también es compatible
 ** Se pueden utilizar las versiones 7.8 o 7.9, pero la versión de kernel de Linux debe ser 4.0 o posterior
 ** El sistema operativo debe ser capaz de instalar el motor del docker
 
@@ -277,7 +278,7 @@ image:screenshot_cloud_compliance_deploy_onprem.png["Una captura de pantalla de 
 +
 [source, cli]
 ----
-tar -xzf DATASENSE-INSTALLER-V1.16.1.tar.gz
+tar -xzf DATASENSE-INSTALLER-V1.21.0.tar.gz
 ----
 . Cuando el instalador lo solicite, puede introducir los valores necesarios en una serie de mensajes o puede proporcionar los parámetros necesarios como argumentos de línea de comandos al instalador.
 +
