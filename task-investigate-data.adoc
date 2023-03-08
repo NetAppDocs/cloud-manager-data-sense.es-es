@@ -117,7 +117,7 @@ Utilice los siguientes filtros para ver los datos según la ubicación, el tama�
 | Filtro | Detalles 
 
 
-| Ruta del archivo | Introduzca hasta 20 rutas parciales o completas que desee incluir o excluir de la consulta. Si introduce ambas rutas de acceso de inclusión y rutas de exclusión, Data Sense busca primero todos los archivos de las rutas de acceso incluidas, quita los archivos de las rutas de acceso excluidas y, a continuación, muestra los resultados. Tenga en cuenta que incluir "*" en este filtro no tiene ningún efecto; deberá buscar archivos y subcarpetas específicos utilizando rutas completas. 
+| Ruta del archivo | Introduzca hasta 20 rutas parciales o completas que desee incluir o excluir de la consulta. Si introduce ambas rutas de acceso de inclusión y rutas de exclusión, Data Sense busca primero todos los archivos de las rutas de acceso incluidas, quita los archivos de las rutas de acceso excluidas y, a continuación, muestra los resultados. Tenga en cuenta que el uso de "*" en este filtro no tiene ningún efecto y que no puede excluir carpetas específicas del análisis; se analizarán todos los directorios y archivos de un recurso compartido configurado. 
 
 
 | Tipo de directorio | Seleccione el tipo de directorio; "Compartir" o "carpeta". 

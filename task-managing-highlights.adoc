@@ -62,7 +62,7 @@ TIP: No se pueden copiar archivos que residen en bases de datos.
 .Requisitos
 * Debe tener el rol de administrador de cuentas o administrador de área de trabajo para copiar archivos.
 * La copia de archivos requiere que el recurso compartido NFS de destino permita el acceso desde la instancia de Data Sense.
-* Puede copiar un máximo de 100,000 archivos al mismo tiempo.
+* Puede copiar entre 1 y 100,000 archivos a la vez.
 
 
 .Pasos
@@ -104,6 +104,7 @@ El nuevo volumen se creará en el mismo agregado que el volumen de origen. Aseg�
 
 .Requisitos
 * Debe tener el rol de administrador de cuentas o administrador de área de trabajo para copiar archivos.
+* Debe seleccionar un mínimo de 20 archivos.
 * Todos los archivos seleccionados deben ser del mismo volumen y el volumen debe estar en línea.
 * El volumen debe ser de un sistema ONTAP Cloud Volumes ONTAP o en las instalaciones. Actualmente no se admiten otros orígenes de datos.
 * Debe instalar la licencia de FlexClone en el clúster. Esta licencia se instala de manera predeterminada en sistemas Cloud Volumes ONTAP.
@@ -157,6 +158,7 @@ TIP: No se pueden copiar y sincronizar archivos que residen en cuentas de ShareP
 
 .Requisitos
 * Debe tener el rol de administrador de cuentas o administrador de área de trabajo para copiar y sincronizar archivos.
+* Debe seleccionar un mínimo de 20 archivos.
 * Todos los archivos seleccionados deben ser del mismo repositorio de origen (volumen ONTAP, bloque de S3, recurso compartido NFS o CIFS, etc.).
 * Tendrá que activar el servicio Cloud Sync y configurar un mínimo de un agente de datos que se puede utilizar para transferir archivos entre los sistemas de origen y destino. Revise los requisitos de Cloud Sync que comienzan con https://docs.netapp.com/us-en/cloud-manager-sync/task-quick-start.html["Descripción de Inicio rápido"^].
 +
