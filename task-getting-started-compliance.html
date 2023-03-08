@@ -79,11 +79,17 @@
 
   <!-- Used for Product Family Page Sidebar Visibility --><!-- Used to import Promise for IE. Required for SearchKit -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/bluebird/3.3.5/bluebird.min.js"></script><script src='/es-es/cloud-manager-data-sense/js/na-search.js'></script><script src='/es-es/cloud-manager-data-sense/js/na-pagenav.js'></script><script src='/es-es/cloud-manager-data-sense/js/na-utility.js'></script>
+ <!--  
+  <link rel='stylesheet' href='/es-es/cloud-manager-data-sense/css/prism.css' type='text/css'>
+  <link rel='stylesheet' href='/es-es/cloud-manager-data-sense/css/prism-netapp.css' type='text/css'>
+ -->
+
+  <!-- <script src='/es-es/cloud-manager-data-sense/js/na-utility.js'></script> -->
   <script src='/es-es/cloud-manager-data-sense/js/clouddocs.js'></script>
   <script src='/es-es/cloud-manager-data-sense/js/jquery.navgoco.min.js'></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
-  <script src='/es-es/cloud-manager-data-sense/js/toc.js'></script>
-  <script src='/es-es/cloud-manager-data-sense/js/customscripts.js'></script><script>
+  <!-- <script src='/es-es/cloud-manager-data-sense/js/toc.js'></script> -->
+  <!-- <script src='/es-es/cloud-manager-data-sense/js/customscripts.js'></script> --><script>
       $(document).ready(function() {
           
           var collapseOnInit = true;
@@ -148,7 +154,7 @@
   <script src='/es-es/cloud-manager-data-sense/js/FileSaver.min.js'></script>
   <script src='/es-es/cloud-manager-data-sense/js/jszip-utils.min.js'></script>
   <script src='/es-es/cloud-manager-data-sense/js/jszip.min.js'></script>
-  <script src='/es-es/cloud-manager-data-sense/js/pdf-ux.js'></script>
+  <!-- <script src='/es-es/cloud-manager-data-sense/js/pdf-ux.js'></script> -->
 </head>
 
 
@@ -221,7 +227,7 @@
           <span class="n-property-bar__menu-toggle-text">Menu</span>
           <svg class="n-icon-bars n-property-bar__menu-toggle-icon" aria-labelledby="title">
             <title>bars</title>
-            <use xlink:href="/es-es/cloud-manager-data-sense/common/svg/sprite.svg#bars"></use>
+            <use xlink:href="/es-es/cloud-manager-data-sense/images/sprite.svg#bars"></use>
           </svg>
         </a>
       </div>
@@ -230,11 +236,11 @@
           <div class="n-property-bar__logo">
             <svg class="n-icon-netapp-mark n-icon-netapp-mark n-property-bar__netapp-mark-icon" aria-labelledby="title">
               <title>netapp-mark</title>
-              <use xlink:href="/es-es/cloud-manager-data-sense/common/svg/sprite.svg#netapp-mark"></use>
+              <use xlink:href="/es-es/cloud-manager-data-sense/images/sprite.svg#netapp-mark"></use>
             </svg>
             <svg class="n-icon-netapp-logo n-property-bar__logo-svg" aria-labelledby="title">
               <title>netapp-logo</title>
-              <use xlink:href="/es-es/cloud-manager-data-sense/common/svg/sprite.svg#netapp-logo"></use>
+              <use xlink:href="/es-es/cloud-manager-data-sense/images/sprite.svg#netapp-logo"></use>
             </svg>
           </div>
         </a>
@@ -260,7 +266,7 @@
           <button class="n-property-bar__search-toggle-button" type="button">
             <svg class="n-icon-search n-property-bar__search-toggle-button-icon" aria-labelledby="title">
               <title>search</title>
-              <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="/es-es/cloud-manager-data-sense/common/svg/sprite.svg#search"></use>
+              <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="/es-es/cloud-manager-data-sense/images/sprite.svg#search"></use>
             </svg>
           </button>
         </div>
@@ -274,7 +280,7 @@
       <span class="lang-name">Español</span>
           <svg class="n-globe__icon" aria-labelledby="title">
             <title>globe</title>
-            <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="/es-es/cloud-manager-data-sense/common/svg/sprite.svg#globe"></use>
+            <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="/es-es/cloud-manager-data-sense/images/sprite.svg#globe"></use>
           </svg>
         </button>
       </div>
@@ -984,7 +990,7 @@
     <div class="ie-nmt-disclaimer-container">
       <div class="ie-nmt-disclaimer-icon">
         <svg class="luci-icon" aria-hidden="true">
-          <use xlink:href="/es-es/cloud-manager-data-sense/common/svg/sprite.svg#circle-info">
+          <use xlink:href="/es-es/cloud-manager-data-sense/images/sprite.svg#circle-info">
         </svg>
       </div>
       <div class="ie-nmt-disclaimer-content">
@@ -1001,7 +1007,7 @@
 <p class="page-details">
   
     
-    <time datetime="2023-02-20 16:43:26 +0000">02/20/2023</time>
+    <time datetime="2023-03-08 15:23:42 +0000">03/08/2023</time>
     
   
 
@@ -1158,6 +1164,18 @@
 <div class="title">Resultado</div>
 <p>Cloud Data Sense comienza a analizar los volúmenes seleccionados en el entorno de trabajo. Los resultados estarán disponibles en la consola de cumplimiento tan pronto como Cloud Data Sense termine los análisis iniciales. El tiempo que se tarda en depende de la cantidad de datos; puede que sea unos minutos u horas.</p>
 </div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<img src="/us-en/cloud-manager-data-sense/images/note.svg" alt="Nota">
+</td>
+<td class="content">
+De forma predeterminada, si Data sense no tiene permisos de atributos de escritura en CIFS o permisos de escritura en NFS, el sistema no analizará los archivos de los volúmenes, ya que el detección de datos no puede revertir la "última hora de acceso" a la Marca de hora original. Si no le importa si se restablece la última hora de acceso, haga clic en <strong>o seleccione el tipo de exploración para cada volumen</strong>. Esa página tiene un valor que se puede habilitar para que Data Sense analice los volúmenes sin tener en cuenta los permisos.
+</td>
+</tr>
+</table>
+</div>
 </div>
 </div>
 <div class="sect1">
@@ -1201,7 +1219,7 @@
 <li>
 <p>En el menú de navegación izquierdo de BlueXP, haga clic en <strong>Gobierno &gt; Clasificación</strong> y seleccione la ficha <strong>Configuración</strong>.</p>
 <div class="paragraph">
-<p><span class="image"><img src="./media/screenshot_cifs_credentials.gif" alt="Captura de pantalla de la ficha cumplimiento que muestra el botón Estado del análisis que está disponible en la parte superior derecha del panel de contenido."></span></p>
+<p><span class="image"><img src="./media/screenshot_cifs_credentials_cvo.png" alt="Captura de pantalla de la ficha cumplimiento que muestra el botón Estado del análisis que está disponible en la parte superior derecha del panel de contenido."></span></p>
 </div>
 </li>
 <li>
@@ -1210,7 +1228,7 @@
 <p>Las credenciales pueden ser de sólo lectura, pero si se proporcionan credenciales de administrador, se garantiza que Data Sense pueda leer cualquier dato que requiera permisos elevados. Las credenciales se almacenan en la instancia de Cloud Data Sense.</p>
 </div>
 <div class="paragraph">
-<p>Si desea asegurarse de que los análisis de clasificación de detección de datos no modifican sus archivos “horas a las que se accedió por última vez”, recomendamos que el usuario tenga permiso escribir atributos. Si es posible, recomendamos que el usuario configurado de Active Directory sea parte de un grupo padre en la organización que tenga permisos para todos los archivos.</p>
+<p>Si desea asegurarse de que los análisis de clasificación de detección de datos no modifican sus archivos “horas a las que se accedió por última vez”, recomendamos que el usuario tenga permisos de atributos de escritura en CIFS o permisos de escritura en NFS. Si es posible, recomendamos que el usuario configurado de Active Directory sea parte de un grupo padre en la organización que tenga permisos para todos los archivos.</p>
 </div>
 <div class="paragraph">
 <p>Después de introducir las credenciales, debe ver un mensaje que indica que todos los volúmenes CIFS se autenticaron correctamente.</p>
@@ -1240,6 +1258,9 @@
 <div class="sectionbody">
 <div class="paragraph">
 <p>Puede iniciar o detener exploraciones de sólo asignación, o bien análisis de asignación y clasificación, en un entorno de trabajo en cualquier momento desde la página Configuración. También puede cambiar de exploraciones de sólo asignación a exploraciones de asignación y clasificación, y viceversa. Le recomendamos que analice todos los volúmenes.</p>
+</div>
+<div class="paragraph">
+<p>El conmutador situado en la parte superior de la página para <strong>Buscar cuando faltan los permisos de "atributos de escritura"</strong> está desactivado de forma predeterminada. Esto significa que si Data Sense no tiene permisos de atributos de escritura en CIFS o permisos de escritura en NFS, el sistema no analizará los archivos porque el sentido de datos no puede revertir la Marca de hora original a la "hora del último acceso". Si no le importa si se restablece la última hora de acceso, ENCIENDA el conmutador y se explorarán todos los archivos independientemente de los permisos. <a href="reference-collected-metadata.html#last-access-time-timestamp" target="_blank" rel="noopener">"Leer más"</a>.</p>
 </div>
 <div class="paragraph">
 <p><span class="image"><img src="./media/screenshot_volume_compliance_selection.png" alt="Captura de pantalla de la página Configuración en la que puede activar o desactivar el análisis de volúmenes individuales."></span></p>
@@ -1413,7 +1434,7 @@ Las credenciales de Active Directory solo están registradas en la máquina virt
                 <svg class="n-icon-blog n-footer__social-link-icon" aria-labelledby="title">
                   <title>blog@</title>
                   <use xmlns:xlink="http://www.w3.org/1999/xlink"
-                    xlink:href="/es-es/cloud-manager-data-sense/common/svg/sprite.svg#blog"></use>
+                    xlink:href="/es-es/cloud-manager-data-sense/images/sprite.svg#blog"></use>
                 </svg>
               </a>
             </li>
@@ -1424,7 +1445,7 @@ Las credenciales de Active Directory solo están registradas en la máquina virt
                 <svg class="n-icon-community n-footer__social-link-icon" aria-labelledby="title">
                   <title>community@</title>
                   <use xmlns:xlink="http://www.w3.org/1999/xlink"
-                    xlink:href="/es-es/cloud-manager-data-sense/common/svg/sprite.svg#comments"></use>
+                    xlink:href="/es-es/cloud-manager-data-sense/images/sprite.svg#comments"></use>
                 </svg>
               </a>
             </li>
@@ -1435,7 +1456,7 @@ Las credenciales de Active Directory solo están registradas en la máquina virt
                 <svg class="n-icon-twitter n-footer__social-link-icon" aria-labelledby="title">
                   <title>twitter@</title>
                   <use xmlns:xlink="http://www.w3.org/1999/xlink"
-                    xlink:href="/es-es/cloud-manager-data-sense/common/svg/sprite.svg#twitter"></use>
+                    xlink:href="/es-es/cloud-manager-data-sense/images/sprite.svg#twitter"></use>
                 </svg>
               </a>
             </li>
@@ -1446,7 +1467,7 @@ Las credenciales de Active Directory solo están registradas en la máquina virt
                 <svg class="n-icon-facebook n-footer__social-link-icon" aria-labelledby="title">
                   <title>facebook@</title>
                   <use xmlns:xlink="http://www.w3.org/1999/xlink"
-                    xlink:href="/es-es/cloud-manager-data-sense/common/svg/sprite.svg#facebook"></use>
+                    xlink:href="/es-es/cloud-manager-data-sense/images/sprite.svg#facebook"></use>
                 </svg>
               </a>
             </li>
@@ -1457,7 +1478,7 @@ Las credenciales de Active Directory solo están registradas en la máquina virt
                 <svg class="n-icon-linkedin n-footer__social-link-icon" aria-labelledby="title">
                   <title>linkedin@</title>
                   <use xmlns:xlink="http://www.w3.org/1999/xlink"
-                    xlink:href="/es-es/cloud-manager-data-sense/common/svg/sprite.svg#linkedin"></use>
+                    xlink:href="/es-es/cloud-manager-data-sense/images/sprite.svg#linkedin"></use>
                 </svg>
               </a>
             </li>
@@ -1468,7 +1489,7 @@ Las credenciales de Active Directory solo están registradas en la máquina virt
                 <svg class="n-icon-youtube n-footer__social-link-icon" aria-labelledby="title">
                   <title>youtube@</title>
                   <use xmlns:xlink="http://www.w3.org/1999/xlink"
-                    xlink:href="/es-es/cloud-manager-data-sense/common/svg/sprite.svg#youtube"></use>
+                    xlink:href="/es-es/cloud-manager-data-sense/images/sprite.svg#youtube"></use>
                 </svg>
               </a>
             </li>
@@ -1479,7 +1500,7 @@ Las credenciales de Active Directory solo están registradas en la máquina virt
                 <svg class="n-icon-slideshare n-footer__social-link-icon" aria-labelledby="title">
                   <title>slideshare@</title>
                   <use xmlns:xlink="http://www.w3.org/1999/xlink"
-                    xlink:href="/es-es/cloud-manager-data-sense/common/svg/sprite.svg#slideshare"></use>
+                    xlink:href="/es-es/cloud-manager-data-sense/images/sprite.svg#slideshare"></use>
                 </svg>
               </a>
             </li>
@@ -1503,7 +1524,6 @@ Las credenciales de Active Directory solo están registradas en la máquina virt
       cookieLaw.euCountry = "US";
       cookieLaw.invoke = function(){return false;}
     </script>
-    <script src='/es-es/cloud-manager-data-sense/js/www-ntap.js'></script>
     <script src='/es-es/cloud-manager-data-sense/js/tabbed-blocks.js'></script>
     <script src='/es-es/cloud-manager-data-sense/js/sidebar.js'></script>
   </body></html>

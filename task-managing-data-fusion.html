@@ -79,11 +79,17 @@
 
   <!-- Used for Product Family Page Sidebar Visibility --><!-- Used to import Promise for IE. Required for SearchKit -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/bluebird/3.3.5/bluebird.min.js"></script><script src='/es-es/cloud-manager-data-sense/js/na-search.js'></script><script src='/es-es/cloud-manager-data-sense/js/na-pagenav.js'></script><script src='/es-es/cloud-manager-data-sense/js/na-utility.js'></script>
+ <!--  
+  <link rel='stylesheet' href='/es-es/cloud-manager-data-sense/css/prism.css' type='text/css'>
+  <link rel='stylesheet' href='/es-es/cloud-manager-data-sense/css/prism-netapp.css' type='text/css'>
+ -->
+
+  <!-- <script src='/es-es/cloud-manager-data-sense/js/na-utility.js'></script> -->
   <script src='/es-es/cloud-manager-data-sense/js/clouddocs.js'></script>
   <script src='/es-es/cloud-manager-data-sense/js/jquery.navgoco.min.js'></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
-  <script src='/es-es/cloud-manager-data-sense/js/toc.js'></script>
-  <script src='/es-es/cloud-manager-data-sense/js/customscripts.js'></script><script>
+  <!-- <script src='/es-es/cloud-manager-data-sense/js/toc.js'></script> -->
+  <!-- <script src='/es-es/cloud-manager-data-sense/js/customscripts.js'></script> --><script>
       $(document).ready(function() {
           
           var collapseOnInit = true;
@@ -148,7 +154,7 @@
   <script src='/es-es/cloud-manager-data-sense/js/FileSaver.min.js'></script>
   <script src='/es-es/cloud-manager-data-sense/js/jszip-utils.min.js'></script>
   <script src='/es-es/cloud-manager-data-sense/js/jszip.min.js'></script>
-  <script src='/es-es/cloud-manager-data-sense/js/pdf-ux.js'></script>
+  <!-- <script src='/es-es/cloud-manager-data-sense/js/pdf-ux.js'></script> -->
 </head>
 
 
@@ -221,7 +227,7 @@
           <span class="n-property-bar__menu-toggle-text">Menu</span>
           <svg class="n-icon-bars n-property-bar__menu-toggle-icon" aria-labelledby="title">
             <title>bars</title>
-            <use xlink:href="/es-es/cloud-manager-data-sense/common/svg/sprite.svg#bars"></use>
+            <use xlink:href="/es-es/cloud-manager-data-sense/images/sprite.svg#bars"></use>
           </svg>
         </a>
       </div>
@@ -230,11 +236,11 @@
           <div class="n-property-bar__logo">
             <svg class="n-icon-netapp-mark n-icon-netapp-mark n-property-bar__netapp-mark-icon" aria-labelledby="title">
               <title>netapp-mark</title>
-              <use xlink:href="/es-es/cloud-manager-data-sense/common/svg/sprite.svg#netapp-mark"></use>
+              <use xlink:href="/es-es/cloud-manager-data-sense/images/sprite.svg#netapp-mark"></use>
             </svg>
             <svg class="n-icon-netapp-logo n-property-bar__logo-svg" aria-labelledby="title">
               <title>netapp-logo</title>
-              <use xlink:href="/es-es/cloud-manager-data-sense/common/svg/sprite.svg#netapp-logo"></use>
+              <use xlink:href="/es-es/cloud-manager-data-sense/images/sprite.svg#netapp-logo"></use>
             </svg>
           </div>
         </a>
@@ -260,7 +266,7 @@
           <button class="n-property-bar__search-toggle-button" type="button">
             <svg class="n-icon-search n-property-bar__search-toggle-button-icon" aria-labelledby="title">
               <title>search</title>
-              <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="/es-es/cloud-manager-data-sense/common/svg/sprite.svg#search"></use>
+              <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="/es-es/cloud-manager-data-sense/images/sprite.svg#search"></use>
             </svg>
           </button>
         </div>
@@ -274,7 +280,7 @@
       <span class="lang-name">Español</span>
           <svg class="n-globe__icon" aria-labelledby="title">
             <title>globe</title>
-            <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="/es-es/cloud-manager-data-sense/common/svg/sprite.svg#globe"></use>
+            <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="/es-es/cloud-manager-data-sense/images/sprite.svg#globe"></use>
           </svg>
         </button>
       </div>
@@ -984,7 +990,7 @@
     <div class="ie-nmt-disclaimer-container">
       <div class="ie-nmt-disclaimer-icon">
         <svg class="luci-icon" aria-hidden="true">
-          <use xlink:href="/es-es/cloud-manager-data-sense/common/svg/sprite.svg#circle-info">
+          <use xlink:href="/es-es/cloud-manager-data-sense/images/sprite.svg#circle-info">
         </svg>
       </div>
       <div class="ie-nmt-disclaimer-content">
@@ -1001,7 +1007,7 @@
 <p class="page-details">
   
     
-    <time datetime="2023-02-20 16:43:26 +0000">02/20/2023</time>
+    <time datetime="2023-03-08 15:23:42 +0000">03/08/2023</time>
     
   
 
@@ -1026,6 +1032,9 @@
 </li>
 <li>
 <p>Puede agregar un patrón personal utilizando una expresión regular (regex)&#8201;&#8212;&#8201;el regex se agrega a los patrones predefinidos existentes.</p>
+</li>
+<li>
+<p>Puede agregar categorías personalizadas para identificar dónde se encuentran determinadas categorías de información en los datos.</p>
 </li>
 </ul>
 </div>
@@ -1128,6 +1137,71 @@ Las capacidades descritas en esta sección sólo están disponibles si ha elegid
 </div>
 </div>
 <div class="sect1">
+<h2 id="agregar-palabras-clave-personalizadas-de-una-lista-de-palabras">Agregar palabras clave personalizadas de una lista de palabras</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Puede agregar palabras clave personalizadas a Data Sense para que identifique dónde se encuentra esa información en sus datos. Agregue las palabras clave sólo introduciendo cada palabra que desee que reconozca Data Sense. Las palabras clave se agregan a las palabras clave predefinidas existentes que Data Sense ya utiliza, y los resultados serán visibles en la sección patrones personales.</p>
+</div>
+<div class="paragraph">
+<p>Por ejemplo, es posible que desee ver dónde se mencionan los nombres internos de producto en todos los archivos para asegurarse de que estos nombres no están accesibles en ubicaciones que no son seguras.</p>
+</div>
+<div class="paragraph">
+<p>Después de actualizar las palabras clave personalizadas, Data Sense reiniciará el análisis de todos los orígenes de datos. Una vez finalizada la exploración, los nuevos resultados aparecerán en el Panel de cumplimiento de detección de datos bajo la sección "resultados personales" y en la página Investigación del filtro "datos personales".</p>
+</div>
+<div class="olist arabic">
+<div class="title">Pasos</div>
+<ol class="arabic">
+<li>
+<p>En la ficha <em>Classification settings</em>, haga clic en <strong>Agregar nuevo clasificador</strong> para iniciar el asistente <em>Add Custom Classifier</em>.</p>
+<div class="paragraph">
+<p><span class="image"><img src="./media/screenshot_compliance_add_classifier_button.png" alt="Una captura de pantalla que muestra cómo iniciar el asistente Agregar clasificador personalizado."></span></p>
+</div>
+</li>
+<li>
+<p>En la página <em>Select type</em>, escriba el nombre del clasificador, proporcione una breve descripción, seleccione <strong>Identificador personal</strong> y, a continuación, haga clic en <strong>Siguiente</strong>.</p>
+<div class="paragraph">
+<p>El nombre que introduzca aparecerá en la interfaz de usuario de detección de datos como encabezado para los archivos escaneados que coincidan con los requisitos del clasificador y como nombre del filtro en la página Investigación.</p>
+</div>
+<div class="paragraph">
+<p>También puede marcar la casilla "Mask Detected results in the system" para que el resultado completo no aparezca en la interfaz de usuario. Por ejemplo, puede que desee hacer esto para ocultar los números completos de la tarjeta de crédito o datos personales similares (la máscara aparecerá en la IU de esta manera: "Pase:[<strong><strong>*] pase:[</strong><strong>] pase:[</strong><strong>] pase:[</strong></strong>*]" 3434).</p>
+</div>
+<div class="paragraph">
+<p><span class="image"><img src="./media/screenshot_select_classifier_type2.png" alt="Una captura de pantalla que muestra cómo asignar un nombre al clasificador y seleccionar el tipo de clasificador."></span></p>
+</div>
+</li>
+<li>
+<p>En la página <em>Select Data Analysis Tool</em>, seleccione <strong>palabras clave personalizadas</strong> como el método que desea utilizar para definir el clasificador y, a continuación, haga clic en <strong>Siguiente</strong>.</p>
+<div class="paragraph">
+<p><span class="image"><img src="./media/screenshot_select_classifier_tool_keywords.png" alt="Captura de pantalla que muestra la selección de palabras clave personalizadas como herramienta que utilizará Data Sense para crear el patrón."></span></p>
+</div>
+</li>
+<li>
+<p>En la página <em>Create Logic</em>, introduzca las palabras clave que desee reconocer - cada palabra en una línea separada - y haga clic en <strong>Validar</strong>.</p>
+<div class="paragraph">
+<p>La siguiente captura de pantalla muestra los nombres de productos internos (diferentes tipos de búhos). La búsqueda de detección de datos para estos elementos no distingue mayúsculas de minúsculas.</p>
+</div>
+<div class="paragraph">
+<p><span class="image"><img src="./media/screenshot_select_classifier_create_logic_keyword.png" alt="Captura de pantalla de introducción de las palabras clave para el clasificador de clientes."></span></p>
+</div>
+</li>
+<li>
+<p>Haga clic en <strong>hecho</strong> y el sensor de datos comienza a volver a analizar sus datos.</p>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<div class="title">Resultados</div>
+<p>Una vez finalizada la exploración, los resultados incluirán esta nueva información en el Panel de cumplimiento en la sección "resultados personales" y en la página Investigación del filtro "datos personales".</p>
+</div>
+<div class="paragraph">
+<p><span class="image"><img src="./media/screenshot_add_keywords_result.png" alt="Una captura de pantalla que muestra un ejemplo de palabra clave personalizada resulta en el panel resultados de la investigación."></span></p>
+</div>
+<div class="paragraph">
+<p>Como puede ver, el nombre del clasificador se utiliza como nombre en el panel resultados personales. De esta manera puede activar muchos grupos diferentes de palabras clave y ver los resultados de cada grupo.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
 <h2 id="agregue-identificadores-de-datos-personales-personalizados-mediante-un-regex">Agregue identificadores de datos personales personalizados mediante un regex</h2>
 <div class="sectionbody">
 <div class="paragraph">
@@ -1139,11 +1213,14 @@ Las capacidades descritas en esta sección sólo están disponibles si ha elegid
 <div class="paragraph">
 <p>Después de agregar el regex, Data Sense reiniciará el análisis de todos los orígenes de datos. Una vez finalizada la exploración, los nuevos resultados aparecerán en el Panel de cumplimiento de detección de datos bajo la sección "resultados personales" y en la página Investigación del filtro "datos personales".</p>
 </div>
+<div class="paragraph">
+<p>Consulte <a href="https://regex101.com/" class="bare">https://regex101.com/</a> si necesita ayuda para construir la expresión regular que necesita.</p>
+</div>
 <div class="olist arabic">
 <div class="title">Pasos</div>
 <ol class="arabic">
 <li>
-<p>En la ficha <em>Custom Classificers</em>, haga clic en <strong>Agregar nuevo clasificador</strong> para iniciar el asistente <em>Add Custom Classifier</em>.</p>
+<p>En la ficha <em>Classification settings</em>, haga clic en <strong>Agregar nuevo clasificador</strong> para iniciar el asistente <em>Add Custom Classifier</em>.</p>
 <div class="paragraph">
 <p><span class="image"><img src="./media/screenshot_compliance_add_classifier_button.png" alt="Una captura de pantalla que muestra cómo iniciar el asistente Agregar clasificador personalizado."></span></p>
 </div>
@@ -1151,7 +1228,7 @@ Las capacidades descritas en esta sección sólo están disponibles si ha elegid
 <li>
 <p>En la página <em>Select type</em>, escriba el nombre del clasificador, proporcione una breve descripción, seleccione <strong>Identificador personal</strong> y, a continuación, haga clic en <strong>Siguiente</strong>.</p>
 <div class="paragraph">
-<p>El nombre que introduzca aparecerá en la interfaz de usuario de detección de datos como encabezado para los archivos escaneados que coincidan con los requisitos del clasificador. También puede marcar la casilla "Mask Detected results in the system" para que el resultado completo no aparezca en la interfaz de usuario. Por ejemplo, puede que desee hacer esto para ocultar los números completos de la tarjeta de crédito o datos personales similares.</p>
+<p>El nombre que introduzca aparecerá en la interfaz de usuario de detección de datos como encabezado para los archivos escaneados que coincidan con los requisitos del clasificador y como nombre del filtro en la página Investigación. También puede marcar la casilla "Mask Detected results in the system" para que el resultado completo no aparezca en la interfaz de usuario. Por ejemplo, puede que desee hacer esto para ocultar los números completos de la tarjeta de crédito o datos personales similares.</p>
 </div>
 <div class="paragraph">
 <p><span class="image"><img src="./media/screenshot_select_classifier_type.png" alt="Una captura de pantalla que muestra cómo asignar un nombre al clasificador y seleccionar el tipo de clasificador."></span></p>
@@ -1160,7 +1237,7 @@ Las capacidades descritas en esta sección sólo están disponibles si ha elegid
 <li>
 <p>En la página <em>Select Data Analysis Tool</em>, seleccione <strong>expresión regular personalizada</strong> como el método que desea utilizar para definir el clasificador y, a continuación, haga clic en <strong>Siguiente</strong>.</p>
 <div class="paragraph">
-<p><span class="image"><img src="./media/screenshot_select_classifier_tool.png" alt="Captura de pantalla que muestra la selección de expresión regular personalizada como herramienta que utilizará Data Sense para crear el patrón."></span></p>
+<p><span class="image"><img src="./media/screenshot_select_classifier_tool_regex.png" alt="Captura de pantalla que muestra la selección de expresión regular personalizada como herramienta que utilizará Data Sense para crear el patrón."></span></p>
 </div>
 </li>
 <li>
@@ -1173,7 +1250,7 @@ Las capacidades descritas en esta sección sólo están disponibles si ha elegid
 <li>
 <p>Opcionalmente, puede introducir algunas palabras de proximidad para ayudar a refinar la precisión de los resultados. Estas son palabras que normalmente se encuentran dentro de los 300 caracteres del patrón que está buscando (antes o después del patrón encontrado). Introduzca cada palabra o frase en una línea diferente.</p>
 <div class="paragraph">
-<p><span class="image"><img src="./media/screenshot_select_classifier_create_logic.png" alt="Una captura de pantalla de introducción del regex y las palabras de proximidad para el clasificador de clientes."></span></p>
+<p><span class="image"><img src="./media/screenshot_select_classifier_create_logic_regex.png" alt="Una captura de pantalla de introducción del regex y las palabras de proximidad para el clasificador de clientes."></span></p>
 </div>
 </li>
 </ol>
@@ -1182,14 +1259,89 @@ Las capacidades descritas en esta sección sólo están disponibles si ha elegid
 </ol>
 </div>
 <div class="paragraph">
-<div class="title">Resultado</div>
+<div class="title">Resultados</div>
 <p>Se agrega el clasificador y Data Sense comienza a volver a analizar todos los orígenes de datos. Volverá a la página Clasificadores personalizados, donde podrá ver el número de archivos que coinciden con el nuevo clasificador. Los resultados del análisis de todos los orígenes de datos tardarán un poco en función del número de archivos que se deban analizar.</p>
 </div>
 <div class="paragraph">
 <p><span class="image"><img src="./media/screenshot_personal_info_regex_added.png" alt="Una captura de pantalla que muestra los resultados de un nuevo clasificador regex que se está agregando al sistema con el escaneo en curso."></span></p>
 </div>
-<div class="sect2">
-<h3 id="vea-los-resultados-de-sus-clasificadores-personalizados">Vea los resultados de sus clasificadores personalizados</h3>
+</div>
+</div>
+<div class="sect1">
+<h2 id="agregar-categorías-personalizadas">Agregar categorías personalizadas</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Data Sense toma los datos que escanea y los divide en diferentes tipos de categorías. Las categorías son temas basados en el análisis de inteligencia artificial del contenido y los metadatos de cada archivo. <a href="reference-private-data-categories.html#types-of-categories">"Consulte la lista de categorías predefinidas"</a>.</p>
+</div>
+<div class="paragraph">
+<p>Las categorías pueden ayudarle a entender lo que está pasando con sus datos mostrándole los tipos de información que tiene. Por ejemplo, una categoría como <em>resume</em> o <em>Employee Contracts</em> puede incluir datos confidenciales. Cuando investiga los resultados, puede que encuentre que los contratos de empleados están almacenados en una ubicación insegura. Entonces puede corregir ese problema.</p>
+</div>
+<div class="paragraph">
+<p>Puede agregar categorías personalizadas a Data Sense para poder identificar dónde se encuentran las categorías de información únicas para el estado de datos en sus datos. Cada categoría se añade creando archivos de "entrenamiento" que contienen las categorías de datos que desea identificar y, a continuación, haga que Data Sense analice esos archivos para "aprender" a través de la IA y que así pueda identificar estos datos en sus orígenes de datos. Las categorías se agregan a las categorías predefinidas existentes que detección de datos ya identifica y los resultados están visibles en la sección Categorías.</p>
+</div>
+<div class="paragraph">
+<p>Por ejemplo, es posible que desee ver dónde se encuentran los archivos de instalación comprimidos en formato .gz en sus archivos para que pueda eliminarlos, si es necesario.</p>
+</div>
+<div class="paragraph">
+<p>Después de actualizar las categorías personalizadas, Data Sense reiniciará el análisis de todos los orígenes de datos. Una vez finalizada la exploración, los nuevos resultados aparecerán en el Panel de cumplimiento de detección de datos, en la sección "Categorías", y en la página Investigación del filtro "Categoría". <a href="task-controlling-private-data.html#viewing-files-by-categories">"Vea cómo ver archivos por categorías"</a>.</p>
+</div>
+<div class="paragraph">
+<div class="title">Lo que necesitará</div>
+<p>Tendrá que crear un mínimo de 25 archivos de entrenamiento que contengan muestras de las categorías de datos que desea reconocer Data Sense. Se admiten los siguientes tipos de archivo:</p>
+</div>
+<div class="paragraph">
+<p><code>.CSV, .DOC, .DOCX, .GZ, .JSON, .PDF, .PPTX, .RTF, .TXT, .XLS, .XLSX, Docs, Sheets, and Slides</code></p>
+</div>
+<div class="paragraph">
+<p>Los archivos deben tener como mínimo 100 bytes y deben estar ubicados en una carpeta a la que se pueda acceder mediante detección de datos.</p>
+</div>
+<div class="olist arabic">
+<div class="title">Pasos</div>
+<ol class="arabic">
+<li>
+<p>En la ficha <em>Classification settings</em>, haga clic en <strong>Agregar nuevo clasificador</strong> para iniciar el asistente <em>Add Custom Classifier</em>.</p>
+<div class="paragraph">
+<p><span class="image"><img src="./media/screenshot_compliance_add_classifier_button.png" alt="Una captura de pantalla que muestra cómo iniciar el asistente Agregar clasificador personalizado."></span></p>
+</div>
+</li>
+<li>
+<p>En la página <em>Select type</em>, introduzca el nombre del clasificador, proporcione una breve descripción, seleccione <strong>Categoría</strong> y, a continuación, haga clic en <strong>Siguiente</strong>.</p>
+<div class="paragraph">
+<p>El nombre que introduzca aparecerá en la interfaz de usuario de detección de datos como encabezado para los archivos escaneados que coincidan con la categoría de datos que se están definiendo y como nombre del filtro en la página Investigación.</p>
+</div>
+<div class="paragraph">
+<p><span class="image"><img src="./media/screenshot_select_classifier_category.png" alt="Una captura de pantalla que muestra cómo asignar un nombre al clasificador y seleccionar el tipo de clasificador."></span></p>
+</div>
+</li>
+<li>
+<p>En la página <em>Create Logic</em>, asegúrese de que tiene preparados los archivos de aprendizaje y, a continuación, haga clic en <strong>Seleccionar archivos</strong>.</p>
+<div class="paragraph">
+<p><span class="image"><img src="./media/screenshot_category_create_logic.png" alt="Captura de pantalla de la página Create Logic en la que se agregan los archivos que contienen datos de los que desea que se aprenda Data Sense."></span></p>
+</div>
+</li>
+<li>
+<p>Introduzca la dirección IP del volumen y la ruta de acceso donde se encuentran los archivos de entrenamiento y haga clic en <strong>Agregar</strong>.</p>
+<div class="paragraph">
+<p><span class="image"><img src="./media/screenshot_category_add_files.png" alt="Una captura de pantalla que muestra cómo introducir la ubicación de los archivos de formación."></span></p>
+</div>
+</li>
+<li>
+<p>Compruebe que los archivos de entrenamiento han sido reconocidos por Data Sense. Haga clic en <strong>x</strong> para eliminar los archivos de entrenamiento que no cumplan los requisitos. A continuación, haga clic en <strong>hecho</strong>.</p>
+<div class="paragraph">
+<p><span class="image"><img src="./media/screenshot_category_files_added.png" alt="Captura de pantalla que muestra los archivos que Data Sense utilizará como archivos de formación que definen la nueva categoría."></span></p>
+</div>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<div class="title">Resultados</div>
+<p>La nueva categoría se crea según la definición de los archivos de entrenamiento y se agrega a Data Sense. A continuación, Data Sense comienza a volver a analizar todos los orígenes de datos para identificar los archivos que se ajustan a esta nueva categoría. Volverá a la página Clasificadores personalizados, donde podrá ver el número de archivos que coinciden con la nueva categoría. Los resultados del análisis de todos los orígenes de datos tardarán un poco en función del número de archivos que se deban analizar.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="vea-los-resultados-de-sus-clasificadores-personalizados">Vea los resultados de sus clasificadores personalizados</h2>
+<div class="sectionbody">
 <div class="paragraph">
 <p>Puede ver los resultados desde cualquiera de los clasificadores personalizados en el Panel de cumplimiento y en la página Investigación. Por ejemplo, esta captura de pantalla muestra la información coincidente en el Panel de cumplimiento en la sección "resultados personales".</p>
 </div>
@@ -1206,8 +1358,10 @@ Las capacidades descritas en esta sección sólo están disponibles si ha elegid
 <p><span class="image"><img src="./media/screenshot_custom_classifier_top_5.png" alt="Una captura de pantalla que muestra los 3 clasificadores personalizados superiores basados en los resultados devueltos."></span></p>
 </div>
 </div>
-<div class="sect2">
-<h3 id="administrar-clasificadores-personalizados">Administrar clasificadores personalizados</h3>
+</div>
+<div class="sect1">
+<h2 id="administrar-clasificadores-personalizados">Administrar clasificadores personalizados</h2>
+<div class="sectionbody">
 <div class="paragraph">
 <p>Puede cambiar cualquiera de los clasificadores personalizados que haya creado utilizando el botón <strong>Editar clasificador</strong>.</p>
 </div>
@@ -1216,183 +1370,6 @@ Las capacidades descritas en esta sección sólo están disponibles si ha elegid
 </div>
 <div class="paragraph">
 <p><span class="image"><img src="./media/screenshot_custom_classifiers_manage.png" alt="Captura de pantalla de la página Clasificadores personalizados con los botones para editar y eliminar un clasificador."></span></p>
-</div>
-</div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="agregar-palabras-clave-personalizadas-desde-un-archivo-de-texto">Agregar palabras clave personalizadas desde un archivo de texto</h2>
-<div class="sectionbody">
-<div class="paragraph">
-<p>Puede agregar palabras clave personalizadas a Data Sense para que identifique información específica en sus datos. Agregue las palabras clave de un archivo de texto que defina. Las palabras clave se agregan a las palabras clave predefinidas existentes que Data Sense ya utiliza, y los resultados serán visibles en la sección patrones personales.</p>
-</div>
-<div class="paragraph">
-<p>Por ejemplo, es posible que desee ver dónde se mencionan los nombres internos de producto en todos los archivos para asegurarse de que estos nombres no están accesibles en ubicaciones que no son seguras.</p>
-</div>
-<div class="paragraph">
-<p>Después de actualizar las palabras clave personalizadas, detección de datos reiniciará el análisis de todos los orígenes de datos; los nuevos resultados aparecerán en detección de datos después de que haya finalizado el análisis.</p>
-</div>
-<div class="paragraph">
-<p>Debe agregar o crear los archivos de texto que incluyan las palabras clave personalizadas en la siguiente ubicación en el sistema de detección de datos:</p>
-</div>
-<div class="literalblock">
-<div class="content">
-<pre> /opt/netapp/Datasense/tools/datascience/custom_keywords/keywords_sets
-Puede crear un único archivo con varias palabras clave, o puede agregar muchos archivos que contienen determinadas palabras clave. El formato del archivo es una palabra en cada línea, por ejemplo, los nombres de producto internos que son tipos de búhos se enumeran a continuación:</pre>
-</div>
-</div>
-<div class="paragraph">
-<p><em>internal_product_names.txt</em></p>
-</div>
-<div class="literalblock">
-<div class="content">
-<pre>barred
-barn
-horned
-snowy
-screech</pre>
-</div>
-</div>
-<div class="paragraph">
-<p>La búsqueda de detección de datos para estos elementos no distingue mayúsculas de minúsculas.</p>
-</div>
-<div class="paragraph">
-<p>Tenga en cuenta los siguientes requisitos:</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p>El nombre de archivo no debe contener dígitos.</p>
-</li>
-<li>
-<p>Cada archivo puede contener un máximo de 100,000 palabras. Si hay más palabras, sólo se añaden los primeros 100,000.</p>
-</li>
-<li>
-<p>Cada palabra debe tener al menos 3 caracteres. Se ignoran las palabras más cortas.</p>
-</li>
-<li>
-<p>Las palabras duplicadas sólo se añaden una vez.</p>
-</li>
-</ul>
-</div>
-<div class="sect2">
-<h3 id="acceda-a-la-línea-de-comandos">Acceda a la línea de comandos</h3>
-<div class="paragraph">
-<p>Necesitará acceder al sistema de detección de datos para iniciar el comando y agregar palabras clave personalizadas.</p>
-</div>
-<div class="paragraph">
-<p>Cuando se instala Data Sense en las instalaciones, puede acceder a la línea de comandos directamente.</p>
-</div>
-<div class="paragraph">
-<p>Cuando se implementa la detección de datos en el cloud, necesita SSH a la instancia de Data Sense. Debe SSH al sistema introduciendo el usuario y la contraseña, o usando la clave SSH que ha proporcionado durante la instalación de BlueXP Connector. El comando SSH es:</p>
-</div>
-<div class="literalblock">
-<div class="content">
-<pre> ssh -i &lt;path_to_the_ssh_key&gt; &lt;machine_user&gt;@&lt;datasense_ip&gt;
-* &lt;path_to_the_ssh_key&gt; = ubicación de claves de autenticación ssh
-* &lt;machine_user&gt;.:</pre>
-</div>
-</div>
-<div class="paragraph">
-<p>+<br>
-<strong> Para AWS: Utilice &lt;ec2-user&gt;<br>
-</strong> Para Azure: Utilice el usuario creado para la instancia de BlueXP<br>
-** Para GCP: Utilice el usuario creado para la instancia de BlueXP</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p>&lt;datasense_ip&gt; = dirección IP de la instancia de la máquina virtual</p>
-</li>
-</ul>
-</div>
-<div class="paragraph">
-<p>Tenga en cuenta que deberá modificar las reglas entrantes del grupo de seguridad para acceder al sistema en la nube. Para obtener más información, consulte:</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p><a href="https://docs.netapp.com/us-en/cloud-manager-setup-admin/reference-ports-aws.html" target="_blank" rel="noopener">"Reglas del grupo de seguridad en AWS"</a></p>
-</li>
-<li>
-<p><a href="https://docs.netapp.com/us-en/cloud-manager-setup-admin/reference-ports-azure.html" target="_blank" rel="noopener">"Reglas de grupos de seguridad en Azure"</a></p>
-</li>
-<li>
-<p><a href="https://docs.netapp.com/us-en/cloud-manager-setup-admin/reference-ports-gcp.html" target="_blank" rel="noopener">"Reglas de firewall en Google Cloud"</a></p>
-</li>
-</ul>
-</div>
-</div>
-<div class="sect2">
-<h3 id="sintaxis-de-comandos-para-agregar-palabras-clave-personalizadas">Sintaxis de comandos para agregar palabras clave personalizadas</h3>
-<div class="paragraph">
-<p>La sintaxis del comando para agregar palabras clave personalizadas desde un archivo es:</p>
-</div>
-<div class="literalblock">
-<div class="content">
-<pre> sudo bash tools/datascience/custom_keywords/upload_custom_keywords.sh -s activate -f &lt;file_name&gt;.txt
-* &lt;file_name&gt; = este es el nombre del archivo que contiene las palabras clave.</pre>
-</div>
-</div>
-<div class="paragraph">
-<p>Ejecute el comando desde la ruta <strong>/opt/netapp/Datosense/</strong>.</p>
-</div>
-<div class="paragraph">
-<p>Si ha creado muchos archivos que contienen palabras clave personalizadas, puede agregar las palabras clave de todos los archivos al mismo tiempo utilizando este comando:</p>
-</div>
-<div class="literalblock">
-<div class="content">
-<pre>sudo bash tools/datascience/custom_keywords/upload_custom_keywords.sh -s activate</pre>
-</div>
-</div>
-</div>
-<div class="sect2">
-<h3 id="ejemplo">Ejemplo</h3>
-<div class="paragraph">
-<p>Para ver dónde se mencionan los nombres de producto internos en todos los archivos, escriba el siguiente comando.</p>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre class="highlight"><code class="language-cli" data-lang="cli">[user ~]$ cd /opt/netapp/Datasense/
-[user Datasense]$ sudo bash tools/datascience/custom_keywords/upload_custom_keywords.sh -s activate -f internal_product_names.txt</code></pre>
-</div>
-</div>
-<div class="literalblock">
-<div class="content">
-<pre> log v1.0 | 2022-08-24 08:16:25,332 | INFO | ds_logger | upload_custom_keywords | 126 | 1 | None | upload_custom_keywords_126 | All legal keywords were successfully inserted
-.Resultados
-Después del siguiente análisis, los resultados incluirán esta nueva información en el Panel de cumplimiento en la sección "resultados personales" y en la página Investigación del filtro "datos personales".</pre>
-</div>
-</div>
-<div class="paragraph">
-<p><span class="image"><img src="./media/screenshot_add_keywords_result.png" alt="Una captura de pantalla que muestra un ejemplo de palabra clave personalizada resulta en el panel resultados de la investigación."></span></p>
-</div>
-<div class="paragraph">
-<p>Como puede ver, el nombre del archivo de texto se utiliza como nombre en el panel resultados personales. De esta manera puede activar palabras clave de diferentes archivos de texto y ver los resultados de cada tipo de palabra clave.</p>
-</div>
-</div>
-<div class="sect2">
-<h3 id="desactivar-palabras-clave-personalizadas">Desactivar palabras clave personalizadas</h3>
-<div class="paragraph">
-<p>Si decide en algún punto posterior que no necesita detección de datos para identificar ciertas palabras clave personalizadas que agregó previamente, utilice la opción <strong>desactivar</strong> del comando para quitar las palabras clave definidas en el archivo de texto.</p>
-</div>
-<div class="literalblock">
-<div class="content">
-<pre> sudo bash tools/datascience/custom_keywords/upload_custom_keywords.sh -s deactivate -f &lt;file_name&gt;.txt
-Por ejemplo, para quitar las palabras clave definidas en el archivo *Internal_PRODUCT_Names.txt*:</pre>
-</div>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre class="highlight"><code class="language-cli" data-lang="cli">[user ~]$ cd /opt/netapp/Datasense/
-[user Datasense]$ sudo bash tools/datascience/custom_keywords/upload_custom_keywords.sh -s deactivate -f internal_product_names.txt</code></pre>
-</div>
-</div>
-<div class="literalblock">
-<div class="content">
-<pre>log v1.0 | 2022-08-24 08:16:25,332 | INFO | ds_logger | upload_custom_keywords | 87 | 1 | None | upload_custom_keywords_87 | Deactivated keyword pattern from internal_product_names.txt successfully</pre>
-</div>
-</div>
 </div>
 </div>
 </div>
@@ -1446,7 +1423,7 @@ Por ejemplo, para quitar las palabras clave definidas en el archivo *Internal_PR
                 <svg class="n-icon-blog n-footer__social-link-icon" aria-labelledby="title">
                   <title>blog@</title>
                   <use xmlns:xlink="http://www.w3.org/1999/xlink"
-                    xlink:href="/es-es/cloud-manager-data-sense/common/svg/sprite.svg#blog"></use>
+                    xlink:href="/es-es/cloud-manager-data-sense/images/sprite.svg#blog"></use>
                 </svg>
               </a>
             </li>
@@ -1457,7 +1434,7 @@ Por ejemplo, para quitar las palabras clave definidas en el archivo *Internal_PR
                 <svg class="n-icon-community n-footer__social-link-icon" aria-labelledby="title">
                   <title>community@</title>
                   <use xmlns:xlink="http://www.w3.org/1999/xlink"
-                    xlink:href="/es-es/cloud-manager-data-sense/common/svg/sprite.svg#comments"></use>
+                    xlink:href="/es-es/cloud-manager-data-sense/images/sprite.svg#comments"></use>
                 </svg>
               </a>
             </li>
@@ -1468,7 +1445,7 @@ Por ejemplo, para quitar las palabras clave definidas en el archivo *Internal_PR
                 <svg class="n-icon-twitter n-footer__social-link-icon" aria-labelledby="title">
                   <title>twitter@</title>
                   <use xmlns:xlink="http://www.w3.org/1999/xlink"
-                    xlink:href="/es-es/cloud-manager-data-sense/common/svg/sprite.svg#twitter"></use>
+                    xlink:href="/es-es/cloud-manager-data-sense/images/sprite.svg#twitter"></use>
                 </svg>
               </a>
             </li>
@@ -1479,7 +1456,7 @@ Por ejemplo, para quitar las palabras clave definidas en el archivo *Internal_PR
                 <svg class="n-icon-facebook n-footer__social-link-icon" aria-labelledby="title">
                   <title>facebook@</title>
                   <use xmlns:xlink="http://www.w3.org/1999/xlink"
-                    xlink:href="/es-es/cloud-manager-data-sense/common/svg/sprite.svg#facebook"></use>
+                    xlink:href="/es-es/cloud-manager-data-sense/images/sprite.svg#facebook"></use>
                 </svg>
               </a>
             </li>
@@ -1490,7 +1467,7 @@ Por ejemplo, para quitar las palabras clave definidas en el archivo *Internal_PR
                 <svg class="n-icon-linkedin n-footer__social-link-icon" aria-labelledby="title">
                   <title>linkedin@</title>
                   <use xmlns:xlink="http://www.w3.org/1999/xlink"
-                    xlink:href="/es-es/cloud-manager-data-sense/common/svg/sprite.svg#linkedin"></use>
+                    xlink:href="/es-es/cloud-manager-data-sense/images/sprite.svg#linkedin"></use>
                 </svg>
               </a>
             </li>
@@ -1501,7 +1478,7 @@ Por ejemplo, para quitar las palabras clave definidas en el archivo *Internal_PR
                 <svg class="n-icon-youtube n-footer__social-link-icon" aria-labelledby="title">
                   <title>youtube@</title>
                   <use xmlns:xlink="http://www.w3.org/1999/xlink"
-                    xlink:href="/es-es/cloud-manager-data-sense/common/svg/sprite.svg#youtube"></use>
+                    xlink:href="/es-es/cloud-manager-data-sense/images/sprite.svg#youtube"></use>
                 </svg>
               </a>
             </li>
@@ -1512,7 +1489,7 @@ Por ejemplo, para quitar las palabras clave definidas en el archivo *Internal_PR
                 <svg class="n-icon-slideshare n-footer__social-link-icon" aria-labelledby="title">
                   <title>slideshare@</title>
                   <use xmlns:xlink="http://www.w3.org/1999/xlink"
-                    xlink:href="/es-es/cloud-manager-data-sense/common/svg/sprite.svg#slideshare"></use>
+                    xlink:href="/es-es/cloud-manager-data-sense/images/sprite.svg#slideshare"></use>
                 </svg>
               </a>
             </li>
@@ -1536,7 +1513,6 @@ Por ejemplo, para quitar las palabras clave definidas en el archivo *Internal_PR
       cookieLaw.euCountry = "US";
       cookieLaw.invoke = function(){return false;}
     </script>
-    <script src='/es-es/cloud-manager-data-sense/js/www-ntap.js'></script>
     <script src='/es-es/cloud-manager-data-sense/js/tabbed-blocks.js'></script>
     <script src='/es-es/cloud-manager-data-sense/js/sidebar.js'></script>
   </body></html>
